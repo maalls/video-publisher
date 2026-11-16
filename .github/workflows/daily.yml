@@ -1,9 +1,5 @@
 name: Horoscope quotidien
 on:
-  schedule:
-    # 05:00 Paris = 03:00 UTC été, 04:00 UTC hiver.
-    # Le garde-fou Python élimine le cron de l'autre saison.
-    - cron: '0 3,4 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -22,8 +18,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   generate:
-    # Sans activation explicite, le cron ne lance même pas le runner.
-    if: github.event_name == 'workflow_dispatch' || vars.ENABLE_DAILY == 'true'
+    # Tests manuels seulement; cron déplacé vers production.yml avec opt-in.
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 70
     env:

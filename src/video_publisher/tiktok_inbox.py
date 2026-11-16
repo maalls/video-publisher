@@ -79,11 +79,13 @@ def token_request(client, parameters):
     return body
 
 
-def load_token(client_path, token_path):
+def load_token(client_path, token_path, *, before_refresh=None):
     token = read_json(token_path)
     if time.time() + 120 >= token.get("expires_at", 0):
         if time.time() >= token.get("refresh_expires_at", 0):
             raise TikTokError("Autorisation expirée; relancer authorize_tiktok.py")
+        if before_refresh:
+            before_refresh()
         updated = token_request(read_json(client_path),
                                 {"grant_type": "refresh_token", "refresh_token": token["refresh_token"]})
         token = store_token(token_path, updated, token["open_id"])
@@ -127,7 +129,7 @@ def file_digest(video):
     return digest.hexdigest()
 
 
-def upload_inbox(video, token, journal, *, explicit_consent=False):
+def upload_inbox(video, token, journal, *, explicit_consent=False, persist_receipt=None):
     video, journal = Path(video), Path(journal)
     if not explicit_consent:
         raise ValueError("Consentement à cette vidéo et ce compte requis")
@@ -140,17 +142,21 @@ def upload_inbox(video, token, journal, *, explicit_consent=False):
     fd = os.open(journal, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
     with os.fdopen(fd, "w", encoding="utf-8") as stream:
         json.dump(receipt, stream)
+    if persist_receipt:
+        persist_receipt(receipt)
     data = post_json("post/publish/inbox/video/init/", token["access_token"], {
         "source_info": {"source": "FILE_UPLOAD", "video_size": size,
                         "chunk_size": size, "total_chunk_count": 1}})
     receipt.update(status="initialized", publish_id=data["publish_id"], transfer_attempted=False)
     private_json(journal, receipt)
+    if persist_receipt:
+        persist_receipt(receipt)
     # Signed upload URL is a credential. Never put it in state/artifacts/logs.
     private_json(pending_path(journal), {
         "upload_url": data["upload_url"], "expires_at": time.time() + 3540,
         "open_id": token["open_id"], "sha256": receipt["sha256"],
         "publish_id": receipt["publish_id"]})
-    return transfer_pending(video, token, journal)
+    return transfer_pending(video, token, journal, persist_receipt=persist_receipt)
 
 
 def pending_path(journal):
@@ -187,7 +193,7 @@ def resume_pending(video, token, journal, *, explicit_consent=False):
     return transfer_pending(Path(video), token, Path(journal))
 
 
-def transfer_pending(video, token, journal):
+def transfer_pending(video, token, journal, *, persist_receipt=None):
     secret_file = pending_path(journal)
     if not secret_file.is_file():
         raise TikTokError("URL privée non conservée pour cette ancienne tentative; aucune nouvelle init créée")
@@ -215,6 +221,8 @@ def transfer_pending(video, token, journal):
     os.close(fd)
     receipt["transfer_attempted"] = True
     private_json(journal, receipt)
+    if persist_receipt:
+        persist_receipt(receipt)
     size = video.stat().st_size
     try:
         with video.open("rb") as stream:
@@ -228,7 +236,10 @@ def transfer_pending(video, token, journal):
         secret_file.unlink(missing_ok=True)
     if response.status_code != 201:
         raise TikTokError("Transfert non confirmé complet; utiliser --status, ne pas renvoyer")
-    return check_status(token, journal)
+    status = check_status(token, journal)
+    if persist_receipt:
+        persist_receipt(read_json(journal))
+    return status
 
 
 def check_status(token, journal):

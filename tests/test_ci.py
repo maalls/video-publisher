@@ -73,7 +73,8 @@ class CITests(unittest.TestCase):
 class WorkflowWiringTests(unittest.TestCase):
     def test_workflow_has_opt_in_job_and_explicit_modes(self):
         text = (Path(__file__).parents[1] / ".github/workflows/daily.yml").read_text()
-        self.assertIn("if: github.event_name == 'workflow_dispatch' || vars.ENABLE_DAILY == 'true'", text)
+        self.assertIn("if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'", text)
+        self.assertNotIn("  schedule:", text)
         self.assertIn("type: choice", text)
         self.assertIn("default: demo", text)
         for mode in ("demo", "render", "private-test"):

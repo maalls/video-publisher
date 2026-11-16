@@ -1,0 +1,62 @@
+name: Production quotidienne (opt-in)
+on:
+  schedule:
+    - cron: '0 3,4 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [preflight, run]
+        default: preflight
+        description: 'Preflight lit uniquement le stockage, run exige opt-in'
+permissions:
+  contents: read
+concurrency:
+  group: publisher-production
+  cancel-in-progress: false
+jobs:
+  production:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || vars.ENABLE_PRODUCTION == 'true')
+    environment: publisher-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Installer dépendances
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install --require-hashes -r requirements-production.lock
+          python -m pip install --no-deps -e .
+      - name: Contrôler la fenêtre Paris
+        id: time
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: python scripts/schedule_gate.py
+      - name: Lire l'état ou exécuter le plan borné
+        if: steps.time.outputs.due == 'true'
+        env:
+          VP_STATE_TOKEN: ${{ secrets.VP_STATE_TOKEN }}
+          VP_STATE_KEY: ${{ secrets.VP_STATE_KEY }}
+          ENABLE_PRODUCTION: ${{ vars.ENABLE_PRODUCTION }}
+          MODE: ${{ inputs.mode }}
+          TIKTOK_CLIENT_JSON: ${{ secrets.TIKTOK_CLIENT_JSON }}
+          GCP_TTS_CREDENTIALS_JSON: ${{ secrets.GCP_TTS_CREDENTIALS_JSON }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GOOGLE_APPLICATION_CREDENTIALS: secrets/tts-service-account.json
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == 'workflow_dispatch' && "$MODE" == 'preflight' ]]; then
+            python scripts/run_daily_production.py --preflight
+          else
+            python scripts/write_secrets.py
+            python scripts/run_daily_production.py
+          fi
+      - name: Supprimer fichiers privés
+        if: always()
+        run: rm -rf secrets

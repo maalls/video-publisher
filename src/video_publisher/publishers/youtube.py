@@ -9,7 +9,7 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
           "https://www.googleapis.com/auth/youtube.readonly"]
 
 
-def upload(video: Path, meta: dict, scheduled_at, journal: Path, private_test=False):
+def upload(video: Path, meta: dict, scheduled_at, journal: Path, private_test=False, *, persist_token=None, persist_receipt=None, before_refresh=None):
     from google.oauth2.credentials import Credentials
     from google.auth.transport.requests import Request
     from googleapiclient.discovery import build
@@ -23,7 +23,11 @@ def upload(video: Path, meta: dict, scheduled_at, journal: Path, private_test=Fa
         raise ValueError("07:00 est déjà passé : aucune publication tardive automatique")
     credentials = Credentials.from_authorized_user_file(required("YOUTUBE_TOKEN_FILE"), SCOPES)
     if credentials.expired and credentials.refresh_token:
+        if before_refresh:
+            before_refresh()
         credentials.refresh(Request())
+    if persist_token:
+        persist_token(json.loads(credentials.to_json()))
     youtube = build("youtube", "v3", credentials=credentials, cache_discovery=False)
     channels = youtube.channels().list(part="id", mine=True).execute()
     ids = [c["id"] for c in channels.get("items", [])]
@@ -36,6 +40,8 @@ def upload(video: Path, meta: dict, scheduled_at, journal: Path, private_test=Fa
     # Un résultat incertain ne déclenche JAMAIS un second videos.insert automatique.
     save_json(journal, {"status": "started", "title": meta["title"],
                         "scheduled_at": None if private_test else scheduled_at.isoformat()})
+    if persist_receipt:
+        persist_receipt(json.loads(journal.read_text(encoding="utf-8")))
     request = youtube.videos().insert(part="snippet,status", body={"snippet": meta, "status": status},
         media_body=MediaFileUpload(str(video), mimetype="video/mp4", resumable=True))
     result = None
@@ -45,6 +51,8 @@ def upload(video: Path, meta: dict, scheduled_at, journal: Path, private_test=Fa
                "scheduled_at": None if private_test else scheduled_at.isoformat(),
                "requested_status": status, "returned_status": result.get("status", {})}
     save_json(journal, receipt)
+    if persist_receipt:
+        persist_receipt(receipt)
     # Vérification en lecture séparée : un upload accepté ne prouve pas la programmation.
     check = youtube.videos().list(part="status", id=result["id"]).execute()
     actual = check.get("items", [{}])[0].get("status", {}) if check.get("items") else {}
@@ -57,6 +65,8 @@ def upload(video: Path, meta: dict, scheduled_at, journal: Path, private_test=Fa
     receipt["verified"] = bool(confirmed)
     receipt["status"] = "complete" if confirmed else "uploaded"
     save_json(journal, receipt)
+    if persist_receipt:
+        persist_receipt(receipt)
     if not confirmed:
         raise RuntimeError("Vidéo téléversée mais programmation/confidentialité non confirmée. Vérifier Studio, ne pas renvoyer.")
     return receipt

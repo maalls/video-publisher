@@ -329,3 +329,23 @@ class PendingRetentionTests(unittest.TestCase):
         artifact = workflow.split("name: Livrer", 1)[1].split("- name:", 1)[0]
         self.assertNotIn("secrets", artifact)
         self.assertNotIn("tiktok-pending", artifact)
+
+
+class DurableHookTests(unittest.TestCase):
+    def test_failed_durable_intent_prevents_init(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            video=Path(tmp)/'video.mp4'; video.write_bytes(b'mp4')
+            with patch.object(tt,'post_json') as post:
+                with self.assertRaises(RuntimeError):
+                    tt.upload_inbox(video,{'open_id':'account','access_token':'private'},Path(tmp)/'journal.json',
+                                    explicit_consent=True,persist_receipt=Mock(side_effect=RuntimeError('state')))
+                post.assert_not_called()
+
+    def test_refresh_intent_failure_prevents_token_request(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            token=Path(tmp)/'token.json'
+            tt.private_json(token,dict(expires_at=0,refresh_expires_at=time.time()+1000,refresh_token='private'))
+            with patch.object(tt,'token_request') as refresh:
+                with self.assertRaises(RuntimeError):
+                    tt.load_token(Path(tmp)/'client.json',token,before_refresh=Mock(side_effect=RuntimeError('state')))
+                refresh.assert_not_called()
