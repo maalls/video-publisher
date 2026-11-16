@@ -4,9 +4,10 @@ Starter Python pour un horoscope quotidien en français : **12 signes dans un MP
 vertical 1080 × 1920**, cible 75 s, texte Gemini, voix Google Cloud WaveNet, cartes
 Pillow, montage FFmpeg et programmation YouTube à 07:00 Europe/Paris.
 
-**État : starter testé hors ligne.** Le rendu fonctionne sans compte en mode démo.
-Les appels authentifiés Gemini/TTS/YouTube/TikTok restent à tester avec tes comptes.
-Aucun secret fourni, aucune vidéo envoyée, aucun dépôt modifié.
+**État : génération et upload YouTube privé testés localement.** Le déploiement
+Actions reste à valider avec tes secrets. TikTok reste manuel tant que son parcours
+n'a pas été décidé. Le cron est désactivé par défaut par `ENABLE_DAILY`.
+Voir [docs/DEPLOIEMENT.md](docs/DEPLOIEMENT.md) avant toute activation.
 
 ## À lire avant d'activer
 
@@ -182,19 +183,25 @@ Puis ces **Variables**, qui ne sont pas des secrets :
 | --- | --- |
 | `GEMINI_MODEL` | Nom exact d'un modèle gratuit disponible dans ton compte |
 | `YOUTUBE_CHANNEL_ID` | Identifiant exact de la chaîne `UC...` |
-| `ENABLE_YOUTUBE` | `false` au début; `true` seulement après l'essai privé |
+| `ENABLE_DAILY` | `false` : le cron ne lance aucun job; laisser ainsi pendant les essais |
+| `ENABLE_YOUTUBE` | `false` : le cron activé génère seulement; ne pas activer avant la recette publique |
 
 `TTS_VOICE` est configurable localement; le workflow garde la voix par défaut.
 Pour ajouter une musique dans Actions, il faudra committer une piste autorisée et
 ajouter `MUSIC_FILE: assets/music.mp3` à l'environnement de l'étape de génération.
 Aucun secret TikTok n'est nécessaire tant que l'intégration reste désactivée.
 
-1. Onglet **Actions → Horoscope quotidien → Run workflow**, laisser Démo cochée.
-2. Télécharger l'artifact et inspecter le MP4. Le rendu démo reste sans voix.
-3. Lancer manuellement Démo décochée avec `ENABLE_YOUTUBE=false` : génération réelle.
-4. Après l'essai privé local, passer `ENABLE_YOUTUBE=true` pour le cron quotidien.
-   Un run manuel réel avec cette variable à true programme aussi YouTube. À lancer
-   avant 07:00 ou choisir plutôt le test privé local.
+1. Laisser `ENABLE_DAILY=false` et `ENABLE_YOUTUBE=false` dans les variables Actions.
+2. Onglet **Actions → Horoscope quotidien → Run workflow**, mode `demo` : aucun
+   appel API, aucun upload. Télécharger et inspecter le MP4 (sans voix).
+3. Mode `render` : génération réelle avec les secrets, **aucun upload**, même si
+   une ancienne variable `ENABLE_YOUTUBE=true` est présente.
+4. Mode `private-test` : upload YouTube privé explicite, sans `publishAt`, même
+   après 07:00. Vérifier la chaîne et la vidéo dans Studio. Ce choix ne modifie
+   aucune variable du dépôt et n'active pas le cron.
+5. Aucun mode manuel ne programme une vidéo publique. La suite est une décision
+   distincte : OAuth durable, anti-doublon durable et recette de programmation.
+   Ne pas encore activer le cron public. Voir [le guide](docs/DEPLOIEMENT.md).
 
 Active les notifications d'échec Actions dans les réglages de notification GitHub.
 Le webhook est optionnel et dépend de ton service. Son échec n'est pas masqué.
@@ -242,7 +249,8 @@ scripts/              OAuth local, secrets CI, garde horaire et alerte
 
 ## TODO avant exploitation quotidienne
 
-- Tester les trois services Google avec tes comptes, quotas et chaîne.
+- Valider les trois services Google dans Actions, quotas et chaîne (le test local
+  ne suffit pas à valider le runner).
 - Choisir le modèle gratuit Gemini et écouter la voix française retenue.
 - Vérifier les mentions IA, audience, droits de diffusion et licences musique.
 - Traiter l'expiration OAuth, puis ajouter une persistance anti-doublon durable.
