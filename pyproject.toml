@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-publisher"
+version = "0.1.0"
+description = "Pipeline quotidien de vidéos horoscope verticales"
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[project.scripts]
+video-publisher = "video_publisher.cli:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = "requirements.txt"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

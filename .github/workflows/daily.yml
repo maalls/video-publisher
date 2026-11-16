@@ -1,0 +1,111 @@
+name: Horoscope quotidien
+on:
+  schedule:
+    # 05:00 Paris = 03:00 UTC été, 04:00 UTC hiver.
+    # Le garde-fou Python élimine le cron de l'autre saison.
+    - cron: '0 3,4 * * *'
+  workflow_dispatch:
+    inputs:
+      demo:
+        description: 'Démo sans API et sans publication'
+        type: boolean
+        default: true
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: horoscope-daily
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    env:
+      PYTHONUNBUFFERED: '1'
+      IS_DEMO: ${{ github.event_name == 'workflow_dispatch' && inputs.demo || false }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Installer Python et FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install -e .
+      - name: Vérifier l'heure Paris
+        id: gate
+        run: python scripts/schedule_gate.py
+      - name: Restaurer les fichiers déjà générés
+        if: steps.gate.outputs.due == 'true'
+        id: media
+        uses: actions/cache/restore@v4
+        with:
+          path: output
+          key: horoscope-media-v1-${{ steps.gate.outputs.date }}-${{ env.IS_DEMO }}
+      - name: Restaurer le journal anti-doublon
+        if: steps.gate.outputs.due == 'true'
+        id: journal
+        uses: actions/cache/restore@v4
+        with:
+          path: state
+          key: horoscope-state-v1-${{ steps.gate.outputs.date }}-${{ env.IS_DEMO }}
+      - name: Préparer les secrets
+        if: steps.gate.outputs.due == 'true' && env.IS_DEMO != 'true'
+        env:
+          GCP_TTS_CREDENTIALS_JSON: ${{ secrets.GCP_TTS_CREDENTIALS_JSON }}
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+        run: python scripts/write_secrets.py
+      - name: Générer et éventuellement programmer sur YouTube
+        if: steps.gate.outputs.due == 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GOOGLE_APPLICATION_CREDENTIALS: secrets/tts-service-account.json
+          YOUTUBE_TOKEN_FILE: secrets/youtube-token.json
+          YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID }}
+          ENABLE_YOUTUBE: ${{ vars.ENABLE_YOUTUBE }}
+        run: |
+          args=(--date '${{ steps.gate.outputs.date }}')
+          if [[ "$IS_DEMO" == 'true' ]]; then
+            args+=(--demo)
+          elif [[ "$ENABLE_YOUTUBE" == 'true' ]]; then
+            args+=(--publish-youtube)
+          fi
+          video-publisher "${args[@]}"
+      - name: Sauver le journal même si l'upload est incertain
+        if: always() && steps.gate.outputs.due == 'true' && steps.journal.outputs.cache-hit != 'true' && hashFiles('state/*.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: state
+          key: horoscope-state-v1-${{ steps.gate.outputs.date }}-${{ env.IS_DEMO }}
+      - name: Sauver les ressources pour éviter de régénérer le texte
+        if: always() && steps.gate.outputs.due == 'true' && steps.media.outputs.cache-hit != 'true' && hashFiles('output/**/script.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: output
+          key: horoscope-media-v1-${{ steps.gate.outputs.date }}-${{ env.IS_DEMO }}
+      - name: Livrer le MP4, sous-titres, métadonnées et journal
+        if: always() && steps.gate.outputs.due == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: horoscope-${{ steps.gate.outputs.date }}-${{ env.IS_DEMO }}-${{ github.run_attempt }}
+          path: |
+            output/**/video.mp4
+            output/**/thumbnail.png
+            output/**/subtitles.srt
+            output/**/script.json
+            output/**/timeline.json
+            output/**/metadata.json
+            state/*.json
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Alerter en cas d'échec
+        if: failure()
+        env:
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
+        run: python scripts/notify_failure.py
+      - name: Effacer les secrets du runner
+        if: always()
+        run: rm -rf secrets
