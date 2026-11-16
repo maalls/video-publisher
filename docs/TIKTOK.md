@@ -1,3 +1,9 @@
+> Nouveau : un prototype **Upload/inbox** local, distinct de Direct Post, est
+> disponible dans [TIKTOK_INBOX.md](TIKTOK_INBOX.md). Il transfère un MP4 après
+> confirmation, pour finalisation dans l'app TikTok. L'accès sandbox et le résultat
+> restent à tester. Les restrictions Direct Post décrites ci-dessous ne prouvent
+> pas que l'essai Upload/inbox est impossible. Aucun cron TikTok n'est activé.
+
 # TikTok : intégration de développement, pas de publication autonome activée
 
 Vérification des règles le 16 novembre 2026.
