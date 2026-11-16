@@ -272,3 +272,4 @@ scripts/              OAuth local, secrets CI, garde horaire et alerte
 - TikTok : https://developers.tiktok.com/doc/content-sharing-guidelines
 
 Les tarifs, modèles et règles peuvent changer. Pas de garantie de gratuité future.
+# video-publisher-state
