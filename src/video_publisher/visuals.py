@@ -11,7 +11,8 @@ GOLD = (223, 190, 116)
 
 def font(size: int, bold: bool = False):
     name = "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"
-    path = os.environ.get("FONT_PATH") if not bold else None
+    variable = "FONT_BOLD_PATH" if bold else "FONT_PATH"
+    path = os.path.expanduser(os.environ.get(variable, "").strip())
     return ImageFont.truetype(path or name, size)
 
 

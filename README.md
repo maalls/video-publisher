@@ -49,9 +49,25 @@ python -m unittest discover -s tests -v
 `--width 270` produit un aperçu rapide 270 × 480. Sans cet argument, 1080 × 1920.
 Le mode démo utilise un texte d'exemple et **du silence**, pas une voix factice.
 Il n'appelle aucune API et refuse `--publish-youtube`.
-Sous Windows/macOS, installe FFmpeg et DejaVu séparément et adapte l'activation
-venv. `FONT_PATH` peut désigner la police DejaVu normale; la variante Bold doit
-rester installée. Le workflow GitHub utilise Linux.
+Sous macOS, installe FFmpeg et DejaVu séparément :
+
+```bash
+brew install ffmpeg
+brew install --cask font-dejavu
+```
+
+Pillow ne trouve pas toujours les polices par leur nom seul sur macOS. Renseigne
+les deux chemins dans `.env` (en adaptant le dossier si tu as choisi une
+installation différente) :
+
+```dotenv
+FONT_PATH=~/Library/Fonts/DejaVuSans.ttf
+FONT_BOLD_PATH=~/Library/Fonts/DejaVuSans-Bold.ttf
+```
+
+Le programme développe `~` en dossier personnel. Sous Windows, installe aussi
+FFmpeg et DejaVu séparément et adapte l'activation du venv. Le workflow GitHub
+utilise Linux.
 
 Résultat dans `output/AAAA-MM-JJ-demo/` : `video.mp4`, 12 cartes PNG,
 `thumbnail.png`, `subtitles.srt`, `script.json`, `timeline.json`, `metadata.json`.

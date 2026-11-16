@@ -30,7 +30,9 @@ def main():
         # Ne pas imprimer les réponses HTTP, URL signées ni valeurs de secrets.
         log.error("Échec du pipeline (%s). Vérifier configuration, quotas, fichiers et journaux d'état.",
                   type(error).__name__)
-        if isinstance(error, (ValueError, FileNotFoundError, RuntimeError)) and not hasattr(error, "response"):
+        if isinstance(error, OSError):
+            log.error("%s", str(error))
+        elif isinstance(error, (ValueError, FileNotFoundError, RuntimeError)) and not hasattr(error, "response"):
             # Les messages applicatifs sont contrôlés; pas de traceback d'API en CI publique.
             log.error("%s", str(error) if type(error) in (ValueError, FileNotFoundError, RuntimeError) else "API refusée")
         sys.exit(1)

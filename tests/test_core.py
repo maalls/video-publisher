@@ -71,6 +71,15 @@ class CoreTests(unittest.TestCase):
             self.assertEqual(json.loads(file.read_text())['test'], 'Bélier')
             self.assertFalse(file.with_suffix('.json.tmp').exists())
 
+    def test_oserror_message_is_logged(self):
+        with patch('video_publisher.cli.execute', side_effect=OSError('cannot open resource')), \
+             patch('video_publisher.cli.log.error') as error_log, \
+             patch('sys.argv', ['video-publisher']):
+            with self.assertRaises(SystemExit) as result:
+                main()
+            self.assertEqual(result.exception.code, 1)
+            self.assertIn('cannot open resource', error_log.call_args_list[-1].args)
+
     def test_demo_upload_blocked(self):
         with patch('sys.argv', ['video-publisher', '--demo', '--publish-youtube']):
             with self.assertRaises(SystemExit) as result:
