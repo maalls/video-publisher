@@ -13,3 +13,6 @@ client_secret*.json
 token*.json
 credentials*.json
 .DS_Store
+
+# Local production data, never versioned
+/var/
