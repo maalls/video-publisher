@@ -262,6 +262,20 @@ def validate_video(path):
     except (subprocess.SubprocessError, FileNotFoundError, KeyError, ValueError, ZeroDivisionError):
         raise Stop('Controle ffprobe impossible. ffmpeg/ffprobe requis, aucun envoi.') from None
 
+def validate_cover(path):
+    cover = Path(path)
+    if cover.suffix.lower() not in {'.jpg', '.jpeg'} or not 0 < cover.stat().st_size < 8_000_000:
+        raise Stop('Couverture JPEG requise, moins de 8 Mo')
+    try:
+        data = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_streams',
+            '-of', 'json', str(cover)], stderr=subprocess.PIPE))
+        streams = data['streams']
+        if (len(streams) != 1 or streams[0]['codec_name'] != 'mjpeg'
+                or int(streams[0]['width']) * 16 != int(streams[0]['height']) * 9):
+            raise Stop('Couverture JPEG verticale 9:16 requise')
+    except (subprocess.SubprocessError, FileNotFoundError, KeyError, ValueError):
+        raise Stop('Controle de la couverture impossible ; aucun envoi') from None
+
 def plan(args, user):
     caption = Path(args.caption_file).read_text(encoding='utf-8').strip()
     if not caption or len(caption) > 2200:
@@ -272,6 +286,9 @@ def plan(args, user):
     validate_video(video)
     result = {**user, 'sha256': digest(video), 'caption': caption,
               'is_ai_generated': args.ai_generated == 'yes', 'share_to_feed': args.share_to_feed == 'yes'}
+    if getattr(args, 'cover', None):
+        validate_cover(args.cover)
+        result['cover_sha256'] = digest(args.cover)
     result['plan_sha256'] = hashlib.sha256(json.dumps(result, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
     return result
 
@@ -322,12 +339,20 @@ def reel(args, config, token_path):
             if journal.exists():
                 raise Stop('Journal deja existant. Relire avec status ; aucune nouvelle creation.')
             verify_url(args.video_url, spec['sha256'])
+            cover_url = getattr(args, 'cover_url', None)
+            if bool(spec.get('cover_sha256')) != bool(cover_url):
+                raise Stop('Couverture locale et URL HTTPS doivent etre fournies ensemble')
+            if cover_url:
+                verify_url(cover_url, spec['cover_sha256'])
             record = {**spec, 'phase': 'create_intent', 'created_at': time.time()}
             save(journal, record)
-            data = api(config, user['user_id'] + '/media', token['access_token'], {
+            params = {
                 'media_type': 'REELS', 'video_url': args.video_url, 'caption': spec['caption'],
                 'share_to_feed': str(spec['share_to_feed']).lower(),
-                'is_ai_generated': str(spec['is_ai_generated']).lower()}, post=True)
+                'is_ai_generated': str(spec['is_ai_generated']).lower()}
+            if cover_url:
+                params['cover_url'] = cover_url
+            data = api(config, user['user_id'] + '/media', token['access_token'], params, post=True)
             record.update(container_id=str(data['id']), phase='container_created')
             save(journal, record)
             print(json.dumps({'journal': str(journal), 'phase': record['phase'], 'container_id': record['container_id']}))
@@ -363,11 +388,13 @@ def main(argv=None):
         s = sub.add_parser(action)
         if action in {'plan', 'create'}:
             s.add_argument('--video', required=True)
+            s.add_argument('--cover', help='Couverture JPEG 9:16 optionnelle, liee au plan par SHA256')
             s.add_argument('--caption-file', required=True)
             s.add_argument('--ai-generated', choices=['yes', 'no'], required=True)
             s.add_argument('--share-to-feed', choices=['yes', 'no'], required=True)
         if action == 'create':
             s.add_argument('--video-url', required=True)
+            s.add_argument('--cover-url')
         if action in {'status', 'publish'}:
             s.add_argument('--journal', required=True)
         if action in {'create', 'publish'}:
