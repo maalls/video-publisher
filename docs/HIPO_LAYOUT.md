@@ -20,7 +20,7 @@ video-publisher/
   var/migration/                      inventaires, empreintes et contrôles
 ```
 
-Les anciens chemins de production restent disponibles par liens de compatibilité. Ils évitent de casser les scripts pendant une migration progressive. Les dossiers hérités et scripts spécifiques à un conte ne constituent pas un nouveau moteur générique.
+Les scripts historiques ont été corrigés pour utiliser les nouveaux chemins. Les liens de compatibilité ont été retirés : le dossier historique est vide, sa suppression finale est à faire par son propriétaire. Les anciens chemins ne doivent plus être utilisés. Les dossiers hérités et scripts spécifiques à un conte ne constituent pas un nouveau moteur générique.
 
 Les adaptateurs de `scripts/tales/` sont importés sans réécriture fonctionnelle. Ils demandent toujours les mêmes paramètres et conservent leurs journaux anti-doublons. Les chemins Instagram par défaut pointent dans le projet tales du checkout, sans chemin de compte personnel en dur. Les options explicites restent prioritaires.
 
