@@ -51,6 +51,46 @@ def seg_durations(root):
     return out
 
 
+def retime_subtitles(events, phrases, segments):
+    """Re-time subtitle events (text-length-weighted estimates from the montage)
+    onto the REAL sentence spans measured by split_narration.py. Position inside
+    a sentence is interpolated by character count."""
+    by_seg = {}
+    for p in phrases:
+        by_seg.setdefault(p['segment'], []).append(p)
+    # per segment: sentence -> (char_start, char_end, real_start, real_end)
+    maps = {}
+    for si, text in enumerate(segments, start=1):
+        spans, cur = [], 0
+        import re as _re
+        for s in [x.strip() for x in _re.split(r'(?<=[.!?…]) ', text) if x.strip()]:
+            i = text.index(s, cur)
+            ph = by_seg[si][len(spans)]
+            spans.append((i, i + len(s), ph['start'], ph['start'] + ph['duration']))
+            cur = i + len(s)
+        maps[si] = spans
+    def t_of(si, pos):
+        for c0, c1, t0, t1 in maps[si]:
+            if pos <= c1:
+                return t0 + (max(pos, c0) - c0) / max(1, c1 - c0) * (t1 - t0)
+        return maps[si][-1][3]
+    out, si, cur = [], 1, 0
+    for e in events:
+        text = e['text']
+        while True:
+            seg_text = segments[si - 1]
+            try:
+                i = seg_text.index(text[:12], cur)
+                break
+            except ValueError:
+                si += 1
+                cur = 0
+        start, end = t_of(si, i), t_of(si, i + len(text) - 1)
+        out.append({'start': round(start, 6), 'end': round(end, 6), 'text': text})
+        cur = i + len(text)
+    return out
+
+
 def voice_clips(root, assets, track_id, total):
     """One clip per sentence at its original timeline position (phrases.json),
     or the single narration file when the split step did not run."""
@@ -100,6 +140,10 @@ def build(args):
         pos += d - (0.5 if i < len(durs) - 1 else 0.0)
 
     events = json.loads((root / 'subtitle-events.json').read_text())
+    ph = root / 'voix' / 'phrases.json'
+    if ph.exists():  # real sentence timings beat weighted estimates
+        segments = json.loads((root / 'narration.json').read_text())['segments']
+        events = retime_subtitles(events, json.loads(ph.read_text()), segments)
     for j, e in enumerate(events):
         clips.append({'id': 'c_sub%02d' % j, 'track_id': 'TRACK_TEXT', 'type': 'text',
                       'start': round(e['start'], 6), 'duration': round(e['end'] - e['start'], 6),
@@ -149,6 +193,28 @@ def update_voice(args):
           'from', new[0]['start'], 'to', round(new[-1]['start'] + new[-1]['duration'], 3))
 
 
+def update_subs(args):
+    """Re-time the subtitle text clips of an existing project onto the real
+    sentence spans (voix/phrases.json). Only text clips are touched."""
+    root = Path(args.production_dir)
+    ph = root / 'voix' / 'phrases.json'
+    if not ph.exists():
+        print('no voix/phrases.json - run split_narration.py first; nothing changed')
+        return
+    events = json.loads((root / 'subtitle-events.json').read_text())
+    segments = json.loads((root / 'narration.json').read_text())['segments']
+    real = retime_subtitles(events, json.loads(ph.read_text()), segments)
+    proj = api(args.api, 'GET', '/projects/%s' % args.project)
+    seq = proj['sequences'][0]
+    subs = sorted([c for c in seq['clips'] if c['type'] == 'text'], key=lambda c: c['start'])
+    assert len(subs) == len(real), (len(subs), len(real))
+    for c, e in zip(subs, real):
+        assert c['text']['content'] == e['text'], (c['text']['content'], e['text'])
+        c['start'], c['duration'] = e['start'], round(e['end'] - e['start'], 6)
+    api(args.api, 'PUT', '/projects/%s' % args.project, body=proj)
+    print('SUBTITLES RETIMED:', len(real), 'clips on real sentence timings')
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest='cmd', required=True)
@@ -164,8 +230,12 @@ def main():
     pu.add_argument('production_dir')
     pu.add_argument('--api', default='http://127.0.0.1:8000/api')
     pu.add_argument('--project', required=True)
+    ps = sub.add_parser('update-subs')
+    ps.add_argument('production_dir')
+    ps.add_argument('--api', default='http://127.0.0.1:8000/api')
+    ps.add_argument('--project', required=True)
     args = ap.parse_args()
-    (build if args.cmd == 'build' else update_voice)(args)
+    {'build': build, 'update-voice': update_voice, 'update-subs': update_subs}[args.cmd](args)
 
 
 if __name__ == '__main__':
