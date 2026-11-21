@@ -215,6 +215,62 @@ def update_subs(args):
     print('SUBTITLES RETIMED:', len(real), 'clips on real sentence timings')
 
 
+SUB_MAX_LINE = 26  # max chars per display line (fits 704px at DejaVu Sans 34)
+
+
+def wrap_sub(text, max_line=SUB_MAX_LINE):
+    """Wrap a subtitle for display: at most 2 lines of <= max_line chars,
+    break at a word boundary, prefer breaking after a comma/semicolon."""
+    if len(text) <= max_line:
+        return text
+    words = text.split(' ')
+    best = None
+    for j in range(1, len(words)):
+        l1, l2 = ' '.join(words[:j]), ' '.join(words[j:])
+        if len(l1) > max_line or len(l2) > max_line:
+            continue
+        pref = 0 if words[j - 1].endswith((',', ';', ':')) else 1
+        score = (pref, abs(len(l1) - len(l2)))
+        if best is None or score < best[0]:
+            best = (score, l1, l2)
+    if best is None:
+        raise AssertionError('subtitle does not fit 2 lines: %s' % text)
+    return best[1] + '\n' + best[2]
+
+
+def rebuild_subs(args):
+    """Rebuild every subtitle text clip from subtitle-events.json (word-level
+    timings written by align_subtitles.py). Text clips are deleted and
+    recreated; every other track is left untouched. The text style is copied
+    from the first existing text clip when present."""
+    root = Path(args.production_dir)
+    events = json.loads((root / 'subtitle-events.json').read_text())
+    proj = api(args.api, 'GET', '/projects/%s' % args.project)
+    seq = proj['sequences'][0]
+    subs = sorted([c for c in seq['clips'] if c['type'] == 'text'], key=lambda c: c['start'])
+    if subs:
+        template = subs[0]
+        style, transform, track_id = template['text'], template['transform'], template['track_id']
+    else:
+        track_id = next(t['id'] for t in seq['tracks'] if t['kind'] != 'audio'
+                        and 'sous' in t['name'].lower())
+        style = {'content': '', 'font': 'DejaVu Sans', 'size': 34, 'color': '#ffffff',
+                 'stroke_color': '#000000', 'stroke_width': 2, 'align': 'center'}
+        transform = {'x': 0.0, 'y': 315.0, 'scale': 1.0}
+    new = []
+    for j, e in enumerate(events):
+        st = dict(style)
+        st['content'] = wrap_sub(e['text'])
+        new.append({'id': 'c_sub%02d' % j, 'track_id': track_id, 'type': 'text',
+                    'start': round(e['start'], 6), 'duration': round(e['end'] - e['start'], 6),
+                    'in_point': 0.0, 'speed': 1.0, 'text': st,
+                    'transform': dict(transform), 'keyframes': {}})
+    seq['clips'] = [c for c in seq['clips'] if c['type'] != 'text'] + new
+    api(args.api, 'PUT', '/projects/%s' % args.project, body=proj)
+    print('SUBTITLES REBUILT:', len(new), 'clips on word-level timings,',
+          new[0]['start'], '->', round(new[-1]['start'] + new[-1]['duration'], 3))
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest='cmd', required=True)
@@ -234,8 +290,13 @@ def main():
     ps.add_argument('production_dir')
     ps.add_argument('--api', default='http://127.0.0.1:8000/api')
     ps.add_argument('--project', required=True)
+    pr = sub.add_parser('rebuild-subs')
+    pr.add_argument('production_dir')
+    pr.add_argument('--api', default='http://127.0.0.1:8000/api')
+    pr.add_argument('--project', required=True)
     args = ap.parse_args()
-    {'build': build, 'update-voice': update_voice, 'update-subs': update_subs}[args.cmd](args)
+    {'build': build, 'update-voice': update_voice, 'update-subs': update_subs,
+     'rebuild-subs': rebuild_subs}[args.cmd](args)
 
 
 if __name__ == '__main__':
