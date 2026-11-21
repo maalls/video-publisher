@@ -53,6 +53,23 @@ def freest_gpu():
         return 0
 
 
+def speech_bounds(path):
+    """(onset, end) of actual speech in a take, from silence detection."""
+    r = subprocess.run(['ffmpeg', '-i', str(path), '-af',
+                        'silencedetect=noise=-35dB:d=0.12', '-f', 'null', '-'],
+                       capture_output=True, text=True)
+    dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries',
+                                'format=duration', '-of', 'csv=p=0', str(path)],
+                               capture_output=True, text=True).stdout.strip())
+    starts = [float(m) for m in re.findall(r'silence_start: ([\d.]+)', r.stderr)]
+    ends = [float(m) for m in re.findall(r'silence_end: ([\d.]+)', r.stderr)]
+    onset = ends[0] if starts and starts[0] < 0.05 and ends else 0.0
+    end = starts[-1] if starts and (not ends or ends[-1] < starts[-1]) else dur
+    if ends and starts and ends[-1] > starts[-1]:
+        end = dur  # last detected event was a silence_end: speech runs to EOF
+    return onset, end, dur
+
+
 def phrase_words(model, path, sentence):
     """Whisper word times for one phrase file + alignment onto the known
     sentence. Returns (raw whisper words, [(exp_idx, word_idx)], n_exp)."""
@@ -127,11 +144,28 @@ def main():
         total_ok += n_ok
         total_exp += n_exp
         exp = p['sentence'].split()
-        fdur = float(subprocess.run(
-            ['ffprobe', '-v', 'error', '-show_entries', 'format=duration',
-             '-of', 'csv=p=0', str(root / p['file'])],
-            capture_output=True, text=True).stdout.strip())
+        on, off, fdur = speech_bounds(root / p['file'])
         tt = token_times(exp, words, pairs, fdur)
+        # sanity against the energy bounds: whisper timestamps are only
+        # trusted when both ends of the sentence land on the real speech span;
+        # otherwise shift (constant offset) or rescale them onto it
+        w0, w1 = tt[0][0], tt[-1][1]
+        fix = 'trusted'
+        if not (-0.2 <= w0 - on <= 0.6 and abs(w1 - off) <= 0.9):
+            d = on - w0
+            if abs((w1 + d) - off) <= 0.9:
+                tt = [(a + d, b + d) for a, b in tt]
+                fix = 'shift %+.2fs' % d
+            else:
+                if w1 - w0 < 0.3:  # collapsed whisper span: even spread
+                    tt = [(on + (off - on) * i / max(1, len(exp) - 1),
+                           on + (off - on) * i / max(1, len(exp) - 1))
+                          for i in range(len(exp))]
+                    fix = 'even-spread'
+                else:
+                    k = (off - on) / (w1 - w0)
+                    tt = [(on + (a - w0) * k, on + (b - w0) * k) for a, b in tt]
+                    fix = 'rescale x%.2f' % k
         words = [{'tok': tok, 'start': tt[i][0], 'end': tt[i][1]}
                  for i, tok in enumerate(exp)]
         t0 = p['start']
@@ -150,7 +184,8 @@ def main():
                 toks = []
         if toks:
             chunks.append(toks)
-        for ch in chunks:
+        ph_events = []
+        for ci, ch in enumerate(chunks):
             text = join_fr([x['tok'] for x in ch])
             # 2-line display check at render width
             lines, cur = [], ''
@@ -163,14 +198,19 @@ def main():
                     cur = c
             lines.append(cur)
             assert len(lines) <= 2, 'chunk needs >2 lines: %s' % text
-            st = round(t0 + ch[0]['start'], 3)
-            en = round(t0 + ch[-1]['end'] + 0.12, 3)
-            if en - st < 0.6:  # never flash a subtitle (weak-alignment chunks)
-                en = round(st + 0.6, 3)
-            events.append({'start': st, 'end': en, 'text': text})
-        print('phrase %02d: %d/%d tokens, %d chunk(s), %.3f -> %.3f'
-              % (pi, n_ok, n_exp, len(chunks), events[-len(chunks)]['start'],
-                 events[-1]['end']), flush=True)
+            st = t0 + ch[0]['start']
+            if ci + 1 < len(chunks):  # stay up until the next chunk's word
+                en = t0 + chunks[ci + 1][0]['start'] - 0.04
+            else:  # phrase-final: stay until the speech really ends, plus tail
+                en = t0 + off + 0.35
+            assert en >= t0 + ch[-1]['end'] - 0.05, \
+                'chunk ends before its last word: %s' % text
+            ph_events.append({'start': round(st, 3), 'end': round(en, 3),
+                              'text': text})
+        events += ph_events
+        print('phrase %02d: %d/%d tokens, %d chunk(s), %.3f -> %.3f (%s)'
+              % (pi, n_ok, n_exp, len(chunks), ph_events[0]['start'],
+                 ph_events[-1]['end'], fix), flush=True)
     print('tokens aligned: %d/%d (%.1f%%)' % (total_ok, total_exp, 100.0*total_ok/total_exp))
     assert total_ok >= 0.7 * total_exp, 'alignment too poor - inspect'
 
