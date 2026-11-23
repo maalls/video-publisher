@@ -13,7 +13,7 @@ import requests
 API = "https://open.tiktokapis.com/v2/"
 REDIRECT = "http://127.0.0.1:8765/callback/"
 SCOPES = {"user.info.basic", "video.upload"}
-PENDING_DIR = Path("secrets/tiktok-pending")
+PENDING_DIR = Path(os.environ.get("TIKTOK_PENDING_DIR", "state/tiktok-private-pending"))
 
 
 class TikTokError(RuntimeError):

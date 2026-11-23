@@ -26,8 +26,8 @@ Totaux mesurés : travail machine/agent 4 h 30, attente de relecture ou blocage 
 Horodatage : première étape 22/11 21:28, master v3 prêt 23/11 02:24, soit environ 5 h de bout en bout.
 
 ## Notes de mesure
-- Les durées de génération ComfyUI par plan sont des bornes : l'agent interroge ComfyUI toutes les 180 s (images) ou 195 s (animations). Un reçu daté 180 s après son workflow veut dire "fini dans ce créneau de sondage", pas "exactement 180 s". Les plans plus longs (285 à 720 s) sont des relances réelles après un premier rendu refusé.
-- "images 30 min 00 s" est la durée du créneau de la commande, pas forcément le temps GPU. Estimation GPU : environ 3 min par image, 3 à 4 min par animation (déduit des reçus, à confirmer avec l'historique ComfyUI).
+- Les durées ComfyUI par plan sont mesurées à ±15 s près : le script lit `/history` toutes les 15 s, et l'écart entre le workflow et le reçu donne 180 s par image et 195 s par animation (multiples de 15 s, très réguliers). Correction : une première version de ce document les présentait comme des bornes de sondage à 180/195 s, ce qui était faux.
+- "images 30 min 00 s" = 10 images x 180 s. Une image prend donc environ 3 min, une animation 3 min 15 (mesuré, pas estimé). Les plans de 285 à 720 s sont des relances réelles.
 - Une partie du temps total est de l'itération (plans refusés : plan 5, plan 3, plan 9) et non de la production nominale. Une production sans reprise serait d'environ 1 h 30 à 2 h (estimé : références 13, images 30, animations 34, montage 11, voix et alignement 8).
 - Les étapes voix-v3 et whisper-prise-v3 sont mal bornées (étapes restées ouvertes dans le chronomètre) : durées gonflées.
 
@@ -38,7 +38,7 @@ Horodatage : première étape 22/11 21:28, master v3 prêt 23/11 02:24, soit env
 
 ## Ce qui peut être automatisé davantage
 1. Un seul lanceur par conte au lieu de scripts `conteNN-*.py` copiés et modifiés (références, images, animations, montage lisent un `conte.json`).
-2. Attente ComfyUI par événement (WebSocket/historique) au lieu du sondage 180/195 s : mesure exacte et moins d'attente.
+2. Attente ComfyUI plus fine (sondage 2 s au lieu de 15 s, fait dans le lanceur ; WebSocket non installé).
 3. Chronométrage automatique : chaque script appelle `steptimer` (plus d'étapes ouvertes ou saisies à la main).
 4. Contrôle qualité automatique avant relecture : visage/mains, cohérence personnage (comparaison aux références), planche contact pour revue rapide.
 5. Alignement : règle des 2 lignes intégrée au découpage pour éviter l'erreur du premier essai.
