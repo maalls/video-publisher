@@ -209,7 +209,7 @@ class TTSTests(unittest.TestCase):
         self.addCleanup(srv.shutdown)
         g.URL = 'http://127.0.0.1:%d/v1beta/interactions' % srv.server_port
         out = Path(self.tmp.name) / 'o.wav'
-        g.synthesize('Bonjour.', out, voice='Sadaltager', style='lent', key='AIzaFAKEFAKEFAKEFAKEFAKEFAKE12345')
+        g.synthesize('Bonjour.', out, voice='Sadaltager', style='lent', model='gemini-3.8-flash-tts', key='AIzaFAKEFAKEFAKEFAKEFAKEFAKE12345')
         self.assertEqual(out.read_bytes()[:4], b'RIFF')
         self.assertEqual(seen['body']['generation_config']['speech_config'], [{'voice': 'Sadaltager'}])
         self.assertEqual(seen['body']['input'][0]['content'][0]['annotations'][0]['style'], 'lent')
@@ -227,3 +227,21 @@ class TTSTests(unittest.TestCase):
         cuts, ratio = cut_take.boundaries(segs, [{'start': a, 'end': b, 'word': w} for a, b, w in words])
         self.assertEqual(cuts, [1.9, 3.65])
         self.assertGreater(ratio, 0.9)
+
+
+    def test_service_account_detection_and_cloud_call(self):
+        import gemini_tts as g
+        sa = self.keyfile(content=json.dumps({'type': 'service_account', 'private_key': 'PRIVATE-KEY-XYZ', 'client_email': 'a@b.iam'}))
+        kind, v = g.load_credentials(sa)
+        self.assertEqual((kind, Path(v)), ('service_account', sa))
+        with self.assertRaises(g.TTSError):
+            g.load_key(sa)
+        seen = {}
+        orig = g.synth_cloud
+        g.synth_cloud = lambda text, voice, style, model, path, timeout: seen.update(v=(text, voice, style, model)) or b'RIFF....WAVE'
+        self.addCleanup(lambda: setattr(g, 'synth_cloud', orig))
+        out = Path(self.tmp.name) / 'c.wav'
+        g.synthesize('Bonjour.', out, voice='Sadaltager', style='lent', creds=(kind, v))
+        self.assertEqual(seen['v'], ('Bonjour.', 'Sadaltager', 'lent', 'gemini-2.5-flash-tts'))
+        with self.assertRaises(g.TTSError):
+            g.synthesize('x' * 4100, out, creds=(kind, v))

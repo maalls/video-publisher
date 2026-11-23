@@ -179,13 +179,13 @@ def stage_voix(c, prod):
     take = prod / 'voix' / 'speech-take.wav'
     if not take.exists():
         try:
-            key = g.load_key()
+            creds = g.load_credentials()
         except g.TTSError as e:
             raise Stop('voix manquante (voix/voix-NN.wav) et pas de cle TTS exploitable: %s' % e)
-        say('voix: une prise Gemini TTS (%s, %s)' % (c['narration'].get('voice', 'Sadaltager'), g.DEFAULT_MODEL))
+        say('voix: une prise Gemini TTS (%s, %s, %s)' % (c['narration'].get('voice', 'Sadaltager'), creds[0], c['narration'].get('tts_model') or 'modele par defaut'))
         try:
             g.synthesize('\n\n'.join(c['narration']['segments']), take, voice=c['narration'].get('voice', 'Sadaltager'),
-                         style=c['narration'].get('voice_instructions', ''), model=c['narration'].get('tts_model', g.DEFAULT_MODEL), key=key)
+                         style=c['narration'].get('voice_instructions', ''), model=c['narration'].get('tts_model'), creds=creds)
         except g.TTSError as e:
             raise Stop('TTS: %s' % e)
     run_py([str(HERE / 'cut_take.py'), str(prod)], python=WHISPER_PY)
