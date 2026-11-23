@@ -13,6 +13,7 @@ import requests
 API = "https://open.tiktokapis.com/v2/"
 REDIRECT = "http://127.0.0.1:8765/callback/"
 SCOPES = {"user.info.basic", "video.upload"}
+LIST_SCOPE = "video.list"  # lecture seule de la liste des videos (dates reelles); demandee par authorize, non exigee pour l'envoi
 PENDING_DIR = Path(os.environ.get("TIKTOK_PENDING_DIR", "state/tiktok-private-pending"))
 
 

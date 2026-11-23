@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlencode, urlsplit
 import webbrowser
 
-from video_publisher.tiktok_inbox import (REDIRECT, SCOPES, TikTokError, read_json,
+from video_publisher.tiktok_inbox import (LIST_SCOPE, REDIRECT, SCOPES, TikTokError, read_json,
                                           store_token, token_request)
 
 
@@ -50,7 +50,7 @@ def main():
             self.wfile.write(message)
 
     params = {"client_key": client["client_key"], "response_type": "code",
-              "scope": ",".join(sorted(SCOPES)), "redirect_uri": REDIRECT, "state": state,
+              "scope": ",".join(sorted(SCOPES | {LIST_SCOPE})), "redirect_uri": REDIRECT, "state": state,
               "code_challenge": challenge, "code_challenge_method": "S256"}
     with HTTPServer(("127.0.0.1", 8765), Handler) as server:
         server.timeout = 300
