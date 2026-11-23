@@ -196,20 +196,30 @@ def stage_voix(c, prod):
         return
     import gemini_tts as g
     take = prod / 'voix' / 'speech-take.wav'
-    if not take.exists():
+    last = None
+    for essai in range(1, 4):  # une prise tronquee ou infidele est refaite automatiquement (3 essais max)
+        if not take.exists():
+            try:
+                creds = g.load_credentials()
+            except g.TTSError as e:
+                raise Stop('voix manquante (voix/voix-NN.wav) et pas de cle TTS exploitable: %s' % e)
+            say('voix: prise Gemini TTS, essai %d/3 (%s, %s, %s)' % (essai, c['narration'].get('voice', 'Sadaltager'), creds[0], c['narration'].get('tts_model') or 'modele par defaut'))
+            try:
+                timed('script:gemini_tts.py', g.synthesize, '\n\n'.join(c['narration']['segments']), take, voice=c['narration'].get('voice', 'Sadaltager'),
+                      style=c['narration'].get('voice_instructions', ''), model=c['narration'].get('tts_model'), creds=creds)
+            except g.TTSError as e:
+                raise Stop('TTS: %s' % e)
         try:
-            creds = g.load_credentials()
-        except g.TTSError as e:
-            raise Stop('voix manquante (voix/voix-NN.wav) et pas de cle TTS exploitable: %s' % e)
-        say('voix: une prise Gemini TTS (%s, %s, %s)' % (c['narration'].get('voice', 'Sadaltager'), creds[0], c['narration'].get('tts_model') or 'modele par defaut'))
-        try:
-            timed('script:gemini_tts.py', g.synthesize, '\n\n'.join(c['narration']['segments']), take, voice=c['narration'].get('voice', 'Sadaltager'),
-                         style=c['narration'].get('voice_instructions', ''), model=c['narration'].get('tts_model'), creds=creds)
-        except g.TTSError as e:
-            raise Stop('TTS: %s' % e)
-    run_py([str(HERE / 'cut_take.py'), str(prod)], python=WHISPER_PY)
+            run_py([str(HERE / 'cut_take.py'), str(prod)], python=WHISPER_PY)
+        except subprocess.CalledProcessError:
+            last = 'prise infidele au texte (essai %d)' % essai
+            say(last)
+            take.rename(prod / 'voix' / ('rejetee-essai%d.wav' % essai))
+            (prod / 'voix' / 'take-words.json').unlink(missing_ok=True)  # le cache Whisper est lie a la prise rejetee
+            continue
+        break
     if missing():
-        raise Stop('decoupe incomplete de la prise vocale')
+        raise Stop('decoupe de la prise vocale impossible apres 3 essais: ' + str(last))
 
 
 def stage_split(c, prod):
