@@ -149,7 +149,14 @@ def main():
         time.sleep(3)
         import urllib.request
         for name, local in (('reel-%s.mp4' % rnd, reel), ('cover-%s.jpg' % rnd, cover)):
-            h = hashlib.sha256(urllib.request.urlopen(url + '/' + name, timeout=60).read()).hexdigest()
+            for essai in range(24):  # le nom du tunnel peut mettre un moment a se resoudre (DNS)
+                try:
+                    h = hashlib.sha256(urllib.request.urlopen(url + '/' + name, timeout=60).read()).hexdigest()
+                    break
+                except Exception as e:
+                    if essai == 23:
+                        sys.exit('tunnel injoignable apres 2 min, rien cree sur Instagram: %s' % e)
+                    time.sleep(5)
             if h != sha(local):
                 sys.exit('sha256 servi different pour ' + name)
         sh(igs + ['create'] + base + ['--video-url', url + '/reel-%s.mp4' % rnd, '--cover-url', url + '/cover-%s.jpg' % rnd,
