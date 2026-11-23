@@ -81,10 +81,12 @@ class LauncherTests(unittest.TestCase):
         self.assertEqual(wf['12']['inputs']['image'], 'conte99-exemple-djeha-reference.png')
 
     def test_voice_missing_stops_cleanly(self):
+        env = dict(os.environ, GEMINI_TTS_KEY_FILE=str(Path(self.tmp.name) / 'absent.json'))
         r = subprocess.run([sys.executable, str(ROOT / 'scripts/tales/launcher.py'), 'run', str(self.prod), '--only', 'voix'],
-                           capture_output=True, text=True)
+                           capture_output=True, text=True, env=env)
         self.assertEqual(r.returncode, 3)
         self.assertIn('voix manquante', r.stdout)
+        self.assertIn('cle TTS', r.stdout)
 
     def test_fake_comfy_images_and_anims_once_only(self):
         srv = HTTPServer(('127.0.0.1', 0), Fake)
@@ -157,3 +159,71 @@ class PublishGuards(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TTSTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        sys.path.insert(0, str(ROOT / 'scripts' / 'tales'))
+
+    def keyfile(self, mode=0o600, content='{"api_key": "AIzaFAKEFAKEFAKEFAKEFAKEFAKE12345"}'):
+        p = Path(self.tmp.name) / 'k.json'
+        p.write_text(content)
+        p.chmod(mode)
+        return p
+
+    def test_key_permissions_and_format(self):
+        import gemini_tts as g
+        self.assertTrue(g.load_key(self.keyfile()).startswith('AIza'))
+        with self.assertRaises(g.TTSError) as e:
+            g.load_key(self.keyfile(0o644))
+        self.assertNotIn('AIza', str(e.exception))
+        with self.assertRaises(g.TTSError):
+            g.load_key(self.keyfile(content='{"x": 1}'))
+        with self.assertRaises(g.TTSError):
+            g.load_key(Path(self.tmp.name) / 'nope.json')
+
+    def test_request_and_response_without_leaking_key(self):
+        import base64, gemini_tts as g
+        seen = {}
+
+        class H(BaseHTTPRequestHandler):
+            def log_message(self, *a):
+                pass
+
+            def do_POST(self):
+                body = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
+                seen['body'], seen['key'], seen['url'] = body, self.headers.get('x-goog-api-key'), self.path
+                if seen.get('fail'):
+                    self.send_response(403)
+                    self.end_headers()
+                    return
+                out = json.dumps({'steps': [{'content': [{'type': 'audio', 'data': base64.b64encode(b'RIFF....WAVE').decode()}]}]}).encode()
+                self.send_response(200)
+                self.send_header('Content-Length', str(len(out)))
+                self.end_headers()
+                self.wfile.write(out)
+        srv = HTTPServer(('127.0.0.1', 0), H)
+        threading.Thread(target=srv.serve_forever, daemon=True).start()
+        self.addCleanup(srv.shutdown)
+        g.URL = 'http://127.0.0.1:%d/v1beta/interactions' % srv.server_port
+        out = Path(self.tmp.name) / 'o.wav'
+        g.synthesize('Bonjour.', out, voice='Sadaltager', style='lent', key='AIzaFAKEFAKEFAKEFAKEFAKEFAKE12345')
+        self.assertEqual(out.read_bytes()[:4], b'RIFF')
+        self.assertEqual(seen['body']['generation_config']['speech_config'], [{'voice': 'Sadaltager'}])
+        self.assertEqual(seen['body']['input'][0]['content'][0]['annotations'][0]['style'], 'lent')
+        self.assertNotIn('AIza', seen['url'])
+        seen['fail'] = True
+        with self.assertRaises(g.TTSError) as e:
+            g.synthesize('Bonjour.', out, key='AIzaFAKEFAKEFAKEFAKEFAKEFAKE12345')
+        self.assertNotIn('AIza', str(e.exception))
+
+    def test_cut_boundaries(self):
+        import cut_take  # importe align_subtitles (faster_whisper seulement a l'appel)
+        segs = ['Il etait une fois un roi.', 'Il avait trois fils.', 'Fin.']
+        words = [(0.0, 0.3, 'Il'), (0.3, 0.6, 'était'), (0.6, 0.8, 'une'), (0.8, 1.0, 'fois'), (1.0, 1.2, 'un'), (1.2, 1.6, 'roi.'),
+                 (2.2, 2.4, 'Il'), (2.4, 2.6, 'avait'), (2.6, 2.9, 'trois'), (2.9, 3.3, 'fils.'), (4.0, 4.4, 'Fin.')]
+        cuts, ratio = cut_take.boundaries(segs, [{'start': a, 'end': b, 'word': w} for a, b, w in words])
+        self.assertEqual(cuts, [1.9, 3.65])
+        self.assertGreater(ratio, 0.9)

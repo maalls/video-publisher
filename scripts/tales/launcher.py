@@ -163,15 +163,34 @@ def seed_for(base, i, variant):
 
 # ------------------------------------------------------------------ etapes
 def stage_voix(c, prod):
+    prod = Path(prod)
     n = len(c['narration']['segments'])
-    missing = [i for i in range(1, n + 1) if not (Path(prod) / 'voix' / ('voix-%02d.wav' % i)).exists()]
     narr = {k: c['narration'].get(k) for k in ('voice', 'voice_instructions')}
     narr.update(title=c['title'], origin=c.get('origin'), opening_question=c['narration'].get('opening_question'),
                 segments=c['narration']['segments'])
-    (Path(prod) / 'narration.json').write_text(json.dumps(narr, ensure_ascii=False, indent=1))
-    if missing:
-        raise Stop('voix manquante: voix/voix-%s.wav (la voix est generee par l\'outil TTS de l\'agent, puis relancer)' %
-                   ', '.join('%02d' % i for i in missing))
+    (prod / 'narration.json').write_text(json.dumps(narr, ensure_ascii=False, indent=1))
+    (prod / 'voix').mkdir(exist_ok=True)
+
+    def missing():
+        return [i for i in range(1, n + 1) if not (prod / 'voix' / ('voix-%02d.wav' % i)).exists()]
+    if not missing():
+        return
+    import gemini_tts as g
+    take = prod / 'voix' / 'speech-take.wav'
+    if not take.exists():
+        try:
+            key = g.load_key()
+        except g.TTSError as e:
+            raise Stop('voix manquante (voix/voix-NN.wav) et pas de cle TTS exploitable: %s' % e)
+        say('voix: une prise Gemini TTS (%s, %s)' % (c['narration'].get('voice', 'Sadaltager'), g.DEFAULT_MODEL))
+        try:
+            g.synthesize('\n\n'.join(c['narration']['segments']), take, voice=c['narration'].get('voice', 'Sadaltager'),
+                         style=c['narration'].get('voice_instructions', ''), model=c['narration'].get('tts_model', g.DEFAULT_MODEL), key=key)
+        except g.TTSError as e:
+            raise Stop('TTS: %s' % e)
+    run_py([str(HERE / 'cut_take.py'), str(prod)], python=WHISPER_PY)
+    if missing():
+        raise Stop('decoupe incomplete de la prise vocale')
 
 
 def stage_split(c, prod):

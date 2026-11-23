@@ -48,3 +48,10 @@ Résolution 704x832, codecs h264+aac, durée 45 à 180 s, taille, sous-titres 2 
 ## Ce qui est testé et ce qui ne l'est pas
 Testé (`tests/test_launcher.py`) : validation, dry-run sans appel ComfyUI, arrêt propre sans voix, soumission ComfyUI unique avec un faux serveur, variantes, garde-fous de publication.
 Non testé de bout en bout : montage ffmpeg générique et publication réelle. Le montage reprend à l'identique la logique de `conte06-montage.py` ; la publication reprend les commandes qui ont servi au conte 6. Premier vrai test : le conte 7.
+
+## Voix : Gemini TTS (étape voix)
+- Clé : `var/project/tales/secrets/gemini-tts.json`, format `{"api_key": "..."}`. Hors Git (`/var/` est ignoré). Le fichier doit appartenir à l'utilisateur `instinct` et être en 600 (le lanceur refuse sinon). La clé passe dans l'en-tête `x-goog-api-key`, jamais dans une URL, un log ou un journal.
+- Création sans passer par un chat, depuis une session sudo sur hipo :
+  `sudo install -o instinct -g instinct -m 600 /dev/null /home/instinct/video-publisher/var/project/tales/secrets/gemini-tts.json` puis coller le JSON avec `sudo tee` (ou `sudo -u instinct nano ...`).
+- Si `voix/voix-NN.wav` manque, le lanceur fait UNE prise (modèle `gemini-3.8-flash-tts` par défaut, surchargeable par `narration.tts_model`, voix `narration.voice` = Sadaltager, style = `narration.voice_instructions`), puis `cut_take.py` (Whisper) la coupe en un fichier par segment. Coût estimé ~0,03 $ par conte. Sans clé exploitable, il s'arrête proprement.
+- Non testé avec la vraie API (pas de clé encore) : requête construite d'après la doc Google (Interactions API, `POST /v1beta/interactions`), testée contre un faux serveur.
