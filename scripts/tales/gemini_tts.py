@@ -15,7 +15,7 @@ import base64, json, os, stat, urllib.error, urllib.request
 from pathlib import Path
 
 TALES = Path(__file__).resolve().parents[2] / 'var' / 'project' / 'tales'
-SA_FILE = TALES / 'private' / 'tts-service-account.json'
+SA_FILE = TALES / 'secrets' / 'gemini-tts.json'  # cle API Gemini par defaut
 URL = 'https://generativelanguage.googleapis.com/v1beta/interactions'
 CLOUD_MODEL = 'gemini-2.5-flash-tts'
 API_MODEL = 'gemini-3.8-flash-tts'
