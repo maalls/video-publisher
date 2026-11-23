@@ -41,6 +41,7 @@ def report(prod):
             if key in open_:
                 t0, n0 = open_.pop(key)
                 rows.append((k, 'attente' if e['event'] == 'wait-end' else 'travail', t0, t, e['note'] or n0))
+    rows.sort(key=lambda r: r[2])
     par = ZoneInfo('Europe/Paris')
     out = ['# Suivi des durées', '', '| Étape | Type | Début (Paris) | Fin (Paris) | Durée | Note |', '|---|---|---|---|---|---|']
     tot = {'travail': 0, 'attente': 0}
@@ -52,6 +53,7 @@ def report(prod):
     out += ['', f"Total travail (machine/agent): {fmt(tot['travail'])}", f"Total attente (relecture Malo, blocages): {fmt(tot['attente'])}"]
     txt = '\n'.join(out) + '\n'
     (Path(prod) / 'timing-recap.md').write_text(txt)
+    (Path(prod) / 'journal-durees.md').write_text(txt)
     return txt
 
 def main():

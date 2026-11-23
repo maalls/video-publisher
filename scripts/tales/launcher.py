@@ -105,6 +105,25 @@ def item(name, st, kind):
 
 
 # ------------------------------------------------------------------ chrono
+CUR = {'prod': None}
+
+
+def timed(label, fn, *a, **k):
+    # journal de duree par script / par plan : une ligne debut, une ligne fin dans timing.jsonl
+    prod = CUR['prod']
+    if prod is None:
+        return fn(*a, **k)
+    timer(prod, 'start', label)
+    rc = 'ok'
+    try:
+        return fn(*a, **k)
+    except BaseException as e:
+        rc = 'erreur %s' % type(e).__name__
+        raise
+    finally:
+        timer(prod, 'end', label, rc)
+
+
 def timer(prod, event, step, note=''):
     subprocess.call([sys.executable, str(HERE / 'steptimer.py'), str(prod), event, step] + (['--note', note] if note else []))
 
@@ -184,7 +203,7 @@ def stage_voix(c, prod):
             raise Stop('voix manquante (voix/voix-NN.wav) et pas de cle TTS exploitable: %s' % e)
         say('voix: une prise Gemini TTS (%s, %s, %s)' % (c['narration'].get('voice', 'Sadaltager'), creds[0], c['narration'].get('tts_model') or 'modele par defaut'))
         try:
-            g.synthesize('\n\n'.join(c['narration']['segments']), take, voice=c['narration'].get('voice', 'Sadaltager'),
+            timed('script:gemini_tts.py', g.synthesize, '\n\n'.join(c['narration']['segments']), take, voice=c['narration'].get('voice', 'Sadaltager'),
                          style=c['narration'].get('voice_instructions', ''), model=c['narration'].get('tts_model'), creds=creds)
         except g.TTSError as e:
             raise Stop('TTS: %s' % e)
@@ -199,7 +218,7 @@ def stage_split(c, prod):
 
 def run_py(args, python=None):
     say('RUN ' + ' '.join(args))
-    subprocess.run([python or sys.executable] + args, check=True)
+    timed('script:' + Path(args[0]).name, subprocess.run, [python or sys.executable] + args, check=True)
 
 
 def stage_references(c, prod, st, dry):
@@ -214,7 +233,7 @@ def stage_references(c, prod, st, dry):
             (prod / 'dry-run').mkdir(exist_ok=True)
             (prod / 'dry-run' / (name + '.workflow.json')).write_text(json.dumps(wf, indent=1))
             continue
-        out = cc.run_one(prod / (name + '.receipt.json'), wf, name, log=say)
+        out = timed('plan:' + name, cc.run_one, prod / (name + '.receipt.json'), wf, name, log=say)
         m = cc.first_file(out, '.png')
         chosen.setdefault(r['key'], {'filename': m['filename'], 'subfolder': m.get('subfolder', '')})
     if not dry:
@@ -234,7 +253,7 @@ def stage_images(c, prod, st, dry):
             (prod / 'dry-run').mkdir(exist_ok=True)
             (prod / 'dry-run' / (img + '.workflow.json')).write_text(json.dumps(wf, indent=1))
             continue
-        cc.run_one(prod / (img + '.receipt.json'), wf, img, log=say)
+        timed('plan:' + img, cc.run_one, prod / (img + '.receipt.json'), wf, img, log=say)
 
 
 def image_file(c, img):
@@ -253,7 +272,7 @@ def stage_animations(c, prod, st, dry):
             (prod / 'dry-run' / ('anim-' + an + '.workflow.json')).write_text(json.dumps(wf, indent=1))
             continue
         cc.upload(image_file(c, img), remote)
-        cc.run_one(prod / ('anim-' + an + '.receipt.json'), wf, 'anim-' + an, log=say)
+        timed('plan:anim-' + an, cc.run_one, prod / ('anim-' + an + '.receipt.json'), wf, 'anim-' + an, log=say)
 
 
 def stage_soustitres(c, prod):
@@ -269,7 +288,7 @@ def stage_montage(c, prod, st, version):
     if segs.exists() and list(segs.glob('seg-*.mp4')):
         segs.rename(prod / ('segments-avant-%s' % time.strftime('%Y%m%d-%H%M%S')))
     mg.narration(prod, len(c['narration']['segments']))
-    master, wa = mg.picture(prod, c, [an for _, _, _, an in plan_items(c, st)], version, COMFY_OUT, ENDCARD)
+    master, wa = timed('script:montage_generic.py', mg.picture, prod, c, [an for _, _, _, an in plan_items(c, st)], version, COMFY_OUT, ENDCARD)
     return master
 
 
@@ -349,6 +368,7 @@ def cmd_approve(prod, evidence):
 # -------------------------------------------------------------------- run
 def cmd_run(prod, version, dry, only, redo):
     prod = Path(prod)
+    CUR['prod'] = prod
     c = load(prod)
     st = load_state(prod)
     err = validate(c, prod)
