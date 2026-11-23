@@ -70,6 +70,7 @@ def main():
         trail = next((s for s in sils if s[1] > dur - 0.05), None)
         inner = [s for s in sils if s is not lead and s is not trail]
         need = len(sents) - 1
+        chosen = []
         if need > 0:
             assert len(inner) >= need, \
                 f'{take.name}: {len(inner)} inner silences for {len(sents)} sentences - lower --noise or --min-silence'

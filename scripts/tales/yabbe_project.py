@@ -140,14 +140,11 @@ def build(args):
         pos += d - (0.5 if i < len(durs) - 1 else 0.0)
 
     events = json.loads((root / 'subtitle-events.json').read_text())
-    ph = root / 'voix' / 'phrases.json'
-    if ph.exists():  # real sentence timings beat weighted estimates
-        segments = json.loads((root / 'narration.json').read_text())['segments']
-        events = retime_subtitles(events, json.loads(ph.read_text()), segments)
+    # subtitle-events.json comes from align_subtitles.py (word-level timings): use as is
     for j, e in enumerate(events):
         clips.append({'id': 'c_sub%02d' % j, 'track_id': 'TRACK_TEXT', 'type': 'text',
                       'start': round(e['start'], 6), 'duration': round(e['end'] - e['start'], 6),
-                      'text': {'content': e['text'], 'font': 'DejaVu Sans', 'size': 34,
+                      'text': {'content': wrap_sub(e['text']), 'font': 'DejaVu Sans', 'size': 34,
                                'color': '#ffffff', 'stroke_color': '#000000', 'stroke_width': 2,
                                'align': 'center'},
                       'transform': {'x': 0.0, 'y': 315.0, 'scale': 1.0}})
@@ -221,21 +218,22 @@ SUB_MAX_LINE = 26  # max chars per display line (fits 704px at DejaVu Sans 34)
 def wrap_sub(text, max_line=SUB_MAX_LINE):
     """Wrap a subtitle for display: at most 2 lines of <= max_line chars,
     break at a word boundary, prefer breaking after a comma/semicolon."""
-    if len(text) <= max_line:
-        return text
     words = text.split(' ')
-    best = None
-    for j in range(1, len(words)):
-        l1, l2 = ' '.join(words[:j]), ' '.join(words[j:])
-        if len(l1) > max_line or len(l2) > max_line:
-            continue
-        pref = 0 if words[j - 1].endswith((',', ';', ':')) else 1
-        score = (pref, abs(len(l1) - len(l2)))
-        if best is None or score < best[0]:
-            best = (score, l1, l2)
-    if best is None:
-        raise AssertionError('subtitle does not fit 2 lines: %s' % text)
-    return best[1] + '\n' + best[2]
+    for limit in (max_line, max_line + 3, max_line + 6):  # montage chunks allow up to 30 chars/line
+        if len(text) <= limit:
+            return text
+        best = None
+        for j in range(1, len(words)):
+            l1, l2 = ' '.join(words[:j]), ' '.join(words[j:])
+            if len(l1) > limit or len(l2) > limit:
+                continue
+            pref = 0 if words[j - 1].endswith((',', ';', ':')) else 1
+            score = (pref, abs(len(l1) - len(l2)))
+            if best is None or score < best[0]:
+                best = (score, l1, l2)
+        if best is not None:
+            return best[1] + '\n' + best[2]
+    raise AssertionError('subtitle does not fit 2 lines: %s' % text)
 
 
 def rebuild_subs(args):
