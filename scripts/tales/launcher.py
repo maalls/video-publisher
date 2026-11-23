@@ -276,6 +276,8 @@ def stage_animations(c, prod, st, dry):
 
 
 def stage_soustitres(c, prod):
+    import montage_generic as mg
+    timed('script:montage_generic.narration', mg.narration, Path(prod), len(c['narration']['segments']))  # narration-complete.wav requis par l'alignement
     s = c.get('subtitles', {})
     run_py([str(HERE / 'align_subtitles.py'), str(prod), '--max-chars', str(s.get('max_chars', 52)),
             '--max-line-chars', str(s.get('max_line_chars', 30))], python=WHISPER_PY)
