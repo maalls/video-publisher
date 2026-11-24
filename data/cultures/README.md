@@ -4,11 +4,11 @@ Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json]
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-888 titres, 127 cultures.
+1014 titres, 127 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
-| France (contes de Perrault et tradition orale) | 11 | [001-france.md](001-france.md) |
+| France (contes de Perrault et tradition orale) | 22 | [001-france.md](001-france.md) |
 | Bretagne | 15 | [002-bretagne.md](002-bretagne.md) |
 | Allemagne (Grimm) | 34 | [003-allemagne.md](003-allemagne.md) |
 | Danemark (Andersen et tradition) | 15 | [004-danemark.md](004-danemark.md) |
@@ -21,7 +21,7 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Lituanie | 5 | [011-lituanie.md](011-lituanie.md) |
 | Irlande | 26 | [012-irlande.md](012-irlande.md) |
 | Écosse (Highlands) | 18 | [013-ecosse.md](013-ecosse.md) |
-| Pays de Galles | 11 | [014-pays-de-galles.md](014-pays-de-galles.md) |
+| Pays de Galles | 12 | [014-pays-de-galles.md](014-pays-de-galles.md) |
 | Angleterre | 17 | [015-angleterre.md](015-angleterre.md) |
 | Cornouailles | 3 | [016-cornouailles.md](016-cornouailles.md) |
 | Île de Man | 2 | [017-ile-de-man.md](017-ile-de-man.md) |
@@ -34,9 +34,9 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Pays basque | 5 | [024-pays-basque.md](024-pays-basque.md) |
 | Catalogne | 4 | [025-catalogne.md](025-catalogne.md) |
 | Portugal | 6 | [026-portugal.md](026-portugal.md) |
-| Grèce (mythes et contes populaires) | 1 | [027-grece.md](027-grece.md) |
-| Albanie | 1 | [028-albanie.md](028-albanie.md) |
-| Bulgarie | 3 | [029-bulgarie.md](029-bulgarie.md) |
+| Grèce (mythes et contes populaires) | 24 | [027-grece.md](027-grece.md) |
+| Albanie | 24 | [028-albanie.md](028-albanie.md) |
+| Bulgarie | 5 | [029-bulgarie.md](029-bulgarie.md) |
 | Roumanie | 18 | [030-roumanie.md](030-roumanie.md) |
 | Hongrie | 15 | [031-hongrie.md](031-hongrie.md) |
 | Pologne | 15 | [032-pologne.md](032-pologne.md) |
@@ -51,12 +51,12 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Juifs ashkénazes et séfarades | 8 | [041-juifs-ashkenazes-et-sefarades.md](041-juifs-ashkenazes-et-sefarades.md) |
 | Turquie | 17 | [042-turquie.md](042-turquie.md) |
 | Géorgie | 6 | [043-georgie.md](043-georgie.md) |
-| Arménie | 3 | [044-armenie.md](044-armenie.md) |
+| Arménie | 29 | [044-armenie.md](044-armenie.md) |
 | Azerbaïdjan | 1 | [045-azerbaidjan.md](045-azerbaidjan.md) |
 | Ossétie et peuples du Caucase | 1 | [046-ossetie-et-peuples-du-caucase.md](046-ossetie-et-peuples-du-caucase.md) |
 | Kurdes | 1 | [047-kurdes.md](047-kurdes.md) |
 | Perse (Iran) | 13 | [048-perse.md](048-perse.md) |
-| Mille et une nuits (monde arabe) | 31 | [049-mille-et-une-nuits.md](049-mille-et-une-nuits.md) |
+| Mille et une nuits (monde arabe) | 71 | [049-mille-et-une-nuits.md](049-mille-et-une-nuits.md) |
 | Levant (Syrie, Liban, Palestine) | 3 | [050-levant.md](050-levant.md) |
 | Irak et Mésopotamie | 1 | [051-irak-et-mesopotamie.md](051-irak-et-mesopotamie.md) |
 | Arabie et Yémen | 2 | [052-arabie-et-yemen.md](052-arabie-et-yemen.md) |

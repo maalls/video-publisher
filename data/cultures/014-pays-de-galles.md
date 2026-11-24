@@ -2,7 +2,7 @@
 
 - Région : Îles britanniques
 - Nombre de contes visés : 12
-- Contes listés avec source : 11
+- Contes listés avec source : 12
 - Sensibilité / droits : faible
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/5160
@@ -22,5 +22,4 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 | 9 | The dream of Maxen Wledig | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/5160/pg5160-images.html | titre relevé dans la table des matières de la source |  |
 | 10 | The story of Lludd and Llevelys | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/5160/pg5160-images.html | titre relevé dans la table des matières de la source |  |
 | 11 | Taliesin | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/5160/pg5160-images.html | titre relevé dans la table des matières de la source |  |
-
-Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).
+| 12 | The Lady of the Fountain | conte court (présumé, non vérifié) | https://www.gutenberg.org/ebooks/5160 | titre relevé dans la table des matières de la source |  |
