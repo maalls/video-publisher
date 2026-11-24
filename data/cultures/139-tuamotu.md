@@ -2,7 +2,7 @@
 
 - Région : Polynésie
 - Nombre de contes visés : 31
-- Contes listés avec source : 31
+- Contes listés avec source : 32
 - Sensibilité / droits : ÉLEVÉE : traditions polynésiennes vivantes ; titres seulement ; textes et illustrations (Bobby Holcomb, Sarahina) sous droits de Tahiti Heritage ou de la Direction de la culture et du patrimoine de Polynésie française, droits à demander ; récits sacrés, marae et cycle de Matarii volontairement exclus ; avis des détenteurs locaux (familles, communes, DCP) à obtenir avant production
 - Avis de la communauté requis avant production : oui
 - Note : Perle rare : Polynésie française.
@@ -43,3 +43,4 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 | 29 | Légende du nuage Te Ragi Mareva, Fakarava | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/tuamotu-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
 | 30 | Légende de Heiariki Marere à Tetamanu – Fakarava | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/tuamotu-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
 | 31 | Manifestations du guerrier Tagaroafainu – Kauehi | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/tuamotu-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 32 | Pierres Taivini et Hereaparaoa, dites des baleines, Tiputa (Rangiroa) | conte court (présumé, non vérifié) | https://www.tahitiheritage.pf/localistion/tuamotu/rangiroa/ | PERLE RARE : titre d'une fiche « sites légendaires » de Tahiti Heritage (lieu lié à une légende, récit à confirmer en ouvrant la fiche) ; titre seulement |  |

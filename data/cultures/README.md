@@ -4,7 +4,7 @@ Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json]
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-1338 titres, 142 cultures.
+1341 titres, 142 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
@@ -146,7 +146,7 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Îles Sous-le-Vent (Raiatea, Bora Bora, Huahine, Maupiti) | 34 | [136-iles-sous-le-vent.md](136-iles-sous-le-vent.md) |
 | Australes (Rurutu, Tubuai, Raivavae, Rimatara) | 14 | [137-australes.md](137-australes.md) |
 | Gambier (Mangareva) | 6 | [138-gambier.md](138-gambier.md) |
-| Tuamotu | 31 | [139-tuamotu.md](139-tuamotu.md) |
-| Marquises | 12 | [140-marquises.md](140-marquises.md) |
+| Tuamotu | 32 | [139-tuamotu.md](139-tuamotu.md) |
+| Marquises | 14 | [140-marquises.md](140-marquises.md) |
 | Îles Cook (Mangaia, Rarotonga) | 10 | [141-iles-cook.md](141-iles-cook.md) |
 | Rapa Nui (île de Pâques) | 10 | [142-rapa-nui.md](142-rapa-nui.md) |

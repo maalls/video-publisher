@@ -2,7 +2,7 @@
 
 - Région : Polynésie
 - Nombre de contes visés : 12
-- Contes listés avec source : 12
+- Contes listés avec source : 14
 - Sensibilité / droits : ÉLEVÉE : traditions polynésiennes vivantes ; titres seulement ; textes et illustrations (Bobby Holcomb, Sarahina) sous droits de Tahiti Heritage ou de la Direction de la culture et du patrimoine de Polynésie française, droits à demander ; récits sacrés, marae et cycle de Matarii volontairement exclus ; avis des détenteurs locaux (familles, communes, DCP) à obtenir avant production
 - Avis de la communauté requis avant production : oui
 - Note : Perle rare : Polynésie française (Te Henua Enana).
@@ -24,3 +24,5 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 | 10 | Légende de la danse de l’oiseau, Hakamanu, Marquises | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/marquises-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
 | 11 | Légende de la création des Marquises, la terre des hommes | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/marquises-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
 | 12 | Arrivée du feu à la Terre des Hommes – Marquises | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/marquises-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 13 | Miroir de la reine Pere, Kea Karahi – Fatu Hiva | conte court (présumé, non vérifié) | https://www.tahitiheritage.pf/localistion/marquises/fatu-hiva/ | PERLE RARE : titre d'une fiche « sites légendaires » de Tahiti Heritage (lieu lié à une légende, récit à confirmer en ouvrant la fiche) ; titre seulement |  |
+| 14 | Teava Hinenao, Col des amoureux, Fatu Hiva | conte court (présumé, non vérifié) | https://www.tahitiheritage.pf/localistion/marquises/fatu-hiva/ | PERLE RARE : titre d'une fiche « sites légendaires » de Tahiti Heritage (lieu lié à une légende, récit à confirmer en ouvrant la fiche) ; titre seulement |  |
