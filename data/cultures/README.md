@@ -2,7 +2,7 @@
 
 Un fichier par culture. Chaque titre est rattaché à une source citée, aucun titre n'est inventé. La liste d'ensemble est dans [../cultures.csv](../cultures.csv) (colonnes fichier et lien_github).
 
-Total de titres déjà listés avec source : 642 (cible : 1100).
+Total de titres déjà listés avec source : 678 (cible : 1100).
 
 | culture | région | visés | listés | fichier |
 |---|---|---|---|---|
@@ -30,8 +30,8 @@ Total de titres déjà listés avec source : 642 (cible : 1100).
 | Malte | Méditerranée | 2 | 1 | [022-malte.md](022-malte.md) |
 | Espagne | Europe du Sud | 18 | 0 | [023-espagne.md](023-espagne.md) |
 | Pays basque | Europe du Sud | 5 | 5 | [024-pays-basque.md](024-pays-basque.md) |
-| Catalogne | Europe du Sud | 4 | 0 | [025-catalogne.md](025-catalogne.md) |
-| Portugal | Europe du Sud | 6 | 0 | [026-portugal.md](026-portugal.md) |
+| Catalogne | Europe du Sud | 4 | 4 | [025-catalogne.md](025-catalogne.md) |
+| Portugal | Europe du Sud | 6 | 6 | [026-portugal.md](026-portugal.md) |
 | Grèce (mythes et contes populaires) | Europe du Sud-Est | 24 | 0 | [027-grece.md](027-grece.md) |
 | Albanie | Balkans | 5 | 1 | [028-albanie.md](028-albanie.md) |
 | Bulgarie | Balkans | 6 | 3 | [029-bulgarie.md](029-bulgarie.md) |
@@ -66,12 +66,12 @@ Total de titres déjà listés avec source : 642 (cible : 1100).
 | Turkmènes | Asie centrale | 1 | 1 | [058-turkmenes.md](058-turkmenes.md) |
 | Tatars et Bachkirs | Russie | 1 | 0 | [059-tatars-et-bachkirs.md](059-tatars-et-bachkirs.md) |
 | Mongolie | Asie centrale | 12 | 12 | [060-mongolie.md](060-mongolie.md) |
-| Ainous | Japon / Sakhaline | 3 | 0 | [061-ainous.md](061-ainous.md) |
+| Ainous | Japon / Sakhaline | 3 | 3 | [061-ainous.md](061-ainous.md) |
 | Inde (Panchatantra) | Asie du Sud | 34 | 0 | [062-inde.md](062-inde.md) |
 | Inde du Sud (tamoul, télougou) | Asie du Sud | 12 | 12 | [063-inde-du-sud.md](063-inde-du-sud.md) |
 | Bengale | Asie du Sud | 9 | 9 | [064-bengale.md](064-bengale.md) |
 | Pakistan (Penjab) | Asie du Sud | 4 | 0 | [065-pakistan.md](065-pakistan.md) |
-| Cachemire | Asie du Sud | 3 | 0 | [066-cachemire.md](066-cachemire.md) |
+| Cachemire | Asie du Sud | 3 | 3 | [066-cachemire.md](066-cachemire.md) |
 | Népal | Asie du Sud | 3 | 3 | [067-nepal.md](067-nepal.md) |
 | Sri Lanka | Asie du Sud | 4 | 4 | [068-sri-lanka.md](068-sri-lanka.md) |
 | Tibet | Asie du Sud | 5 | 5 | [069-tibet.md](069-tibet.md) |
@@ -96,13 +96,13 @@ Total de titres déjà listés avec source : 642 (cible : 1100).
 | Mélanésie et Papouasie | Océanie | 5 | 5 | [088-melanesie-et-papouasie.md](088-melanesie-et-papouasie.md) |
 | Aborigènes d'Australie | Océanie | 8 | 8 | [089-aborigenes-d-australie.md](089-aborigenes-d-australie.md) |
 | Afrique de l'Ouest (Akan) | Afrique | 15 | 0 | [090-afrique-de-l-ouest.md](090-afrique-de-l-ouest.md) |
-| Yoruba | Afrique | 8 | 0 | [091-yoruba.md](091-yoruba.md) |
+| Yoruba | Afrique | 8 | 8 | [091-yoruba.md](091-yoruba.md) |
 | Igbo | Afrique | 5 | 1 | [092-igbo.md](092-igbo.md) |
 | Haoussa | Afrique | 5 | 0 | [093-haoussa.md](093-haoussa.md) |
 | Mandingues (Soundiata et griots) | Afrique de l'Ouest | 8 | 0 | [094-mandingues.md](094-mandingues.md) |
 | Wolof, Peul et Sénégal | Afrique de l'Ouest | 8 | 0 | [095-wolof-peul-et-senegal.md](095-wolof-peul-et-senegal.md) |
 | Dogon et Bambara | Afrique de l'Ouest | 1 | 0 | [096-dogon-et-bambara.md](096-dogon-et-bambara.md) |
-| Afrique de l'Est (swahili) | Afrique | 12 | 0 | [097-afrique-de-l-est.md](097-afrique-de-l-est.md) |
+| Afrique de l'Est (swahili) | Afrique | 12 | 12 | [097-afrique-de-l-est.md](097-afrique-de-l-est.md) |
 | Éthiopie | Afrique de l'Est | 5 | 0 | [098-ethiopie.md](098-ethiopie.md) |
 | Somalie | Afrique de l'Est | 2 | 1 | [099-somalie.md](099-somalie.md) |
 | Zoulous et Xhosas | Afrique australe | 12 | 12 | [100-zoulous-et-xhosas.md](100-zoulous-et-xhosas.md) |
