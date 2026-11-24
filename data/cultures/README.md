@@ -1,8 +1,8 @@
 # Contes par culture
 
-Généré depuis [../cultures.csv](../cultures.csv) (le CSV est la source). Chaque titre est rattaché à une source citée dans le fichier de sa culture.
+Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json](../cultures_titres.json) (sources de vérité). Chaque titre est rattaché à une source citée dans le fichier de sa culture.
 
-Régénérer : `python3 scripts/cultures_readme.py` (depuis la racine du dépôt).
+Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
 888 titres, 127 cultures.
 
