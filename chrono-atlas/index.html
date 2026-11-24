@@ -10,9 +10,11 @@ html,body{margin:0;height:100%;font:14px system-ui,sans-serif;background:#cfe3ee
 #info{opacity:.8;margin-left:12px}
 #t{width:100%;margin-top:4px}
 #play{font-size:16px;margin-right:8px}
+#top{position:absolute;left:8px;top:8px;width:310px;background:rgba(255,255,255,.93);border-radius:6px;padding:8px 10px;font-size:12px;box-shadow:0 1px 4px #0004}#top h4{margin:0 0 6px;font-size:13px}#rows{position:relative;height:290px}.r{position:absolute;left:0;right:0;height:26px;transition:transform .35s ease,opacity .35s ease}.r .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:13px}.r .g{height:9px;background:#e6e6e6;border-radius:2px;margin-top:2px}.r .g b{display:block;height:100%;border-radius:2px;transition:width .35s ease}.r .v{float:right;font-weight:600;margin-left:6px}#top small{display:block;margin-top:6px;color:#555;line-height:1.3}
 #attr{position:absolute;right:6px;bottom:90px;background:rgba(255,255,255,.85);padding:2px 6px;font-size:11px;border-radius:3px;max-width:70%}
 </style></head><body>
 <div id="map"></div>
+<div id="top"></div>
 <div id="attr">Polygones : Cliopatria (Seshat Global History Databank), CC BY 4.0, simplifiés (géométrie réduite, trous retirés) · Terres : Natural Earth (domaine public) · Rendu : MapLibre GL JS (BSD-3)</div>
 <div id="bar"><button id="play">▶</button><span id="year"></span><span id="info"></span>
 <input id="t" type="range" min="-3400" max="2024" step="1" value="1500"></div>
@@ -32,8 +34,22 @@ map.on("load",async()=>{
  map.addSource("clio",{type:"geojson",data:"data/cliopatria_simplifie.geojson"});
  map.addLayer({id:"fill",type:"fill",source:"clio",filter:filt(+slider.value),paint:{"fill-color":["get","c"],"fill-opacity":.5}});
  map.addLayer({id:"line",type:"line",source:"clio",filter:filt(+slider.value),paint:{"line-color":"#333","line-width":.6,"line-opacity":.6}});
- const upd=()=>{const y=+slider.value;yl.textContent=fmt(y);map.setFilter("fill",filt(y));map.setFilter("line",filt(y));
+ let upd=()=>{const y=+slider.value;yl.textContent=fmt(y);map.setFilter("fill",filt(y));map.setFilter("line",filt(y));
   const n=new Set(map.querySourceFeatures("clio",{filter:filt(y)}).map(f=>f.properties.n)).size;info.textContent=n+(n>1?" entités":" entité")+" · une couleur = une entité politique (sans autre signification)";};
+ const top=document.getElementById("top");let feats=null;
+ fetch("data/cliopatria_simplifie.geojson").then(r=>r.json()).then(d=>{feats=d.features.map(f=>f.properties);GMAX=Math.max(...feats.filter(p=>p.ty==="POLITY").map(p=>p.a));upd()});
+ const nf=a=>a>=1e6?(a/1e6).toFixed(1).replace(".",",")+" M km²":Math.round(a/1e3)+" k km²";
+ let GMAX=1;const rowsEl=document.createElement("div");rowsEl.id="rows";const ttl=document.createElement("h4");const note=document.createElement("small");
+ note.innerHTML="Barres : superficie du polygone Cliopatria (mesurée, projection équivalente), rapportée au plus grand polygone de toute la base. Pas de population dans ces données. Les polygones sont des reconstitutions : ordres de grandeur seulement, et les entités entre parenthèses dans les données sont des ensembles (ex. empire avec ses colonies) qui recoupent leurs propres composantes.";
+ top.append(ttl,rowsEl,note);const els=new Map();
+ function updTop(y){if(!feats)return;const m=new Map();
+  for(const p of feats){if(p.ty!=="POLITY"||p.f>y||p.t<y)continue;const o=m.get(p.n);if(!o||p.a>o.a)m.set(p.n,p)}
+  const l=[...m.values()].sort((a,b)=>b.a-a.a).slice(0,10);ttl.textContent="Top 10 en superficie, "+fmt(y);
+  const keep=new Set(l.map(p=>p.n));
+  for(const [n,e] of els)if(!keep.has(n)){e.style.opacity=0;els.delete(n);setTimeout(()=>e.remove(),400)}
+  l.forEach((p,i)=>{let e=els.get(p.n);if(!e){e=document.createElement("div");e.className="r";e.innerHTML='<div class="n"><span class="v"></span><span class="t"></span></div><div class="g"><b></b></div>';e.style.transform=`translateY(${i*29}px)`;e.style.opacity=0;rowsEl.append(e);els.set(p.n,e);void e.offsetWidth;e.style.opacity=1}
+   e.querySelector(".t").textContent=(i+1)+". "+p.n.replace(/^\((.*)\)$/,"$1");e.querySelector(".v").textContent=nf(p.a);const b=e.querySelector("b");b.style.width=Math.max(1,p.a/GMAX*100)+"%";b.style.background=p.c;e.style.transform=`translateY(${i*29}px)`})}
+ const upd0=upd;upd=()=>{upd0();updTop(+slider.value)};
  slider.addEventListener("input",upd);upd();
  map.once("idle",()=>{document.title+=" | chargé en "+Math.round(performance.now()-t0)+" ms";window.__loaded=Math.round(performance.now()-t0);upd();});
  const pop=new maplibregl.Popup({closeButton:false});
