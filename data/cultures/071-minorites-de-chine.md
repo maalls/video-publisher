@@ -2,7 +2,7 @@
 
 - Région : Asie de l'Est
 - Nombre de contes visés : 5
-- Contes listés avec source : 0
+- Contes listés avec source : 4
 - Sensibilité / droits : moyenne
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://digitalcommons.wku.edu/dlps_book/16
@@ -11,5 +11,9 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 
 | n | titre | source | origine du titre |
 |---|---|---|---|
+| 1 | Creating and Forming the Sky and the Earth | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |
+| 2 | The First People Who Raised Cats | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |
+| 3 | A Miao Changed into an Amitabha | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |
+| 4 | Du Sam and Du Ni (conte zhuang) | https://www.zhuangwen.org/en/yunnan-zhuang-folktale-collection | titre relevé sur la page du Yunnan Zhuang Folktale Collection (2016) ; droits à vérifier |
 
-Reste à relever : 5 titres (source à ouvrir ou autre recueil à identifier).
+Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).

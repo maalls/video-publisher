@@ -2,7 +2,7 @@
 
 - Région : Russie
 - Nombre de contes visés : 1
-- Contes listés avec source : 0
+- Contes listés avec source : 1
 - Sensibilité / droits : faible
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://kitaptar.bashkort.org/files/oural_batyr._po%C3%A9sie_%C3%A9pique_bachkir.pdf
@@ -11,5 +11,4 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 
 | n | titre | source | origine du titre |
 |---|---|---|---|
-
-Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).
+| 1 | Ural-Batyr | http://suyun.info/index.php?LANG=ENG&p=uralbatir | épopée bachkir, page ouverte en ligne |

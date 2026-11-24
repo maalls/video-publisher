@@ -2,7 +2,7 @@
 
 Un fichier par culture. Chaque titre est rattaché à une source citée, aucun titre n'est inventé. La liste d'ensemble est dans [../cultures.csv](../cultures.csv) (colonnes fichier et lien_github).
 
-Total de titres déjà listés avec source : 844 (cible : 1100).
+Total de titres déjà listés avec source : 888 (cible : 1100).
 
 | culture | région | visés | listés | fichier |
 |---|---|---|---|---|
@@ -14,9 +14,9 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | Islande | Atlantique Nord | 10 | 10 | [006-islande.md](006-islande.md) |
 | Finlande (Kalevala) | Europe du Nord | 14 | 14 | [007-finlande.md](007-finlande.md) |
 | Suède | Scandinavie | 10 | 10 | [008-suede.md](008-suede.md) |
-| Sames (Laponie) | Europe du Nord | 4 | 0 | [009-sames.md](009-sames.md) |
+| Sames (Laponie) | Europe du Nord | 4 | 2 | [009-sames.md](009-sames.md) |
 | Lettonie | Baltique | 3 | 1 | [010-lettonie.md](010-lettonie.md) |
-| Lituanie | Baltique | 5 | 0 | [011-lituanie.md](011-lituanie.md) |
+| Lituanie | Baltique | 5 | 5 | [011-lituanie.md](011-lituanie.md) |
 | Irlande | Îles britanniques | 26 | 26 | [012-irlande.md](012-irlande.md) |
 | Écosse (Highlands) | Îles britanniques | 18 | 18 | [013-ecosse.md](013-ecosse.md) |
 | Pays de Galles | Îles britanniques | 12 | 11 | [014-pays-de-galles.md](014-pays-de-galles.md) |
@@ -26,9 +26,9 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | Pays-Bas et Flandre | Europe de l'Ouest | 5 | 5 | [018-pays-bas-et-flandre.md](018-pays-bas-et-flandre.md) |
 | Suisse | Europe centrale | 4 | 4 | [019-suisse.md](019-suisse.md) |
 | Italie | Europe du Sud | 24 | 24 | [020-italie.md](020-italie.md) |
-| Sicile et Sardaigne | Europe du Sud | 6 | 0 | [021-sicile-et-sardaigne.md](021-sicile-et-sardaigne.md) |
+| Sicile et Sardaigne | Europe du Sud | 6 | 5 | [021-sicile-et-sardaigne.md](021-sicile-et-sardaigne.md) |
 | Malte | Méditerranée | 2 | 1 | [022-malte.md](022-malte.md) |
-| Espagne | Europe du Sud | 18 | 0 | [023-espagne.md](023-espagne.md) |
+| Espagne | Europe du Sud | 18 | 6 | [023-espagne.md](023-espagne.md) |
 | Pays basque | Europe du Sud | 5 | 5 | [024-pays-basque.md](024-pays-basque.md) |
 | Catalogne | Europe du Sud | 4 | 4 | [025-catalogne.md](025-catalogne.md) |
 | Portugal | Europe du Sud | 6 | 6 | [026-portugal.md](026-portugal.md) |
@@ -41,22 +41,22 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | République tchèque et Slovaquie | Europe centrale | 15 | 15 | [033-republique-tcheque-et-slovaquie.md](033-republique-tcheque-et-slovaquie.md) |
 | Russie | Europe de l'Est | 28 | 28 | [034-russie.md](034-russie.md) |
 | Ukraine | Europe de l'Est | 10 | 10 | [035-ukraine.md](035-ukraine.md) |
-| Biélorussie | Europe de l'Est | 3 | 0 | [036-bielorussie.md](036-bielorussie.md) |
+| Biélorussie | Europe de l'Est | 3 | 3 | [036-bielorussie.md](036-bielorussie.md) |
 | Croatie | Balkans | 6 | 6 | [037-croatie.md](037-croatie.md) |
 | Serbie | Balkans | 6 | 6 | [038-serbie.md](038-serbie.md) |
 | Bosnie et Macédoine | Balkans | 4 | 3 | [039-bosnie-et-macedoine.md](039-bosnie-et-macedoine.md) |
-| Roms | Europe / diaspora | 5 | 0 | [040-roms.md](040-roms.md) |
+| Roms | Europe / diaspora | 5 | 5 | [040-roms.md](040-roms.md) |
 | Juifs ashkénazes et séfarades | Diaspora | 8 | 8 | [041-juifs-ashkenazes-et-sefarades.md](041-juifs-ashkenazes-et-sefarades.md) |
 | Turquie | Anatolie | 17 | 17 | [042-turquie.md](042-turquie.md) |
 | Géorgie | Caucase | 6 | 6 | [043-georgie.md](043-georgie.md) |
 | Arménie | Caucase | 6 | 3 | [044-armenie.md](044-armenie.md) |
 | Azerbaïdjan | Caucase | 4 | 1 | [045-azerbaidjan.md](045-azerbaidjan.md) |
-| Ossétie et peuples du Caucase | Caucase | 4 | 0 | [046-ossetie-et-peuples-du-caucase.md](046-ossetie-et-peuples-du-caucase.md) |
+| Ossétie et peuples du Caucase | Caucase | 4 | 1 | [046-ossetie-et-peuples-du-caucase.md](046-ossetie-et-peuples-du-caucase.md) |
 | Kurdes | Moyen-Orient | 4 | 1 | [047-kurdes.md](047-kurdes.md) |
 | Perse (Iran) | Moyen-Orient | 19 | 13 | [048-perse.md](048-perse.md) |
 | Mille et une nuits (monde arabe) | Moyen-Orient | 32 | 31 | [049-mille-et-une-nuits.md](049-mille-et-une-nuits.md) |
-| Levant (Syrie, Liban, Palestine) | Moyen-Orient | 6 | 0 | [050-levant.md](050-levant.md) |
-| Irak et Mésopotamie | Moyen-Orient | 4 | 0 | [051-irak-et-mesopotamie.md](051-irak-et-mesopotamie.md) |
+| Levant (Syrie, Liban, Palestine) | Moyen-Orient | 6 | 3 | [050-levant.md](050-levant.md) |
+| Irak et Mésopotamie | Moyen-Orient | 4 | 1 | [051-irak-et-mesopotamie.md](051-irak-et-mesopotamie.md) |
 | Arabie et Yémen | Moyen-Orient | 3 | 2 | [052-arabie-et-yemen.md](052-arabie-et-yemen.md) |
 | Égypte ancienne et populaire | Afrique du Nord | 12 | 12 | [053-egypte-ancienne-et-populaire.md](053-egypte-ancienne-et-populaire.md) |
 | Berbères (Maghreb) | Afrique du Nord | 12 | 12 | [054-berberes.md](054-berberes.md) |
@@ -64,7 +64,7 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | Ouzbékistan et Tadjikistan | Asie centrale | 4 | 1 | [056-ouzbekistan-et-tadjikistan.md](056-ouzbekistan-et-tadjikistan.md) |
 | Kazakhstan et Kirghizistan | Asie centrale | 5 | 1 | [057-kazakhstan-et-kirghizistan.md](057-kazakhstan-et-kirghizistan.md) |
 | Turkmènes | Asie centrale | 1 | 1 | [058-turkmenes.md](058-turkmenes.md) |
-| Tatars et Bachkirs | Russie | 1 | 0 | [059-tatars-et-bachkirs.md](059-tatars-et-bachkirs.md) |
+| Tatars et Bachkirs | Russie | 1 | 1 | [059-tatars-et-bachkirs.md](059-tatars-et-bachkirs.md) |
 | Mongolie | Asie centrale | 12 | 12 | [060-mongolie.md](060-mongolie.md) |
 | Ainous | Japon / Sakhaline | 3 | 3 | [061-ainous.md](061-ainous.md) |
 | Inde (Panchatantra) | Asie du Sud | 34 | 33 | [062-inde.md](062-inde.md) |
@@ -76,7 +76,7 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | Sri Lanka | Asie du Sud | 4 | 4 | [068-sri-lanka.md](068-sri-lanka.md) |
 | Tibet | Asie du Sud | 5 | 5 | [069-tibet.md](069-tibet.md) |
 | Chine (Han) | Asie de l'Est | 28 | 28 | [070-chine.md](070-chine.md) |
-| Minorités de Chine (Miao, Yi, Zhuang...) | Asie de l'Est | 5 | 0 | [071-minorites-de-chine.md](071-minorites-de-chine.md) |
+| Minorités de Chine (Miao, Yi, Zhuang...) | Asie de l'Est | 5 | 4 | [071-minorites-de-chine.md](071-minorites-de-chine.md) |
 | Taïwan (peuples autochtones) | Asie de l'Est | 2 | 1 | [072-taiwan.md](072-taiwan.md) |
 | Japon | Asie de l'Est | 28 | 22 | [073-japon.md](073-japon.md) |
 | Okinawa et Ryukyu | Asie de l'Est | 2 | 1 | [074-okinawa-et-ryukyu.md](074-okinawa-et-ryukyu.md) |
@@ -86,16 +86,16 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | Laos | Asie du Sud-Est | 3 | 3 | [078-laos.md](078-laos.md) |
 | Cambodge | Asie du Sud-Est | 5 | 5 | [079-cambodge.md](079-cambodge.md) |
 | Birmanie (Myanmar) | Asie du Sud-Est | 5 | 5 | [080-birmanie.md](080-birmanie.md) |
-| Hmong | Asie du Sud-Est | 3 | 0 | [081-hmong.md](081-hmong.md) |
+| Hmong | Asie du Sud-Est | 3 | 1 | [081-hmong.md](081-hmong.md) |
 | Malaisie | Asie du Sud-Est | 5 | 2 | [082-malaisie.md](082-malaisie.md) |
-| Indonésie (Java, Bali) | Asie du Sud-Est | 10 | 0 | [083-indonesie.md](083-indonesie.md) |
+| Indonésie (Java, Bali) | Asie du Sud-Est | 10 | 1 | [083-indonesie.md](083-indonesie.md) |
 | Philippines | Asie du Sud-Est | 10 | 10 | [084-philippines.md](084-philippines.md) |
 | Maori (Aotearoa) | Océanie | 8 | 8 | [085-maori.md](085-maori.md) |
 | Hawaii | Océanie | 5 | 5 | [086-hawaii.md](086-hawaii.md) |
 | Samoa, Tonga, Fidji | Océanie | 5 | 5 | [087-samoa-tonga-fidji.md](087-samoa-tonga-fidji.md) |
 | Mélanésie et Papouasie | Océanie | 5 | 5 | [088-melanesie-et-papouasie.md](088-melanesie-et-papouasie.md) |
 | Aborigènes d'Australie | Océanie | 8 | 8 | [089-aborigenes-d-australie.md](089-aborigenes-d-australie.md) |
-| Afrique de l'Ouest (Akan) | Afrique | 15 | 0 | [090-afrique-de-l-ouest.md](090-afrique-de-l-ouest.md) |
+| Afrique de l'Ouest (Akan) | Afrique | 15 | 3 | [090-afrique-de-l-ouest.md](090-afrique-de-l-ouest.md) |
 | Yoruba | Afrique | 8 | 8 | [091-yoruba.md](091-yoruba.md) |
 | Igbo | Afrique | 5 | 2 | [092-igbo.md](092-igbo.md) |
 | Haoussa | Afrique | 5 | 5 | [093-haoussa.md](093-haoussa.md) |
@@ -103,7 +103,7 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | Wolof, Peul et Sénégal | Afrique de l'Ouest | 8 | 8 | [095-wolof-peul-et-senegal.md](095-wolof-peul-et-senegal.md) |
 | Dogon et Bambara | Afrique de l'Ouest | 1 | 1 | [096-dogon-et-bambara.md](096-dogon-et-bambara.md) |
 | Afrique de l'Est (swahili) | Afrique | 12 | 12 | [097-afrique-de-l-est.md](097-afrique-de-l-est.md) |
-| Éthiopie | Afrique de l'Est | 5 | 0 | [098-ethiopie.md](098-ethiopie.md) |
+| Éthiopie | Afrique de l'Est | 5 | 1 | [098-ethiopie.md](098-ethiopie.md) |
 | Somalie | Afrique de l'Est | 2 | 1 | [099-somalie.md](099-somalie.md) |
 | Zoulous et Xhosas | Afrique australe | 12 | 12 | [100-zoulous-et-xhosas.md](100-zoulous-et-xhosas.md) |
 | San | Afrique australe | 4 | 4 | [101-san.md](101-san.md) |
@@ -111,9 +111,9 @@ Total de titres déjà listés avec source : 844 (cible : 1100).
 | Madagascar | Océan Indien | 8 | 1 | [103-madagascar.md](103-madagascar.md) |
 | Maurice et Réunion | Océan Indien | 3 | 3 | [104-maurice-et-reunion.md](104-maurice-et-reunion.md) |
 | Aztèques et Nahuas | Mésoamérique | 8 | 1 | [105-azteques-et-nahuas.md](105-azteques-et-nahuas.md) |
-| Mayas | Mésoamérique | 8 | 0 | [106-mayas.md](106-mayas.md) |
+| Mayas | Mésoamérique | 8 | 1 | [106-mayas.md](106-mayas.md) |
 | Incas et Quechua | Andes | 6 | 1 | [107-incas-et-quechua.md](107-incas-et-quechua.md) |
-| Aymara | Andes | 2 | 0 | [108-aymara.md](108-aymara.md) |
+| Aymara | Andes | 2 | 1 | [108-aymara.md](108-aymara.md) |
 | Mapuche | Amérique du Sud | 2 | 1 | [109-mapuche.md](109-mapuche.md) |
 | Guarani | Amérique du Sud | 3 | 1 | [110-guarani.md](110-guarani.md) |
 | Amazonie et Brésil autochtone | Amérique du Sud | 8 | 1 | [111-amazonie-et-bresil-autochtone.md](111-amazonie-et-bresil-autochtone.md) |

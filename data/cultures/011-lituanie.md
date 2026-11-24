@@ -2,7 +2,7 @@
 
 - Région : Baltique
 - Nombre de contes visés : 5
-- Contes listés avec source : 0
+- Contes listés avec source : 5
 - Sensibilité / droits : faible
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/jonas-basanavicius-lietuviskos-pasakos-yvairios-dalis-i
@@ -11,5 +11,8 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 
 | n | titre | source | origine du titre |
 |---|---|---|---|
-
-Reste à relever : 5 titres (source à ouvrir ou autre recueil à identifier).
+| 1 | Apie bernaitį be laimės | https://lt.wikisource.org/wiki/Kategorija:Lietuvi%C5%B3_liaudies_pasakos | titre relevé dans la catégorie « Lietuvių liaudies pasakos » de lt.wikisource |
+| 2 | Apie kytriąją mergą | https://lt.wikisource.org/wiki/Kategorija:Lietuvi%C5%B3_liaudies_pasakos | titre relevé dans la catégorie « Lietuvių liaudies pasakos » de lt.wikisource |
+| 3 | Dvylika brolių, juodvarniais lakstančių | https://lt.wikisource.org/wiki/Kategorija:Lietuvi%C5%B3_liaudies_pasakos | titre relevé dans la catégorie « Lietuvių liaudies pasakos » de lt.wikisource |
+| 4 | Kodėl kiškio lūpos perplėštos | https://lt.wikisource.org/wiki/Kategorija:Lietuvi%C5%B3_liaudies_pasakos | titre relevé dans la catégorie « Lietuvių liaudies pasakos » de lt.wikisource |
+| 5 | Gaidys, šuo ir lapė | https://lt.wikisource.org/wiki/Kategorija:Lietuvi%C5%B3_liaudies_pasakos | titre relevé dans la catégorie « Lietuvių liaudies pasakos » de lt.wikisource |
