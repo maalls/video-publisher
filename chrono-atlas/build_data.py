@@ -35,6 +35,7 @@ def ring(r,eps):
     if (max(xs)-min(xs))*(max(ys)-min(ys))<eps*eps*4: return None
     return [[round(x,2),round(y,2)] for x,y in r]
 d=json.load(open("cliopatria_polities_only_v021.geojson"))
+LIN=json.load(open("data/lineages.json"))["name_to_lineage"] if os.path.exists("data/lineages.json") else {}
 out=[]
 for f in d["features"]:
     g=f["geometry"]; polys=g["coordinates"] if g["type"]=="MultiPolygon" else [g["coordinates"]]
@@ -44,6 +45,6 @@ for f in d["features"]:
         if o: np.append([o])  # outer ring only (holes dropped)
     if not np: continue
     p=f["properties"]
-    out.append({"type":"Feature","properties":{"n":p["Name"],"f":p["FromYear"],"t":p["ToYear"],"ty":p.get("Type"),"a":round(p.get("Area") or 0),"m":p.get("MemberOf") or "","k":p.get("Components") or "","q":p.get("Wikidata") or "","c":("hsl(%d,55%%,52%%)"%(zlib.crc32(p["Name"].encode())%360)) if p.get("Type")!="RELATION" else "#999"},"geometry":{"type":"MultiPolygon","coordinates":np}})
+    out.append({"type":"Feature","properties":{"n":p["Name"],"f":p["FromYear"],"t":p["ToYear"],"ty":p.get("Type"),"a":round(p.get("Area") or 0),"m":p.get("MemberOf") or "","k":p.get("Components") or "","q":p.get("Wikidata") or "","c":("hsl(%d,55%%,52%%)"%(zlib.crc32(LIN.get(p["Name"],p["Name"]).encode())%360)) if p.get("Type")!="RELATION" else "#999"},"geometry":{"type":"MultiPolygon","coordinates":np}})
 json.dump({"type":"FeatureCollection","features":out},open("data/cliopatria_simplifie.geojson","w"),separators=(",",":"),ensure_ascii=False)
 print(len(out))

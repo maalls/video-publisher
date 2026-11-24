@@ -1,4 +1,4 @@
-# Chrono Atlas (prototype)
+# Carte des civilisations (prototype)
 
 Page statique : MapLibre GL JS + polygones Cliopatria + curseur de temps (-5000 à 2024).
 Prototype de rendu, non publié. Les 152 cultures ne sont pas encore ajoutées.
@@ -12,3 +12,5 @@ Données et licences :
 Générer les données (173 Mo téléchargés, sortie ~17 Mo) :  `cd carte && python3 build_data.py 0.2`
 Servir en local : `cd carte && python3 -m http.server 8765` puis http://localhost:8765/
 Aucune donnée n'est chargée depuis un serveur tiers.
+
+Lignées (prototype) : `lineages.py` regroupe les entités qui se succèdent sur le même territoire (recouvrement des emprises >= 60 %) plus un regroupement éditorial (Égypte antique), écrit `data/lineages.json`. `recolor.py` applique une couleur par lignée. Limites et choix éditoriaux : voir `data/lineages.json` (champ `editorial`).

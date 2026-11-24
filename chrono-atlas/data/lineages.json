@@ -1,0 +1,3465 @@
+{
+"threshold_iou": 0.6,
+"lineages": {
+"Early Dynastic Period of Egypt": {
+"members": [
+"Early Dynastic Period of Egypt",
+"Old Kingdom of Egypt",
+"Lower Egypt",
+"Upper Egypt",
+"Middle Kingdom of Egypt",
+"Fifteenth Dynasty of Egypt",
+"Seventeenth Dynasty of Egypt",
+"Sixteenth Dynasty of Egypt",
+"New Kingdom of Egypt",
+"Twenty-third Dynasty of Egypt",
+"Twenty-second Dynasty of Egypt",
+"Assyrian Egypt",
+"Twenty-sixth Dynasty of Egypt",
+"Thirtieth Dynasty of Egypt"
+],
+"editorial": [
+"Early Dynastic Period of Egypt",
+"Old Kingdom of Egypt",
+"Lower Egypt",
+"Upper Egypt",
+"Middle Kingdom of Egypt",
+"Fifteenth Dynasty of Egypt",
+"Seventeenth Dynasty of Egypt",
+"Sixteenth Dynasty of Egypt",
+"New Kingdom of Egypt",
+"Twenty-third Dynasty of Egypt",
+"Twenty-second Dynasty of Egypt",
+"Assyrian Egypt",
+"Twenty-sixth Dynasty of Egypt",
+"Thirtieth Dynasty of Egypt"
+]
+},
+"Mycenaean Greece": {
+"members": [
+"Mycenaean Greece",
+"Greek Dark Ages",
+"Greek City-States"
+],
+"editorial": []
+},
+"Neo-Assyrian Empire": {
+"members": [
+"Neo-Assyrian Empire",
+"Neo-Babylonian Empire"
+],
+"editorial": []
+},
+"Qin": {
+"members": [
+"Qin",
+"Han",
+"Qin Dynasty",
+"Zhai",
+"Han Dynasty"
+],
+"editorial": []
+},
+"Later Zhou": {
+"members": [
+"Later Zhou",
+"Later Jin",
+"Later Liang Dynasty",
+"Later Han",
+"Northern Song",
+"Southern Song"
+],
+"editorial": []
+},
+"Macedonian Empire": {
+"members": [
+"Macedonian Empire",
+"Antigonid Dynasty",
+"Antigonid Macedonia"
+],
+"editorial": []
+},
+"Median Kingdom": {
+"members": [
+"Median Kingdom",
+"Achaemenid Empire"
+],
+"editorial": []
+},
+"Janapada of Vajji": {
+"members": [
+"Janapada of Vajji",
+"Mahajanapadas"
+],
+"editorial": []
+},
+"Roman Republic": {
+"members": [
+"Roman Republic",
+"Roman Empire"
+],
+"editorial": []
+},
+"Odrysian Kingdom": {
+"members": [
+"Odrysian Kingdom",
+"Kingdom of Lysimachus"
+],
+"editorial": []
+},
+"Yuezhi": {
+"members": [
+"Yuezhi",
+"Kushan Empire",
+"Eastern Kushans"
+],
+"editorial": []
+},
+"Nanda Empire": {
+"members": [
+"Nanda Empire",
+"Maurya Empire"
+],
+"editorial": []
+},
+"Perdiccas": {
+"members": [
+"Perdiccas",
+"Seleucid Empire"
+],
+"editorial": []
+},
+"Greco-Bactrian Kingdom": {
+"members": [
+"Greco-Bactrian Kingdom",
+"Indo-Greeks"
+],
+"editorial": []
+},
+"Satavahana Dynasty": {
+"members": [
+"Satavahana Dynasty",
+"Vakataka Kingdom"
+],
+"editorial": []
+},
+"Shunga Empire": {
+"members": [
+"Shunga Empire",
+"Kanva Dynasty"
+],
+"editorial": []
+},
+"Jinhan": {
+"members": [
+"Jinhan",
+"Silla"
+],
+"editorial": []
+},
+"Mahan": {
+"members": [
+"Mahan",
+"Baekje"
+],
+"editorial": []
+},
+"Lazica": {
+"members": [
+"Lazica",
+"Georgia"
+],
+"editorial": []
+},
+"Huns": {
+"members": [
+"Huns",
+"Hunnic Empire"
+],
+"editorial": []
+},
+"Cao Cao": {
+"members": [
+"Cao Cao",
+"Cao Wei",
+"Western Jin",
+"Liu Song Dynasty",
+"Southern Qi",
+"Liang Dynasty"
+],
+"editorial": []
+},
+"Western Kushans": {
+"members": [
+"Western Kushans",
+"Indo-Sasanian Empire"
+],
+"editorial": []
+},
+"Former Zhao": {
+"members": [
+"Former Zhao",
+"Later Zhao"
+],
+"editorial": []
+},
+"Former Liang": {
+"members": [
+"Former Liang",
+"Later Liang"
+],
+"editorial": []
+},
+"Makuria": {
+"members": [
+"Makuria",
+"Makuria Kingdom"
+],
+"editorial": []
+},
+"Later Yan": {
+"members": [
+"Later Yan",
+"Northern Yan"
+],
+"editorial": []
+},
+"Xionites": {
+"members": [
+"Xionites",
+"White Huns"
+],
+"editorial": []
+},
+"Eastern Roman Empire": {
+"members": [
+"Eastern Roman Empire",
+"Byzantine Empire"
+],
+"editorial": []
+},
+"Visigoths": {
+"members": [
+"Visigoths",
+"Visigothic Kingdom",
+"Kingdom of Asturias",
+"Kingdom of Castile"
+],
+"editorial": []
+},
+"Rouran Khaganate": {
+"members": [
+"Rouran Khaganate",
+"Göktürk Khaganate",
+"Eastern Göktürks"
+],
+"editorial": []
+},
+"Ostrogoths": {
+"members": [
+"Ostrogoths",
+"Ostrogothic Kingdom"
+],
+"editorial": []
+},
+"Thuringian states": {
+"members": [
+"Thuringian states",
+"Kingdom of Thuringia",
+"Duchy of Thuringia"
+],
+"editorial": []
+},
+"Eastern Wei": {
+"members": [
+"Eastern Wei",
+"Northern Qi"
+],
+"editorial": []
+},
+"Western Wei": {
+"members": [
+"Western Wei",
+"Northern Zhou",
+"Sui Dynasty",
+"Tang Dynasty"
+],
+"editorial": []
+},
+"Kingdom of Wessex": {
+"members": [
+"Kingdom of Wessex",
+"Kingdom of England",
+"Kingdom of Great Britain"
+],
+"editorial": []
+},
+"Asuka Japan": {
+"members": [
+"Asuka Japan",
+"Nara Japan",
+"Heian Japan",
+"Kamakura Shogunate",
+"Kenmu Restoration",
+"Ashikaga Shogunate"
+],
+"editorial": []
+},
+"Dál Riata": {
+"members": [
+"Dál Riata",
+"Kingdom of Alba",
+"Kingdom of Scotland"
+],
+"editorial": []
+},
+"Breton Kingdoms": {
+"members": [
+"Breton Kingdoms",
+"Kingdom of Brittany",
+"Duchy of Brittany"
+],
+"editorial": []
+},
+"Magna Frisia": {
+"members": [
+"Magna Frisia",
+"Frisians"
+],
+"editorial": []
+},
+"Kashmir": {
+"members": [
+"Kashmir",
+"Kashmiri Sultanate"
+],
+"editorial": []
+},
+"Umayyad Caliphate": {
+"members": [
+"Umayyad Caliphate",
+"Emirate of Córdoba",
+"Caliphate of Córdoba"
+],
+"editorial": []
+},
+"Srivijaya": {
+"members": [
+"Srivijaya",
+"Majapahit"
+],
+"editorial": []
+},
+"Türgesh": {
+"members": [
+"Türgesh",
+"Uyghur Khaganate"
+],
+"editorial": []
+},
+"Merovingian Empire": {
+"members": [
+"Merovingian Empire",
+"Carolingian Empire"
+],
+"editorial": []
+},
+"Mataram Kingdom": {
+"members": [
+"Mataram Kingdom",
+"Kahuripan"
+],
+"editorial": []
+},
+"Nanzhao": {
+"members": [
+"Nanzhao",
+"Kingdom of Dali"
+],
+"editorial": []
+},
+"Kharijites": {
+"members": [
+"Kharijites",
+"Aghlabid Dynasty",
+"Fatimid Caliphate"
+],
+"editorial": []
+},
+"Ghana Empire": {
+"members": [
+"Ghana Empire",
+"Sosso Empire"
+],
+"editorial": []
+},
+"Kingdom of Pamplona": {
+"members": [
+"Kingdom of Pamplona",
+"County of Ribagorza"
+],
+"editorial": []
+},
+"Kingdom of Sobrarbe": {
+"members": [
+"Kingdom of Sobrarbe",
+"County of Aragon"
+],
+"editorial": []
+},
+"Kara-Khanids": {
+"members": [
+"Kara-Khanids",
+"Eastern Kara-Khanids"
+],
+"editorial": []
+},
+"Zaydi Alid dynasties": {
+"members": [
+"Zaydi Alid dynasties",
+"Ziyarid dynasty"
+],
+"editorial": []
+},
+"County of Urgell": {
+"members": [
+"County of Urgell",
+"Principality of Andorra"
+],
+"editorial": []
+},
+"Rus'": {
+"members": [
+"Rus'",
+"Kievan Rus'"
+],
+"editorial": []
+},
+"Upper Burgundy": {
+"members": [
+"Upper Burgundy",
+"Kingdom of France",
+"French First Republic",
+"French Directory",
+"French Consulate",
+"First French Empire",
+"Bourbon Kingdom of France",
+"French Second Republic",
+"Second French Empire",
+"French Third Republic",
+"French Fourth Republic"
+],
+"editorial": []
+},
+"Principality of Hungary": {
+"members": [
+"Principality of Hungary",
+"Kingdom of Hungary"
+],
+"editorial": []
+},
+"Former Shu": {
+"members": [
+"Former Shu",
+"Later Shu"
+],
+"editorial": []
+},
+"Kingdom of Germany": {
+"members": [
+"Kingdom of Germany",
+"Holy Roman Empire"
+],
+"editorial": []
+},
+"Taebong": {
+"members": [
+"Taebong",
+"Goryeo",
+"Joseon",
+"Korean Empire"
+],
+"editorial": []
+},
+"Chimor": {
+"members": [
+"Chimor",
+"Chimu Empire"
+],
+"editorial": []
+},
+"Hamdanid Emirates": {
+"members": [
+"Hamdanid Emirates",
+"Uyunid Emirate",
+"Bahrani Dynasty"
+],
+"editorial": []
+},
+"Ngô Dynasty": {
+"members": [
+"Ngô Dynasty",
+"Lê Dynasty",
+"Nguyễn lords",
+"Nguyễn dynasty"
+],
+"editorial": []
+},
+"Utpala Dynasty": {
+"members": [
+"Utpala Dynasty",
+"Lohara Dynasty"
+],
+"editorial": []
+},
+"Western Chalukya Empire": {
+"members": [
+"Western Chalukya Empire",
+"Yadava Dynasty"
+],
+"editorial": []
+},
+"County of Anjou": {
+"members": [
+"County of Anjou",
+"House of Valois-Anjou"
+],
+"editorial": []
+},
+"North Sea Empire": {
+"members": [
+"North Sea Empire",
+"Norway-Denmark"
+],
+"editorial": []
+},
+"Norman Italy": {
+"members": [
+"Norman Italy",
+"Kingdom of Sicily"
+],
+"editorial": []
+},
+"Kediri Kingdom": {
+"members": [
+"Kediri Kingdom",
+"Singhasari"
+],
+"editorial": []
+},
+"Zirid dynasty": {
+"members": [
+"Zirid dynasty",
+"Kingdom of Africa"
+],
+"editorial": []
+},
+"Great Principality of Duklja": {
+"members": [
+"Great Principality of Duklja",
+"Kingdom of Duklja",
+"Grand Principality of Serbia"
+],
+"editorial": []
+},
+"Najahid Dynasty": {
+"members": [
+"Najahid Dynasty",
+"Nabhani Dynasty"
+],
+"editorial": []
+},
+"Kingdom of the Isles": {
+"members": [
+"Kingdom of the Isles",
+"Kingdom of Mann"
+],
+"editorial": []
+},
+"County of Portugal": {
+"members": [
+"County of Portugal",
+"Kingdom of Portugal"
+],
+"editorial": []
+},
+"Banate of Bosnia": {
+"members": [
+"Banate of Bosnia",
+"Kingdom of Bosnia"
+],
+"editorial": []
+},
+"Duchy of Athens": {
+"members": [
+"Duchy of Athens",
+"Catalan Company"
+],
+"editorial": []
+},
+"Mamluk Dynasty": {
+"members": [
+"Mamluk Dynasty",
+"Khalji Dynasty",
+"Tughlaq Dynasty",
+"Sayyid Dynasty"
+],
+"editorial": []
+},
+"Grand Duchy of Lithuania": {
+"members": [
+"Grand Duchy of Lithuania",
+"House of Jagiellon",
+"Polish-Lithuanian Commonwealth"
+],
+"editorial": []
+},
+"Teutonic Order": {
+"members": [
+"Teutonic Order",
+"Duchy of Prussia"
+],
+"editorial": []
+},
+"Rasulid Dynasty": {
+"members": [
+"Rasulid Dynasty",
+"Tahirid Sultanate"
+],
+"editorial": []
+},
+"Ceylon": {
+"members": [
+"Ceylon",
+"Portuguese Ceylon",
+"Dutch Ceylon",
+"British Ceylon"
+],
+"editorial": []
+},
+"Marinid Sultanate": {
+"members": [
+"Marinid Sultanate",
+"Wattasid dynasty",
+"Saadi Sultanate"
+],
+"editorial": []
+},
+"House of Luxembourg": {
+"members": [
+"House of Luxembourg",
+"Duchy of Luxembourg"
+],
+"editorial": []
+},
+"Margraviate of Brandenburg": {
+"members": [
+"Margraviate of Brandenburg",
+"Electorate of Brandenburg"
+],
+"editorial": []
+},
+"County of Savoy": {
+"members": [
+"County of Savoy",
+"House of Savoy",
+"Kingdom of Sardinia"
+],
+"editorial": []
+},
+"Ethiopian Empire": {
+"members": [
+"Ethiopian Empire",
+"Ethiopia"
+],
+"editorial": []
+},
+"Ifat Sultanate": {
+"members": [
+"Ifat Sultanate",
+"Adal Sultanate"
+],
+"editorial": []
+},
+"Cuzco": {
+"members": [
+"Cuzco",
+"Inca Empire"
+],
+"editorial": []
+},
+"Grand Principality of Moscow": {
+"members": [
+"Grand Principality of Moscow",
+"Tsardom of Russia",
+"Russian Empire",
+"Russian Republic",
+"Republics of the Soviet Union",
+"Union of Soviet Socialist Republics",
+"Russian Federation"
+],
+"editorial": []
+},
+"Myinsaing Kingdom": {
+"members": [
+"Myinsaing Kingdom",
+"Kingdom of Pinya"
+],
+"editorial": []
+},
+"Lan Na Kingdom": {
+"members": [
+"Lan Na Kingdom",
+"Lan Na",
+"Chiangmai"
+],
+"editorial": []
+},
+"Chagatai Khanate": {
+"members": [
+"Chagatai Khanate",
+"East Turkestan"
+],
+"editorial": []
+},
+"Ottoman Empire": {
+"members": [
+"Ottoman Empire",
+"Republic of Turkey"
+],
+"editorial": []
+},
+"Sultanate of Bengal": {
+"members": [
+"Sultanate of Bengal",
+"Hussain Shahi Dynasty"
+],
+"editorial": []
+},
+"Jalayirid Sultanate": {
+"members": [
+"Jalayirid Sultanate",
+"Hashemite Arab Federation"
+],
+"editorial": []
+},
+"Ayutthaya Kingdom": {
+"members": [
+"Ayutthaya Kingdom",
+"Thonburi Kingdom",
+"Rattanakosin Kingdom",
+"Kingdom of Thailand"
+],
+"editorial": []
+},
+"Electorate of Saxony": {
+"members": [
+"Electorate of Saxony",
+"Kingdom of Saxony"
+],
+"editorial": []
+},
+"Ming Dynasty": {
+"members": [
+"Ming Dynasty",
+"Southern Ming"
+],
+"editorial": []
+},
+"Northern Yuan": {
+"members": [
+"Northern Yuan",
+"Mongol Khanate"
+],
+"editorial": []
+},
+"Kingdom of Kongo": {
+"members": [
+"Kingdom of Kongo",
+"Kingdom of Lunda"
+],
+"editorial": []
+},
+"Nogai Horde": {
+"members": [
+"Nogai Horde",
+"Small Horde"
+],
+"editorial": []
+},
+"Moghulistan": {
+"members": [
+"Moghulistan",
+"Eastern Moghulistan"
+],
+"editorial": []
+},
+"Demak Sultanate": {
+"members": [
+"Demak Sultanate",
+"Kingdom of Pajana",
+"Mataram Sultanate"
+],
+"editorial": []
+},
+"Habsburg Monarchy": {
+"members": [
+"Habsburg Monarchy",
+"Austrian Empire",
+"Austria-Hungary"
+],
+"editorial": []
+},
+"Eastern Chagatai Khanate": {
+"members": [
+"Eastern Chagatai Khanate",
+"Western Moghulistan"
+],
+"editorial": []
+},
+"Khanate of Bukhara": {
+"members": [
+"Khanate of Bukhara",
+"Emirate of Bukhara"
+],
+"editorial": []
+},
+"Balinese Kingdom": {
+"members": [
+"Balinese Kingdom",
+"Bali"
+],
+"editorial": []
+},
+"Eastern Hungarian Kingdom": {
+"members": [
+"Eastern Hungarian Kingdom",
+"Principality of Transylvania"
+],
+"editorial": []
+},
+"Nayaks of Thanjavur": {
+"members": [
+"Nayaks of Thanjavur",
+"Thanjavur Maratha Kingdom"
+],
+"editorial": []
+},
+"Union of Utrecht": {
+"members": [
+"Union of Utrecht",
+"Dutch Republic",
+"Batavian Republic",
+"Dutch East Indies",
+"Sovereign Principality of the United Netherlands"
+],
+"editorial": []
+},
+"New France": {
+"members": [
+"New France",
+"First French colonial empire"
+],
+"editorial": []
+},
+"Later Jin Dynasty": {
+"members": [
+"Later Jin Dynasty",
+"Qing Dynasty",
+"Republic of China",
+"Empire of China",
+"Kuomintang",
+"People's Republic of China"
+],
+"editorial": []
+},
+"Kutai Kingdom": {
+"members": [
+"Kutai Kingdom",
+"Sultanate of Kutai Kartanegara"
+],
+"editorial": []
+},
+"Dutch Cape Colony": {
+"members": [
+"Dutch Cape Colony",
+"British Cape Colony",
+"Napoleonic Batavia Republic"
+],
+"editorial": []
+},
+"Dutch Gold Coast": {
+"members": [
+"Dutch Gold Coast",
+"British Gold Coast",
+"Federal Republic of Nigeria"
+],
+"editorial": []
+},
+"British Colonial Empire": {
+"members": [
+"British Colonial Empire",
+"British Overseas Territories"
+],
+"editorial": []
+},
+"Electorate of Hanover": {
+"members": [
+"Electorate of Hanover",
+"Kingdom of Hanover"
+],
+"editorial": []
+},
+"Konbaung Dynasty": {
+"members": [
+"Konbaung Dynasty",
+"Burma",
+"Union of Myanmar"
+],
+"editorial": []
+},
+"Durrani Empire": {
+"members": [
+"Durrani Empire",
+"Emirate of Afghanistan",
+"Durrani Dynasty",
+"Kingdom of Afghanistan",
+"Republic of Afghanistan",
+"Afghanistan",
+"Mujahideen",
+"Taliban"
+],
+"editorial": []
+},
+"British Empire": {
+"members": [
+"British Empire",
+"British Raj"
+],
+"editorial": []
+},
+"Kingdom of Naples (Napoleonic)": {
+"members": [
+"Kingdom of Naples (Napoleonic)",
+"Kingdom of the Two Sicilies"
+],
+"editorial": []
+},
+"Qajar Dynasty": {
+"members": [
+"Qajar Dynasty",
+"Pahlavi Dynasty",
+"Islamic Republic of Iran"
+],
+"editorial": []
+},
+"Kingdom of Hawaï'i": {
+"members": [
+"Kingdom of Hawaï'i",
+"Republic of Hawai'i"
+],
+"editorial": []
+},
+"Haiti": {
+"members": [
+"Haiti",
+"Empire of Haiti",
+"Republic of Haiti"
+],
+"editorial": []
+},
+"Cisalpine Republic": {
+"members": [
+"Cisalpine Republic",
+"Italian Republic"
+],
+"editorial": []
+},
+"Cispadane Republic": {
+"members": [
+"Cispadane Republic",
+"Duchy of Modena and Reggio"
+],
+"editorial": []
+},
+"Muhammad Ali dynasty": {
+"members": [
+"Muhammad Ali dynasty",
+"Khedivate of Egypt",
+"British Africa",
+"Mahdist State",
+"British East Africa",
+"Seychelles"
+],
+"editorial": []
+},
+"Grand Duchy of Berg": {
+"members": [
+"Grand Duchy of Berg",
+"Saxe-Coburg and Gotha"
+],
+"editorial": []
+},
+"Duchy of Warsaw": {
+"members": [
+"Duchy of Warsaw",
+"Poles"
+],
+"editorial": []
+},
+"Confederation of the Rhine": {
+"members": [
+"Confederation of the Rhine",
+"German Confederation",
+"North German Confederation",
+"German Empire",
+"Weimar Republic",
+"Nazi Germany"
+],
+"editorial": []
+},
+"New Granada": {
+"members": [
+"New Granada",
+"Republic of New Granada",
+"Granadine Confederation",
+"United States of Colombia",
+"Republic of Colombia"
+],
+"editorial": []
+},
+"Río de la Plata": {
+"members": [
+"Río de la Plata",
+"Argentine Confederation",
+"Argentine Republic"
+],
+"editorial": []
+},
+"Empire of Brazil": {
+"members": [
+"Empire of Brazil",
+"Brazilian Republic",
+"Unitary State of Brazil",
+"Federated Republic of Brazil",
+"Republic of Brazil"
+],
+"editorial": []
+},
+"First Mexican Empire": {
+"members": [
+"First Mexican Empire",
+"Federated Republic of Mexico"
+],
+"editorial": []
+},
+"First Hellenic Republic": {
+"members": [
+"First Hellenic Republic",
+"Kingdom of Greece",
+"Greek junta",
+"Third Hellenic Republic"
+],
+"editorial": []
+},
+"Emirate of Nejd": {
+"members": [
+"Emirate of Nejd",
+"Kingdom of Hejaz and Nejd",
+"Kingdom of Saudi Arabia"
+],
+"editorial": []
+},
+"French Africa": {
+"members": [
+"French Africa",
+"French Fifth Republic"
+],
+"editorial": []
+},
+"Hungarian Nationalists": {
+"members": [
+"Hungarian Nationalists",
+"Hungary",
+"Hungarian People's Republic"
+],
+"editorial": []
+},
+"New Caledonia": {
+"members": [
+"New Caledonia",
+"French Indochina"
+],
+"editorial": []
+},
+"United Principalities of Moldavia and Wallachia": {
+"members": [
+"United Principalities of Moldavia and Wallachia",
+"Kingdom of Romania",
+"Socialist Republic of Romania",
+"Romania"
+],
+"editorial": []
+},
+"Second Mexican Empire": {
+"members": [
+"Second Mexican Empire",
+"Mexico"
+],
+"editorial": []
+},
+"Kamerun": {
+"members": [
+"Kamerun",
+"German Africa"
+],
+"editorial": []
+},
+"Principality of Bulgaria": {
+"members": [
+"Principality of Bulgaria",
+"Kingdom of Bulgaria",
+"People's Republic of Bulgaria",
+"Republic of Bulgaria"
+],
+"editorial": []
+},
+"Italian Africa": {
+"members": [
+"Italian Africa",
+"Kingdom of Libya",
+"Libyan Arab Republic",
+"State of Libya"
+],
+"editorial": []
+},
+"New Hebrides": {
+"members": [
+"New Hebrides",
+"Vanuatu"
+],
+"editorial": []
+},
+"Sultanate of Muscat and Oman": {
+"members": [
+"Sultanate of Muscat and Oman",
+"Qatar Protectorate"
+],
+"editorial": []
+},
+"Republic of Cuba": {
+"members": [
+"Republic of Cuba",
+"Communist Cuba"
+],
+"editorial": []
+},
+"Portuguese Republic": {
+"members": [
+"Portuguese Republic",
+"Estado Novo"
+],
+"editorial": []
+},
+"Great Mongol State": {
+"members": [
+"Great Mongol State",
+"Mongolian People's Republic",
+"Mongolia"
+],
+"editorial": []
+},
+"Albania": {
+"members": [
+"Albania",
+"People's Socialist Republic of Albania",
+"Republic of Albania"
+],
+"editorial": []
+},
+"Kingdom of Iceland": {
+"members": [
+"Kingdom of Iceland",
+"Republic of Iceland"
+],
+"editorial": []
+},
+"Czechoslovakia": {
+"members": [
+"Czechoslovakia",
+"Czech Republic"
+],
+"editorial": []
+},
+"Yugoslavia": {
+"members": [
+"Yugoslavia",
+"Socialist Federal Republic of Yugoslavia"
+],
+"editorial": []
+},
+"Republic of Austria": {
+"members": [
+"Republic of Austria",
+"Second Republic of Austria"
+],
+"editorial": []
+},
+"French Mandate for Syria and Lebanon": {
+"members": [
+"French Mandate for Syria and Lebanon",
+"Second Syrian Republic",
+"Republic of Syria",
+"Ba'athist Syria",
+"Arab Socialist Ba'ath Party",
+"Syria"
+],
+"editorial": []
+},
+"Kingdom of Egypt": {
+"members": [
+"Kingdom of Egypt",
+"Republic of Egypt",
+"United Arab Republic",
+"Arab Republic of Egypt"
+],
+"editorial": []
+},
+"Irish Free State": {
+"members": [
+"Irish Free State",
+"Éire"
+],
+"editorial": []
+},
+"Kingdom of Iraq": {
+"members": [
+"Kingdom of Iraq",
+"Arab Federation",
+"Iraqi Republic",
+"Republic of Iraq"
+],
+"editorial": []
+},
+"Federal Republic of Germany": {
+"members": [
+"Federal Republic of Germany",
+"Federated Republic of Germany"
+],
+"editorial": []
+},
+"Kingdom of Laos": {
+"members": [
+"Kingdom of Laos",
+"Communist Laos"
+],
+"editorial": []
+},
+"Rhodesia": {
+"members": [
+"Rhodesia",
+"Zimbabwe Rhodesia",
+"Republic of Zimbabwe"
+],
+"editorial": []
+},
+"People's Democratic Republic of Yemen": {
+"members": [
+"People's Democratic Republic of Yemen",
+"Republic of Yemen"
+],
+"editorial": []
+},
+"Khmer Rouge": {
+"members": [
+"Khmer Rouge",
+"People's Republic of Kampuchea"
+],
+"editorial": []
+},
+"Serbia-Montenegro": {
+"members": [
+"Serbia-Montenegro",
+"Republic of Serbia"
+],
+"editorial": []
+}
+},
+"edges_auto": [
+[
+"Early Dynastic Period of Egypt",
+"Old Kingdom of Egypt",
+1.0
+],
+[
+"Old Kingdom of Egypt",
+"Lower Egypt",
+0.76
+],
+[
+"Lower Egypt",
+"Middle Kingdom of Egypt",
+0.76
+],
+[
+"Mycenaean Greece",
+"Greek Dark Ages",
+0.75
+],
+[
+"Greek Dark Ages",
+"Greek City-States",
+0.96
+],
+[
+"Neo-Assyrian Empire",
+"Neo-Babylonian Empire",
+0.64
+],
+[
+"Qin",
+"Han Dynasty",
+0.74
+],
+[
+"Qin",
+"Qin Dynasty",
+0.93
+],
+[
+"Later Zhou",
+"Northern Song",
+1.0
+],
+[
+"Macedonian Empire",
+"Antigonid Macedonia",
+0.65
+],
+[
+"Macedonian Empire",
+"Antigonid Dynasty",
+0.78
+],
+[
+"Median Kingdom",
+"Achaemenid Empire",
+0.65
+],
+[
+"Janapada of Vajji",
+"Mahajanapadas",
+1.0
+],
+[
+"Roman Republic",
+"Roman Empire",
+0.68
+],
+[
+"Odrysian Kingdom",
+"Kingdom of Lysimachus",
+0.69
+],
+[
+"Yuezhi",
+"Kushan Empire",
+1.0
+],
+[
+"Han",
+"Han Dynasty",
+0.64
+],
+[
+"Nanda Empire",
+"Maurya Empire",
+0.81
+],
+[
+"Perdiccas",
+"Seleucid Empire",
+0.96
+],
+[
+"Greco-Bactrian Kingdom",
+"Indo-Greeks",
+0.69
+],
+[
+"Satavahana Dynasty",
+"Vakataka Kingdom",
+0.61
+],
+[
+"Qin Dynasty",
+"Zhai",
+0.75
+],
+[
+"Qin Dynasty",
+"Han Dynasty",
+0.95
+],
+[
+"Shunga Empire",
+"Kanva Dynasty",
+1.0
+],
+[
+"Jinhan",
+"Silla",
+1.0
+],
+[
+"Mahan",
+"Baekje",
+1.0
+],
+[
+"Lazica",
+"Georgia",
+1.0
+],
+[
+"Kushan Empire",
+"Eastern Kushans",
+0.61
+],
+[
+"Huns",
+"Hunnic Empire",
+1.0
+],
+[
+"Cao Cao",
+"Cao Wei",
+0.64
+],
+[
+"Cao Wei",
+"Western Jin",
+1.0
+],
+[
+"Western Kushans",
+"Indo-Sasanian Empire",
+0.91
+],
+[
+"Western Jin",
+"Liu Song Dynasty",
+0.93
+],
+[
+"Former Zhao",
+"Later Zhao",
+0.97
+],
+[
+"Former Liang",
+"Later Liang",
+0.6
+],
+[
+"Makuria",
+"Makuria Kingdom",
+1.0
+],
+[
+"Later Yan",
+"Northern Yan",
+1.0
+],
+[
+"Xionites",
+"White Huns",
+1.0
+],
+[
+"Eastern Roman Empire",
+"Byzantine Empire",
+1.0
+],
+[
+"Visigoths",
+"Visigothic Kingdom",
+1.0
+],
+[
+"Rouran Khaganate",
+"Eastern Göktürks",
+0.69
+],
+[
+"Rouran Khaganate",
+"Göktürk Khaganate",
+0.65
+],
+[
+"Liu Song Dynasty",
+"Southern Qi",
+1.0
+],
+[
+"Liu Song Dynasty",
+"Liang Dynasty",
+1.0
+],
+[
+"Visigothic Kingdom",
+"Kingdom of Asturias",
+0.81
+],
+[
+"Ostrogoths",
+"Ostrogothic Kingdom",
+0.76
+],
+[
+"Thuringian states",
+"Kingdom of Thuringia",
+1.0
+],
+[
+"Kingdom of Thuringia",
+"Duchy of Thuringia",
+1.0
+],
+[
+"Southern Qi",
+"Liang Dynasty",
+1.0
+],
+[
+"Eastern Wei",
+"Northern Qi",
+0.94
+],
+[
+"Western Wei",
+"Northern Zhou",
+0.87
+],
+[
+"Kingdom of Wessex",
+"Kingdom of England",
+0.79
+],
+[
+"Asuka Japan",
+"Nara Japan",
+1.0
+],
+[
+"Dál Riata",
+"Kingdom of Alba",
+1.0
+],
+[
+"Northern Zhou",
+"Tang Dynasty",
+0.71
+],
+[
+"Northern Zhou",
+"Sui Dynasty",
+0.87
+],
+[
+"Breton Kingdoms",
+"Kingdom of Brittany",
+1.0
+],
+[
+"Magna Frisia",
+"Frisians",
+1.0
+],
+[
+"Kashmir",
+"Kashmiri Sultanate",
+1.0
+],
+[
+"Umayyad Caliphate",
+"Emirate of Córdoba",
+1.0
+],
+[
+"Srivijaya",
+"Majapahit",
+0.62
+],
+[
+"Türgesh",
+"Uyghur Khaganate",
+0.74
+],
+[
+"Nara Japan",
+"Heian Japan",
+1.0
+],
+[
+"Merovingian Empire",
+"Carolingian Empire",
+1.0
+],
+[
+"Kingdom of Asturias",
+"Kingdom of Castile",
+0.73
+],
+[
+"Mataram Kingdom",
+"Kahuripan",
+0.69
+],
+[
+"Nanzhao",
+"Kingdom of Dali",
+0.78
+],
+[
+"Kharijites",
+"Aghlabid Dynasty",
+0.97
+],
+[
+"Emirate of Córdoba",
+"Caliphate of Córdoba",
+1.0
+],
+[
+"Ghana Empire",
+"Sosso Empire",
+1.0
+],
+[
+"Heian Japan",
+"Kamakura Shogunate",
+0.88
+],
+[
+"Aghlabid Dynasty",
+"Fatimid Caliphate",
+0.62
+],
+[
+"Kingdom of Pamplona",
+"County of Ribagorza",
+1.0
+],
+[
+"Kingdom of Brittany",
+"Duchy of Brittany",
+0.68
+],
+[
+"Kingdom of Sobrarbe",
+"County of Aragon",
+1.0
+],
+[
+"Kara-Khanids",
+"Eastern Kara-Khanids",
+0.75
+],
+[
+"Zaydi Alid dynasties",
+"Ziyarid dynasty",
+0.96
+],
+[
+"County of Urgell",
+"Principality of Andorra",
+1.0
+],
+[
+"Rus'",
+"Kievan Rus'",
+0.86
+],
+[
+"Upper Burgundy",
+"Kingdom of France",
+0.62
+],
+[
+"Kingdom of Alba",
+"Kingdom of Scotland",
+0.99
+],
+[
+"Principality of Hungary",
+"Kingdom of Hungary",
+0.78
+],
+[
+"Later Jin",
+"Northern Song",
+0.82
+],
+[
+"Later Jin",
+"Later Han",
+1.0
+],
+[
+"Former Shu",
+"Later Shu",
+1.0
+],
+[
+"Later Liang Dynasty",
+"Northern Song",
+0.65
+],
+[
+"Later Liang Dynasty",
+"Later Han",
+0.74
+],
+[
+"Kingdom of Germany",
+"Holy Roman Empire",
+1.0
+],
+[
+"Taebong",
+"Goryeo",
+1.0
+],
+[
+"Chimor",
+"Chimu Empire",
+1.0
+],
+[
+"Goryeo",
+"Joseon",
+1.0
+],
+[
+"Kingdom of England",
+"Kingdom of Great Britain",
+1.0
+],
+[
+"Hamdanid Emirates",
+"Bahrani Dynasty",
+0.89
+],
+[
+"Ngô Dynasty",
+"Lê Dynasty",
+0.84
+],
+[
+"Later Han",
+"Northern Song",
+0.82
+],
+[
+"Utpala Dynasty",
+"Lohara Dynasty",
+1.0
+],
+[
+"Northern Song",
+"Southern Song",
+0.72
+],
+[
+"Western Chalukya Empire",
+"Yadava Dynasty",
+0.68
+],
+[
+"County of Anjou",
+"House of Valois-Anjou",
+0.94
+],
+[
+"Kingdom of France",
+"French First Republic",
+0.92
+],
+[
+"Kingdom of France",
+"French Directory",
+0.73
+],
+[
+"Kingdom of France",
+"French Consulate",
+0.77
+],
+[
+"Kingdom of France",
+"First French Empire",
+0.7
+],
+[
+"Kingdom of France",
+"Bourbon Kingdom of France",
+0.84
+],
+[
+"North Sea Empire",
+"Norway-Denmark",
+0.72
+],
+[
+"Norman Italy",
+"Kingdom of Sicily",
+0.95
+],
+[
+"Kediri Kingdom",
+"Singhasari",
+1.0
+],
+[
+"Zirid dynasty",
+"Kingdom of Africa",
+0.66
+],
+[
+"Great Principality of Duklja",
+"Kingdom of Duklja",
+1.0
+],
+[
+"Great Principality of Duklja",
+"Grand Principality of Serbia",
+0.6
+],
+[
+"Najahid Dynasty",
+"Nabhani Dynasty",
+1.0
+],
+[
+"Uyunid Emirate",
+"Bahrani Dynasty",
+0.99
+],
+[
+"Kingdom of the Isles",
+"Kingdom of Mann",
+1.0
+],
+[
+"County of Portugal",
+"Kingdom of Portugal",
+0.67
+],
+[
+"Banate of Bosnia",
+"Kingdom of Bosnia",
+0.9
+],
+[
+"Kamakura Shogunate",
+"Kenmu Restoration",
+1.0
+],
+[
+"Kamakura Shogunate",
+"Ashikaga Shogunate",
+1.0
+],
+[
+"Duchy of Athens",
+"Catalan Company",
+1.0
+],
+[
+"Mamluk Dynasty",
+"Khalji Dynasty",
+0.62
+],
+[
+"Grand Duchy of Lithuania",
+"House of Jagiellon",
+0.73
+],
+[
+"Teutonic Order",
+"Duchy of Prussia",
+1.0
+],
+[
+"Rasulid Dynasty",
+"Tahirid Sultanate",
+1.0
+],
+[
+"Ceylon",
+"Portuguese Ceylon",
+0.77
+],
+[
+"Marinid Sultanate",
+"Wattasid dynasty",
+1.0
+],
+[
+"House of Luxembourg",
+"Duchy of Luxembourg",
+0.75
+],
+[
+"Margraviate of Brandenburg",
+"Electorate of Brandenburg",
+0.88
+],
+[
+"County of Savoy",
+"House of Savoy",
+0.68
+],
+[
+"Ethiopian Empire",
+"Ethiopia",
+0.99
+],
+[
+"Ifat Sultanate",
+"Adal Sultanate",
+0.77
+],
+[
+"Cuzco",
+"Inca Empire",
+1.0
+],
+[
+"Khalji Dynasty",
+"Tughlaq Dynasty",
+0.7
+],
+[
+"Grand Principality of Moscow",
+"Tsardom of Russia",
+1.0
+],
+[
+"Myinsaing Kingdom",
+"Kingdom of Pinya",
+1.0
+],
+[
+"Lan Na Kingdom",
+"Lan Na",
+0.98
+],
+[
+"Chagatai Khanate",
+"East Turkestan",
+0.68
+],
+[
+"Ottoman Empire",
+"Republic of Turkey",
+0.94
+],
+[
+"Tughlaq Dynasty",
+"Sayyid Dynasty",
+1.0
+],
+[
+"Kenmu Restoration",
+"Ashikaga Shogunate",
+1.0
+],
+[
+"Sultanate of Bengal",
+"Hussain Shahi Dynasty",
+0.75
+],
+[
+"Jalayirid Sultanate",
+"Hashemite Arab Federation",
+0.6
+],
+[
+"Ayutthaya Kingdom",
+"Thonburi Kingdom",
+0.9
+],
+[
+"Ayutthaya Kingdom",
+"Rattanakosin Kingdom",
+0.9
+],
+[
+"Electorate of Saxony",
+"Kingdom of Saxony",
+0.9
+],
+[
+"Ming Dynasty",
+"Southern Ming",
+0.61
+],
+[
+"Northern Yuan",
+"Mongol Khanate",
+0.66
+],
+[
+"Joseon",
+"Korean Empire",
+1.0
+],
+[
+"Lê Dynasty",
+"Nguyễn lords",
+0.63
+],
+[
+"Kingdom of Kongo",
+"Kingdom of Lunda",
+0.82
+],
+[
+"Nogai Horde",
+"Small Horde",
+0.85
+],
+[
+"House of Jagiellon",
+"Polish-Lithuanian Commonwealth",
+0.97
+],
+[
+"Moghulistan",
+"Eastern Moghulistan",
+0.67
+],
+[
+"Wattasid dynasty",
+"Saadi Sultanate",
+1.0
+],
+[
+"Demak Sultanate",
+"Kingdom of Pajana",
+1.0
+],
+[
+"Demak Sultanate",
+"Mataram Sultanate",
+0.99
+],
+[
+"Habsburg Monarchy",
+"Austrian Empire",
+0.93
+],
+[
+"Eastern Chagatai Khanate",
+"Western Moghulistan",
+0.98
+],
+[
+"Portuguese Ceylon",
+"Dutch Ceylon",
+0.77
+],
+[
+"Khanate of Bukhara",
+"Emirate of Bukhara",
+0.99
+],
+[
+"Balinese Kingdom",
+"Bali",
+1.0
+],
+[
+"Eastern Hungarian Kingdom",
+"Principality of Transylvania",
+0.88
+],
+[
+"Nayaks of Thanjavur",
+"Thanjavur Maratha Kingdom",
+1.0
+],
+[
+"Tsardom of Russia",
+"Russian Empire",
+0.96
+],
+[
+"House of Savoy",
+"Kingdom of Sardinia",
+0.64
+],
+[
+"Kingdom of Pajana",
+"Mataram Sultanate",
+1.0
+],
+[
+"Nguyễn lords",
+"Nguyễn dynasty",
+1.0
+],
+[
+"Union of Utrecht",
+"Dutch Republic",
+0.76
+],
+[
+"Dutch Republic",
+"Dutch East Indies",
+0.66
+],
+[
+"Dutch Republic",
+"Batavian Republic",
+0.74
+],
+[
+"Lan Na",
+"Chiangmai",
+1.0
+],
+[
+"New France",
+"First French colonial empire",
+1.0
+],
+[
+"Later Jin Dynasty",
+"Qing Dynasty",
+0.72
+],
+[
+"Qing Dynasty",
+"Empire of China",
+0.74
+],
+[
+"Qing Dynasty",
+"Republic of China",
+0.74
+],
+[
+"Qing Dynasty",
+"People's Republic of China",
+0.74
+],
+[
+"Kutai Kingdom",
+"Sultanate of Kutai Kartanegara",
+1.0
+],
+[
+"Dutch Cape Colony",
+"British Cape Colony",
+1.0
+],
+[
+"Dutch Cape Colony",
+"Napoleonic Batavia Republic",
+1.0
+],
+[
+"Dutch Gold Coast",
+"British Gold Coast",
+0.74
+],
+[
+"Dutch Ceylon",
+"British Ceylon",
+1.0
+],
+[
+"British Colonial Empire",
+"British Overseas Territories",
+0.91
+],
+[
+"Electorate of Hanover",
+"Kingdom of Hanover",
+0.95
+],
+[
+"Russian Empire",
+"Union of Soviet Socialist Republics",
+0.94
+],
+[
+"Russian Empire",
+"Russian Republic",
+0.98
+],
+[
+"Russian Empire",
+"Republics of the Soviet Union",
+0.95
+],
+[
+"Konbaung Dynasty",
+"Burma",
+0.96
+],
+[
+"Durrani Empire",
+"Emirate of Afghanistan",
+1.0
+],
+[
+"Durrani Empire",
+"Durrani Dynasty",
+0.75
+],
+[
+"British Empire",
+"British Raj",
+0.86
+],
+[
+"Kingdom of Naples (Napoleonic)",
+"Kingdom of the Two Sicilies",
+0.88
+],
+[
+"Thonburi Kingdom",
+"Rattanakosin Kingdom",
+1.0
+],
+[
+"Rattanakosin Kingdom",
+"Kingdom of Thailand",
+1.0
+],
+[
+"Qajar Dynasty",
+"Pahlavi Dynasty",
+1.0
+],
+[
+"Kingdom of Hawaï'i",
+"Republic of Hawai'i",
+1.0
+],
+[
+"French First Republic",
+"French Directory",
+0.9
+],
+[
+"French First Republic",
+"French Consulate",
+0.87
+],
+[
+"French First Republic",
+"First French Empire",
+0.79
+],
+[
+"French First Republic",
+"Bourbon Kingdom of France",
+0.77
+],
+[
+"Haiti",
+"Empire of Haiti",
+0.9
+],
+[
+"Batavian Republic",
+"Sovereign Principality of the United Netherlands",
+0.91
+],
+[
+"French Directory",
+"French First Republic",
+0.76
+],
+[
+"French Directory",
+"French Consulate",
+0.89
+],
+[
+"French Directory",
+"First French Empire",
+0.79
+],
+[
+"French Directory",
+"Bourbon Kingdom of France",
+0.71
+],
+[
+"Cisalpine Republic",
+"Italian Republic",
+0.85
+],
+[
+"Cispadane Republic",
+"Duchy of Modena and Reggio",
+0.72
+],
+[
+"French Consulate",
+"French Directory",
+0.86
+],
+[
+"French Consulate",
+"First French Empire",
+0.9
+],
+[
+"French Consulate",
+"Bourbon Kingdom of France",
+0.73
+],
+[
+"Napoleonic Batavia Republic",
+"British Cape Colony",
+1.0
+],
+[
+"Empire of Haiti",
+"Republic of Haiti",
+1.0
+],
+[
+"Muhammad Ali dynasty",
+"Khedivate of Egypt",
+1.0
+],
+[
+"First French Empire",
+"French Second Republic",
+0.81
+],
+[
+"First French Empire",
+"Second French Empire",
+0.81
+],
+[
+"First French Empire",
+"Bourbon Kingdom of France",
+0.82
+],
+[
+"Austrian Empire",
+"Austria-Hungary",
+0.88
+],
+[
+"Grand Duchy of Berg",
+"Saxe-Coburg and Gotha",
+1.0
+],
+[
+"Duchy of Warsaw",
+"Poles",
+0.75
+],
+[
+"Confederation of the Rhine",
+"German Confederation",
+0.72
+],
+[
+"New Granada",
+"Republic of New Granada",
+0.93
+],
+[
+"New Granada",
+"Granadine Confederation",
+0.79
+],
+[
+"Río de la Plata",
+"Argentine Confederation",
+1.0
+],
+[
+"Bourbon Kingdom of France",
+"French Second Republic",
+0.99
+],
+[
+"Bourbon Kingdom of France",
+"Second French Empire",
+0.99
+],
+[
+"Bourbon Kingdom of France",
+"French Third Republic",
+0.76
+],
+[
+"German Confederation",
+"North German Confederation",
+0.82
+],
+[
+"Burma",
+"Union of Myanmar",
+1.0
+],
+[
+"Empire of Brazil",
+"Brazilian Republic",
+1.0
+],
+[
+"First Mexican Empire",
+"Federated Republic of Mexico",
+0.88
+],
+[
+"First Hellenic Republic",
+"Kingdom of Greece",
+0.95
+],
+[
+"First Hellenic Republic",
+"Third Hellenic Republic",
+0.95
+],
+[
+"First Hellenic Republic",
+"Greek junta",
+0.95
+],
+[
+"Emirate of Nejd",
+"Kingdom of Hejaz and Nejd",
+0.65
+],
+[
+"Emirate of Afghanistan",
+"Kingdom of Afghanistan",
+1.0
+],
+[
+"Republic of New Granada",
+"United States of Colombia",
+1.0
+],
+[
+"Republic of New Granada",
+"Granadine Confederation",
+1.0
+],
+[
+"Republic of New Granada",
+"Republic of Colombia",
+1.0
+],
+[
+"Argentine Confederation",
+"Argentine Republic",
+1.0
+],
+[
+"French Africa",
+"French Fifth Republic",
+0.92
+],
+[
+"French Second Republic",
+"Second French Empire",
+1.0
+],
+[
+"French Second Republic",
+"French Third Republic",
+0.76
+],
+[
+"Hungarian Nationalists",
+"Hungarian People's Republic",
+1.0
+],
+[
+"Hungarian Nationalists",
+"Hungary",
+1.0
+],
+[
+"Second French Empire",
+"French Third Republic",
+0.92
+],
+[
+"New Caledonia",
+"French Indochina",
+0.97
+],
+[
+"United Principalities of Moldavia and Wallachia",
+"Socialist Republic of Romania",
+0.63
+],
+[
+"Granadine Confederation",
+"United States of Colombia",
+1.0
+],
+[
+"Granadine Confederation",
+"Republic of Colombia",
+1.0
+],
+[
+"United States of Colombia",
+"Granadine Confederation",
+1.0
+],
+[
+"United States of Colombia",
+"Republic of Colombia",
+1.0
+],
+[
+"Second Mexican Empire",
+"Mexico",
+0.99
+],
+[
+"Khedivate of Egypt",
+"British Africa",
+0.61
+],
+[
+"Khedivate of Egypt",
+"Mahdist State",
+0.66
+],
+[
+"Kamerun",
+"German Africa",
+1.0
+],
+[
+"North German Confederation",
+"German Empire",
+0.68
+],
+[
+"French Third Republic",
+"French Fourth Republic",
+0.89
+],
+[
+"German Empire",
+"Nazi Germany",
+0.8
+],
+[
+"German Empire",
+"Weimar Republic",
+0.87
+],
+[
+"British Gold Coast",
+"Federal Republic of Nigeria",
+0.94
+],
+[
+"Principality of Bulgaria",
+"People's Republic of Bulgaria",
+0.66
+],
+[
+"Principality of Bulgaria",
+"Kingdom of Bulgaria",
+0.67
+],
+[
+"British Africa",
+"British East Africa",
+0.74
+],
+[
+"Italian Africa",
+"Libyan Arab Republic",
+0.95
+],
+[
+"Italian Africa",
+"Kingdom of Libya",
+0.95
+],
+[
+"New Hebrides",
+"Vanuatu",
+1.0
+],
+[
+"Brazilian Republic",
+"Republic of Brazil",
+1.0
+],
+[
+"Brazilian Republic",
+"Federated Republic of Brazil",
+1.0
+],
+[
+"Sultanate of Muscat and Oman",
+"Qatar Protectorate",
+1.0
+],
+[
+"Republic of Cuba",
+"Communist Cuba",
+0.95
+],
+[
+"Portuguese Republic",
+"Estado Novo",
+1.0
+],
+[
+"Great Mongol State",
+"Mongolian People's Republic",
+1.0
+],
+[
+"Albania",
+"People's Socialist Republic of Albania",
+0.9
+],
+[
+"Empire of China",
+"Kuomintang",
+0.76
+],
+[
+"Empire of China",
+"Republic of China",
+1.0
+],
+[
+"Empire of China",
+"People's Republic of China",
+0.99
+],
+[
+"Russian Republic",
+"Union of Soviet Socialist Republics",
+0.87
+],
+[
+"Russian Republic",
+"Republics of the Soviet Union",
+0.89
+],
+[
+"Kuomintang",
+"People's Republic of China",
+0.95
+],
+[
+"Kingdom of Iceland",
+"Republic of Iceland",
+1.0
+],
+[
+"Czechoslovakia",
+"Czech Republic",
+0.63
+],
+[
+"Kingdom of Romania",
+"Socialist Republic of Romania",
+1.0
+],
+[
+"Yugoslavia",
+"Socialist Federal Republic of Yugoslavia",
+1.0
+],
+[
+"Republic of Austria",
+"Second Republic of Austria",
+0.68
+],
+[
+"Weimar Republic",
+"Nazi Germany",
+0.97
+],
+[
+"Republics of the Soviet Union",
+"Union of Soviet Socialist Republics",
+0.98
+],
+[
+"Republics of the Soviet Union",
+"Russian Republic",
+0.96
+],
+[
+"French Mandate for Syria and Lebanon",
+"Syria",
+0.99
+],
+[
+"French Mandate for Syria and Lebanon",
+"Republic of Syria",
+0.98
+],
+[
+"French Mandate for Syria and Lebanon",
+"Arab Socialist Ba'ath Party",
+0.99
+],
+[
+"French Mandate for Syria and Lebanon",
+"Ba'athist Syria",
+0.98
+],
+[
+"French Mandate for Syria and Lebanon",
+"Second Syrian Republic",
+0.98
+],
+[
+"Union of Soviet Socialist Republics",
+"Russian Federation",
+0.83
+],
+[
+"Kingdom of Egypt",
+"Republic of Egypt",
+0.98
+],
+[
+"Kingdom of Egypt",
+"Arab Republic of Egypt",
+0.98
+],
+[
+"Kingdom of Egypt",
+"United Arab Republic",
+0.82
+],
+[
+"Irish Free State",
+"Éire",
+1.0
+],
+[
+"Pahlavi Dynasty",
+"Islamic Republic of Iran",
+1.0
+],
+[
+"Kingdom of Afghanistan",
+"Taliban",
+0.69
+],
+[
+"Kingdom of Afghanistan",
+"Mujahideen",
+0.91
+],
+[
+"Kingdom of Afghanistan",
+"Afghanistan",
+0.8
+],
+[
+"Kingdom of Afghanistan",
+"Republic of Afghanistan",
+1.0
+],
+[
+"Mongolian People's Republic",
+"Mongolia",
+1.0
+],
+[
+"Kingdom of Hejaz and Nejd",
+"Kingdom of Saudi Arabia",
+0.86
+],
+[
+"Kingdom of Iraq",
+"Arab Federation",
+0.81
+],
+[
+"Kingdom of Iraq",
+"Iraqi Republic",
+1.0
+],
+[
+"Unitary State of Brazil",
+"Federated Republic of Brazil",
+1.0
+],
+[
+"Kingdom of Greece",
+"Third Hellenic Republic",
+1.0
+],
+[
+"Kingdom of Greece",
+"Greek junta",
+1.0
+],
+[
+"People's Socialist Republic of Albania",
+"Republic of Albania",
+1.0
+],
+[
+"Second Syrian Republic",
+"Syria",
+0.98
+],
+[
+"Second Syrian Republic",
+"Republic of Syria",
+1.0
+],
+[
+"Second Syrian Republic",
+"Arab Socialist Ba'ath Party",
+0.98
+],
+[
+"Second Syrian Republic",
+"Ba'athist Syria",
+1.0
+],
+[
+"Kingdom of Bulgaria",
+"People's Republic of Bulgaria",
+1.0
+],
+[
+"People's Republic of Bulgaria",
+"Republic of Bulgaria",
+1.0
+],
+[
+"Socialist Republic of Romania",
+"Romania",
+1.0
+],
+[
+"Federal Republic of Germany",
+"Federated Republic of Germany",
+0.68
+],
+[
+"Republic of Egypt",
+"Arab Republic of Egypt",
+0.93
+],
+[
+"Republic of Egypt",
+"United Arab Republic",
+0.77
+],
+[
+"Kingdom of Libya",
+"Libyan Arab Republic",
+1.0
+],
+[
+"Kingdom of Laos",
+"Communist Laos",
+0.93
+],
+[
+"United Arab Republic",
+"Arab Republic of Egypt",
+0.93
+],
+[
+"Arab Federation",
+"Iraqi Republic",
+0.81
+],
+[
+"Iraqi Republic",
+"Republic of Iraq",
+1.0
+],
+[
+"Republic of Syria",
+"Syria",
+0.98
+],
+[
+"Republic of Syria",
+"Arab Socialist Ba'ath Party",
+0.98
+],
+[
+"Republic of Syria",
+"Ba'athist Syria",
+1.0
+],
+[
+"British East Africa",
+"Seychelles",
+1.0
+],
+[
+"Ba'athist Syria",
+"Syria",
+0.98
+],
+[
+"Ba'athist Syria",
+"Republic of Syria",
+1.0
+],
+[
+"Ba'athist Syria",
+"Arab Socialist Ba'ath Party",
+0.98
+],
+[
+"Federated Republic of Brazil",
+"Republic of Brazil",
+1.0
+],
+[
+"Arab Socialist Ba'ath Party",
+"Syria",
+1.0
+],
+[
+"Arab Socialist Ba'ath Party",
+"Ba'athist Syria",
+0.98
+],
+[
+"Rhodesia",
+"Zimbabwe Rhodesia",
+1.0
+],
+[
+"Rhodesia",
+"Republic of Zimbabwe",
+1.0
+],
+[
+"Greek junta",
+"Third Hellenic Republic",
+0.98
+],
+[
+"Libyan Arab Republic",
+"State of Libya",
+1.0
+],
+[
+"People's Democratic Republic of Yemen",
+"Republic of Yemen",
+0.66
+],
+[
+"Republic of Afghanistan",
+"Taliban",
+0.69
+],
+[
+"Republic of Afghanistan",
+"Mujahideen",
+0.91
+],
+[
+"Republic of Afghanistan",
+"Afghanistan",
+0.8
+],
+[
+"Khmer Rouge",
+"People's Republic of Kampuchea",
+1.0
+],
+[
+"Zimbabwe Rhodesia",
+"Republic of Zimbabwe",
+1.0
+],
+[
+"Serbia-Montenegro",
+"Republic of Serbia",
+0.83
+]
+],
+"name_to_lineage": {
+"Early Dynastic Period of Egypt": "Early Dynastic Period of Egypt",
+"Old Kingdom of Egypt": "Early Dynastic Period of Egypt",
+"Lower Egypt": "Early Dynastic Period of Egypt",
+"Upper Egypt": "Early Dynastic Period of Egypt",
+"Middle Kingdom of Egypt": "Early Dynastic Period of Egypt",
+"Fifteenth Dynasty of Egypt": "Early Dynastic Period of Egypt",
+"Seventeenth Dynasty of Egypt": "Early Dynastic Period of Egypt",
+"Sixteenth Dynasty of Egypt": "Early Dynastic Period of Egypt",
+"New Kingdom of Egypt": "Early Dynastic Period of Egypt",
+"Twenty-third Dynasty of Egypt": "Early Dynastic Period of Egypt",
+"Twenty-second Dynasty of Egypt": "Early Dynastic Period of Egypt",
+"Assyrian Egypt": "Early Dynastic Period of Egypt",
+"Twenty-sixth Dynasty of Egypt": "Early Dynastic Period of Egypt",
+"Thirtieth Dynasty of Egypt": "Early Dynastic Period of Egypt",
+"Mycenaean Greece": "Mycenaean Greece",
+"Greek Dark Ages": "Mycenaean Greece",
+"Greek City-States": "Mycenaean Greece",
+"Neo-Assyrian Empire": "Neo-Assyrian Empire",
+"Neo-Babylonian Empire": "Neo-Assyrian Empire",
+"Qin": "Qin",
+"Han": "Qin",
+"Qin Dynasty": "Qin",
+"Zhai": "Qin",
+"Han Dynasty": "Qin",
+"Later Zhou": "Later Zhou",
+"Later Jin": "Later Zhou",
+"Later Liang Dynasty": "Later Zhou",
+"Later Han": "Later Zhou",
+"Northern Song": "Later Zhou",
+"Southern Song": "Later Zhou",
+"Macedonian Empire": "Macedonian Empire",
+"Antigonid Dynasty": "Macedonian Empire",
+"Antigonid Macedonia": "Macedonian Empire",
+"Median Kingdom": "Median Kingdom",
+"Achaemenid Empire": "Median Kingdom",
+"Janapada of Vajji": "Janapada of Vajji",
+"Mahajanapadas": "Janapada of Vajji",
+"Roman Republic": "Roman Republic",
+"Roman Empire": "Roman Republic",
+"Odrysian Kingdom": "Odrysian Kingdom",
+"Kingdom of Lysimachus": "Odrysian Kingdom",
+"Yuezhi": "Yuezhi",
+"Kushan Empire": "Yuezhi",
+"Eastern Kushans": "Yuezhi",
+"Nanda Empire": "Nanda Empire",
+"Maurya Empire": "Nanda Empire",
+"Perdiccas": "Perdiccas",
+"Seleucid Empire": "Perdiccas",
+"Greco-Bactrian Kingdom": "Greco-Bactrian Kingdom",
+"Indo-Greeks": "Greco-Bactrian Kingdom",
+"Satavahana Dynasty": "Satavahana Dynasty",
+"Vakataka Kingdom": "Satavahana Dynasty",
+"Shunga Empire": "Shunga Empire",
+"Kanva Dynasty": "Shunga Empire",
+"Jinhan": "Jinhan",
+"Silla": "Jinhan",
+"Mahan": "Mahan",
+"Baekje": "Mahan",
+"Lazica": "Lazica",
+"Georgia": "Lazica",
+"Huns": "Huns",
+"Hunnic Empire": "Huns",
+"Cao Cao": "Cao Cao",
+"Cao Wei": "Cao Cao",
+"Western Jin": "Cao Cao",
+"Liu Song Dynasty": "Cao Cao",
+"Southern Qi": "Cao Cao",
+"Liang Dynasty": "Cao Cao",
+"Western Kushans": "Western Kushans",
+"Indo-Sasanian Empire": "Western Kushans",
+"Former Zhao": "Former Zhao",
+"Later Zhao": "Former Zhao",
+"Former Liang": "Former Liang",
+"Later Liang": "Former Liang",
+"Makuria": "Makuria",
+"Makuria Kingdom": "Makuria",
+"Later Yan": "Later Yan",
+"Northern Yan": "Later Yan",
+"Xionites": "Xionites",
+"White Huns": "Xionites",
+"Eastern Roman Empire": "Eastern Roman Empire",
+"Byzantine Empire": "Eastern Roman Empire",
+"Visigoths": "Visigoths",
+"Visigothic Kingdom": "Visigoths",
+"Kingdom of Asturias": "Visigoths",
+"Kingdom of Castile": "Visigoths",
+"Rouran Khaganate": "Rouran Khaganate",
+"Göktürk Khaganate": "Rouran Khaganate",
+"Eastern Göktürks": "Rouran Khaganate",
+"Ostrogoths": "Ostrogoths",
+"Ostrogothic Kingdom": "Ostrogoths",
+"Thuringian states": "Thuringian states",
+"Kingdom of Thuringia": "Thuringian states",
+"Duchy of Thuringia": "Thuringian states",
+"Eastern Wei": "Eastern Wei",
+"Northern Qi": "Eastern Wei",
+"Western Wei": "Western Wei",
+"Northern Zhou": "Western Wei",
+"Sui Dynasty": "Western Wei",
+"Tang Dynasty": "Western Wei",
+"Kingdom of Wessex": "Kingdom of Wessex",
+"Kingdom of England": "Kingdom of Wessex",
+"Kingdom of Great Britain": "Kingdom of Wessex",
+"Asuka Japan": "Asuka Japan",
+"Nara Japan": "Asuka Japan",
+"Heian Japan": "Asuka Japan",
+"Kamakura Shogunate": "Asuka Japan",
+"Kenmu Restoration": "Asuka Japan",
+"Ashikaga Shogunate": "Asuka Japan",
+"Dál Riata": "Dál Riata",
+"Kingdom of Alba": "Dál Riata",
+"Kingdom of Scotland": "Dál Riata",
+"Breton Kingdoms": "Breton Kingdoms",
+"Kingdom of Brittany": "Breton Kingdoms",
+"Duchy of Brittany": "Breton Kingdoms",
+"Magna Frisia": "Magna Frisia",
+"Frisians": "Magna Frisia",
+"Kashmir": "Kashmir",
+"Kashmiri Sultanate": "Kashmir",
+"Umayyad Caliphate": "Umayyad Caliphate",
+"Emirate of Córdoba": "Umayyad Caliphate",
+"Caliphate of Córdoba": "Umayyad Caliphate",
+"Srivijaya": "Srivijaya",
+"Majapahit": "Srivijaya",
+"Türgesh": "Türgesh",
+"Uyghur Khaganate": "Türgesh",
+"Merovingian Empire": "Merovingian Empire",
+"Carolingian Empire": "Merovingian Empire",
+"Mataram Kingdom": "Mataram Kingdom",
+"Kahuripan": "Mataram Kingdom",
+"Nanzhao": "Nanzhao",
+"Kingdom of Dali": "Nanzhao",
+"Kharijites": "Kharijites",
+"Aghlabid Dynasty": "Kharijites",
+"Fatimid Caliphate": "Kharijites",
+"Ghana Empire": "Ghana Empire",
+"Sosso Empire": "Ghana Empire",
+"Kingdom of Pamplona": "Kingdom of Pamplona",
+"County of Ribagorza": "Kingdom of Pamplona",
+"Kingdom of Sobrarbe": "Kingdom of Sobrarbe",
+"County of Aragon": "Kingdom of Sobrarbe",
+"Kara-Khanids": "Kara-Khanids",
+"Eastern Kara-Khanids": "Kara-Khanids",
+"Zaydi Alid dynasties": "Zaydi Alid dynasties",
+"Ziyarid dynasty": "Zaydi Alid dynasties",
+"County of Urgell": "County of Urgell",
+"Principality of Andorra": "County of Urgell",
+"Rus'": "Rus'",
+"Kievan Rus'": "Rus'",
+"Upper Burgundy": "Upper Burgundy",
+"Kingdom of France": "Upper Burgundy",
+"French First Republic": "Upper Burgundy",
+"French Directory": "Upper Burgundy",
+"French Consulate": "Upper Burgundy",
+"First French Empire": "Upper Burgundy",
+"Bourbon Kingdom of France": "Upper Burgundy",
+"French Second Republic": "Upper Burgundy",
+"Second French Empire": "Upper Burgundy",
+"French Third Republic": "Upper Burgundy",
+"French Fourth Republic": "Upper Burgundy",
+"Principality of Hungary": "Principality of Hungary",
+"Kingdom of Hungary": "Principality of Hungary",
+"Former Shu": "Former Shu",
+"Later Shu": "Former Shu",
+"Kingdom of Germany": "Kingdom of Germany",
+"Holy Roman Empire": "Kingdom of Germany",
+"Taebong": "Taebong",
+"Goryeo": "Taebong",
+"Joseon": "Taebong",
+"Korean Empire": "Taebong",
+"Chimor": "Chimor",
+"Chimu Empire": "Chimor",
+"Hamdanid Emirates": "Hamdanid Emirates",
+"Uyunid Emirate": "Hamdanid Emirates",
+"Bahrani Dynasty": "Hamdanid Emirates",
+"Ngô Dynasty": "Ngô Dynasty",
+"Lê Dynasty": "Ngô Dynasty",
+"Nguyễn lords": "Ngô Dynasty",
+"Nguyễn dynasty": "Ngô Dynasty",
+"Utpala Dynasty": "Utpala Dynasty",
+"Lohara Dynasty": "Utpala Dynasty",
+"Western Chalukya Empire": "Western Chalukya Empire",
+"Yadava Dynasty": "Western Chalukya Empire",
+"County of Anjou": "County of Anjou",
+"House of Valois-Anjou": "County of Anjou",
+"North Sea Empire": "North Sea Empire",
+"Norway-Denmark": "North Sea Empire",
+"Norman Italy": "Norman Italy",
+"Kingdom of Sicily": "Norman Italy",
+"Kediri Kingdom": "Kediri Kingdom",
+"Singhasari": "Kediri Kingdom",
+"Zirid dynasty": "Zirid dynasty",
+"Kingdom of Africa": "Zirid dynasty",
+"Great Principality of Duklja": "Great Principality of Duklja",
+"Kingdom of Duklja": "Great Principality of Duklja",
+"Grand Principality of Serbia": "Great Principality of Duklja",
+"Najahid Dynasty": "Najahid Dynasty",
+"Nabhani Dynasty": "Najahid Dynasty",
+"Kingdom of the Isles": "Kingdom of the Isles",
+"Kingdom of Mann": "Kingdom of the Isles",
+"County of Portugal": "County of Portugal",
+"Kingdom of Portugal": "County of Portugal",
+"Banate of Bosnia": "Banate of Bosnia",
+"Kingdom of Bosnia": "Banate of Bosnia",
+"Duchy of Athens": "Duchy of Athens",
+"Catalan Company": "Duchy of Athens",
+"Mamluk Dynasty": "Mamluk Dynasty",
+"Khalji Dynasty": "Mamluk Dynasty",
+"Tughlaq Dynasty": "Mamluk Dynasty",
+"Sayyid Dynasty": "Mamluk Dynasty",
+"Grand Duchy of Lithuania": "Grand Duchy of Lithuania",
+"House of Jagiellon": "Grand Duchy of Lithuania",
+"Polish-Lithuanian Commonwealth": "Grand Duchy of Lithuania",
+"Teutonic Order": "Teutonic Order",
+"Duchy of Prussia": "Teutonic Order",
+"Rasulid Dynasty": "Rasulid Dynasty",
+"Tahirid Sultanate": "Rasulid Dynasty",
+"Ceylon": "Ceylon",
+"Portuguese Ceylon": "Ceylon",
+"Dutch Ceylon": "Ceylon",
+"British Ceylon": "Ceylon",
+"Marinid Sultanate": "Marinid Sultanate",
+"Wattasid dynasty": "Marinid Sultanate",
+"Saadi Sultanate": "Marinid Sultanate",
+"House of Luxembourg": "House of Luxembourg",
+"Duchy of Luxembourg": "House of Luxembourg",
+"Margraviate of Brandenburg": "Margraviate of Brandenburg",
+"Electorate of Brandenburg": "Margraviate of Brandenburg",
+"County of Savoy": "County of Savoy",
+"House of Savoy": "County of Savoy",
+"Kingdom of Sardinia": "County of Savoy",
+"Ethiopian Empire": "Ethiopian Empire",
+"Ethiopia": "Ethiopian Empire",
+"Ifat Sultanate": "Ifat Sultanate",
+"Adal Sultanate": "Ifat Sultanate",
+"Cuzco": "Cuzco",
+"Inca Empire": "Cuzco",
+"Grand Principality of Moscow": "Grand Principality of Moscow",
+"Tsardom of Russia": "Grand Principality of Moscow",
+"Russian Empire": "Grand Principality of Moscow",
+"Russian Republic": "Grand Principality of Moscow",
+"Republics of the Soviet Union": "Grand Principality of Moscow",
+"Union of Soviet Socialist Republics": "Grand Principality of Moscow",
+"Russian Federation": "Grand Principality of Moscow",
+"Myinsaing Kingdom": "Myinsaing Kingdom",
+"Kingdom of Pinya": "Myinsaing Kingdom",
+"Lan Na Kingdom": "Lan Na Kingdom",
+"Lan Na": "Lan Na Kingdom",
+"Chiangmai": "Lan Na Kingdom",
+"Chagatai Khanate": "Chagatai Khanate",
+"East Turkestan": "Chagatai Khanate",
+"Ottoman Empire": "Ottoman Empire",
+"Republic of Turkey": "Ottoman Empire",
+"Sultanate of Bengal": "Sultanate of Bengal",
+"Hussain Shahi Dynasty": "Sultanate of Bengal",
+"Jalayirid Sultanate": "Jalayirid Sultanate",
+"Hashemite Arab Federation": "Jalayirid Sultanate",
+"Ayutthaya Kingdom": "Ayutthaya Kingdom",
+"Thonburi Kingdom": "Ayutthaya Kingdom",
+"Rattanakosin Kingdom": "Ayutthaya Kingdom",
+"Kingdom of Thailand": "Ayutthaya Kingdom",
+"Electorate of Saxony": "Electorate of Saxony",
+"Kingdom of Saxony": "Electorate of Saxony",
+"Ming Dynasty": "Ming Dynasty",
+"Southern Ming": "Ming Dynasty",
+"Northern Yuan": "Northern Yuan",
+"Mongol Khanate": "Northern Yuan",
+"Kingdom of Kongo": "Kingdom of Kongo",
+"Kingdom of Lunda": "Kingdom of Kongo",
+"Nogai Horde": "Nogai Horde",
+"Small Horde": "Nogai Horde",
+"Moghulistan": "Moghulistan",
+"Eastern Moghulistan": "Moghulistan",
+"Demak Sultanate": "Demak Sultanate",
+"Kingdom of Pajana": "Demak Sultanate",
+"Mataram Sultanate": "Demak Sultanate",
+"Habsburg Monarchy": "Habsburg Monarchy",
+"Austrian Empire": "Habsburg Monarchy",
+"Austria-Hungary": "Habsburg Monarchy",
+"Eastern Chagatai Khanate": "Eastern Chagatai Khanate",
+"Western Moghulistan": "Eastern Chagatai Khanate",
+"Khanate of Bukhara": "Khanate of Bukhara",
+"Emirate of Bukhara": "Khanate of Bukhara",
+"Balinese Kingdom": "Balinese Kingdom",
+"Bali": "Balinese Kingdom",
+"Eastern Hungarian Kingdom": "Eastern Hungarian Kingdom",
+"Principality of Transylvania": "Eastern Hungarian Kingdom",
+"Nayaks of Thanjavur": "Nayaks of Thanjavur",
+"Thanjavur Maratha Kingdom": "Nayaks of Thanjavur",
+"Union of Utrecht": "Union of Utrecht",
+"Dutch Republic": "Union of Utrecht",
+"Batavian Republic": "Union of Utrecht",
+"Dutch East Indies": "Union of Utrecht",
+"Sovereign Principality of the United Netherlands": "Union of Utrecht",
+"New France": "New France",
+"First French colonial empire": "New France",
+"Later Jin Dynasty": "Later Jin Dynasty",
+"Qing Dynasty": "Later Jin Dynasty",
+"Republic of China": "Later Jin Dynasty",
+"Empire of China": "Later Jin Dynasty",
+"Kuomintang": "Later Jin Dynasty",
+"People's Republic of China": "Later Jin Dynasty",
+"Kutai Kingdom": "Kutai Kingdom",
+"Sultanate of Kutai Kartanegara": "Kutai Kingdom",
+"Dutch Cape Colony": "Dutch Cape Colony",
+"British Cape Colony": "Dutch Cape Colony",
+"Napoleonic Batavia Republic": "Dutch Cape Colony",
+"Dutch Gold Coast": "Dutch Gold Coast",
+"British Gold Coast": "Dutch Gold Coast",
+"Federal Republic of Nigeria": "Dutch Gold Coast",
+"British Colonial Empire": "British Colonial Empire",
+"British Overseas Territories": "British Colonial Empire",
+"Electorate of Hanover": "Electorate of Hanover",
+"Kingdom of Hanover": "Electorate of Hanover",
+"Konbaung Dynasty": "Konbaung Dynasty",
+"Burma": "Konbaung Dynasty",
+"Union of Myanmar": "Konbaung Dynasty",
+"Durrani Empire": "Durrani Empire",
+"Emirate of Afghanistan": "Durrani Empire",
+"Durrani Dynasty": "Durrani Empire",
+"Kingdom of Afghanistan": "Durrani Empire",
+"Republic of Afghanistan": "Durrani Empire",
+"Afghanistan": "Durrani Empire",
+"Mujahideen": "Durrani Empire",
+"Taliban": "Durrani Empire",
+"British Empire": "British Empire",
+"British Raj": "British Empire",
+"Kingdom of Naples (Napoleonic)": "Kingdom of Naples (Napoleonic)",
+"Kingdom of the Two Sicilies": "Kingdom of Naples (Napoleonic)",
+"Qajar Dynasty": "Qajar Dynasty",
+"Pahlavi Dynasty": "Qajar Dynasty",
+"Islamic Republic of Iran": "Qajar Dynasty",
+"Kingdom of Hawaï'i": "Kingdom of Hawaï'i",
+"Republic of Hawai'i": "Kingdom of Hawaï'i",
+"Haiti": "Haiti",
+"Empire of Haiti": "Haiti",
+"Republic of Haiti": "Haiti",
+"Cisalpine Republic": "Cisalpine Republic",
+"Italian Republic": "Cisalpine Republic",
+"Cispadane Republic": "Cispadane Republic",
+"Duchy of Modena and Reggio": "Cispadane Republic",
+"Muhammad Ali dynasty": "Muhammad Ali dynasty",
+"Khedivate of Egypt": "Muhammad Ali dynasty",
+"British Africa": "Muhammad Ali dynasty",
+"Mahdist State": "Muhammad Ali dynasty",
+"British East Africa": "Muhammad Ali dynasty",
+"Seychelles": "Muhammad Ali dynasty",
+"Grand Duchy of Berg": "Grand Duchy of Berg",
+"Saxe-Coburg and Gotha": "Grand Duchy of Berg",
+"Duchy of Warsaw": "Duchy of Warsaw",
+"Poles": "Duchy of Warsaw",
+"Confederation of the Rhine": "Confederation of the Rhine",
+"German Confederation": "Confederation of the Rhine",
+"North German Confederation": "Confederation of the Rhine",
+"German Empire": "Confederation of the Rhine",
+"Weimar Republic": "Confederation of the Rhine",
+"Nazi Germany": "Confederation of the Rhine",
+"New Granada": "New Granada",
+"Republic of New Granada": "New Granada",
+"Granadine Confederation": "New Granada",
+"United States of Colombia": "New Granada",
+"Republic of Colombia": "New Granada",
+"Río de la Plata": "Río de la Plata",
+"Argentine Confederation": "Río de la Plata",
+"Argentine Republic": "Río de la Plata",
+"Empire of Brazil": "Empire of Brazil",
+"Brazilian Republic": "Empire of Brazil",
+"Unitary State of Brazil": "Empire of Brazil",
+"Federated Republic of Brazil": "Empire of Brazil",
+"Republic of Brazil": "Empire of Brazil",
+"First Mexican Empire": "First Mexican Empire",
+"Federated Republic of Mexico": "First Mexican Empire",
+"First Hellenic Republic": "First Hellenic Republic",
+"Kingdom of Greece": "First Hellenic Republic",
+"Greek junta": "First Hellenic Republic",
+"Third Hellenic Republic": "First Hellenic Republic",
+"Emirate of Nejd": "Emirate of Nejd",
+"Kingdom of Hejaz and Nejd": "Emirate of Nejd",
+"Kingdom of Saudi Arabia": "Emirate of Nejd",
+"French Africa": "French Africa",
+"French Fifth Republic": "French Africa",
+"Hungarian Nationalists": "Hungarian Nationalists",
+"Hungary": "Hungarian Nationalists",
+"Hungarian People's Republic": "Hungarian Nationalists",
+"New Caledonia": "New Caledonia",
+"French Indochina": "New Caledonia",
+"United Principalities of Moldavia and Wallachia": "United Principalities of Moldavia and Wallachia",
+"Kingdom of Romania": "United Principalities of Moldavia and Wallachia",
+"Socialist Republic of Romania": "United Principalities of Moldavia and Wallachia",
+"Romania": "United Principalities of Moldavia and Wallachia",
+"Second Mexican Empire": "Second Mexican Empire",
+"Mexico": "Second Mexican Empire",
+"Kamerun": "Kamerun",
+"German Africa": "Kamerun",
+"Principality of Bulgaria": "Principality of Bulgaria",
+"Kingdom of Bulgaria": "Principality of Bulgaria",
+"People's Republic of Bulgaria": "Principality of Bulgaria",
+"Republic of Bulgaria": "Principality of Bulgaria",
+"Italian Africa": "Italian Africa",
+"Kingdom of Libya": "Italian Africa",
+"Libyan Arab Republic": "Italian Africa",
+"State of Libya": "Italian Africa",
+"New Hebrides": "New Hebrides",
+"Vanuatu": "New Hebrides",
+"Sultanate of Muscat and Oman": "Sultanate of Muscat and Oman",
+"Qatar Protectorate": "Sultanate of Muscat and Oman",
+"Republic of Cuba": "Republic of Cuba",
+"Communist Cuba": "Republic of Cuba",
+"Portuguese Republic": "Portuguese Republic",
+"Estado Novo": "Portuguese Republic",
+"Great Mongol State": "Great Mongol State",
+"Mongolian People's Republic": "Great Mongol State",
+"Mongolia": "Great Mongol State",
+"Albania": "Albania",
+"People's Socialist Republic of Albania": "Albania",
+"Republic of Albania": "Albania",
+"Kingdom of Iceland": "Kingdom of Iceland",
+"Republic of Iceland": "Kingdom of Iceland",
+"Czechoslovakia": "Czechoslovakia",
+"Czech Republic": "Czechoslovakia",
+"Yugoslavia": "Yugoslavia",
+"Socialist Federal Republic of Yugoslavia": "Yugoslavia",
+"Republic of Austria": "Republic of Austria",
+"Second Republic of Austria": "Republic of Austria",
+"French Mandate for Syria and Lebanon": "French Mandate for Syria and Lebanon",
+"Second Syrian Republic": "French Mandate for Syria and Lebanon",
+"Republic of Syria": "French Mandate for Syria and Lebanon",
+"Ba'athist Syria": "French Mandate for Syria and Lebanon",
+"Arab Socialist Ba'ath Party": "French Mandate for Syria and Lebanon",
+"Syria": "French Mandate for Syria and Lebanon",
+"Kingdom of Egypt": "Kingdom of Egypt",
+"Republic of Egypt": "Kingdom of Egypt",
+"United Arab Republic": "Kingdom of Egypt",
+"Arab Republic of Egypt": "Kingdom of Egypt",
+"Irish Free State": "Irish Free State",
+"Éire": "Irish Free State",
+"Kingdom of Iraq": "Kingdom of Iraq",
+"Arab Federation": "Kingdom of Iraq",
+"Iraqi Republic": "Kingdom of Iraq",
+"Republic of Iraq": "Kingdom of Iraq",
+"Federal Republic of Germany": "Federal Republic of Germany",
+"Federated Republic of Germany": "Federal Republic of Germany",
+"Kingdom of Laos": "Kingdom of Laos",
+"Communist Laos": "Kingdom of Laos",
+"Rhodesia": "Rhodesia",
+"Zimbabwe Rhodesia": "Rhodesia",
+"Republic of Zimbabwe": "Rhodesia",
+"People's Democratic Republic of Yemen": "People's Democratic Republic of Yemen",
+"Republic of Yemen": "People's Democratic Republic of Yemen",
+"Khmer Rouge": "Khmer Rouge",
+"People's Republic of Kampuchea": "Khmer Rouge",
+"Serbia-Montenegro": "Serbia-Montenegro",
+"Republic of Serbia": "Serbia-Montenegro"
+}
+}
