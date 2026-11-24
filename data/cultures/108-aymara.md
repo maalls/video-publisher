@@ -9,8 +9,8 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Fox and Monkey | https://www.native-languages.org/aymarastory.htm | conte aymara traduit, titre de la page native-languages.org |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Fox and Monkey | conte court (présumé, non vérifié) | https://www.native-languages.org/aymarastory.htm | conte aymara traduit, titre de la page native-languages.org |  |
 
 Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).

@@ -9,13 +9,13 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | La hormiguita | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |
-| 2 | El lobo bobo y la zorra astuta | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |
-| 3 | Los caballeros del pez | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |
-| 4 | Bella Flor | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |
-| 5 | El pájaro de la verdad | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |
-| 6 | Los deseos | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | La hormiguita | conte court (présumé, non vérifié) | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |  |
+| 2 | El lobo bobo y la zorra astuta | conte court (présumé, non vérifié) | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |  |
+| 3 | Los caballeros del pez | conte court (présumé, non vérifié) | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |  |
+| 4 | Bella Flor | conte court (présumé, non vérifié) | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |  |
+| 5 | El pájaro de la verdad | conte court (présumé, non vérifié) | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |  |
+| 6 | Los deseos | conte court (présumé, non vérifié) | https://es.wikisource.org/wiki/Cuentos%2C_adivinanzas_y_refranes_populares | titre relevé dans l'index de Cuentos, adivinanzas y refranes populares (Fernán Caballero), es.wikisource |  |
 
 Reste à relever : 12 titres (source à ouvrir ou autre recueil à identifier).

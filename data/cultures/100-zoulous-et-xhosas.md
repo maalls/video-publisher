@@ -9,17 +9,17 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Uthlakanyana (Callaway) | https://afromythos.com/stories/uthlakanyana | conte ouvert en ligne (extrait vu via recherche) |
-| 2 | The Story of the Bird that made Milk | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 3 | The Story of Five Heads | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 4 | The Story of Tangalimlibo | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 5 | The Story of a Girl who disregarded the Custom of Ntonjane | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 6 | The Story of Simbukumbukwana | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 7 | The Story of Sikulume | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 8 | The Story of Hlakanyana | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 9 | The Story of Demane and Demazana | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 10 | The Story of the Runaway Children; or, the Wonderful Feather | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 11 | The Story of Ironside and his Sister | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
-| 12 | The Story of the Cannibal’s Wonderful Bird | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Uthlakanyana (Callaway) | conte court (présumé, non vérifié) | https://afromythos.com/stories/uthlakanyana | conte ouvert en ligne (extrait vu via recherche) |  |
+| 2 | The Story of the Bird that made Milk | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 3 | The Story of Five Heads | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 4 | The Story of Tangalimlibo | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 5 | The Story of a Girl who disregarded the Custom of Ntonjane | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 6 | The Story of Simbukumbukwana | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 7 | The Story of Sikulume | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 8 | The Story of Hlakanyana | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 9 | The Story of Demane and Demazana | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 10 | The Story of the Runaway Children; or, the Wonderful Feather | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 11 | The Story of Ironside and his Sister | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |
+| 12 | The Story of the Cannibal’s Wonderful Bird | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/71335/pg71335.txt | titre relevé dans la table des matières de la source |  |

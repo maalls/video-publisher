@@ -9,6 +9,6 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Ural-Batyr | http://suyun.info/index.php?LANG=ENG&p=uralbatir | épopée bachkir, page ouverte en ligne |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Ural-Batyr | récit long | http://suyun.info/index.php?LANG=ENG&p=uralbatir | épopée bachkir, page ouverte en ligne | Aucun épisode titré identifié dans la source ouverte : édition spéciale longue. |

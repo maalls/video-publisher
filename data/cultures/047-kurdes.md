@@ -9,8 +9,8 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Mem et Zin (Khani) | https://archive.org/stream/AhmedKhaniMemAndJinTrans.BySalahSaadalla/Ahmed+Khani-Mem+and+Jin-trans.+by+Salah+Saadalla_djvu.txt | conte ouvert en ligne (extrait vu via recherche) |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Mem et Zin (Khani) | conte court (présumé, non vérifié) | https://archive.org/stream/AhmedKhaniMemAndJinTrans.BySalahSaadalla/Ahmed+Khani-Mem+and+Jin-trans.+by+Salah+Saadalla_djvu.txt | conte ouvert en ligne (extrait vu via recherche) |  |
 
 Reste à relever : 3 titres (source à ouvrir ou autre recueil à identifier).

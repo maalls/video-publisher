@@ -9,9 +9,9 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Making of the Great Earth | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |
-| 2 | The Sun, the Moon, and Great Paddy | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |
-| 3 | The Story of Senasurā | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |
-| 4 | The Glass Princess | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Making of the Great Earth | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |  |
+| 2 | The Sun, the Moon, and Great Paddy | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |  |
+| 3 | The Story of Senasurā | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |  |
+| 4 | The Glass Princess | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/56614/56614-h/56614-h.htm | titre relevé dans la table des matières de la source |  |

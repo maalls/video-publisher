@@ -9,10 +9,10 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Néang Sâk-Krâaup, reine de Trèang | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 2 | La Coupe d’or du Roi | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 3 | La Femme-Paon d’or | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 4 | La Mère des Serpents | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 5 | Ruse de Femme | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Néang Sâk-Krâaup, reine de Trèang | conte court (présumé, non vérifié) | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 2 | La Coupe d’or du Roi | conte court (présumé, non vérifié) | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 3 | La Femme-Paon d’or | conte court (présumé, non vérifié) | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 4 | La Mère des Serpents | conte court (présumé, non vérifié) | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 5 | Ruse de Femme | conte court (présumé, non vérifié) | https://archive.org/details/conteslaotienset00lecl | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |

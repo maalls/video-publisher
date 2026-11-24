@@ -9,17 +9,17 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Le chacal et le hérisson | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 2 | Le lièvre et le chacal | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 3 | Le lion, le chacal et l’homme | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 4 | Le chacal et l’âne | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 5 | Le chacal et la perdrix | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 6 | L’homme, la vipère et le hérisson | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 7 | Le chacal et le coq | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 8 | Le faucon et le corbeau | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 9 | Pourquoi le corbeau est noir | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 10 | Origine du lion, du chat et du rat | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 11 | Salomon et le griffon | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 12 | Salomon et le dragon | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Le chacal et le hérisson | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 2 | Le lièvre et le chacal | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 3 | Le lion, le chacal et l’homme | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 4 | Le chacal et l’âne | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 5 | Le chacal et la perdrix | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 6 | L’homme, la vipère et le hérisson | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 7 | Le chacal et le coq | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 8 | Le faucon et le corbeau | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 9 | Pourquoi le corbeau est noir | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 10 | Origine du lion, du chat et du rat | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 11 | Salomon et le griffon | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 12 | Salomon et le dragon | conte court (présumé, non vérifié) | https://archive.org/details/contespopulaires00bass_0 | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |

@@ -9,9 +9,9 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Navaho Origin Legend | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |
-| 2 | The Story of the Emergence | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |
-| 3 | Early Events in the Fifth World | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |
-| 4 | The War Gods | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Navaho Origin Legend | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |  |
+| 2 | The Story of the Emergence | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |  |
+| 3 | Early Events in the Fifth World | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |  |
+| 4 | The War Gods | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/60165/pg60165-images.html | titre relevé dans la table des matières de la source |  |

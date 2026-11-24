@@ -9,8 +9,8 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | El tío Conejo y la gallina | https://es.scribd.com/document/414838280/El-Tio-Conejo-y-la-gallina | conte ouvert en ligne (extrait vu via recherche) |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | El tío Conejo y la gallina | conte court (présumé, non vérifié) | https://es.scribd.com/document/414838280/El-Tio-Conejo-y-la-gallina | conte ouvert en ligne (extrait vu via recherche) |  |
 
 Reste à relever : 2 titres (source à ouvrir ou autre recueil à identifier).

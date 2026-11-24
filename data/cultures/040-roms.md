@@ -9,10 +9,10 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Dead Man's Gratitude | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 2 | Baldpate | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 3 | The Riddle | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 4 | The Gypsy and the Priest | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 5 | The Gypsy and the Dragon | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Dead Man's Gratitude | conte court (présumé, non vérifié) | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 2 | Baldpate | conte court (présumé, non vérifié) | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 3 | The Riddle | conte court (présumé, non vérifié) | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 4 | The Gypsy and the Priest | conte court (présumé, non vérifié) | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 5 | The Gypsy and the Dragon | conte court (présumé, non vérifié) | https://archive.org/details/gypsyfolktales00groogoog | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |

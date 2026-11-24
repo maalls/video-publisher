@@ -9,8 +9,8 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Popol Vuh | https://www.gutenberg.org/files/56550/56550-h/56550-h.htm | récit mythique k'iche' (maya) ; titre de l'ebook Gutenberg 56550 |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Popol Vuh | récit long | https://www.gutenberg.org/files/56550/56550-h/56550-h.htm | récit mythique k'iche' (maya) ; titre de l'ebook Gutenberg 56550 | Épisode adaptable identifié : « The Myth of Vukub-Cakix » (section titrée de Spence, https://www.gutenberg.org/files/56550/56550-h/56550-h.htm). Version 1-2 min non vérifiée. |
 
 Reste à relever : 7 titres (source à ouvrir ou autre recueil à identifier).

@@ -9,8 +9,8 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Dhegdheer the Witch | https://morsmal.no/wp-content/uploads/2014/02/Engelsk._Heksen_Dhegdheer.pdf | conte ouvert en ligne (extrait vu via recherche) |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Dhegdheer the Witch | conte court (présumé, non vérifié) | https://morsmal.no/wp-content/uploads/2014/02/Engelsk._Heksen_Dhegdheer.pdf | conte ouvert en ligne (extrait vu via recherche) |  |
 
 Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).

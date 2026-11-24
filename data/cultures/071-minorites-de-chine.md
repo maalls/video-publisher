@@ -9,11 +9,11 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Creating and Forming the Sky and the Earth | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |
-| 2 | The First People Who Raised Cats | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |
-| 3 | A Miao Changed into an Amitabha | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |
-| 4 | Du Sam and Du Ni (conte zhuang) | https://www.zhuangwen.org/en/yunnan-zhuang-folktale-collection | titre relevé sur la page du Yunnan Zhuang Folktale Collection (2016) ; droits à vérifier |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Creating and Forming the Sky and the Earth | conte court (présumé, non vérifié) | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |  |
+| 2 | The First People Who Raised Cats | conte court (présumé, non vérifié) | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |  |
+| 3 | A Miao Changed into an Amitabha | conte court (présumé, non vérifié) | http://renincorp.org/bookshelf/songs-and-stories-of-the.pdf | titre relevé dans la table des matières de Graham, Songs and Stories of the Ch'uan Miao (Smithsonian 1954), légendes miao du Sichuan ; autres minorités (Yi, Zhuang) non couvertes |  |
+| 4 | Du Sam and Du Ni (conte zhuang) | conte court (présumé, non vérifié) | https://www.zhuangwen.org/en/yunnan-zhuang-folktale-collection | titre relevé sur la page du Yunnan Zhuang Folktale Collection (2016) ; droits à vérifier |  |
 
 Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).

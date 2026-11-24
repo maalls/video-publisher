@@ -9,9 +9,9 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | White Buffalo Calf Woman (sensible: sacré) | http://kstrom.net/isk/arvol/lamedeer.html | conte ouvert en ligne (extrait vu via recherche) |
-| 2 | The Forgotten Ear of Corn | https://www.gutenberg.org/files/341/341-h/341-h.htm | titre relevé dans la table des matières de la source |
-| 3 | The Little Mice | https://www.gutenberg.org/files/341/341-h/341-h.htm | titre relevé dans la table des matières de la source |
-| 4 | The Pet Rabbit | https://www.gutenberg.org/files/341/341-h/341-h.htm | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | White Buffalo Calf Woman (sensible: sacré) | conte court (présumé, non vérifié) | http://kstrom.net/isk/arvol/lamedeer.html | conte ouvert en ligne (extrait vu via recherche) |  |
+| 2 | The Forgotten Ear of Corn | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/341/341-h/341-h.htm | titre relevé dans la table des matières de la source |  |
+| 3 | The Little Mice | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/341/341-h/341-h.htm | titre relevé dans la table des matières de la source |  |
+| 4 | The Pet Rabbit | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/341/341-h/341-h.htm | titre relevé dans la table des matières de la source |  |

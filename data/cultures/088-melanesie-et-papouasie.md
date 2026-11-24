@@ -9,10 +9,10 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Two Lizards | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |
-| 2 | How the Turtle got his Shell | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |
-| 3 | The Man who left Heaven | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |
-| 4 | Dabedabe the Good | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |
-| 5 | The Dancing Dame | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Two Lizards | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |  |
+| 2 | How the Turtle got his Shell | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |  |
+| 3 | The Man who left Heaven | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |  |
+| 4 | Dabedabe the Good | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |  |
+| 5 | The Dancing Dame | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Papuan_Fairy_Tales | titre relevé dans la table des matières de la source |  |

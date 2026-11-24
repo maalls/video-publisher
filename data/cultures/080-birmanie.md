@@ -9,10 +9,10 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Woman, the Man and the Nāt | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |
-| 2 | The Stolen Treasure | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |
-| 3 | The Vigil of Mah May | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |
-| 4 | The Petition to the King | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |
-| 5 | The Priest's Petition | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Woman, the Man and the Nāt | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |  |
+| 2 | The Stolen Treasure | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |  |
+| 3 | The Vigil of Mah May | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |  |
+| 4 | The Petition to the King | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |  |
+| 5 | The Priest's Petition | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/36171/36171-h/36171-h.htm | titre relevé dans la table des matières de la source |  |

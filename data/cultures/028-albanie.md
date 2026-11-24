@@ -9,8 +9,8 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Snake Child | http://www.albanianliterature.net/folktales/tale_23.html | conte ouvert en ligne (extrait vu via recherche) |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Snake Child | conte court (présumé, non vérifié) | http://www.albanianliterature.net/folktales/tale_23.html | conte ouvert en ligne (extrait vu via recherche) |  |
 
 Reste à relever : 4 titres (source à ouvrir ou autre recueil à identifier).

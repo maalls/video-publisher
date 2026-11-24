@@ -9,11 +9,11 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Bear’s Son | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |
-| 2 | The Wonderful Kiosk | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |
-| 3 | The Snake’s Gift. Language Of Animals | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |
-| 4 | The Golden Apple-Tree, And The Nine Peahens | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |
-| 5 | Papalluga; Or, The Golden Slipper | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |
-| 6 | The Golden-Fleeced Ram | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Bear’s Son | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |  |
+| 2 | The Wonderful Kiosk | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |  |
+| 3 | The Snake’s Gift. Language Of Animals | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |  |
+| 4 | The Golden Apple-Tree, And The Nine Peahens | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |  |
+| 5 | Papalluga; Or, The Golden Slipper | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |  |
+| 6 | The Golden-Fleeced Ram | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/45321/45321-h/45321-h.htm | titre relevé dans la table des matières de la source |  |

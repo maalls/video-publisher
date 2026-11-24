@@ -9,9 +9,9 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | The Wonderful Alpine Horn | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |
-| 2 | The Whimsical Avalanche | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |
-| 3 | The Mountain Giants | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |
-| 4 | The Dwarf and His Confectionery | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | The Wonderful Alpine Horn | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |  |
+| 2 | The Whimsical Avalanche | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |  |
+| 3 | The Mountain Giants | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |  |
+| 4 | The Dwarf and His Confectionery | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/69739/69739-h/69739-h.htm | titre relevé dans la table des matières de la source |  |

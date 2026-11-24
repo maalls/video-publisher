@@ -9,10 +9,10 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Serbian Stories from Bosnia (Wratislaw) | https://www.sacred-texts.com/neu/sfs/sfs59.htm | conte ouvert en ligne (extrait vu via recherche) |
-| 2 | The Birdcatcher | https://www.gutenberg.org/files/48761/48761-h/48761-h.htm | titre relevé dans la table des matières de la source |
-| 3 | The Two Brothers | https://www.gutenberg.org/files/48761/48761-h/48761-h.htm | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Serbian Stories from Bosnia (Wratislaw) | conte court (présumé, non vérifié) | https://www.sacred-texts.com/neu/sfs/sfs59.htm | conte ouvert en ligne (extrait vu via recherche) |  |
+| 2 | The Birdcatcher | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/48761/48761-h/48761-h.htm | titre relevé dans la table des matières de la source |  |
+| 3 | The Two Brothers | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/48761/48761-h/48761-h.htm | titre relevé dans la table des matières de la source |  |
 
 Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).

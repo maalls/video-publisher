@@ -9,11 +9,11 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Introductory | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |
-| 2 | The Vain Queen | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |
-| 3 | The Maid and the Negress | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |
-| 4 | The Three Citrons of Love | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |
-| 5 | The Daughter of the Witch | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |
-| 6 | May you vanish like the Wind | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Introductory | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |  |
+| 2 | The Vain Queen | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |  |
+| 3 | The Maid and the Negress | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |  |
+| 4 | The Three Citrons of Love | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |  |
+| 5 | The Daughter of the Witch | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |  |
+| 6 | May you vanish like the Wind | conte court (présumé, non vérifié) | https://en.wikisource.org/wiki/Portuguese_Folk-Tales | titre relevé dans la table des matières de la source |  |

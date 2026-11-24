@@ -9,20 +9,20 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | Prince Csihan | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 2 | Stephen the Murderer | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 3 | The Lamb with the Golden Fleece | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 4 | Luck and Bliss | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 5 | The Lazy Cat | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 6 | The Travels of Luck and Falsehood | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 7 | The Hunting Princes | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 8 | The Lazy Spinning Girl | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 9 | The Envious Sisters | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 10 | Knight Rose | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 11 | Prince Mirko | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 12 | The Student who was forcibly made King | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 13 | My Father's Wedding | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 14 | The Baa Lambs | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
-| 15 | Fairy Elizabeth | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Prince Csihan | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 2 | Stephen the Murderer | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 3 | The Lamb with the Golden Fleece | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 4 | Luck and Bliss | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 5 | The Lazy Cat | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 6 | The Travels of Luck and Falsehood | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 7 | The Hunting Princes | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 8 | The Lazy Spinning Girl | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 9 | The Envious Sisters | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 10 | Knight Rose | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 11 | Prince Mirko | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 12 | The Student who was forcibly made King | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 13 | My Father's Wedding | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 14 | The Baa Lambs | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |
+| 15 | Fairy Elizabeth | conte court (présumé, non vérifié) | https://archive.org/details/folktalesofmagya00joneuoft | titre lu par OCR (texte numérisé archive.org), orthographe à relire |  |

@@ -9,9 +9,9 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | How the World Began | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |
-| 2 | The Brothers who Climbed into the Sky | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |
-| 3 | The Death Panther | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |
-| 4 | The Great Bear Constellation | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | How the World Began | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |  |
+| 2 | The Brothers who Climbed into the Sky | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |  |
+| 3 | The Death Panther | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |  |
+| 4 | The Great Bear Constellation | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/61477/pg61477-images.html | titre relevé dans la table des matières de la source |  |

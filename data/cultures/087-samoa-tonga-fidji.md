@@ -9,10 +9,10 @@
 
 Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
 
-| n | titre | source | origine du titre |
-|---|---|---|---|
-| 1 | How the Tongans Came to Fiji | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |
-| 2 | How the Fijians Learned to Build Canoes | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |
-| 3 | The Story of the Sun-Child | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |
-| 4 | How the Samoans First Got Pigs | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |
-| 5 | Why the Kings of Lakemba Are Called Lords | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | How the Tongans Came to Fiji | conte court (présumé, non vérifié) | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |  |
+| 2 | How the Fijians Learned to Build Canoes | conte court (présumé, non vérifié) | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |  |
+| 3 | The Story of the Sun-Child | conte court (présumé, non vérifié) | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |  |
+| 4 | How the Samoans First Got Pigs | conte court (présumé, non vérifié) | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |  |
+| 5 | Why the Kings of Lakemba Are Called Lords | conte court (présumé, non vérifié) | https://archive.org/stream/talesfromoldfiji00fisouoft/talesfromoldfiji00fisouoft_djvu.txt | titre relevé dans la table des matières de la source |  |
