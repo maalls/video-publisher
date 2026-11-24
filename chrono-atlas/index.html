@@ -36,20 +36,20 @@ map.on("load",async()=>{
  map.addLayer({id:"line",type:"line",source:"clio",filter:filt(+slider.value),paint:{"line-color":"#333","line-width":.6,"line-opacity":.6}});
  let upd=()=>{const y=+slider.value;yl.textContent=fmt(y);map.setFilter("fill",filt(y));map.setFilter("line",filt(y));
   const n=new Set(map.querySourceFeatures("clio",{filter:filt(y)}).map(f=>f.properties.n)).size;info.textContent=n+(n>1?" entités":" entité")+"";};
- const top=document.getElementById("top");let feats=null;
- fetch("data/cliopatria_simplifie.geojson").then(r=>r.json()).then(d=>{feats=d.features.map(f=>f.properties);GMAX=Math.max(...feats.filter(p=>p.ty==="POLITY").map(p=>p.a));upd()});
+ const top=document.getElementById("top");let feats=null,LIN={};const lin=n=>LIN[n]||LIN[n.replace(/^\((.*)\)$/,"$1")];
+ Promise.all([fetch("data/cliopatria_simplifie.geojson").then(r=>r.json()),fetch("data/lineages_page.json").then(r=>r.json()).catch(()=>({}))]).then(([d,LN])=>{LIN=LN;feats=d.features.map(f=>f.properties);GMAX=Math.max(...feats.filter(p=>p.ty==="POLITY").map(p=>p.a));upd()});
  const nf=a=>a>=1e6?(a/1e6).toFixed(1).replace(".",",")+" M km²":Math.round(a/1e3)+" k km²";
  let GMAX=1;const rowsEl=document.createElement("div");rowsEl.id="rows";const ttl=document.createElement("h4");const note=document.createElement("small");
 
  top.append(ttl,rowsEl);const els=new Map();
  function updTop(y){if(!feats)return;const m=new Map();
   const act=feats.filter(p=>p.ty==="POLITY"&&p.f<=y&&p.t>=y);const nm=new Set(act.map(p=>p.n)),cs=new Set();for(const p of act)if(p.k)for(const c of p.k.split(";"))cs.add(c);
-  for(const p of act){if((p.m&&nm.has(p.m))||cs.has(p.n))continue;const o=m.get(p.n);if(!o||p.a>o.a)m.set(p.n,p)}
+  for(const p of act){if((p.m&&nm.has(p.m))||cs.has(p.n))continue;const ln=lin(p.n),key=ln?ln[0]:p.n,o=m.get(key);if(!o||p.a>o.a)m.set(key,Object.assign({},p,{key,lab:ln?ln[1]:p.n}))}
   const l=[...m.values()].sort((a,b)=>b.a-a.a).slice(0,10);ttl.textContent="Top 10 en superficie, "+fmt(y);
-  const keep=new Set(l.map(p=>p.n));
+  const keep=new Set(l.map(p=>p.key));
   for(const [n,e] of els)if(!keep.has(n)){e.style.opacity=0;els.delete(n);setTimeout(()=>e.remove(),400)}
-  l.forEach((p,i)=>{let e=els.get(p.n);if(!e){e=document.createElement("div");e.className="r";e.innerHTML='<div class="n"><span class="v"></span><span class="t"></span></div><div class="g"><b></b></div>';e.style.transform=`translateY(${i*29}px)`;e.style.opacity=0;rowsEl.append(e);els.set(p.n,e);void e.offsetWidth;e.style.opacity=1}
-   e.querySelector(".t").textContent=(i+1)+". "+p.n.replace(/^\((.*)\)$/,"$1");e.querySelector(".v").textContent=nf(p.a);const b=e.querySelector("b");b.style.width=Math.max(1,p.a/GMAX*100)+"%";b.style.background=p.c;e.style.transform=`translateY(${i*29}px)`})}
+  l.forEach((p,i)=>{let e=els.get(p.key);if(!e){e=document.createElement("div");e.className="r";e.innerHTML='<div class="n"><span class="v"></span><span class="t"></span></div><div class="g"><b></b></div>';e.style.transform=`translateY(${i*29}px)`;e.style.opacity=0;rowsEl.append(e);els.set(p.key,e);void e.offsetWidth;e.style.opacity=1}
+   e.title=p.n;e.querySelector(".t").textContent=(i+1)+". "+(()=>{const c=p.n.replace(/^\((.*)\)$/,"$1"),L=p.lab.replace(/^\((.*)\)$/,"$1");return c===L?c:L+" ("+c+")"})();e.querySelector(".v").textContent=nf(p.a);const b=e.querySelector("b");b.style.width=Math.max(1,p.a/GMAX*100)+"%";b.style.background=p.c;e.style.transform=`translateY(${i*29}px)`})}
 
  {const el=document.getElementById("top");let sx,sy,ox,oy,on=false;
   el.addEventListener("pointerdown",e=>{on=true;sx=e.clientX;sy=e.clientY;const r=el.getBoundingClientRect();ox=r.left;oy=r.top;el.setPointerCapture(e.pointerId);el.style.cursor="grabbing"});

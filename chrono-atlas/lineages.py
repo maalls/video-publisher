@@ -9,11 +9,12 @@ from shapely.geometry import shape
 from shapely.strtree import STRtree
 TH=0.6
 d=json.load(open(sys.argv[1]))
-rec=collections.defaultdict(list)
+rec=collections.defaultdict(list); YRS=collections.Counter()
 for f in d["features"]:
     p=f["properties"]
     if p["Type"]!="POLITY" or p["Name"].startswith("("): continue
     rec[p["Name"]].append((p["FromYear"],p["ToYear"],f["geometry"]))
+    YRS[p["Name"]]+= p["ToYear"]-p["FromYear"]+1
 def g(x):
     s=shape(x[2]).simplify(0.2); return s if s.is_valid else s.buffer(0)
 G={}
@@ -48,12 +49,16 @@ for lab,ms in EDITORIAL.items():
     for m in ms: src[m]="editorial"
 comp=collections.defaultdict(list)
 for n in names: comp[find(n)].append(n)
+# noms editoriaux (racine -> nom affiche) pour les lignees ou la regle automatique donne un nom peu parlant
+LABELS={"Grand Principality of Moscow":"Russia","Early Dynastic Period of Egypt":"Ancient Egypt","Upper Burgundy":"France","Durrani Empire":"Afghanistan","Kingdom of Egypt":"Egypt"}
 out={}; lines={}
 for ms in comp.values():
     ms.sort(key=lambda n:G[n]["f"])
     if len(ms)<2: continue
     root=ms[0]
-    lines[root]=dict(members=ms,editorial=[m for m in ms if src.get(m)])
+    label=LABELS.get(root) or max(ms,key=lambda n:YRS[n])  # nom stable = membre qui dure le plus longtemps (annees couvertes)
+    lines[root]=dict(label=label,members=ms,editorial=[m for m in ms if src.get(m)])
     for m in ms: out[m]=root
 json.dump({"threshold_iou":TH,"lineages":lines,"edges_auto":edges,"name_to_lineage":out},open("data/lineages.json","w"),ensure_ascii=False,indent=0)
+json.dump({n:[r,lines[r]["label"]] for n,r in out.items()},open("data/lineages_page.json","w"),ensure_ascii=False,separators=(",",":"))
 print(len(names),"noms;",len(lines),"lignees;",len(out),"noms regroupes;",sorted((len(v["members"]) for v in lines.values()),reverse=True)[:10])

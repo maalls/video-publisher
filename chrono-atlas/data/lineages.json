@@ -2,6 +2,7 @@
 "threshold_iou": 0.6,
 "lineages": {
 "Early Dynastic Period of Egypt": {
+"label": "Ancient Egypt",
 "members": [
 "Early Dynastic Period of Egypt",
 "Old Kingdom of Egypt",
@@ -36,6 +37,7 @@
 ]
 },
 "Mycenaean Greece": {
+"label": "Greek City-States",
 "members": [
 "Mycenaean Greece",
 "Greek Dark Ages",
@@ -44,6 +46,7 @@
 "editorial": []
 },
 "Neo-Assyrian Empire": {
+"label": "Neo-Assyrian Empire",
 "members": [
 "Neo-Assyrian Empire",
 "Neo-Babylonian Empire"
@@ -51,6 +54,7 @@
 "editorial": []
 },
 "Qin": {
+"label": "Qin",
 "members": [
 "Qin",
 "Han",
@@ -61,6 +65,7 @@
 "editorial": []
 },
 "Later Zhou": {
+"label": "Later Zhou",
 "members": [
 "Later Zhou",
 "Later Jin",
@@ -72,6 +77,7 @@
 "editorial": []
 },
 "Macedonian Empire": {
+"label": "Macedonian Empire",
 "members": [
 "Macedonian Empire",
 "Antigonid Dynasty",
@@ -80,6 +86,7 @@
 "editorial": []
 },
 "Median Kingdom": {
+"label": "Achaemenid Empire",
 "members": [
 "Median Kingdom",
 "Achaemenid Empire"
@@ -87,6 +94,7 @@
 "editorial": []
 },
 "Janapada of Vajji": {
+"label": "Janapada of Vajji",
 "members": [
 "Janapada of Vajji",
 "Mahajanapadas"
@@ -94,6 +102,7 @@
 "editorial": []
 },
 "Roman Republic": {
+"label": "Roman Republic",
 "members": [
 "Roman Republic",
 "Roman Empire"
@@ -101,6 +110,7 @@
 "editorial": []
 },
 "Odrysian Kingdom": {
+"label": "Odrysian Kingdom",
 "members": [
 "Odrysian Kingdom",
 "Kingdom of Lysimachus"
@@ -108,6 +118,7 @@
 "editorial": []
 },
 "Yuezhi": {
+"label": "Yuezhi",
 "members": [
 "Yuezhi",
 "Kushan Empire",
@@ -116,6 +127,7 @@
 "editorial": []
 },
 "Nanda Empire": {
+"label": "Maurya Empire",
 "members": [
 "Nanda Empire",
 "Maurya Empire"
@@ -123,6 +135,7 @@
 "editorial": []
 },
 "Perdiccas": {
+"label": "Seleucid Empire",
 "members": [
 "Perdiccas",
 "Seleucid Empire"
@@ -130,6 +143,7 @@
 "editorial": []
 },
 "Greco-Bactrian Kingdom": {
+"label": "Greco-Bactrian Kingdom",
 "members": [
 "Greco-Bactrian Kingdom",
 "Indo-Greeks"
@@ -137,6 +151,7 @@
 "editorial": []
 },
 "Satavahana Dynasty": {
+"label": "Satavahana Dynasty",
 "members": [
 "Satavahana Dynasty",
 "Vakataka Kingdom"
@@ -144,6 +159,7 @@
 "editorial": []
 },
 "Shunga Empire": {
+"label": "Shunga Empire",
 "members": [
 "Shunga Empire",
 "Kanva Dynasty"
@@ -151,6 +167,7 @@
 "editorial": []
 },
 "Jinhan": {
+"label": "Jinhan",
 "members": [
 "Jinhan",
 "Silla"
@@ -158,6 +175,7 @@
 "editorial": []
 },
 "Mahan": {
+"label": "Mahan",
 "members": [
 "Mahan",
 "Baekje"
@@ -165,6 +183,7 @@
 "editorial": []
 },
 "Lazica": {
+"label": "Lazica",
 "members": [
 "Lazica",
 "Georgia"
@@ -172,6 +191,7 @@
 "editorial": []
 },
 "Huns": {
+"label": "Huns",
 "members": [
 "Huns",
 "Hunnic Empire"
@@ -179,6 +199,7 @@
 "editorial": []
 },
 "Cao Cao": {
+"label": "Western Jin",
 "members": [
 "Cao Cao",
 "Cao Wei",
@@ -190,6 +211,7 @@
 "editorial": []
 },
 "Western Kushans": {
+"label": "Indo-Sasanian Empire",
 "members": [
 "Western Kushans",
 "Indo-Sasanian Empire"
@@ -197,6 +219,7 @@
 "editorial": []
 },
 "Former Zhao": {
+"label": "Former Zhao",
 "members": [
 "Former Zhao",
 "Later Zhao"
@@ -204,6 +227,7 @@
 "editorial": []
 },
 "Former Liang": {
+"label": "Former Liang",
 "members": [
 "Former Liang",
 "Later Liang"
@@ -211,6 +235,7 @@
 "editorial": []
 },
 "Makuria": {
+"label": "Makuria",
 "members": [
 "Makuria",
 "Makuria Kingdom"
@@ -218,6 +243,7 @@
 "editorial": []
 },
 "Later Yan": {
+"label": "Northern Yan",
 "members": [
 "Later Yan",
 "Northern Yan"
@@ -225,6 +251,7 @@
 "editorial": []
 },
 "Xionites": {
+"label": "White Huns",
 "members": [
 "Xionites",
 "White Huns"
@@ -232,6 +259,7 @@
 "editorial": []
 },
 "Eastern Roman Empire": {
+"label": "Byzantine Empire",
 "members": [
 "Eastern Roman Empire",
 "Byzantine Empire"
@@ -239,6 +267,7 @@
 "editorial": []
 },
 "Visigoths": {
+"label": "Visigothic Kingdom",
 "members": [
 "Visigoths",
 "Visigothic Kingdom",
@@ -248,6 +277,7 @@
 "editorial": []
 },
 "Rouran Khaganate": {
+"label": "Rouran Khaganate",
 "members": [
 "Rouran Khaganate",
 "Göktürk Khaganate",
@@ -256,6 +286,7 @@
 "editorial": []
 },
 "Ostrogoths": {
+"label": "Ostrogothic Kingdom",
 "members": [
 "Ostrogoths",
 "Ostrogothic Kingdom"
@@ -263,6 +294,7 @@
 "editorial": []
 },
 "Thuringian states": {
+"label": "Duchy of Thuringia",
 "members": [
 "Thuringian states",
 "Kingdom of Thuringia",
@@ -271,6 +303,7 @@
 "editorial": []
 },
 "Eastern Wei": {
+"label": "Northern Qi",
 "members": [
 "Eastern Wei",
 "Northern Qi"
@@ -278,6 +311,7 @@
 "editorial": []
 },
 "Western Wei": {
+"label": "Tang Dynasty",
 "members": [
 "Western Wei",
 "Northern Zhou",
@@ -287,6 +321,7 @@
 "editorial": []
 },
 "Kingdom of Wessex": {
+"label": "Kingdom of England",
 "members": [
 "Kingdom of Wessex",
 "Kingdom of England",
@@ -295,6 +330,7 @@
 "editorial": []
 },
 "Asuka Japan": {
+"label": "Heian Japan",
 "members": [
 "Asuka Japan",
 "Nara Japan",
@@ -306,6 +342,7 @@
 "editorial": []
 },
 "Dál Riata": {
+"label": "Kingdom of Alba",
 "members": [
 "Dál Riata",
 "Kingdom of Alba",
@@ -314,6 +351,7 @@
 "editorial": []
 },
 "Breton Kingdoms": {
+"label": "Duchy of Brittany",
 "members": [
 "Breton Kingdoms",
 "Kingdom of Brittany",
@@ -322,6 +360,7 @@
 "editorial": []
 },
 "Magna Frisia": {
+"label": "Magna Frisia",
 "members": [
 "Magna Frisia",
 "Frisians"
@@ -329,6 +368,7 @@
 "editorial": []
 },
 "Kashmir": {
+"label": "Kashmir",
 "members": [
 "Kashmir",
 "Kashmiri Sultanate"
@@ -336,6 +376,7 @@
 "editorial": []
 },
 "Umayyad Caliphate": {
+"label": "Emirate of Córdoba",
 "members": [
 "Umayyad Caliphate",
 "Emirate of Córdoba",
@@ -344,6 +385,7 @@
 "editorial": []
 },
 "Srivijaya": {
+"label": "Srivijaya",
 "members": [
 "Srivijaya",
 "Majapahit"
@@ -351,6 +393,7 @@
 "editorial": []
 },
 "Türgesh": {
+"label": "Uyghur Khaganate",
 "members": [
 "Türgesh",
 "Uyghur Khaganate"
@@ -358,6 +401,7 @@
 "editorial": []
 },
 "Merovingian Empire": {
+"label": "Merovingian Empire",
 "members": [
 "Merovingian Empire",
 "Carolingian Empire"
@@ -365,6 +409,7 @@
 "editorial": []
 },
 "Mataram Kingdom": {
+"label": "Mataram Kingdom",
 "members": [
 "Mataram Kingdom",
 "Kahuripan"
@@ -372,6 +417,7 @@
 "editorial": []
 },
 "Nanzhao": {
+"label": "Kingdom of Dali",
 "members": [
 "Nanzhao",
 "Kingdom of Dali"
@@ -379,6 +425,7 @@
 "editorial": []
 },
 "Kharijites": {
+"label": "Fatimid Caliphate",
 "members": [
 "Kharijites",
 "Aghlabid Dynasty",
@@ -387,6 +434,7 @@
 "editorial": []
 },
 "Ghana Empire": {
+"label": "Ghana Empire",
 "members": [
 "Ghana Empire",
 "Sosso Empire"
@@ -394,6 +442,7 @@
 "editorial": []
 },
 "Kingdom of Pamplona": {
+"label": "County of Ribagorza",
 "members": [
 "Kingdom of Pamplona",
 "County of Ribagorza"
@@ -401,6 +450,7 @@
 "editorial": []
 },
 "Kingdom of Sobrarbe": {
+"label": "County of Aragon",
 "members": [
 "Kingdom of Sobrarbe",
 "County of Aragon"
@@ -408,6 +458,7 @@
 "editorial": []
 },
 "Kara-Khanids": {
+"label": "Kara-Khanids",
 "members": [
 "Kara-Khanids",
 "Eastern Kara-Khanids"
@@ -415,6 +466,7 @@
 "editorial": []
 },
 "Zaydi Alid dynasties": {
+"label": "Zaydi Alid dynasties",
 "members": [
 "Zaydi Alid dynasties",
 "Ziyarid dynasty"
@@ -422,6 +474,7 @@
 "editorial": []
 },
 "County of Urgell": {
+"label": "County of Urgell",
 "members": [
 "County of Urgell",
 "Principality of Andorra"
@@ -429,6 +482,7 @@
 "editorial": []
 },
 "Rus'": {
+"label": "Kievan Rus'",
 "members": [
 "Rus'",
 "Kievan Rus'"
@@ -436,6 +490,7 @@
 "editorial": []
 },
 "Upper Burgundy": {
+"label": "France",
 "members": [
 "Upper Burgundy",
 "Kingdom of France",
@@ -452,6 +507,7 @@
 "editorial": []
 },
 "Principality of Hungary": {
+"label": "Kingdom of Hungary",
 "members": [
 "Principality of Hungary",
 "Kingdom of Hungary"
@@ -459,6 +515,7 @@
 "editorial": []
 },
 "Former Shu": {
+"label": "Later Shu",
 "members": [
 "Former Shu",
 "Later Shu"
@@ -466,6 +523,7 @@
 "editorial": []
 },
 "Kingdom of Germany": {
+"label": "Holy Roman Empire",
 "members": [
 "Kingdom of Germany",
 "Holy Roman Empire"
@@ -473,6 +531,7 @@
 "editorial": []
 },
 "Taebong": {
+"label": "Joseon",
 "members": [
 "Taebong",
 "Goryeo",
@@ -482,6 +541,7 @@
 "editorial": []
 },
 "Chimor": {
+"label": "Chimu Empire",
 "members": [
 "Chimor",
 "Chimu Empire"
@@ -489,6 +549,7 @@
 "editorial": []
 },
 "Hamdanid Emirates": {
+"label": "Hamdanid Emirates",
 "members": [
 "Hamdanid Emirates",
 "Uyunid Emirate",
@@ -497,6 +558,7 @@
 "editorial": []
 },
 "Ngô Dynasty": {
+"label": "Ngô Dynasty",
 "members": [
 "Ngô Dynasty",
 "Lê Dynasty",
@@ -506,6 +568,7 @@
 "editorial": []
 },
 "Utpala Dynasty": {
+"label": "Lohara Dynasty",
 "members": [
 "Utpala Dynasty",
 "Lohara Dynasty"
@@ -513,6 +576,7 @@
 "editorial": []
 },
 "Western Chalukya Empire": {
+"label": "Western Chalukya Empire",
 "members": [
 "Western Chalukya Empire",
 "Yadava Dynasty"
@@ -520,6 +584,7 @@
 "editorial": []
 },
 "County of Anjou": {
+"label": "County of Anjou",
 "members": [
 "County of Anjou",
 "House of Valois-Anjou"
@@ -527,6 +592,7 @@
 "editorial": []
 },
 "North Sea Empire": {
+"label": "North Sea Empire",
 "members": [
 "North Sea Empire",
 "Norway-Denmark"
@@ -534,6 +600,7 @@
 "editorial": []
 },
 "Norman Italy": {
+"label": "Kingdom of Sicily",
 "members": [
 "Norman Italy",
 "Kingdom of Sicily"
@@ -541,6 +608,7 @@
 "editorial": []
 },
 "Kediri Kingdom": {
+"label": "Kediri Kingdom",
 "members": [
 "Kediri Kingdom",
 "Singhasari"
@@ -548,6 +616,7 @@
 "editorial": []
 },
 "Zirid dynasty": {
+"label": "Zirid dynasty",
 "members": [
 "Zirid dynasty",
 "Kingdom of Africa"
@@ -555,6 +624,7 @@
 "editorial": []
 },
 "Great Principality of Duklja": {
+"label": "Grand Principality of Serbia",
 "members": [
 "Great Principality of Duklja",
 "Kingdom of Duklja",
@@ -563,6 +633,7 @@
 "editorial": []
 },
 "Najahid Dynasty": {
+"label": "Najahid Dynasty",
 "members": [
 "Najahid Dynasty",
 "Nabhani Dynasty"
@@ -570,6 +641,7 @@
 "editorial": []
 },
 "Kingdom of the Isles": {
+"label": "Kingdom of Mann",
 "members": [
 "Kingdom of the Isles",
 "Kingdom of Mann"
@@ -577,6 +649,7 @@
 "editorial": []
 },
 "County of Portugal": {
+"label": "Kingdom of Portugal",
 "members": [
 "County of Portugal",
 "Kingdom of Portugal"
@@ -584,6 +657,7 @@
 "editorial": []
 },
 "Banate of Bosnia": {
+"label": "Banate of Bosnia",
 "members": [
 "Banate of Bosnia",
 "Kingdom of Bosnia"
@@ -591,6 +665,7 @@
 "editorial": []
 },
 "Duchy of Athens": {
+"label": "Duchy of Athens",
 "members": [
 "Duchy of Athens",
 "Catalan Company"
@@ -598,6 +673,7 @@
 "editorial": []
 },
 "Mamluk Dynasty": {
+"label": "Tughlaq Dynasty",
 "members": [
 "Mamluk Dynasty",
 "Khalji Dynasty",
@@ -607,6 +683,7 @@
 "editorial": []
 },
 "Grand Duchy of Lithuania": {
+"label": "Grand Duchy of Lithuania",
 "members": [
 "Grand Duchy of Lithuania",
 "House of Jagiellon",
@@ -615,6 +692,7 @@
 "editorial": []
 },
 "Teutonic Order": {
+"label": "Teutonic Order",
 "members": [
 "Teutonic Order",
 "Duchy of Prussia"
@@ -622,6 +700,7 @@
 "editorial": []
 },
 "Rasulid Dynasty": {
+"label": "Rasulid Dynasty",
 "members": [
 "Rasulid Dynasty",
 "Tahirid Sultanate"
@@ -629,6 +708,7 @@
 "editorial": []
 },
 "Ceylon": {
+"label": "Ceylon",
 "members": [
 "Ceylon",
 "Portuguese Ceylon",
@@ -638,6 +718,7 @@
 "editorial": []
 },
 "Marinid Sultanate": {
+"label": "Saadi Sultanate",
 "members": [
 "Marinid Sultanate",
 "Wattasid dynasty",
@@ -646,6 +727,7 @@
 "editorial": []
 },
 "House of Luxembourg": {
+"label": "House of Luxembourg",
 "members": [
 "House of Luxembourg",
 "Duchy of Luxembourg"
@@ -653,6 +735,7 @@
 "editorial": []
 },
 "Margraviate of Brandenburg": {
+"label": "Electorate of Brandenburg",
 "members": [
 "Margraviate of Brandenburg",
 "Electorate of Brandenburg"
@@ -660,6 +743,7 @@
 "editorial": []
 },
 "County of Savoy": {
+"label": "County of Savoy",
 "members": [
 "County of Savoy",
 "House of Savoy",
@@ -668,6 +752,7 @@
 "editorial": []
 },
 "Ethiopian Empire": {
+"label": "Ethiopian Empire",
 "members": [
 "Ethiopian Empire",
 "Ethiopia"
@@ -675,6 +760,7 @@
 "editorial": []
 },
 "Ifat Sultanate": {
+"label": "Adal Sultanate",
 "members": [
 "Ifat Sultanate",
 "Adal Sultanate"
@@ -682,6 +768,7 @@
 "editorial": []
 },
 "Cuzco": {
+"label": "Cuzco",
 "members": [
 "Cuzco",
 "Inca Empire"
@@ -689,6 +776,7 @@
 "editorial": []
 },
 "Grand Principality of Moscow": {
+"label": "Russia",
 "members": [
 "Grand Principality of Moscow",
 "Tsardom of Russia",
@@ -701,6 +789,7 @@
 "editorial": []
 },
 "Myinsaing Kingdom": {
+"label": "Kingdom of Pinya",
 "members": [
 "Myinsaing Kingdom",
 "Kingdom of Pinya"
@@ -708,6 +797,7 @@
 "editorial": []
 },
 "Lan Na Kingdom": {
+"label": "Lan Na Kingdom",
 "members": [
 "Lan Na Kingdom",
 "Lan Na",
@@ -716,6 +806,7 @@
 "editorial": []
 },
 "Chagatai Khanate": {
+"label": "Chagatai Khanate",
 "members": [
 "Chagatai Khanate",
 "East Turkestan"
@@ -723,6 +814,7 @@
 "editorial": []
 },
 "Ottoman Empire": {
+"label": "Ottoman Empire",
 "members": [
 "Ottoman Empire",
 "Republic of Turkey"
@@ -730,6 +822,7 @@
 "editorial": []
 },
 "Sultanate of Bengal": {
+"label": "Sultanate of Bengal",
 "members": [
 "Sultanate of Bengal",
 "Hussain Shahi Dynasty"
@@ -737,6 +830,7 @@
 "editorial": []
 },
 "Jalayirid Sultanate": {
+"label": "Jalayirid Sultanate",
 "members": [
 "Jalayirid Sultanate",
 "Hashemite Arab Federation"
@@ -744,6 +838,7 @@
 "editorial": []
 },
 "Ayutthaya Kingdom": {
+"label": "Ayutthaya Kingdom",
 "members": [
 "Ayutthaya Kingdom",
 "Thonburi Kingdom",
@@ -753,6 +848,7 @@
 "editorial": []
 },
 "Electorate of Saxony": {
+"label": "Electorate of Saxony",
 "members": [
 "Electorate of Saxony",
 "Kingdom of Saxony"
@@ -760,6 +856,7 @@
 "editorial": []
 },
 "Ming Dynasty": {
+"label": "Ming Dynasty",
 "members": [
 "Ming Dynasty",
 "Southern Ming"
@@ -767,6 +864,7 @@
 "editorial": []
 },
 "Northern Yuan": {
+"label": "Mongol Khanate",
 "members": [
 "Northern Yuan",
 "Mongol Khanate"
@@ -774,6 +872,7 @@
 "editorial": []
 },
 "Kingdom of Kongo": {
+"label": "Kingdom of Kongo",
 "members": [
 "Kingdom of Kongo",
 "Kingdom of Lunda"
@@ -781,6 +880,7 @@
 "editorial": []
 },
 "Nogai Horde": {
+"label": "Small Horde",
 "members": [
 "Nogai Horde",
 "Small Horde"
@@ -788,6 +888,7 @@
 "editorial": []
 },
 "Moghulistan": {
+"label": "Eastern Moghulistan",
 "members": [
 "Moghulistan",
 "Eastern Moghulistan"
@@ -795,6 +896,7 @@
 "editorial": []
 },
 "Demak Sultanate": {
+"label": "Mataram Sultanate",
 "members": [
 "Demak Sultanate",
 "Kingdom of Pajana",
@@ -803,6 +905,7 @@
 "editorial": []
 },
 "Habsburg Monarchy": {
+"label": "Habsburg Monarchy",
 "members": [
 "Habsburg Monarchy",
 "Austrian Empire",
@@ -811,6 +914,7 @@
 "editorial": []
 },
 "Eastern Chagatai Khanate": {
+"label": "Western Moghulistan",
 "members": [
 "Eastern Chagatai Khanate",
 "Western Moghulistan"
@@ -818,6 +922,7 @@
 "editorial": []
 },
 "Khanate of Bukhara": {
+"label": "Khanate of Bukhara",
 "members": [
 "Khanate of Bukhara",
 "Emirate of Bukhara"
@@ -825,6 +930,7 @@
 "editorial": []
 },
 "Balinese Kingdom": {
+"label": "Bali",
 "members": [
 "Balinese Kingdom",
 "Bali"
@@ -832,6 +938,7 @@
 "editorial": []
 },
 "Eastern Hungarian Kingdom": {
+"label": "Principality of Transylvania",
 "members": [
 "Eastern Hungarian Kingdom",
 "Principality of Transylvania"
@@ -839,6 +946,7 @@
 "editorial": []
 },
 "Nayaks of Thanjavur": {
+"label": "Nayaks of Thanjavur",
 "members": [
 "Nayaks of Thanjavur",
 "Thanjavur Maratha Kingdom"
@@ -846,6 +954,7 @@
 "editorial": []
 },
 "Union of Utrecht": {
+"label": "Dutch Republic",
 "members": [
 "Union of Utrecht",
 "Dutch Republic",
@@ -856,6 +965,7 @@
 "editorial": []
 },
 "New France": {
+"label": "New France",
 "members": [
 "New France",
 "First French colonial empire"
@@ -863,6 +973,7 @@
 "editorial": []
 },
 "Later Jin Dynasty": {
+"label": "Qing Dynasty",
 "members": [
 "Later Jin Dynasty",
 "Qing Dynasty",
@@ -874,6 +985,7 @@
 "editorial": []
 },
 "Kutai Kingdom": {
+"label": "Sultanate of Kutai Kartanegara",
 "members": [
 "Kutai Kingdom",
 "Sultanate of Kutai Kartanegara"
@@ -881,6 +993,7 @@
 "editorial": []
 },
 "Dutch Cape Colony": {
+"label": "Dutch Cape Colony",
 "members": [
 "Dutch Cape Colony",
 "British Cape Colony",
@@ -889,6 +1002,7 @@
 "editorial": []
 },
 "Dutch Gold Coast": {
+"label": "Dutch Gold Coast",
 "members": [
 "Dutch Gold Coast",
 "British Gold Coast",
@@ -897,6 +1011,7 @@
 "editorial": []
 },
 "British Colonial Empire": {
+"label": "British Colonial Empire",
 "members": [
 "British Colonial Empire",
 "British Overseas Territories"
@@ -904,6 +1019,7 @@
 "editorial": []
 },
 "Electorate of Hanover": {
+"label": "Electorate of Hanover",
 "members": [
 "Electorate of Hanover",
 "Kingdom of Hanover"
@@ -911,6 +1027,7 @@
 "editorial": []
 },
 "Konbaung Dynasty": {
+"label": "Burma",
 "members": [
 "Konbaung Dynasty",
 "Burma",
@@ -919,6 +1036,7 @@
 "editorial": []
 },
 "Durrani Empire": {
+"label": "Afghanistan",
 "members": [
 "Durrani Empire",
 "Emirate of Afghanistan",
@@ -932,6 +1050,7 @@
 "editorial": []
 },
 "British Empire": {
+"label": "British Empire",
 "members": [
 "British Empire",
 "British Raj"
@@ -939,6 +1058,7 @@
 "editorial": []
 },
 "Kingdom of Naples (Napoleonic)": {
+"label": "Kingdom of Naples (Napoleonic)",
 "members": [
 "Kingdom of Naples (Napoleonic)",
 "Kingdom of the Two Sicilies"
@@ -946,6 +1066,7 @@
 "editorial": []
 },
 "Qajar Dynasty": {
+"label": "Qajar Dynasty",
 "members": [
 "Qajar Dynasty",
 "Pahlavi Dynasty",
@@ -954,6 +1075,7 @@
 "editorial": []
 },
 "Kingdom of Hawaï'i": {
+"label": "Kingdom of Hawaï'i",
 "members": [
 "Kingdom of Hawaï'i",
 "Republic of Hawai'i"
@@ -961,6 +1083,7 @@
 "editorial": []
 },
 "Haiti": {
+"label": "Empire of Haiti",
 "members": [
 "Haiti",
 "Empire of Haiti",
@@ -969,6 +1092,7 @@
 "editorial": []
 },
 "Cisalpine Republic": {
+"label": "Italian Republic",
 "members": [
 "Cisalpine Republic",
 "Italian Republic"
@@ -976,6 +1100,7 @@
 "editorial": []
 },
 "Cispadane Republic": {
+"label": "Duchy of Modena and Reggio",
 "members": [
 "Cispadane Republic",
 "Duchy of Modena and Reggio"
@@ -983,6 +1108,7 @@
 "editorial": []
 },
 "Muhammad Ali dynasty": {
+"label": "British Africa",
 "members": [
 "Muhammad Ali dynasty",
 "Khedivate of Egypt",
@@ -994,6 +1120,7 @@
 "editorial": []
 },
 "Grand Duchy of Berg": {
+"label": "Grand Duchy of Berg",
 "members": [
 "Grand Duchy of Berg",
 "Saxe-Coburg and Gotha"
@@ -1001,6 +1128,7 @@
 "editorial": []
 },
 "Duchy of Warsaw": {
+"label": "Duchy of Warsaw",
 "members": [
 "Duchy of Warsaw",
 "Poles"
@@ -1008,6 +1136,7 @@
 "editorial": []
 },
 "Confederation of the Rhine": {
+"label": "German Confederation",
 "members": [
 "Confederation of the Rhine",
 "German Confederation",
@@ -1019,6 +1148,7 @@
 "editorial": []
 },
 "New Granada": {
+"label": "Republic of Colombia",
 "members": [
 "New Granada",
 "Republic of New Granada",
@@ -1029,6 +1159,7 @@
 "editorial": []
 },
 "Río de la Plata": {
+"label": "Argentine Confederation",
 "members": [
 "Río de la Plata",
 "Argentine Confederation",
@@ -1037,6 +1168,7 @@
 "editorial": []
 },
 "Empire of Brazil": {
+"label": "Empire of Brazil",
 "members": [
 "Empire of Brazil",
 "Brazilian Republic",
@@ -1047,6 +1179,7 @@
 "editorial": []
 },
 "First Mexican Empire": {
+"label": "Federated Republic of Mexico",
 "members": [
 "First Mexican Empire",
 "Federated Republic of Mexico"
@@ -1054,6 +1187,7 @@
 "editorial": []
 },
 "First Hellenic Republic": {
+"label": "First Hellenic Republic",
 "members": [
 "First Hellenic Republic",
 "Kingdom of Greece",
@@ -1063,6 +1197,7 @@
 "editorial": []
 },
 "Emirate of Nejd": {
+"label": "Emirate of Nejd",
 "members": [
 "Emirate of Nejd",
 "Kingdom of Hejaz and Nejd",
@@ -1071,6 +1206,7 @@
 "editorial": []
 },
 "French Africa": {
+"label": "French Africa",
 "members": [
 "French Africa",
 "French Fifth Republic"
@@ -1078,6 +1214,7 @@
 "editorial": []
 },
 "Hungarian Nationalists": {
+"label": "Hungary",
 "members": [
 "Hungarian Nationalists",
 "Hungary",
@@ -1086,6 +1223,7 @@
 "editorial": []
 },
 "New Caledonia": {
+"label": "French Indochina",
 "members": [
 "New Caledonia",
 "French Indochina"
@@ -1093,6 +1231,7 @@
 "editorial": []
 },
 "United Principalities of Moldavia and Wallachia": {
+"label": "United Principalities of Moldavia and Wallachia",
 "members": [
 "United Principalities of Moldavia and Wallachia",
 "Kingdom of Romania",
@@ -1102,6 +1241,7 @@
 "editorial": []
 },
 "Second Mexican Empire": {
+"label": "Mexico",
 "members": [
 "Second Mexican Empire",
 "Mexico"
@@ -1109,6 +1249,7 @@
 "editorial": []
 },
 "Kamerun": {
+"label": "German Africa",
 "members": [
 "Kamerun",
 "German Africa"
@@ -1116,6 +1257,7 @@
 "editorial": []
 },
 "Principality of Bulgaria": {
+"label": "Principality of Bulgaria",
 "members": [
 "Principality of Bulgaria",
 "Kingdom of Bulgaria",
@@ -1125,6 +1267,7 @@
 "editorial": []
 },
 "Italian Africa": {
+"label": "Italian Africa",
 "members": [
 "Italian Africa",
 "Kingdom of Libya",
@@ -1134,6 +1277,7 @@
 "editorial": []
 },
 "New Hebrides": {
+"label": "New Hebrides",
 "members": [
 "New Hebrides",
 "Vanuatu"
@@ -1141,6 +1285,7 @@
 "editorial": []
 },
 "Sultanate of Muscat and Oman": {
+"label": "Sultanate of Muscat and Oman",
 "members": [
 "Sultanate of Muscat and Oman",
 "Qatar Protectorate"
@@ -1148,6 +1293,7 @@
 "editorial": []
 },
 "Republic of Cuba": {
+"label": "Communist Cuba",
 "members": [
 "Republic of Cuba",
 "Communist Cuba"
@@ -1155,6 +1301,7 @@
 "editorial": []
 },
 "Portuguese Republic": {
+"label": "Estado Novo",
 "members": [
 "Portuguese Republic",
 "Estado Novo"
@@ -1162,6 +1309,7 @@
 "editorial": []
 },
 "Great Mongol State": {
+"label": "Mongolian People's Republic",
 "members": [
 "Great Mongol State",
 "Mongolian People's Republic",
@@ -1170,6 +1318,7 @@
 "editorial": []
 },
 "Albania": {
+"label": "People's Socialist Republic of Albania",
 "members": [
 "Albania",
 "People's Socialist Republic of Albania",
@@ -1178,6 +1327,7 @@
 "editorial": []
 },
 "Kingdom of Iceland": {
+"label": "Republic of Iceland",
 "members": [
 "Kingdom of Iceland",
 "Republic of Iceland"
@@ -1185,6 +1335,7 @@
 "editorial": []
 },
 "Czechoslovakia": {
+"label": "Czechoslovakia",
 "members": [
 "Czechoslovakia",
 "Czech Republic"
@@ -1192,6 +1343,7 @@
 "editorial": []
 },
 "Yugoslavia": {
+"label": "Socialist Federal Republic of Yugoslavia",
 "members": [
 "Yugoslavia",
 "Socialist Federal Republic of Yugoslavia"
@@ -1199,6 +1351,7 @@
 "editorial": []
 },
 "Republic of Austria": {
+"label": "Second Republic of Austria",
 "members": [
 "Republic of Austria",
 "Second Republic of Austria"
@@ -1206,6 +1359,7 @@
 "editorial": []
 },
 "French Mandate for Syria and Lebanon": {
+"label": "Syria",
 "members": [
 "French Mandate for Syria and Lebanon",
 "Second Syrian Republic",
@@ -1217,6 +1371,7 @@
 "editorial": []
 },
 "Kingdom of Egypt": {
+"label": "Egypt",
 "members": [
 "Kingdom of Egypt",
 "Republic of Egypt",
@@ -1226,6 +1381,7 @@
 "editorial": []
 },
 "Irish Free State": {
+"label": "Éire",
 "members": [
 "Irish Free State",
 "Éire"
@@ -1233,6 +1389,7 @@
 "editorial": []
 },
 "Kingdom of Iraq": {
+"label": "Iraqi Republic",
 "members": [
 "Kingdom of Iraq",
 "Arab Federation",
@@ -1242,6 +1399,7 @@
 "editorial": []
 },
 "Federal Republic of Germany": {
+"label": "Federal Republic of Germany",
 "members": [
 "Federal Republic of Germany",
 "Federated Republic of Germany"
@@ -1249,6 +1407,7 @@
 "editorial": []
 },
 "Kingdom of Laos": {
+"label": "Communist Laos",
 "members": [
 "Kingdom of Laos",
 "Communist Laos"
@@ -1256,6 +1415,7 @@
 "editorial": []
 },
 "Rhodesia": {
+"label": "Republic of Zimbabwe",
 "members": [
 "Rhodesia",
 "Zimbabwe Rhodesia",
@@ -1264,6 +1424,7 @@
 "editorial": []
 },
 "People's Democratic Republic of Yemen": {
+"label": "Republic of Yemen",
 "members": [
 "People's Democratic Republic of Yemen",
 "Republic of Yemen"
@@ -1271,6 +1432,7 @@
 "editorial": []
 },
 "Khmer Rouge": {
+"label": "People's Republic of Kampuchea",
 "members": [
 "Khmer Rouge",
 "People's Republic of Kampuchea"
@@ -1278,6 +1440,7 @@
 "editorial": []
 },
 "Serbia-Montenegro": {
+"label": "Republic of Serbia",
 "members": [
 "Serbia-Montenegro",
 "Republic of Serbia"
