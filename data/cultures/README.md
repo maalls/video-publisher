@@ -4,7 +4,7 @@ Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json]
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-1341 titres, 142 cultures.
+1385 titres, 144 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
@@ -150,3 +150,5 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Marquises | 14 | [140-marquises.md](140-marquises.md) |
 | Îles Cook (Mangaia, Rarotonga) | 10 | [141-iles-cook.md](141-iles-cook.md) |
 | Rapa Nui (île de Pâques) | 10 | [142-rapa-nui.md](142-rapa-nui.md) |
+| Cap-Vert (contes créoles) | 23 | [143-cap-vert.md](143-cap-vert.md) |
+| Galice (contos galegos) | 21 | [144-galice.md](144-galice.md) |
