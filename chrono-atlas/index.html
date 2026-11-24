@@ -24,8 +24,13 @@ const q=new URLSearchParams(location.search);
 const slider=document.getElementById("t"),yl=document.getElementById("year"),info=document.getElementById("info");
 slider.value=q.get("y")||1500;
 const fmt=y=>y<0?`${-y} av. J.-C.`:y===0?"an 0":`${y}`;
-const map=window.map=new maplibregl.Map({container:"map",center:[20,30],zoom:1.6,attributionControl:false,canvasContextAttributes:{preserveDrawingBuffer:true,antialias:true},
+// Vue initiale (capture de Malo, 1525x700 px) : centre lon -12, lat 35 ; largeur du monde = 80 % de la largeur de la carte (zoom 1,25 a 1525 px), limitee en hauteur (80N a 55S visibles)
+const VIEW_LON=-12,VIEW_LAT=35;
+function viewZoom(){const m=document.getElementById("map"),W=m.clientWidth,H=m.clientHeight;const R=Math.min(0.8*W/(2*Math.PI),H/3.6);return Math.log2(2*Math.PI*R/512)}
+let moved=false;
+const map=window.map=new maplibregl.Map({container:"map",center:[VIEW_LON,VIEW_LAT],zoom:viewZoom(),attributionControl:false,canvasContextAttributes:{preserveDrawingBuffer:true,antialias:true},
  style:{version:8,sources:{},layers:[{id:"bg",type:"background",paint:{"background-color":"#cfe3ee"}}]}});
+map.on("dragstart",()=>{moved=true});map.on("zoomstart",e=>{if(e.originalEvent)moved=true});
 const t0=performance.now();window.__e=[];map.on("error",e=>window.__e.push(String(e.error&&e.error.message||e)));
 function filt(y){return["all",["<=",["get","f"],y],[">=",["get","t"],y]]}
 map.on("load",async()=>{
@@ -52,6 +57,8 @@ map.on("load",async()=>{
    e.title=p.n;e.querySelector(".t").textContent=(i+1)+". "+(()=>{const c=p.n.replace(/^\((.*)\)$/,"$1"),L=p.lab.replace(/^\((.*)\)$/,"$1");return c===L?c:L+" ("+c+")"})();e.querySelector(".v").textContent=nf(p.a);const b=e.querySelector("b");b.style.width=Math.max(1,p.a/GMAX*100)+"%";b.style.background=p.c;e.style.transform=`translateY(${i*29}px)`})}
 
  {const el=document.getElementById("top");let sx,sy,ox,oy,on=false;
+  let dragged=false;const place=()=>{if(dragged)return;el.style.left="16px";el.style.top=Math.max(8,document.getElementById("map").clientHeight-el.offsetHeight-12)+"px"};place();addEventListener("resize",()=>{place();if(!moved){map.jumpTo({center:[VIEW_LON,VIEW_LAT],zoom:viewZoom()})}});setTimeout(place,300);
+  el.addEventListener("pointerdown",()=>{dragged=true},true);
   el.addEventListener("pointerdown",e=>{on=true;sx=e.clientX;sy=e.clientY;const r=el.getBoundingClientRect();ox=r.left;oy=r.top;el.setPointerCapture(e.pointerId);el.style.cursor="grabbing"});
   el.addEventListener("pointermove",e=>{if(!on)return;const w=innerWidth-el.offsetWidth,hh=innerHeight-el.offsetHeight;el.style.left=Math.min(Math.max(0,ox+e.clientX-sx),w)+"px";el.style.top=Math.min(Math.max(0,oy+e.clientY-sy),hh)+"px"});
   const end=()=>{on=false;el.style.cursor="grab"};el.addEventListener("pointerup",end);el.addEventListener("pointercancel",end)}
@@ -61,6 +68,6 @@ map.on("load",async()=>{
  const pop=new maplibregl.Popup({closeButton:false});
  map.on("mousemove","fill",e=>{const p=e.features[0].properties;pop.setLngLat(e.lngLat).setHTML(`<b>${p.n}</b><br>${fmt(p.f)} → ${fmt(p.t)}`).addTo(map)});
  map.on("mouseleave","fill",()=>pop.remove());
- let timer=null;document.getElementById("play").onclick=function(){if(timer){clearInterval(timer);timer=null;this.textContent="▶";return}this.textContent="⏸";timer=setInterval(()=>{slider.value=Math.min(2024,+slider.value+10);slider.dispatchEvent(new Event("input"));if(+slider.value>=2024){clearInterval(timer);timer=null}},240)};
+ let timer=null;document.getElementById("play").onclick=function(){const b=this;if(timer){clearInterval(timer);timer=null;b.textContent="▶";return}if(+slider.value>=2024){slider.value=-3400;slider.dispatchEvent(new Event("input"))}b.textContent="⏸";timer=setInterval(()=>{slider.value=Math.min(2024,+slider.value+10);slider.dispatchEvent(new Event("input"));if(+slider.value>=2024){clearInterval(timer);timer=null;b.textContent="▶"}},240)};
 });
 </script></body></html>
