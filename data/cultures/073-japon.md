@@ -2,7 +2,7 @@
 
 - Région : Asie de l'Est
 - Nombre de contes visés : 28
-- Contes listés avec source : 22
+- Contes listés avec source : 36
 - Sensibilité / droits : faible
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/4018
@@ -33,5 +33,17 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 | 20 | The Ogre Of Rashomon | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/4018/pg4018-images.html | titre relevé dans la table des matières de la source |  |
 | 21 | How An Old Man Lost His Wen | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/4018/pg4018-images.html | titre relevé dans la table des matières de la source |  |
 | 22 | The Stones Of Five Colors And The Empress Jokwa. An Old Chinese Story | conte court (présumé, non vérifié) | https://www.gutenberg.org/cache/epub/4018/pg4018-images.html | titre relevé dans la table des matières de la source |  |
-
-Reste à relever : 6 titres (source à ouvrir ou autre recueil à identifier).
+| 23 | The Story of Mimi-Nashi-Hōïchi | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 24 | Oshidori | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 25 | The Story of O-Tei | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 26 | Ubazakura | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 27 | Diplomacy | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 28 | Of a Mirror and a Bell | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 29 | Jikininki | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 30 | Mujina | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 31 | Rokuro-Kubi | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 32 | A Dead Secret | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 33 | Yuki-Onna | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 34 | The Story of Aoyagi | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 35 | Jiu-Roku-Zakura | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |
+| 36 | The Dream of Akinosuké | conte court (présumé, non vérifié) | https://www.gutenberg.org/files/1210/1210-h/1210-h.htm | titre relevé dans la table des matières de la source (Hearn, Kwaidan, 1904) |  |

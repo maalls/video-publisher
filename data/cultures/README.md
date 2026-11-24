@@ -4,7 +4,7 @@ Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json]
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-1014 titres, 127 cultures.
+1100 titres, 127 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
@@ -28,9 +28,9 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Pays-Bas et Flandre | 5 | [018-pays-bas-et-flandre.md](018-pays-bas-et-flandre.md) |
 | Suisse | 4 | [019-suisse.md](019-suisse.md) |
 | Italie | 24 | [020-italie.md](020-italie.md) |
-| Sicile et Sardaigne | 5 | [021-sicile-et-sardaigne.md](021-sicile-et-sardaigne.md) |
+| Sicile et Sardaigne | 17 | [021-sicile-et-sardaigne.md](021-sicile-et-sardaigne.md) |
 | Malte | 1 | [022-malte.md](022-malte.md) |
-| Espagne | 6 | [023-espagne.md](023-espagne.md) |
+| Espagne | 19 | [023-espagne.md](023-espagne.md) |
 | Pays basque | 5 | [024-pays-basque.md](024-pays-basque.md) |
 | Catalogne | 4 | [025-catalogne.md](025-catalogne.md) |
 | Portugal | 6 | [026-portugal.md](026-portugal.md) |
@@ -69,7 +69,7 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Tatars et Bachkirs | 1 | [059-tatars-et-bachkirs.md](059-tatars-et-bachkirs.md) |
 | Mongolie | 12 | [060-mongolie.md](060-mongolie.md) |
 | Ainous | 3 | [061-ainous.md](061-ainous.md) |
-| Inde (Panchatantra) | 33 | [062-inde.md](062-inde.md) |
+| Inde (Panchatantra) | 62 | [062-inde.md](062-inde.md) |
 | Inde du Sud (tamoul, télougou) | 12 | [063-inde-du-sud.md](063-inde-du-sud.md) |
 | Bengale | 9 | [064-bengale.md](064-bengale.md) |
 | Pakistan (Penjab) | 4 | [065-pakistan.md](065-pakistan.md) |
@@ -80,10 +80,10 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Chine (Han) | 28 | [070-chine.md](070-chine.md) |
 | Minorités de Chine (Miao, Yi, Zhuang...) | 4 | [071-minorites-de-chine.md](071-minorites-de-chine.md) |
 | Taïwan (peuples autochtones) | 1 | [072-taiwan.md](072-taiwan.md) |
-| Japon | 22 | [073-japon.md](073-japon.md) |
+| Japon | 36 | [073-japon.md](073-japon.md) |
 | Okinawa et Ryukyu | 1 | [074-okinawa-et-ryukyu.md](074-okinawa-et-ryukyu.md) |
 | Corée | 17 | [075-coree.md](075-coree.md) |
-| Vietnam | 1 | [076-vietnam.md](076-vietnam.md) |
+| Vietnam | 19 | [076-vietnam.md](076-vietnam.md) |
 | Thaïlande | 1 | [077-thailande.md](077-thailande.md) |
 | Laos | 3 | [078-laos.md](078-laos.md) |
 | Cambodge | 5 | [079-cambodge.md](079-cambodge.md) |
