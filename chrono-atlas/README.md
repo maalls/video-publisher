@@ -1,4 +1,4 @@
-# Carte des civilisations (prototype)
+# Chrono Atlas (prototype)
 
 Page statique : MapLibre GL JS + polygones Cliopatria + curseur de temps (-5000 à 2024).
 Prototype de rendu, non publié. Les 152 cultures ne sont pas encore ajoutées.
