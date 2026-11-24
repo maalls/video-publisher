@@ -2,7 +2,7 @@
 
 Un fichier par culture. Chaque titre est rattaché à une source citée, aucun titre n'est inventé. La liste d'ensemble est dans [../cultures.csv](../cultures.csv) (colonnes fichier et lien_github).
 
-Total de titres déjà listés avec source : 763 (cible : 1100).
+Total de titres déjà listés avec source : 767 (cible : 1100).
 
 | culture | région | visés | listés | fichier |
 |---|---|---|---|---|
@@ -70,7 +70,7 @@ Total de titres déjà listés avec source : 763 (cible : 1100).
 | Inde (Panchatantra) | Asie du Sud | 34 | 33 | [062-inde.md](062-inde.md) |
 | Inde du Sud (tamoul, télougou) | Asie du Sud | 12 | 12 | [063-inde-du-sud.md](063-inde-du-sud.md) |
 | Bengale | Asie du Sud | 9 | 9 | [064-bengale.md](064-bengale.md) |
-| Pakistan (Penjab) | Asie du Sud | 4 | 0 | [065-pakistan.md](065-pakistan.md) |
+| Pakistan (Penjab) | Asie du Sud | 4 | 4 | [065-pakistan.md](065-pakistan.md) |
 | Cachemire | Asie du Sud | 3 | 3 | [066-cachemire.md](066-cachemire.md) |
 | Népal | Asie du Sud | 3 | 3 | [067-nepal.md](067-nepal.md) |
 | Sri Lanka | Asie du Sud | 4 | 4 | [068-sri-lanka.md](068-sri-lanka.md) |
