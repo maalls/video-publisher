@@ -1,0 +1,7 @@
+{
+  "default": null,
+  "accounts": {
+    "contes": {"name": "Les 1001 Contes", "token_file": "youtube-token.json", "channel_id": "UC4WiTuKuhFMPmHETWVclfww"},
+    "maalls": {"name": "maalls", "token_file": "youtube-maalls-token.json", "channel_id": null}
+  }
+}
