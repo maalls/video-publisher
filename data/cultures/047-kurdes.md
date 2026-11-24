@@ -4,6 +4,7 @@
 - Nombre de contes visés : 4
 - Contes listés avec source : 1
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://thekurdishproject.org/history-and-culture/kurdish-culture/kurdish-folklore/
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 3
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://fr.wikisource.org/wiki/Le_Folk-lore_de_l%E2%80%99%C3%8Ele-Maurice
 

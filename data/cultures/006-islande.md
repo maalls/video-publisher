@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/Icelandiclegends000197449v1PoweReyk
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 4
 - Contes listés avec source : 1
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/folk-tales-from-the-soviet-union-central-asia-and-kazakhstan-raduga-1986
 

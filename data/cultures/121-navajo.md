@@ -4,6 +4,7 @@
 - Nombre de contes visés : 4
 - Contes listés avec source : 4
 - Sensibilité / droits : élevée
+- Avis de la communauté requis avant production : oui
 - Note : certains récits saisonniers/sacrés
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/60165
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 34
 - Contes listés avec source : 22
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : domaine public
 - Sources de référence (vérifiées en ligne) : https://fr.wikisource.org/wiki/Contes_ou_Histoires_du_temps_pass%C3%A9 ; https://en.wikipedia.org/wiki/Aarne%E2%80%93Thompson%E2%80%93Uther_Index
 

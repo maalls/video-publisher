@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 1
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://en.wikipedia.org/wiki/Phra_Aphai_Mani
 

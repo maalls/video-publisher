@@ -4,6 +4,7 @@
 - Nombre de contes visés : 5
 - Contes listés avec source : 1
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://en.wikisource.org/wiki/Kebra_Nagast
 

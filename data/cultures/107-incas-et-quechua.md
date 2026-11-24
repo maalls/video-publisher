@@ -4,6 +4,7 @@
 - Nombre de contes visés : 6
 - Contes listés avec source : 1
 - Sensibilité / droits : élevée
+- Avis de la communauté requis avant production : oui
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://en.wikipedia.org/wiki/Huarochir%C3%AD_Manuscript
 

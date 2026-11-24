@@ -4,6 +4,7 @@
 - Nombre de contes visés : 9
 - Contes listés avec source : 9
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/files/38488/38488-h/38488-h.htm
 

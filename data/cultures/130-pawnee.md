@@ -4,6 +4,7 @@
 - Nombre de contes visés : 13
 - Contes listés avec source : 13
 - Sensibilité / droits : ÉLEVÉE : tradition autochtone vivante ; recueil de Grinnell, 1889, domaine public mais collecte coloniale ; certains récits touchent à des rites ; consentement et avis de la communauté à obtenir avant toute production
+- Avis de la communauté requis avant production : oui
 - Note : Perle rare : source Pawnee Hero Stories and Folk-Tales, Grinnell 1889 (Gutenberg 36923). Seule la partie « Folk-Tales » est retenue.
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/files/36923/36923-h/36923-h.htm
 

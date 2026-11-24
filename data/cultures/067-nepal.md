@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 3
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://catalog.hathitrust.org/Record/001276966
 

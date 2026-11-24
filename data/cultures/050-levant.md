@@ -4,6 +4,7 @@
 - Nombre de contes visés : 6
 - Contes listés avec source : 3
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://publishing.cdlib.org/ucpressebooks/public/book/speak-bird-speak-again-palestinian-arab-folktales.html
 

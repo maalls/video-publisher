@@ -1,0 +1,28 @@
+# Australes (Rurutu, Tubuai, Raivavae, Rimatara)
+
+- Région : Polynésie
+- Nombre de contes visés : 14
+- Contes listés avec source : 14
+- Sensibilité / droits : ÉLEVÉE : traditions polynésiennes vivantes ; titres seulement ; textes et illustrations (Bobby Holcomb, Sarahina) sous droits de Tahiti Heritage ou de la Direction de la culture et du patrimoine de Polynésie française, droits à demander ; récits sacrés, marae et cycle de Matarii volontairement exclus ; avis des détenteurs locaux (familles, communes, DCP) à obtenir avant production
+- Avis de la communauté requis avant production : oui
+- Note : Perle rare : Polynésie française.
+- Sources de référence (vérifiées en ligne) : http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/
+
+Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.
+
+| n | titre | type | source | origine du titre | note adaptation conte court |
+|---|---|---|---|---|---|
+| 1 | Hina, la femme cannibale de Rurutu aux doigts de fée | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 2 | Les tribulations des tiki Moana et Heiata de Raivavae | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 3 | Légende de Tuiva’o, le chasseur de baleines de Rurutu | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 4 | Légende de Nona, la sorcière de Raivavae | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 5 | Légende de la pieuvre ’Orava de Tubuai | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 6 | Combat de Poia contre les guerriers de Tubuai à Rurutu | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 7 | Légende de la perruche de Rimatara | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 8 | Légende de Havai, histoire de To’a et de Tane – Tubuai | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 9 | Légende de Vahine Tetea, la sirène Orovaru de Rurutu | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 10 | Légende de Vahine Punarua, Rimatara | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 11 | Sorcière du motu Miti a tipi hara, à Tubuai | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 12 | Tamarii a Tara, Bain des vierges à Rimatara | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 13 | Légende des rochers Hotuatua et Ruatara de Raivavae | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |
+| 14 | Légende de Rauti Pihae, le peureux, Raivavae | conte court (présumé, non vérifié) | http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/australes-legendes/ | PERLE RARE : titre relevé dans la liste de légendes du site Tahiti Heritage (association, 285 légendes) ; titre seulement, texte non copié |  |

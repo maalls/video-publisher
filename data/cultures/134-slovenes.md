@@ -4,6 +4,7 @@
 - Nombre de contes visés : 5
 - Contes listés avec source : 5
 - Sensibilité / droits : faible : textes de 1858 (revue Neven) dans un recueil du domaine public
+- Avis de la communauté requis avant production : non
 - Note : Perle rare : la source classe ces contes sous « Serbian Stories from Carniola » ; rattachement slovène (Carniole) à vérifier ; mythologie de Kurent.
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/files/48761/48761-h/48761-h.htm
 

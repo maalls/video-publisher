@@ -4,6 +4,7 @@
 - Nombre de contes visés : 5
 - Contes listés avec source : 4
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : oui
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://digitalcommons.wku.edu/dlps_book/16
 

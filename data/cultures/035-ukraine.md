@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : sensibilité d'actualité: soigner le cadrage
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/files/29672/29672-h/29672-h.htm
 

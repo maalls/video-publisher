@@ -4,6 +4,7 @@
 - Nombre de contes visés : 1
 - Contes listés avec source : 1
 - Sensibilité / droits : élevée
+- Avis de la communauté requis avant production : à évaluer
 - Note : cosmologie initiatique
 - Sources de référence (vérifiées en ligne) : https://scholarlypublications.universiteitleiden.nl/handle/1887/2770
 

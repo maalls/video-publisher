@@ -4,6 +4,7 @@
 - Nombre de contes visés : 15
 - Contes listés avec source : 15
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : déjà 1 conte au CSV
 - Sources de référence (vérifiées en ligne) : https://fr.wikisource.org/wiki/Contes_et_l%C3%A9gendes_de_Basse-Bretagne/Texte_entier
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 17
 - Contes listés avec source : 17
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/51002
 

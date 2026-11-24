@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 1
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://api.pageplace.de/preview/DT0400.9786071640093_A51078232/preview-9786071640093_A51078232.pdf
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 5
 - Contes listés avec source : 5
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/hausasuperstitio00tremuoft
 

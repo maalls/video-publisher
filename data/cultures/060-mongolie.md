@@ -4,6 +4,7 @@
 - Nombre de contes visés : 12
 - Contes listés avec source : 12
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://mongoltales.cceh.uni-koeln.de/epics_epic-tale-17.html
 

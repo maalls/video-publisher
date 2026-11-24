@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.biblisem.net/PDF/Barbeau_Legendes_d_autrefois_BIBLISEM.pdf
 

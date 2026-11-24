@@ -4,6 +4,7 @@
 - Nombre de contes visés : 15
 - Contes listés avec source : 15
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : Andersen = auteur, pas conte populaire: distinguer
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/1597
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 3
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://archive.grunwald.ca/sources/romanov-1901-belarusian-collection-iss-6/
 

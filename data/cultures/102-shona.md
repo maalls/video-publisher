@@ -4,6 +4,7 @@
 - Nombre de contes visés : 2
 - Contes listés avec source : 1
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://openlibrary.org/works/OL23060026W/Shona_folk_tales
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 6
 - Contes listés avec source : 6
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://pt.wikisource.org/wiki/Anexo:Ficha/Contos_Tradicionaes_do_Povo_Portuguez
 

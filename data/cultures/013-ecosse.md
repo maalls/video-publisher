@@ -4,6 +4,7 @@
 - Nombre de contes visés : 18
 - Contes listés avec source : 18
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/populartalesofwe22camp
 

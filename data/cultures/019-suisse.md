@@ -4,6 +4,7 @@
 - Nombre de contes visés : 4
 - Contes listés avec source : 4
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/files/69739/69739-h/69739-h.htm
 

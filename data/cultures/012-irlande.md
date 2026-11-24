@@ -4,6 +4,7 @@
 - Nombre de contes visés : 26
 - Contes listés avec source : 26
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : Cycle d'Ulster, Fenian
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/7885
 

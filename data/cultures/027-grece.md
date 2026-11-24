@@ -4,6 +4,7 @@
 - Nombre de contes visés : 24
 - Contes listés avec source : 24
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : mythes: forte présence au CSV
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/3327
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 24
 - Contes listés avec source : 24
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : non
 - Note : Calvino encore sous droits: utiliser la tradition, pas son texte
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/2198
 

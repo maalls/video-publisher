@@ -4,6 +4,7 @@
 - Nombre de contes visés : 2
 - Contes listés avec source : 1
 - Sensibilité / droits : élevée
+- Avis de la communauté requis avant production : oui
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://www.ethno.sinica.edu.tw/page2-2_e.php
 

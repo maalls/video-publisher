@@ -4,6 +4,7 @@
 - Nombre de contes visés : 14
 - Contes listés avec source : 14
 - Sensibilité / droits : moyenne : peuple vivant (Nama, Khoïkhoï), textes recueillis par Bleek en 1864 d'après des manuscrits ; le terme « Hottentot » du titre source est péjoratif, ne pas le reprendre ; domaine public
+- Avis de la communauté requis avant production : oui
 - Note : Perle rare : fables khoïkhoï distinctes des San. Source : Bleek, Reynard the Fox in South Africa or Hottentot Fables and Tales, 1864 (Gutenberg 73413).
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/cache/epub/73413/pg73413-images.html
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 19
 - Contes listés avec source : 13
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/FirdausiShahnamaTrWarnerVol1
 

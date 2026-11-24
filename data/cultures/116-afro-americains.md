@@ -4,6 +4,7 @@
 - Nombre de contes visés : 8
 - Contes listés avec source : 8
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : à évaluer
 - Note : dialecte stéréotypé: réécrire en français neutre
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/2306
 

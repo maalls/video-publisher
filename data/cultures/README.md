@@ -1,10 +1,10 @@
 # Contes par culture
 
-Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json](../cultures_titres.json) (sources de vérité). Chaque titre est rattaché à une source citée dans le fichier de sa culture.
+Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json](../cultures_titres.json) (sources de vérité), data/cultures_avis.json (flag avis_communaute : oui, non, à évaluer). Chaque titre est rattaché à une source citée dans le fichier de sa culture.
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-1168 titres, 134 cultures.
+1338 titres, 142 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
@@ -142,3 +142,11 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Tlingit (Alaska) | 10 | [132-tlingit.md](132-tlingit.md) |
 | Sorabes et Kachoubes (Lusace, Poméranie) | 3 | [133-sorabes-et-kachoubes.md](133-sorabes-et-kachoubes.md) |
 | Slovènes (Carniole) | 5 | [134-slovenes.md](134-slovenes.md) |
+| Tahiti et Moorea (îles du Vent) | 53 | [135-tahiti-et-moorea.md](135-tahiti-et-moorea.md) |
+| Îles Sous-le-Vent (Raiatea, Bora Bora, Huahine, Maupiti) | 34 | [136-iles-sous-le-vent.md](136-iles-sous-le-vent.md) |
+| Australes (Rurutu, Tubuai, Raivavae, Rimatara) | 14 | [137-australes.md](137-australes.md) |
+| Gambier (Mangareva) | 6 | [138-gambier.md](138-gambier.md) |
+| Tuamotu | 31 | [139-tuamotu.md](139-tuamotu.md) |
+| Marquises | 12 | [140-marquises.md](140-marquises.md) |
+| Îles Cook (Mangaia, Rarotonga) | 10 | [141-iles-cook.md](141-iles-cook.md) |
+| Rapa Nui (île de Pâques) | 10 | [142-rapa-nui.md](142-rapa-nui.md) |

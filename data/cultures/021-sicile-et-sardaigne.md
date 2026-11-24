@@ -4,6 +4,7 @@
 - Nombre de contes visés : 6
 - Contes listés avec source : 17
 - Sensibilité / droits : faible
+- Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/fiabenovelleera00pitrgoog
 

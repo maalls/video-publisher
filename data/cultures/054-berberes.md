@@ -4,6 +4,7 @@
 - Nombre de contes visés : 12
 - Contes listés avec source : 12
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : à évaluer
 - Note : nom Amazigh préféré; sources coloniales: lire avec recul
 - Sources de référence (vérifiées en ligne) : https://fr.wikisource.org/wiki/Livre:Basset_-_Contes_populaires_berb%C3%A8res,_1887.djvu
 

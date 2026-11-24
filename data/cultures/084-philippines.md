@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : moyenne
+- Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/8299
 

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 14
 - Contes listés avec source : 14
 - Sensibilité / droits : moyenne : peuple vivant (Munda), collecte coloniale de 1909 (Bompas), texte du domaine public ; consulter la communauté avant production
+- Avis de la communauté requis avant production : oui
 - Note : Perle rare : peuple adivasi peu représenté. Source : Folklore of the Santal Parganas, Bompas 1909 (Gutenberg, relayé par wisdomlib).
 - Sources de référence (vérifiées en ligne) : https://www.wisdomlib.org/history/book/santal-parganas-folklore
 
