@@ -2,7 +2,7 @@
 
 - Région : Asie du Sud
 - Nombre de contes visés : 3
-- Contes listés avec source : 1
+- Contes listés avec source : 3
 - Sensibilité / droits : faible
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://catalog.hathitrust.org/Record/001276966
@@ -12,5 +12,5 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 | n | titre | source | origine du titre |
 |---|---|---|---|
 | 1 | The Woodcutter and Death (reconte) | https://spiritoftrees.org/the-woodcutter-and-death | conte ouvert en ligne (extrait vu via recherche) |
-
-Reste à relever : 2 titres (source à ouvrir ou autre recueil à identifier).
+| 2 | The Monkey and the Crocodile | https://www.gutenberg.org/cache/epub/62514/pg62514-images.html | titre relevé dans la table des matières de la source |
+| 3 | How the Turtle Saved His Own Life | https://www.gutenberg.org/cache/epub/62514/pg62514-images.html | titre relevé dans la table des matières de la source |

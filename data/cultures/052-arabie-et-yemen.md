@@ -2,7 +2,7 @@
 
 - Région : Moyen-Orient
 - Nombre de contes visés : 3
-- Contes listés avec source : 1
+- Contes listés avec source : 2
 - Sensibilité / droits : faible
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/arabfolktales00inea
@@ -12,5 +12,6 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 | n | titre | source | origine du titre |
 |---|---|---|---|
 | 1 | From the Land of Sheba (prêt numérique, texte non lu) | https://archive.org/details/fromlandofsheba00caro | conte ouvert en ligne (extrait vu via recherche) |
+| 2 | The Adventures of Hatim Taï | https://www.gutenberg.org/cache/epub/70290/pg70290-images.html | titre relevé dans la table des matières de la source |
 
-Reste à relever : 2 titres (source à ouvrir ou autre recueil à identifier).
+Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).
