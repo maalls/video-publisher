@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carte des civilisations (prototype)</title>
+<link rel="stylesheet" href="lib/maplibre-gl.css">
+<style>
+html,body{margin:0;height:100%;font:14px system-ui,sans-serif;background:#cfe3ee}
+#map{position:absolute;inset:0 0 86px 0}
+#bar{position:absolute;left:0;right:0;bottom:0;height:86px;background:#1d2733;color:#fff;padding:8px 16px;box-sizing:border-box}
+#year{font-size:22px;font-weight:600;min-width:130px;display:inline-block}
+#info{opacity:.8;margin-left:12px}
+#t{width:100%;margin-top:4px}
+#play{font-size:16px;margin-right:8px}
+#attr{position:absolute;right:6px;bottom:90px;background:rgba(255,255,255,.85);padding:2px 6px;font-size:11px;border-radius:3px;max-width:70%}
+</style></head><body>
+<div id="map"></div>
+<div id="attr">Polygones : Cliopatria (Seshat Global History Databank), CC BY 4.0, simplifiés (géométrie réduite, trous retirés) · Terres : Natural Earth (domaine public) · Rendu : MapLibre GL JS (BSD-3)</div>
+<div id="bar"><button id="play">▶</button><span id="year"></span><span id="info"></span>
+<input id="t" type="range" min="-5000" max="2024" step="1" value="1500"></div>
+<script type="module">
+import * as maplibregl from "./lib/maplibre-gl.mjs";
+const q=new URLSearchParams(location.search);
+const slider=document.getElementById("t"),yl=document.getElementById("year"),info=document.getElementById("info");
+slider.value=q.get("y")||1500;
+const fmt=y=>y<0?`${-y} av. J.-C.`:y===0?"an 0":`${y}`;
+const map=window.map=new maplibregl.Map({container:"map",center:[20,30],zoom:1.6,attributionControl:false,canvasContextAttributes:{preserveDrawingBuffer:true,antialias:true},
+ style:{version:8,sources:{},layers:[{id:"bg",type:"background",paint:{"background-color":"#cfe3ee"}}]}});
+const t0=performance.now();window.__e=[];map.on("error",e=>window.__e.push(String(e.error&&e.error.message||e)));
+function filt(y){return["all",["<=",["get","f"],y],[">=",["get","t"],y]]}
+map.on("load",async()=>{
+ map.addSource("land",{type:"geojson",data:"data/land.geojson"});
+ map.addLayer({id:"land",type:"fill",source:"land",paint:{"fill-color":"#f1ede1"}});
+ map.addSource("clio",{type:"geojson",data:"data/cliopatria_simplifie.geojson"});
+ map.addLayer({id:"fill",type:"fill",source:"clio",filter:filt(+slider.value),paint:{"fill-color":["get","c"],"fill-opacity":.5}});
+ map.addLayer({id:"line",type:"line",source:"clio",filter:filt(+slider.value),paint:{"line-color":"#333","line-width":.6,"line-opacity":.6}});
+ const upd=()=>{const y=+slider.value;yl.textContent=fmt(y);map.setFilter("fill",filt(y));map.setFilter("line",filt(y));
+  const n=new Set(map.querySourceFeatures("clio",{filter:filt(y)}).map(f=>f.properties.n)).size;info.textContent=y<-3400?"Pas de données Cliopatria avant 3400 av. J.-C.":n+" entités";};
+ slider.addEventListener("input",upd);upd();
+ map.once("idle",()=>{document.title+=" | chargé en "+Math.round(performance.now()-t0)+" ms";window.__loaded=Math.round(performance.now()-t0);upd();});
+ const pop=new maplibregl.Popup({closeButton:false});
+ map.on("mousemove","fill",e=>{const p=e.features[0].properties;pop.setLngLat(e.lngLat).setHTML(`<b>${p.n}</b><br>${fmt(p.f)} → ${fmt(p.t)}`).addTo(map)});
+ map.on("mouseleave","fill",()=>pop.remove());
+ let timer=null;document.getElementById("play").onclick=function(){if(timer){clearInterval(timer);timer=null;this.textContent="▶";return}this.textContent="⏸";timer=setInterval(()=>{slider.value=Math.min(2024,+slider.value+10);slider.dispatchEvent(new Event("input"));if(+slider.value>=2024){clearInterval(timer);timer=null}},120)};
+});
+</script></body></html>
