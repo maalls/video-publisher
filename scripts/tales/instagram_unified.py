@@ -110,7 +110,7 @@ def inspect_token(config, access):
     if not data.get('is_valid') or str(data.get('app_id')) != str(config['meta_app_id']):
         raise Stop('Jeton invalide ou mauvaise app Meta')
     scopes = set(data.get('scopes', []))
-    approved = set(config['approved_permissions'])
+    approved = set(config['approved_permissions']) | set(config.get('tolerated_extra_permissions', []))
     if not SCOPES.issubset(scopes) or not scopes.issubset(approved | {'public_profile'}):
         safe_scopes = sorted(x for x in scopes if isinstance(x, str) and __import__('re').fullmatch(r'[a-z_]{1,80}', x))
         missing = sorted(SCOPES - scopes)
