@@ -2,7 +2,7 @@
 
 Un fichier par culture. Chaque titre est rattaché à une source citée, aucun titre n'est inventé. La liste d'ensemble est dans [../cultures.csv](../cultures.csv) (colonnes fichier et lien_github).
 
-Total de titres déjà listés avec source : 773 (cible : 1100).
+Total de titres déjà listés avec source : 807 (cible : 1100).
 
 | culture | région | visés | listés | fichier |
 |---|---|---|---|---|
@@ -18,7 +18,7 @@ Total de titres déjà listés avec source : 773 (cible : 1100).
 | Lettonie | Baltique | 3 | 1 | [010-lettonie.md](010-lettonie.md) |
 | Lituanie | Baltique | 5 | 0 | [011-lituanie.md](011-lituanie.md) |
 | Irlande | Îles britanniques | 26 | 26 | [012-irlande.md](012-irlande.md) |
-| Écosse (Highlands) | Îles britanniques | 18 | 0 | [013-ecosse.md](013-ecosse.md) |
+| Écosse (Highlands) | Îles britanniques | 18 | 18 | [013-ecosse.md](013-ecosse.md) |
 | Pays de Galles | Îles britanniques | 12 | 11 | [014-pays-de-galles.md](014-pays-de-galles.md) |
 | Angleterre | Îles britanniques | 17 | 17 | [015-angleterre.md](015-angleterre.md) |
 | Cornouailles | Îles britanniques | 3 | 3 | [016-cornouailles.md](016-cornouailles.md) |
@@ -99,17 +99,17 @@ Total de titres déjà listés avec source : 773 (cible : 1100).
 | Yoruba | Afrique | 8 | 8 | [091-yoruba.md](091-yoruba.md) |
 | Igbo | Afrique | 5 | 2 | [092-igbo.md](092-igbo.md) |
 | Haoussa | Afrique | 5 | 0 | [093-haoussa.md](093-haoussa.md) |
-| Mandingues (Soundiata et griots) | Afrique de l'Ouest | 8 | 0 | [094-mandingues.md](094-mandingues.md) |
-| Wolof, Peul et Sénégal | Afrique de l'Ouest | 8 | 0 | [095-wolof-peul-et-senegal.md](095-wolof-peul-et-senegal.md) |
+| Mandingues (Soundiata et griots) | Afrique de l'Ouest | 8 | 1 | [094-mandingues.md](094-mandingues.md) |
+| Wolof, Peul et Sénégal | Afrique de l'Ouest | 8 | 8 | [095-wolof-peul-et-senegal.md](095-wolof-peul-et-senegal.md) |
 | Dogon et Bambara | Afrique de l'Ouest | 1 | 1 | [096-dogon-et-bambara.md](096-dogon-et-bambara.md) |
 | Afrique de l'Est (swahili) | Afrique | 12 | 12 | [097-afrique-de-l-est.md](097-afrique-de-l-est.md) |
 | Éthiopie | Afrique de l'Est | 5 | 0 | [098-ethiopie.md](098-ethiopie.md) |
 | Somalie | Afrique de l'Est | 2 | 1 | [099-somalie.md](099-somalie.md) |
 | Zoulous et Xhosas | Afrique australe | 12 | 12 | [100-zoulous-et-xhosas.md](100-zoulous-et-xhosas.md) |
-| San | Afrique australe | 4 | 0 | [101-san.md](101-san.md) |
+| San | Afrique australe | 4 | 4 | [101-san.md](101-san.md) |
 | Shona | Afrique australe | 2 | 1 | [102-shona.md](102-shona.md) |
 | Madagascar | Océan Indien | 8 | 1 | [103-madagascar.md](103-madagascar.md) |
-| Maurice et Réunion | Océan Indien | 3 | 0 | [104-maurice-et-reunion.md](104-maurice-et-reunion.md) |
+| Maurice et Réunion | Océan Indien | 3 | 3 | [104-maurice-et-reunion.md](104-maurice-et-reunion.md) |
 | Aztèques et Nahuas | Mésoamérique | 8 | 1 | [105-azteques-et-nahuas.md](105-azteques-et-nahuas.md) |
 | Mayas | Mésoamérique | 8 | 0 | [106-mayas.md](106-mayas.md) |
 | Incas et Quechua | Andes | 6 | 1 | [107-incas-et-quechua.md](107-incas-et-quechua.md) |
