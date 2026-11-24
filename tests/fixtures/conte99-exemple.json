@@ -1,0 +1,80 @@
+{
+ "id": "conte99-exemple",
+ "title": "Le Pot qui avait fait un petit (exemple de format)",
+ "origin": "Anecdote populaire de Djeha, domaine public.",
+ "origin_short": "anecdote populaire de Djeha, domaine public. Adaptation française originale.",
+ "style": "Lyrical hand-drawn 2D animated folk-tale illustration, delicate irregular pencil contours, pale translucent watercolor washes on softly grained cream paper, simplified expressive faces, warm atmospheric storybook scene, no photorealism, no glossy 3D, no letters or text, no border. Vertical composition 704 by 832 pixels.",
+ "image_seed_base": 20260620,
+ "anim_seed_base": 20260650,
+ "music": {
+  "file": "musique/musique.mp3",
+  "title": "Desert City",
+  "artist": "Kevin MacLeod"
+ },
+ "narration": {
+  "voice": "Sadaltager",
+  "voice_instructions": "French storyteller, warm, slow, generous pauses.",
+  "opening_question": "Choisit-on de croire ce qui nous console ?",
+  "segments": [
+   "Choisit-on de croire ce qui nous console ? Dans une ruelle ensoleillée, vivait Djeha.",
+   "Il emprunta une grande marmite à son voisin.",
+   "Il la rapporta avec une petite marmite dedans. Le pot a eu un petit, dit-il."
+  ]
+ },
+ "subtitles": {
+  "max_chars": 52,
+  "max_line_chars": 30
+ },
+ "references": [
+  {
+   "key": "djeha",
+   "prompt": "Character portrait of Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash. Full body, sunlit ochre alley, no text.",
+   "identity": "Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash.",
+   "seed": 20260611
+  },
+  {
+   "key": "duo",
+   "prompt": "Two characters side by side in a sunlit alley: Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash. and the stout neighbor, kind trusting face, thick grey mustache, white turban, long warm brown robe.",
+   "identity": "Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash. and the stout neighbor, kind trusting face, thick grey mustache, white turban, long warm brown robe.",
+   "seed": 20260601
+  }
+ ],
+ "plans": [
+  {
+   "name": "01-ruelle",
+   "ref": "djeha",
+   "image": "Djeha strolls alone along a sunlit narrow old-town alley, finger raised to his chin, mischievous smile. No text.",
+   "motion": "Djeha strolls slowly along the alley, a gentle smile, dust motes drifting.",
+   "phrases": [
+    1,
+    2
+   ]
+  },
+  {
+   "name": "02-emprunt",
+   "ref": "duo",
+   "image": "At the neighbor's blue door the neighbor hands the big copper pot to Djeha, who bows his head with a sly smile.",
+   "motion": "The neighbor hands over the pot, Djeha takes it and bows slightly.",
+   "phrases": [
+    3,
+    3
+   ]
+  },
+  {
+   "name": "03-retour",
+   "ref": "duo",
+   "image": "Djeha proudly presents the big pot with a tiny pot inside; the neighbor stares, wide-eyed.",
+   "motion": "Djeha holds out the pot, the neighbor blinks and leans closer.",
+   "phrases": [
+    4,
+    5
+   ]
+  }
+ ],
+ "publication": {
+  "title": "Le Pot qui avait fait un petit 🏺 | Un conte du monde arabe",
+  "caption": "Choisit-on de croire ce qui nous console ? 🏺\nDjeha rend une grande marmite avec une petite dedans.",
+  "hashtags": "#Les1001Contes #ConteArabe #Djeha #ConteAnime",
+  "youtube_description": "Choisit-on de croire ce qui nous console ? Un conte malicieux de Djeha."
+ }
+}

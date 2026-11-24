@@ -1,6 +1,6 @@
 # Lanceur unique des contes animés
 
-Un conte = un fichier `conte.json` (modèle : `docs/conte.example.json`). Plus de scripts `conteNN-*.py` à réécrire.
+Un conte = un fichier `conte.json` (exemple réel et complet : `docs/conte.example.json`). Plus de scripts `conteNN-*.py` à réécrire.
 
 ## Utilisation
 ```

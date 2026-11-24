@@ -1,24 +1,30 @@
 {
- "id": "conte99-exemple",
- "title": "Le Pot qui avait fait un petit (exemple de format)",
- "origin": "Anecdote populaire de Djeha, domaine public.",
- "origin_short": "anecdote populaire de Djeha, domaine public. Adaptation française originale.",
+ "id": "conte07-saumon-sagesse",
+ "title": "Le Saumon de la Sagesse",
+ "origin": "Légende irlandaise de Finnegas et Fionn mac Cumhaill, domaine public.",
+ "origin_short": "légende irlandaise de Finnegas et Fionn, domaine public. Adaptation française originale.",
  "style": "Lyrical hand-drawn 2D animated folk-tale illustration, delicate irregular pencil contours, pale translucent watercolor washes on softly grained cream paper, simplified expressive faces, warm atmospheric storybook scene, no photorealism, no glossy 3D, no letters or text, no border. Vertical composition 704 by 832 pixels.",
- "image_seed_base": 20260620,
- "anim_seed_base": 20260650,
+ "image_seed_base": 20260700,
+ "anim_seed_base": 20260750,
  "music": {
   "file": "musique/musique.mp3",
-  "title": "Desert City",
+  "title": "Celtic Impulse",
   "artist": "Kevin MacLeod"
  },
  "narration": {
   "voice": "Sadaltager",
-  "voice_instructions": "French storyteller, warm, slow, generous pauses.",
-  "opening_question": "Choisit-on de croire ce qui nous console ?",
+  "voice_instructions": "French storyteller narrating a classic folk tale: warm, expressive, noticeably slower and unhurried pace, with generous pauses, natural French from France.",
+  "opening_question": "Que vaut la sagesse, quand on la goûte trop vite ?",
   "segments": [
-   "Choisit-on de croire ce qui nous console ? Dans une ruelle ensoleillée, vivait Djeha.",
-   "Il emprunta une grande marmite à son voisin.",
-   "Il la rapporta avec une petite marmite dedans. Le pot a eu un petit, dit-il."
+   "Que vaut la sagesse, quand on la goûte trop vite ? Il y a longtemps, en Irlande, vivait un vieux poète nommé Finnegas.",
+   "Une légende disait qu'un saumon magique nageait dans la rivière. Le premier qui en mangerait saurait tout.",
+   "Pendant sept ans, Finnegas l'attendit, sa ligne dans l'eau. Un matin, enfin, le saumon mordit.",
+   "Finnegas le posa sur l'herbe, loin de l'eau, et le confia à son jeune élève, Fionn. Fais-le cuire, dit-il, mais ne le goûte pas. Cette sagesse est à moi, je l'ai méritée.",
+   "Fionn tourna la broche avec soin. Mais la graisse chaude fit gonfler une cloque sur la peau du poisson.",
+   "Il voulut l'écraser, et se brûla le pouce. Vite, il le mit dans sa bouche pour calmer la douleur.",
+   "Sans le savoir, il venait de goûter le saumon. Aussitôt, tout le savoir du monde s'ouvrit dans son esprit.",
+   "Finnegas le regarda et comprit. Alors mange-le tout entier, soupira-t-il. La sagesse est pour toi.",
+   "Depuis ce jour, quand Fionn mordait son pouce, il savait tout ce qu'il avait besoin de savoir."
   ]
  },
  "subtitles": {
@@ -27,54 +33,90 @@
  },
  "references": [
   {
-   "key": "djeha",
-   "prompt": "Character portrait of Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash. Full body, sunlit ochre alley, no text.",
-   "identity": "Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash.",
-   "seed": 20260611
+   "key": "finnegas",
+   "prompt": "Character portrait of Finnegas, a thin old Irish poet with a long white beard, deep kind eyes, a hooded moss-green cloak over a russet tunic. Full body, standing on a misty green riverbank at dawn, no text.",
+   "identity": "Finnegas, a thin old Irish poet with a long white beard, deep kind eyes, a hooded moss-green cloak over a russet tunic.",
+   "seed": 20260711
   },
   {
    "key": "duo",
-   "prompt": "Two characters side by side in a sunlit alley: Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash. and the stout neighbor, kind trusting face, thick grey mustache, white turban, long warm brown robe.",
-   "identity": "Djeha, a lean middle-aged man with a round friendly face, short dark beard, large soft ochre turban, long blue-green striped robe with a rust-red sash. and the stout neighbor, kind trusting face, thick grey mustache, white turban, long warm brown robe.",
-   "seed": 20260601
+   "prompt": "Two characters side by side beside a small campfire on a green riverbank: Finnegas, a thin old Irish poet with a long white beard, deep kind eyes, a hooded moss-green cloak over a russet tunic. and Fionn, a lively boy of about twelve with tousled copper hair, freckles, a plain cream tunic and a brown belt.",
+   "identity": "Finnegas, a thin old Irish poet with a long white beard, deep kind eyes, a hooded moss-green cloak over a russet tunic. and Fionn, a lively boy of about twelve with tousled copper hair, freckles, a plain cream tunic and a brown belt.",
+   "seed": 20260701
+  },
+  {
+   "key": "fionn",
+   "prompt": "Character portrait of Fionn, a lively boy of about twelve with tousled copper hair, freckles, a plain cream tunic and a brown belt. Full body, standing on a green riverbank, alone, no text.",
+   "identity": "Fionn, a lively boy of about twelve with tousled copper hair, freckles, a plain cream tunic and a brown belt.",
+   "seed": 20260721
   }
  ],
  "plans": [
   {
-   "name": "01-ruelle",
-   "ref": "djeha",
-   "image": "Djeha strolls alone along a sunlit narrow old-town alley, finger raised to his chin, mischievous smile. No text.",
-   "motion": "Djeha strolls slowly along the alley, a gentle smile, dust motes drifting.",
+   "name": "01-riviere",
+   "ref": "finnegas",
+   "image": "Finnegas sits patiently on a mossy bank of a misty Irish river at dawn, a fishing line in the water, old stone hills and hazel trees behind him. No text.",
+   "motion": "Finnegas waits motionless, the river flows, mist drifts, the line trembles slightly.",
    "phrases": [
     1,
-    2
+    4
    ]
   },
   {
-   "name": "02-emprunt",
-   "ref": "duo",
-   "image": "At the neighbor's blue door the neighbor hands the big copper pot to Djeha, who bows his head with a sly smile.",
-   "motion": "The neighbor hands over the pot, Djeha takes it and bows slightly.",
+   "name": "02-saumon",
+   "ref": "finnegas",
+   "image": "Finnegas stands on dry grassy ground holding a large silver salmon calmly in both hands against his chest, smiling with deep joy. The calm river is a far band of water well behind him, no puddle, no splash, no water on the ground. Only one person in the picture. No text.",
+   "motion": "Finnegas gently cradles the fish in his arms and smiles, his cloak and beard sway softly in the breeze. The fish stays in his hands. The river stays calm and far away, no splashing.",
    "phrases": [
-    3,
-    3
+    5,
+    6
    ]
   },
   {
-   "name": "03-retour",
+   "name": "03-broche",
    "ref": "duo",
-   "image": "Djeha proudly presents the big pot with a tiny pot inside; the neighbor stares, wide-eyed.",
-   "motion": "Djeha holds out the pot, the neighbor blinks and leans closer.",
+   "image": "Fionn carefully turns a salmon on a wooden spit over a small fire while Finnegas, with a stern warning finger, watches him. No text.",
+   "motion": "Fionn slowly turns the spit, flames flicker, Finnegas raises a warning finger.",
    "phrases": [
-    4,
-    5
+    7,
+    11
+   ]
+  },
+  {
+   "name": "04-pouce",
+   "ref": "fionn",
+   "image": "Medium shot of Fionn alone sitting by a small campfire, a salmon on a wooden spit beside him, his right thumb in his mouth, wincing from a small burn, both hands normal size. Exactly one person, two arms, no other characters, no large hand in the foreground. No text.",
+   "motion": "Fionn keeps his thumb at his lips, blinks and winces, the fire flickers softly. Only Fionn is visible, exactly two arms, nothing else enters the frame.",
+   "phrases": [
+    12,
+    13
+   ]
+  },
+  {
+   "name": "05-savoir",
+   "ref": "duo",
+   "image": "Fionn stands wide-eyed, golden swirls of light and tiny stars rising around his head, Finnegas gazing at him with gentle understanding. No text.",
+   "motion": "Golden light swirls and stars rise around Fionn, Finnegas smiles and nods softly.",
+   "phrases": [
+    14,
+    18
+   ]
+  },
+  {
+   "name": "06-sage",
+   "ref": "duo",
+   "image": "Fionn, now serene and wise, sits by the river holding his thumb to his lips under a glowing sunrise, Finnegas resting peacefully beside him. No text.",
+   "motion": "Fionn gazes at the sunrise with calm wisdom, the river glitters, a gentle breeze.",
+   "phrases": [
+    19,
+    19
    ]
   }
  ],
  "publication": {
-  "title": "Le Pot qui avait fait un petit 🏺 | Un conte du monde arabe",
-  "caption": "Choisit-on de croire ce qui nous console ? 🏺\nDjeha rend une grande marmite avec une petite dedans.",
-  "hashtags": "#Les1001Contes #ConteArabe #Djeha #ConteAnime",
-  "youtube_description": "Choisit-on de croire ce qui nous console ? Un conte malicieux de Djeha."
+  "title": "Le Saumon de la Sagesse 🐟 | Un conte d'Irlande",
+  "caption": "Que vaut la sagesse, quand on la goûte trop vite ? 🐟\nFinnegas guette le Saumon de la Sagesse depuis sept ans… et c'est son élève Fionn qui en goûte le premier.",
+  "hashtags": "#Les1001Contes #ConteIrlandais #Fionn #ConteAnime",
+  "youtube_description": "Que vaut la sagesse, quand on la goûte trop vite ? Une légende d'Irlande : le Saumon de la Sagesse, Finnegas et le jeune Fionn."
  }
 }

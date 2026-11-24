@@ -18,7 +18,7 @@ s'arrête toujours avant la publication.
 | --- | --- |
 | [docs/WORKFLOW_AUTOMATIQUE.md](docs/WORKFLOW_AUTOMATIQUE.md) | Le flux d'exécution d'un conte, de bout en bout, étape par étape |
 | [docs/LANCEUR_CONTES.md](docs/LANCEUR_CONTES.md) | Commandes du lanceur, étapes, contrôle qualité, publication |
-| [docs/conte.example.json](docs/conte.example.json) | Modèle de fichier `conte.json` |
+| [docs/conte.example.json](docs/conte.example.json) | Exemple complet et réel de `conte.json` (conte 7, Le Saumon de la Sagesse) |
 | [docs/WORKFLOW_CONTES.md](docs/WORKFLOW_CONTES.md) | Exemple chiffré d'une production (conte 6, état du 23/11/2026) |
 | [docs/TIKTOK_INBOX.md](docs/TIKTOK_INBOX.md) | Envoi de brouillons TikTok |
 | [docs/HIPO_LAYOUT.md](docs/HIPO_LAYOUT.md) | Organisation des dossiers sur la machine de production |
@@ -107,7 +107,7 @@ automatiquement dans les légendes. Respecte la licence de tout autre morceau.
 ## Produire un conte (résumé)
 
 ```bash
-# 1. Créer var/project/tales/productions/<id>/conte.json (modèle : docs/conte.example.json)
+# 1. Créer var/project/tales/productions/<id>/conte.json (exemple : docs/conte.example.json)
 python3 scripts/tales/launcher.py check var/project/tales/productions/<id>
 python3 scripts/tales/launcher.py run   var/project/tales/productions/<id> --dry-run
 python3 scripts/tales/launcher.py run   var/project/tales/productions/<id> --version v1

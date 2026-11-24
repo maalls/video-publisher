@@ -30,7 +30,7 @@ version et l'ancienne est gardée.
 ## Étape 0 : choisir et écrire le conte (manuel)
 
 On choisit une histoire libre de droits ou une adaptation originale, puis on écrit
-`conte.json` (modèle : [conte.example.json](conte.example.json)) :
+`conte.json`. L'exemple complet et réel est [conte.example.json](conte.example.json) : c'est le fichier du conte 7, "Le Saumon de la Sagesse", tel qu'il a servi au lanceur (6 plans, 9 phrases, 3 références). Les champs :
 
 - `narration.segments` : le texte, en phrases courtes. Chaque cause et chaque
   conséquence doivent être dites dans le texte : le spectateur ne voit que 5 à 6

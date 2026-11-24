@@ -7,7 +7,7 @@ sys.path.insert(0, str(ROOT / 'scripts' / 'tales'))
 import launcher  # noqa: E402
 import comfy_client as cc  # noqa: E402
 
-EXAMPLE = ROOT / 'docs' / 'conte.example.json'
+EXAMPLE = ROOT / 'tests' / 'fixtures' / 'conte99-exemple.json'
 
 
 class Fake(BaseHTTPRequestHandler):
