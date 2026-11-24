@@ -2,6 +2,8 @@
 
 Généré depuis [../cultures.csv](../cultures.csv) (le CSV est la source). Chaque titre est rattaché à une source citée dans le fichier de sa culture.
 
+Régénérer : `python3 scripts/cultures_readme.py` (depuis la racine du dépôt).
+
 888 titres, 127 cultures.
 
 | culture | titres | fichier |
