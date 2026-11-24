@@ -4,7 +4,7 @@ Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json]
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-1100 titres, 127 cultures.
+1168 titres, 134 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
@@ -135,3 +135,10 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Québec (Canada français) | 10 | [125-quebec.md](125-quebec.md) |
 | Acadiens et Louisiane | 3 | [126-acadiens-et-louisiane.md](126-acadiens-et-louisiane.md) |
 | Mexique populaire | 1 | [127-mexique-populaire.md](127-mexique-populaire.md) |
+| Santals (Inde orientale) | 14 | [128-santals.md](128-santals.md) |
+| Khoïkhoï (Hottentots, Afrique australe) | 14 | [129-khoikhoi.md](129-khoikhoi.md) |
+| Pawnee (Grandes Plaines) | 13 | [130-pawnee.md](130-pawnee.md) |
+| Pieds-Noirs (Blackfoot) | 9 | [131-pieds-noirs.md](131-pieds-noirs.md) |
+| Tlingit (Alaska) | 10 | [132-tlingit.md](132-tlingit.md) |
+| Sorabes et Kachoubes (Lusace, Poméranie) | 3 | [133-sorabes-et-kachoubes.md](133-sorabes-et-kachoubes.md) |
+| Slovènes (Carniole) | 5 | [134-slovenes.md](134-slovenes.md) |
