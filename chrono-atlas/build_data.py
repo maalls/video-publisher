@@ -44,6 +44,6 @@ for f in d["features"]:
         if o: np.append([o])  # outer ring only (holes dropped)
     if not np: continue
     p=f["properties"]
-    out.append({"type":"Feature","properties":{"n":p["Name"],"f":p["FromYear"],"t":p["ToYear"],"ty":p.get("Type"),"a":round(p.get("Area") or 0),"c":("hsl(%d,55%%,52%%)"%(zlib.crc32(p["Name"].encode())%360)) if p.get("Type")!="RELATION" else "#999"},"geometry":{"type":"MultiPolygon","coordinates":np}})
+    out.append({"type":"Feature","properties":{"n":p["Name"],"f":p["FromYear"],"t":p["ToYear"],"ty":p.get("Type"),"a":round(p.get("Area") or 0),"m":p.get("MemberOf") or "","k":p.get("Components") or "","q":p.get("Wikidata") or "","c":("hsl(%d,55%%,52%%)"%(zlib.crc32(p["Name"].encode())%360)) if p.get("Type")!="RELATION" else "#999"},"geometry":{"type":"MultiPolygon","coordinates":np}})
 json.dump({"type":"FeatureCollection","features":out},open("data/cliopatria_simplifie.geojson","w"),separators=(",",":"),ensure_ascii=False)
 print(len(out))

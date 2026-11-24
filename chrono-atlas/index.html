@@ -43,7 +43,8 @@ map.on("load",async()=>{
 
  top.append(ttl,rowsEl);const els=new Map();
  function updTop(y){if(!feats)return;const m=new Map();
-  for(const p of feats){if(p.ty!=="POLITY"||p.f>y||p.t<y)continue;const o=m.get(p.n);if(!o||p.a>o.a)m.set(p.n,p)}
+  const act=feats.filter(p=>p.ty==="POLITY"&&p.f<=y&&p.t>=y);const nm=new Set(act.map(p=>p.n)),cs=new Set();for(const p of act)if(p.k)for(const c of p.k.split(";"))cs.add(c);
+  for(const p of act){if((p.m&&nm.has(p.m))||cs.has(p.n))continue;const o=m.get(p.n);if(!o||p.a>o.a)m.set(p.n,p)}
   const l=[...m.values()].sort((a,b)=>b.a-a.a).slice(0,10);ttl.textContent="Top 10 en superficie, "+fmt(y);
   const keep=new Set(l.map(p=>p.n));
   for(const [n,e] of els)if(!keep.has(n)){e.style.opacity=0;els.delete(n);setTimeout(()=>e.remove(),400)}
