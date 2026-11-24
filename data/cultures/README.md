@@ -4,7 +4,7 @@ Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json]
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-1394 titres, 146 cultures.
+1440 titres, 152 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
@@ -154,3 +154,9 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Galice (contos galegos) | 21 | [144-galice.md](144-galice.md) |
 | Canaries (Guanches) | 8 | [145-canaries.md](145-canaries.md) |
 | Galápagos (légendes de marins) | 1 | [146-galapagos.md](146-galapagos.md) |
+| Guna (Kuna Yala, Panama) | 10 | [147-guna.md](147-guna.md) |
+| Emberá (Panama et Colombie) | 24 | [148-embera.md](148-embera.md) |
+| Ngäbe (Guaymí, Panama) | 2 | [149-ngabe.md](149-ngabe.md) |
+| Wounaan (Darién, Panama) | 3 | [150-wounaan.md](150-wounaan.md) |
+| Lencas (Honduras) | 5 | [151-lencas.md](151-lencas.md) |
+| Garífuna (Honduras) | 2 | [152-garifuna.md](152-garifuna.md) |
