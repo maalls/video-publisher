@@ -2,7 +2,7 @@
 
 Un fichier par culture. Chaque titre est rattaché à une source citée, aucun titre n'est inventé. La liste d'ensemble est dans [../cultures.csv](../cultures.csv) (colonnes fichier et lien_github).
 
-Total de titres déjà listés avec source : 767 (cible : 1100).
+Total de titres déjà listés avec source : 773 (cible : 1100).
 
 | culture | région | visés | listés | fichier |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@ Total de titres déjà listés avec source : 767 (cible : 1100).
 | Pays basque | Europe du Sud | 5 | 5 | [024-pays-basque.md](024-pays-basque.md) |
 | Catalogne | Europe du Sud | 4 | 4 | [025-catalogne.md](025-catalogne.md) |
 | Portugal | Europe du Sud | 6 | 6 | [026-portugal.md](026-portugal.md) |
-| Grèce (mythes et contes populaires) | Europe du Sud-Est | 24 | 0 | [027-grece.md](027-grece.md) |
+| Grèce (mythes et contes populaires) | Europe du Sud-Est | 24 | 1 | [027-grece.md](027-grece.md) |
 | Albanie | Balkans | 5 | 1 | [028-albanie.md](028-albanie.md) |
 | Bulgarie | Balkans | 6 | 3 | [029-bulgarie.md](029-bulgarie.md) |
 | Roumanie | Europe de l'Est | 18 | 18 | [030-roumanie.md](030-roumanie.md) |
@@ -87,7 +87,7 @@ Total de titres déjà listés avec source : 767 (cible : 1100).
 | Cambodge | Asie du Sud-Est | 5 | 0 | [079-cambodge.md](079-cambodge.md) |
 | Birmanie (Myanmar) | Asie du Sud-Est | 5 | 5 | [080-birmanie.md](080-birmanie.md) |
 | Hmong | Asie du Sud-Est | 3 | 0 | [081-hmong.md](081-hmong.md) |
-| Malaisie | Asie du Sud-Est | 5 | 1 | [082-malaisie.md](082-malaisie.md) |
+| Malaisie | Asie du Sud-Est | 5 | 2 | [082-malaisie.md](082-malaisie.md) |
 | Indonésie (Java, Bali) | Asie du Sud-Est | 10 | 0 | [083-indonesie.md](083-indonesie.md) |
 | Philippines | Asie du Sud-Est | 10 | 10 | [084-philippines.md](084-philippines.md) |
 | Maori (Aotearoa) | Océanie | 8 | 8 | [085-maori.md](085-maori.md) |
@@ -97,11 +97,11 @@ Total de titres déjà listés avec source : 767 (cible : 1100).
 | Aborigènes d'Australie | Océanie | 8 | 8 | [089-aborigenes-d-australie.md](089-aborigenes-d-australie.md) |
 | Afrique de l'Ouest (Akan) | Afrique | 15 | 0 | [090-afrique-de-l-ouest.md](090-afrique-de-l-ouest.md) |
 | Yoruba | Afrique | 8 | 8 | [091-yoruba.md](091-yoruba.md) |
-| Igbo | Afrique | 5 | 1 | [092-igbo.md](092-igbo.md) |
+| Igbo | Afrique | 5 | 2 | [092-igbo.md](092-igbo.md) |
 | Haoussa | Afrique | 5 | 0 | [093-haoussa.md](093-haoussa.md) |
 | Mandingues (Soundiata et griots) | Afrique de l'Ouest | 8 | 0 | [094-mandingues.md](094-mandingues.md) |
 | Wolof, Peul et Sénégal | Afrique de l'Ouest | 8 | 0 | [095-wolof-peul-et-senegal.md](095-wolof-peul-et-senegal.md) |
-| Dogon et Bambara | Afrique de l'Ouest | 1 | 0 | [096-dogon-et-bambara.md](096-dogon-et-bambara.md) |
+| Dogon et Bambara | Afrique de l'Ouest | 1 | 1 | [096-dogon-et-bambara.md](096-dogon-et-bambara.md) |
 | Afrique de l'Est (swahili) | Afrique | 12 | 12 | [097-afrique-de-l-est.md](097-afrique-de-l-est.md) |
 | Éthiopie | Afrique de l'Est | 5 | 0 | [098-ethiopie.md](098-ethiopie.md) |
 | Somalie | Afrique de l'Est | 2 | 1 | [099-somalie.md](099-somalie.md) |
@@ -116,11 +116,11 @@ Total de titres déjà listés avec source : 767 (cible : 1100).
 | Aymara | Andes | 2 | 0 | [108-aymara.md](108-aymara.md) |
 | Mapuche | Amérique du Sud | 2 | 1 | [109-mapuche.md](109-mapuche.md) |
 | Guarani | Amérique du Sud | 3 | 1 | [110-guarani.md](110-guarani.md) |
-| Amazonie et Brésil autochtone | Amérique du Sud | 8 | 0 | [111-amazonie-et-bresil-autochtone.md](111-amazonie-et-bresil-autochtone.md) |
+| Amazonie et Brésil autochtone | Amérique du Sud | 8 | 1 | [111-amazonie-et-bresil-autochtone.md](111-amazonie-et-bresil-autochtone.md) |
 | Brésil populaire | Amérique du Sud | 8 | 8 | [112-bresil-populaire.md](112-bresil-populaire.md) |
 | Argentine et gauchos | Amérique du Sud | 2 | 1 | [113-argentine-et-gauchos.md](113-argentine-et-gauchos.md) |
 | Caraïbes (Anansi, Taïnos) | Caraïbes | 10 | 10 | [114-caraibes.md](114-caraibes.md) |
-| Haïti | Caraïbes | 4 | 1 | [115-haiti.md](115-haiti.md) |
+| Haïti | Caraïbes | 4 | 2 | [115-haiti.md](115-haiti.md) |
 | Afro-Américains | Amérique du Nord | 8 | 8 | [116-afro-americains.md](116-afro-americains.md) |
 | Cherokee | Amérique du Nord | 5 | 5 | [117-cherokee.md](117-cherokee.md) |
 | Ojibwe et Algonquins | Amérique du Nord | 6 | 6 | [118-ojibwe-et-algonquins.md](118-ojibwe-et-algonquins.md) |

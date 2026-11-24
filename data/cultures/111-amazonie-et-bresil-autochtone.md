@@ -2,7 +2,7 @@
 
 - Région : Amérique du Sud
 - Nombre de contes visés : 8
-- Contes listés avec source : 0
+- Contes listés avec source : 1
 - Sensibilité / droits : élevée
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://pt.wikisource.org/wiki/O_Selvagem
@@ -11,5 +11,6 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 
 | n | titre | source | origine du titre |
 |---|---|---|---|
+| 1 | La légende du guarana | https://touslescontes.com/biblio/payscontes2.php?pays=26 | titre relevé sur touslescontes.com (liste par pays), accents restitués, droits du conte à vérifier, aucun texte repris |
 
-Reste à relever : 8 titres (source à ouvrir ou autre recueil à identifier).
+Reste à relever : 7 titres (source à ouvrir ou autre recueil à identifier).

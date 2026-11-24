@@ -2,7 +2,7 @@
 
 - Région : Afrique de l'Ouest
 - Nombre de contes visés : 1
-- Contes listés avec source : 0
+- Contes listés avec source : 1
 - Sensibilité / droits : élevée
 - Note : cosmologie initiatique
 - Sources de référence (vérifiées en ligne) : https://scholarlypublications.universiteitleiden.nl/handle/1887/2770
@@ -11,5 +11,4 @@ Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, 
 
 | n | titre | source | origine du titre |
 |---|---|---|---|
-
-Reste à relever : 1 titres (source à ouvrir ou autre recueil à identifier).
+| 1 | Sirius, étoile mythique des Dogons | https://touslescontes.com/biblio/payscontes2.php?pays=27 | titre relevé sur touslescontes.com (liste par pays), accents restitués, droits du conte à vérifier, aucun texte repris |
