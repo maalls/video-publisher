@@ -1,0 +1,100 @@
+numero,titre,culture,resume,droits,note,statut
+1,Le Vent et le Soleil,Grèce (Ésope),Le vent et le soleil parient lequel fera ôter son manteau à un voyageur.,"Ésope, domaine public (adaptation libre)",,publié
+2,Le Vieil Homme et son Cheval,Chine,Un vieil homme accueille chaque coup du sort avec calme : bonheur et malheur se répondent.,tradition orale (proverbe taoïste),,publié
+3,Anansi et le Pot de Sagesse,Akan (Ghana),"Anansi veut garder toute la sagesse du monde pour lui, son fils lui montre qu'elle se partage.",tradition orale,,publié
+4,Le Singe et le Crocodile,Inde (Panchatantra),Un singe échappe au crocodile qui voulait son cœur grâce à une ruse.,domaine public (Panchatantra),,publié
+5,La Grue reconnaissante,Japon,"Une grue sauvée prend forme humaine, tisse pour son sauveur et lui demande de ne pas la regarder.",tradition orale,,publié
+6,Le Pot qui avait fait un petit,Monde arabe (Djeha),"Djeha rend une grande marmite avec une petite dedans, puis annonce la mort du pot.",tradition orale,,publié
+7,Le Saumon de la Sagesse,Irlande,Fionn goûte par accident le saumon que son maître attendait depuis sept ans.,tradition orale (cycle de Fionn),,programmé
+8,Le Lapin de la Lune,Mexique,"Un lapin n'a que lui à offrir à un voyageur affamé, qui se révèle être Quetzalcoatl.",tradition orale,"Version attribuée à Quetzalcoatl, d'autres cultures racontent un lapin sur la lune (Chine, Inde) : proches, à ne pas refaire",programmé
+9,Le Vilain Petit Canard,Danemark,Un caneton rejeté par tous découvre qu'il est un cygne.,"Andersen 1843, domaine public",,idée
+10,Les Habits neufs de l'empereur,Danemark,"Deux fripons vendent un habit invisible à un empereur que personne n'ose contredire, sauf un enfant.","Andersen 1837, domaine public",Origine : conte espagnol médiéval de Juan Manuel,idée
+11,Le Rossignol de l'empereur,Danemark (décor chinois),"Un empereur préfère un oiseau mécanique, puis le vrai rossignol lui sauve la vie.","Andersen 1843, domaine public","Décor chinois imaginé par Andersen, ce n'est pas un conte chinois",idée
+12,La Petite Sirène,Danemark,Une sirène donne sa voix pour devenir humaine et être aimée.,"Andersen 1837, domaine public","Fin triste, éviter la version Disney (marque)",idée
+13,Les Trois Boucs Bourrus,Norvège,Trois boucs franchissent un pont gardé par un troll.,"Asbjørnsen et Moe, domaine public",,idée
+14,À l'est du soleil et à l'ouest de la lune,Norvège,Une jeune fille cherche son époux ensorcelé jusqu'au château du bout du monde.,"Asbjørnsen et Moe, domaine public",Contient la lune : éviter la confusion avec le conte 8,idée
+15,Le Marteau de Thor volé,Scandinavie (Edda),"Le géant Thrym vole Mjöllnir, Thor se déguise en mariée pour le reprendre.","Edda poétique, domaine public","Mythologie, pas de sujet sensible vivant",idée
+16,Väinämöinen et le Sampo,Finlande,"Un vieux chanteur et un forgeron fabriquent un objet magique d'abondance, tous le convoitent.","Kalevala (Lönnrot), domaine public",,idée
+17,Le Prince heureux,Irlande / Royaume-Uni,Une statue dorée et une hirondelle donnent leurs richesses aux pauvres.,"Wilde 1888, domaine public",Fin triste,idée
+18,La Femme-phoque,Écosse et Orcades,"Un pêcheur cache la peau d'une selkie pour l'épouser, elle finit par la retrouver.",tradition orale,"Sensible : contrainte conjugale, à traiter avec soin",idée
+19,Le Dragon rouge et le Dragon blanc,Pays de Galles,"Deux dragons se battent sous une forteresse qui s'écroule, un jeune Merlin explique.","Mabinogion, domaine public",,idée
+20,Jack et le haricot magique,Angleterre,Un garçon échange la vache contre des haricots et monte chez un géant.,"Jacobs 1890, domaine public",,idée
+21,Les Trois Ours,Angleterre,Une fillette entre dans la maison de trois ours.,"Southey 1837, domaine public",,idée
+22,L'Épée dans la pierre,Grande-Bretagne (légende arthurienne),Le jeune Arthur retire l'épée que personne n'avait pu bouger.,"Malory 1485, domaine public",,idée
+23,La Soupe aux cailloux,France / Europe,Un voyageur affamé fait une soupe avec des cailloux et pousse les villageois à partager.,tradition orale,"Thème du partage proche du conte 8, traitement différent",idée
+24,Le Chat botté,France,Un chat rusé fait la fortune de son maître.,"Perrault 1697, domaine public",,idée
+25,Le Petit Poucet,France,Un garçon minuscule sauve ses frères d'un ogre.,"Perrault 1697, domaine public",Sensible : abandon d'enfants,idée
+26,La Belle et la Bête,France,Une jeune fille accepte de vivre chez une bête qui cache un prince.,"Villeneuve 1740 / Beaumont 1756, domaine public",Éviter la version Disney (marque),idée
+27,La Chasse-galerie,Québec,Des bûcherons font un pacte pour voler en canot la nuit de l'An.,"Beaugrand 1900, domaine public (version orale plus ancienne)","Pacte avec le diable, ton léger à garder",idée
+28,Le Coq de Barcelos,Portugal,Un pèlerin accusé à tort est sauvé quand un coq rôti se met à chanter.,tradition orale,,idée
+29,Le Dragon de Wawel,Pologne,Un jeune cordonnier vainc le dragon de Cracovie avec un mouton piégé.,tradition orale,,idée
+30,Le Cerf miraculeux,Hongrie,Deux frères poursuivent un cerf magique et trouvent une nouvelle terre.,tradition orale,"Récupéré par le nationalisme hongrois, vérifier la version",idée
+31,Baba Yaga et la belle Vassilissa,Russie,Une fille envoyée chercher du feu chez la sorcière s'en sort grâce à sa poupée.,"Afanassiev, domaine public",,idée
+32,L'Oiseau de feu,Russie,"Un prince poursuit l'oiseau de feu, aidé par un loup gris.","Afanassiev, domaine public",,idée
+33,Le Navet géant,Russie,Toute la famille et les animaux tirent un navet trop grand.,tradition orale,,idée
+34,Sadko et le roi des mers,Russie (Novgorod),Un joueur de gousli charme le roi des mers et revient plein de richesses.,"Bylines, domaine public",,idée
+35,Les Fous de Chelm,"Europe de l'Est, tradition juive",Les habitants d'un village imaginaire résolvent leurs problèmes à l'envers.,tradition orale,Sensible : éviter toute caricature,idée
+36,Le Golem de Prague,"Tchéquie, tradition juive",Un rabbin façonne un géant d'argile pour protéger son quartier.,"Légende, version écrite de 1909, domaine public à vérifier","Sensible : légende juive, ton respectueux",idée
+37,Le Roi Midas,Grèce,"Tout ce que le roi touche devient or, même son pain.","Ovide, domaine public",,idée
+38,Dédale et Icare,Grèce,"Un père et son fils s'évadent avec des ailes de cire, le fils vole trop haut.","Ovide, domaine public",Fin triste,idée
+39,Orphée et Eurydice,Grèce,Un musicien descend aux Enfers chercher sa bien-aimée et se retourne trop tôt.,"Ovide, domaine public",Fin triste,idée
+40,La Boîte de Pandore,Grèce,"Une jarre ouverte lâche tous les maux, ne reste que l'espoir.","Hésiode, domaine public",,idée
+41,Narcisse et Écho,Grèce,"Un jeune homme tombe amoureux de son reflet, une nymphe n'a plus que sa voix.","Ovide, domaine public",,idée
+42,Romulus et Remus,Rome,Deux jumeaux nourris par une louve fondent Rome.,"Tite-Live, domaine public",Violence (fratricide),idée
+43,Aladin et la lampe merveilleuse,Mille et Une Nuits,Un garçon pauvre trouve une lampe dont le génie exauce ses vœux.,"Galland 1712, domaine public","Ajouté par Galland d'après un conteur syrien, origine discutée",idée
+44,Ali Baba et les quarante voleurs,Mille et Une Nuits,Ali Baba découvre la grotte des voleurs et leur formule secrète.,"Galland 1712, domaine public",Même remarque d'origine qu'Aladin,idée
+45,Sindbad et l'oiseau Roc,Mille et Une Nuits,Un marin s'accroche à la patte d'un oiseau géant pour quitter une île.,domaine public,,idée
+46,Le Pêcheur et le Génie,Mille et Une Nuits,"Un pêcheur libère un génie d'une jarre, puis le piège par la ruse.",domaine public,,idée
+47,La Clé de Nasreddine,Turquie / monde musulman,"Nasreddine cherche sa clé perdue dans la rue, là où il y a de la lumière.",tradition orale,"Même personnage que Djeha (conte 6) : doublon de personnage, à décider",idée
+48,Zal et le Simurgh,Perse,Un enfant aux cheveux blancs abandonné est élevé par un oiseau fabuleux.,"Shahnameh (Ferdowsi), domaine public",Abandon d'enfant,idée
+49,Rostam et Sohrab,Perse,Un père et son fils s'affrontent sans se reconnaître.,"Shahnameh, domaine public","Sensible : tragédie, un père tue son fils",idée
+50,Amirani,Géorgie,Un héros est enchaîné au Caucase pour avoir défié les dieux.,tradition orale,,idée
+51,Aldar Köse,Kazakhstan,Un rusé sans barbe se joue d'un riche cupide.,tradition orale,,idée
+52,"Asena, la louve",Turquie / Asie centrale,Une louve sauve un enfant blessé et donne naissance à un peuple.,tradition orale,Sensible : récupération nationaliste moderne,idée
+53,Le Prince prédestiné,Égypte ancienne,"Un prince doit mourir d'un crocodile, d'un serpent ou d'un chien, sa femme le sauve.","Papyrus Harris 500, domaine public","Fin du papyrus perdue : fin à inventer, à indiquer",idée
+54,Les Aveugles et l'éléphant,Inde,Six aveugles touchent chacun une partie différente d'un éléphant et se disputent.,"Udana / Jataka, domaine public",,idée
+55,"Le Corbeau, la tortue, la souris et la gazelle",Inde (Panchatantra),Quatre amis très différents se sauvent les uns les autres.,domaine public (Panchatantra),"Panchatantra comme le conte 4, mais histoire distincte",idée
+56,Le Brahmane et la mangouste,Inde (Panchatantra),"Un homme tue à tort sa mangouste fidèle, croyant qu'elle a tué son enfant.",domaine public (Panchatantra),"Sensible : mort d'animal, regret",idée
+57,Le Roi des singes et le pont,Inde (Jataka),Un roi singe fait de son corps un pont pour sauver sa troupe.,"Jataka, domaine public",,idée
+58,Savitri et Satyavan,Inde,Une épouse suit le dieu de la Mort pour reprendre son mari.,"Mahabharata, domaine public",Sensible : sujet religieux hindou,idée
+59,Le Bouvier et la Tisserande,Chine,Deux amants séparés par la Voie lactée ne se retrouvent qu'une nuit par an.,tradition orale,,idée
+60,Hou Yi et les dix soleils,Chine,Un archer abat neuf des dix soleils qui brûlent la terre.,tradition orale,Même cycle que Chang'e et le lapin de jade : ne pas enchaîner avec la lune,idée
+61,Le Serpent blanc,Chine,"Un serpent devenu femme épouse un homme, un moine veut les séparer.","Feng Menglong, domaine public",,idée
+62,Mulan,Chine,Une jeune fille prend la place de son père à l'armée.,"Ballade de Mulan, domaine public",Éviter la version Disney (marque),idée
+63,Le Roi Singe et la montagne des Cinq Doigts,Chine,Sun Wukong défie le Bouddha et se retrouve enfermé sous une montagne.,"Wu Cheng'en, domaine public","Sujet religieux bouddhiste, ton léger",idée
+64,Momotaro,Japon,Un enfant né d'une pêche part vaincre des ogres avec trois animaux.,tradition orale,,idée
+65,Urashima Taro,Japon,Un pêcheur visite le palais du dragon et revient trois cents ans plus tard.,tradition orale,,idée
+66,La Princesse Kaguya,Japon,Une enfant trouvée dans un bambou doit retourner sur la lune.,"Taketori Monogatari, domaine public","Contient la lune, thème de départ : proche du conte 8",idée
+67,Le Soleil et la Lune (frère et sœur),Corée,Un frère et une sœur échappent à un tigre et deviennent soleil et lune.,tradition orale,"Contient la lune, mais histoire distincte",idée
+68,Heungbu et Nolbu,Corée,"Un frère généreux récompensé par une hirondelle, un frère cupide puni.",tradition orale,,idée
+69,Le Tigre et les kakis séchés,Corée,"Un tigre fuit un enfant qui pleure, car il croit que « kaki séché » est un monstre.",tradition orale,,idée
+70,Le Gâteau de riz carré (Bánh chưng),Vietnam,Un prince offre au roi un gâteau de riz carré qui symbolise la terre.,tradition orale,,idée
+71,La Pastèque de Mai An Tiêm,Vietnam,Un homme exilé sur une île déserte y fait pousser des pastèques.,tradition orale,,idée
+72,Sơn Tinh et Thủy Tinh,Vietnam,Le seigneur de la montagne et celui de l'eau se disputent une princesse.,tradition orale,,idée
+73,La Légende de l'ananas,Philippines,Une mère maudit sa fille Pina qui ne trouve pas ce qu'elle cherche.,tradition orale,"Fin moralisatrice, vérifier la version",idée
+74,Le Lac Toba,Indonésie (Sumatra),Une promesse brisée transforme une vallée en lac.,tradition orale,,idée
+75,Malin Kundang,Indonésie,Un fils revenu riche renie sa mère et est changé en pierre.,tradition orale,"Sombre, fin punitive",idée
+76,Maui capture le soleil,Polynésie,Maui ralentit le soleil avec un lasso pour allonger les jours.,tradition orale,"Sensible : récit vivant de peuples précis, citer la source et la version",idée
+77,Pourquoi le kiwi ne vole pas,Nouvelle-Zélande (Maori),Un oiseau accepte de descendre vivre au sol pour sauver la forêt.,tradition orale,"Sensible : récit vivant de peuples précis, citer la source",idée
+78,Pourquoi l'émeu ne vole pas,Australie (Aborigènes),"L'émeu et la grue brolga se disputent, l'émeu perd la capacité de voler.",tradition orale,"Très sensible : histoires de peuples précis, certaines restreintes. À ne faire qu'avec une source attribuée et approuvée, sinon abandonner",idée
+79,Kintu et Nambi,Ouganda (Baganda),Un homme épouse la fille du ciel et doit réussir des épreuves de son père.,tradition orale,,idée
+80,Soundiata Keita,Mali,Un enfant qui ne marche pas devient le fondateur de l'empire du Mali.,tradition orale (épopée des griots),"Version longue, à résumer fidèlement",idée
+81,La Tortue et les oiseaux,Nigeria (Igbo),La tortue se fait passer pour un oiseau et monte au festin du ciel.,tradition orale,,idée
+82,Pourquoi le soleil et la lune vivent dans le ciel,Nigeria (Efik/Ibibio),"Le soleil et l'eau se rendent visite, l'eau monte trop haut.",tradition orale,"Contient la lune, mais histoire distincte",idée
+83,Pourquoi les moustiques bourdonnent aux oreilles,Afrique de l'Ouest,"Un moustique raconte une bêtise à une iguane, la forêt en subit les conséquences.",tradition orale,"Variantes multiples, vérifier la version",idée
+84,Le Lièvre et l'Éléphant à la corde,Afrique (plusieurs peuples),Un petit animal ruse pour faire tirer la corde à deux géants sans qu'ils se voient.,tradition orale,"Variantes multiples, vérifier la version",idée
+85,Le Lion et le Rat,Grèce (Ésope),Un rat épargné par un lion le sauve plus tard en rongeant le filet.,"Ésope, domaine public","Deuxième Ésope de la série, à espacer",idée
+86,Le Colibri et l'incendie,Amérique du Sud (attribué aux Quechua),"Quand la forêt brûle, le colibri apporte une goutte à la fois.",tradition orale,"Attribution incertaine, version contemporaine : vérifier avant tout crédit",idée
+87,Le Renard et le Condor,Pérou et Bolivie (Quechua),Un renard rusé monte au ciel sur le dos d'un condor.,tradition orale,,idée
+88,Manco Cápac et Mama Ocllo,Inca (Pérou),Deux enfants du Soleil sortent du lac Titicaca pour fonder Cuzco.,tradition orale,Sensible : récit fondateur religieux,idée
+89,Popocatépetl et Iztaccíhuatl,Mexique (aztèque),Un guerrier et une princesse sont changés en deux volcans.,tradition orale,"Deuxième conte du Mexique, à espacer",idée
+90,Les Jumeaux héros du Popol Vuh,Maya (Guatemala),Deux frères défient les seigneurs de l'ombre au jeu de balle.,"Popol Vuh, domaine public (traductions)",Sensible : texte sacré maya,idée
+91,La Llorona,Mexique,Une femme en pleurs hante les rivières à la recherche de ses enfants.,tradition orale,"Sensible : mort d'enfants, probablement trop sombre",idée
+92,Le Curupira,Brésil (guarani),Un esprit à pieds retournés protège la forêt et égare les chasseurs.,tradition orale,,idée
+93,La Légende du guarana,Brésil (Sateré-Mawé),"Un enfant aimé de tous meurt, de ses yeux pousse une plante.",tradition orale,"Sensible : récit d'un peuple précis, mort d'un enfant, citer la source",idée
+94,Compère Lapin et le Bonhomme de goudron,Sud des États-Unis (afro-américain),Un lapin rusé se fait prendre par une poupée de goudron.,"Harris 1880, domaine public","Sensible : dialecte stéréotypé dans la version Harris, réécrire",idée
+95,Ti Malice et Bouki,Haïti,"Deux compères, l'un rusé, l'autre naïf.",tradition orale,,idée
+96,Pourquoi l'opossum a la queue nue,Cherokee,L'opossum se vante de sa queue et la perd.,tradition orale,"Sensible : récit d'un peuple précis, citer la source",idée
+97,Le Corbeau et la lumière,Côte nord-ouest du Pacifique,Un corbeau vole la lumière à un vieux gardien pour éclairer le monde.,tradition orale,"Très sensible : récit sacré de peuples précis (Haïda, Tlingit), possiblement droits culturels",idée
+98,"Les Trois Sœurs (maïs, haricot, courge)",Haudenosaunee,Trois plantes poussent ensemble et se protègent.,tradition orale,Sensible : récit d'un peuple précis,idée
+99,Sedna,Inuit,Une jeune fille jetée à la mer devient la déesse des animaux marins.,tradition orale,"Très sensible : sombre, récit sacré inuit",idée

@@ -19,6 +19,7 @@ s'arrête toujours avant la publication.
 | [docs/WORKFLOW_AUTOMATIQUE.md](docs/WORKFLOW_AUTOMATIQUE.md) | Le flux d'exécution d'un conte, de bout en bout, étape par étape |
 | [docs/LANCEUR_CONTES.md](docs/LANCEUR_CONTES.md) | Commandes du lanceur, étapes, contrôle qualité, publication |
 | [docs/conte.example.json](docs/conte.example.json) | Exemple complet et réel de `conte.json` (conte 7, Le Saumon de la Sagesse) |
+| [data/contes.csv](data/contes.csv) | Liste des contes de la série (faits et idées), avec statut, droits et notes de sensibilité |
 | [docs/WORKFLOW_CONTES.md](docs/WORKFLOW_CONTES.md) | Exemple chiffré d'une production (conte 6, état du 23/11/2026) |
 | [docs/TIKTOK_INBOX.md](docs/TIKTOK_INBOX.md) | Envoi de brouillons TikTok |
 | [docs/HIPO_LAYOUT.md](docs/HIPO_LAYOUT.md) | Organisation des dossiers sur la machine de production |
