@@ -2,16 +2,16 @@
 
 Un fichier par culture. Chaque titre est rattaché à une source citée, aucun titre n'est inventé. La liste d'ensemble est dans [../cultures.csv](../cultures.csv) (colonnes fichier et lien_github).
 
-Total de titres déjà listés avec source : 678 (cible : 1100).
+Total de titres déjà listés avec source : 763 (cible : 1100).
 
 | culture | région | visés | listés | fichier |
 |---|---|---|---|---|
 | France (contes de Perrault et tradition orale) | Europe de l'Ouest | 34 | 11 | [001-france.md](001-france.md) |
-| Bretagne | Europe de l'Ouest | 15 | 0 | [002-bretagne.md](002-bretagne.md) |
+| Bretagne | Europe de l'Ouest | 15 | 15 | [002-bretagne.md](002-bretagne.md) |
 | Allemagne (Grimm) | Europe centrale | 34 | 34 | [003-allemagne.md](003-allemagne.md) |
 | Danemark (Andersen et tradition) | Scandinavie | 15 | 15 | [004-danemark.md](004-danemark.md) |
 | Norvège | Scandinavie | 19 | 19 | [005-norvege.md](005-norvege.md) |
-| Islande | Atlantique Nord | 10 | 0 | [006-islande.md](006-islande.md) |
+| Islande | Atlantique Nord | 10 | 10 | [006-islande.md](006-islande.md) |
 | Finlande (Kalevala) | Europe du Nord | 14 | 14 | [007-finlande.md](007-finlande.md) |
 | Suède | Scandinavie | 10 | 10 | [008-suede.md](008-suede.md) |
 | Sames (Laponie) | Europe du Nord | 4 | 0 | [009-sames.md](009-sames.md) |
@@ -23,7 +23,7 @@ Total de titres déjà listés avec source : 678 (cible : 1100).
 | Angleterre | Îles britanniques | 17 | 17 | [015-angleterre.md](015-angleterre.md) |
 | Cornouailles | Îles britanniques | 3 | 3 | [016-cornouailles.md](016-cornouailles.md) |
 | Île de Man | Îles britanniques | 2 | 2 | [017-ile-de-man.md](017-ile-de-man.md) |
-| Pays-Bas et Flandre | Europe de l'Ouest | 5 | 0 | [018-pays-bas-et-flandre.md](018-pays-bas-et-flandre.md) |
+| Pays-Bas et Flandre | Europe de l'Ouest | 5 | 5 | [018-pays-bas-et-flandre.md](018-pays-bas-et-flandre.md) |
 | Suisse | Europe centrale | 4 | 4 | [019-suisse.md](019-suisse.md) |
 | Italie | Europe du Sud | 24 | 24 | [020-italie.md](020-italie.md) |
 | Sicile et Sardaigne | Europe du Sud | 6 | 0 | [021-sicile-et-sardaigne.md](021-sicile-et-sardaigne.md) |
@@ -67,7 +67,7 @@ Total de titres déjà listés avec source : 678 (cible : 1100).
 | Tatars et Bachkirs | Russie | 1 | 0 | [059-tatars-et-bachkirs.md](059-tatars-et-bachkirs.md) |
 | Mongolie | Asie centrale | 12 | 12 | [060-mongolie.md](060-mongolie.md) |
 | Ainous | Japon / Sakhaline | 3 | 3 | [061-ainous.md](061-ainous.md) |
-| Inde (Panchatantra) | Asie du Sud | 34 | 0 | [062-inde.md](062-inde.md) |
+| Inde (Panchatantra) | Asie du Sud | 34 | 33 | [062-inde.md](062-inde.md) |
 | Inde du Sud (tamoul, télougou) | Asie du Sud | 12 | 12 | [063-inde-du-sud.md](063-inde-du-sud.md) |
 | Bengale | Asie du Sud | 9 | 9 | [064-bengale.md](064-bengale.md) |
 | Pakistan (Penjab) | Asie du Sud | 4 | 0 | [065-pakistan.md](065-pakistan.md) |
@@ -90,9 +90,9 @@ Total de titres déjà listés avec source : 678 (cible : 1100).
 | Malaisie | Asie du Sud-Est | 5 | 1 | [082-malaisie.md](082-malaisie.md) |
 | Indonésie (Java, Bali) | Asie du Sud-Est | 10 | 0 | [083-indonesie.md](083-indonesie.md) |
 | Philippines | Asie du Sud-Est | 10 | 10 | [084-philippines.md](084-philippines.md) |
-| Maori (Aotearoa) | Océanie | 8 | 0 | [085-maori.md](085-maori.md) |
+| Maori (Aotearoa) | Océanie | 8 | 8 | [085-maori.md](085-maori.md) |
 | Hawaii | Océanie | 5 | 5 | [086-hawaii.md](086-hawaii.md) |
-| Samoa, Tonga, Fidji | Océanie | 5 | 0 | [087-samoa-tonga-fidji.md](087-samoa-tonga-fidji.md) |
+| Samoa, Tonga, Fidji | Océanie | 5 | 5 | [087-samoa-tonga-fidji.md](087-samoa-tonga-fidji.md) |
 | Mélanésie et Papouasie | Océanie | 5 | 5 | [088-melanesie-et-papouasie.md](088-melanesie-et-papouasie.md) |
 | Aborigènes d'Australie | Océanie | 8 | 8 | [089-aborigenes-d-australie.md](089-aborigenes-d-australie.md) |
 | Afrique de l'Ouest (Akan) | Afrique | 15 | 0 | [090-afrique-de-l-ouest.md](090-afrique-de-l-ouest.md) |
@@ -123,7 +123,7 @@ Total de titres déjà listés avec source : 678 (cible : 1100).
 | Haïti | Caraïbes | 4 | 1 | [115-haiti.md](115-haiti.md) |
 | Afro-Américains | Amérique du Nord | 8 | 8 | [116-afro-americains.md](116-afro-americains.md) |
 | Cherokee | Amérique du Nord | 5 | 5 | [117-cherokee.md](117-cherokee.md) |
-| Ojibwe et Algonquins | Amérique du Nord | 6 | 0 | [118-ojibwe-et-algonquins.md](118-ojibwe-et-algonquins.md) |
+| Ojibwe et Algonquins | Amérique du Nord | 6 | 6 | [118-ojibwe-et-algonquins.md](118-ojibwe-et-algonquins.md) |
 | Haudenosaunee (Iroquois) | Amérique du Nord | 4 | 4 | [119-haudenosaunee.md](119-haudenosaunee.md) |
 | Sioux Lakota | Amérique du Nord | 4 | 4 | [120-sioux-lakota.md](120-sioux-lakota.md) |
 | Navajo | Amérique du Nord | 4 | 4 | [121-navajo.md](121-navajo.md) |
@@ -131,5 +131,5 @@ Total de titres déjà listés avec source : 678 (cible : 1100).
 | Haïdas et Côte nord-ouest | Amérique du Nord | 4 | 4 | [123-haidas-et-cote-nord-ouest.md](123-haidas-et-cote-nord-ouest.md) |
 | Inuits et Arctique | Amérique du Nord | 6 | 6 | [124-inuits-et-arctique.md](124-inuits-et-arctique.md) |
 | Québec (Canada français) | Amérique du Nord | 10 | 10 | [125-quebec.md](125-quebec.md) |
-| Acadiens et Louisiane | Amérique du Nord | 3 | 0 | [126-acadiens-et-louisiane.md](126-acadiens-et-louisiane.md) |
+| Acadiens et Louisiane | Amérique du Nord | 3 | 3 | [126-acadiens-et-louisiane.md](126-acadiens-et-louisiane.md) |
 | Mexique populaire | Amérique du Nord | 3 | 1 | [127-mexique-populaire.md](127-mexique-populaire.md) |
