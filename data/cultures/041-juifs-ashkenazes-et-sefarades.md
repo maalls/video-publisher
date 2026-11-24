@@ -4,6 +4,7 @@
 - Nombre de contes visés : 8
 - Contes listés avec source : 8
 - Sensibilité / droits : élevée
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : tradition religieuse; contes de Chelm = humour
 - Sources de référence (vérifiées en ligne) : https://onlinebooks.library.upenn.edu/webbin/metabook?id=lotj

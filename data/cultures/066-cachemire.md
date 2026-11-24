@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 3
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://en.wikisource.org/wiki/Folk-tales_of_Kashmir

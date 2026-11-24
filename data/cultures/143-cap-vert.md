@@ -4,6 +4,7 @@
 - Nombre de contes visés : 23
 - Contes listés avec source : 23
 - Sensibilité / droits : moyenne : peuple vivant (créole capverdien), recueil de Parsons (1923, domaine public) collecté en partie auprès de Capverdiens des États-Unis ; avis à évaluer
+- Escale du voyage en bateau : Mindelo
 - Avis de la communauté requis avant production : à évaluer
 - Note : Perle rare (escale Mindelo). Source : Parsons, Folk-lore from the Cape Verde Islands, 1923. Titres numérotés de la table des matières, nombreuses entrées ne sont que des motifs, seuls les titres de contes sont retenus.
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/folklorefromcape01pars

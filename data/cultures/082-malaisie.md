@@ -4,6 +4,7 @@
 - Nombre de contes visés : 5
 - Contes listés avec source : 2
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : Kudat ; Kampung Pituru Laut ; Sepanggar ; Kota Kinabalu ; Labuan ; Miri ; Bintulu ; Kuching ; Johor ; Langkawi
 - Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://en.wikipedia.org/wiki/Malay_Annals

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 1
 - Sensibilité / droits : moyenne
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://hmong-mn-folktales.macalester.digital/

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 12
 - Contes listés avec source : 14
 - Sensibilité / droits : ÉLEVÉE : traditions polynésiennes vivantes ; titres seulement ; textes et illustrations (Bobby Holcomb, Sarahina) sous droits de Tahiti Heritage ou de la Direction de la culture et du patrimoine de Polynésie française, droits à demander ; récits sacrés, marae et cycle de Matarii volontairement exclus ; avis des détenteurs locaux (familles, communes, DCP) à obtenir avant production
+- Escale du voyage en bateau : Nuku Hiva ; Hakahau ; Atuona ; Hanavave ; Omoa
 - Avis de la communauté requis avant production : oui
 - Note : Perle rare : Polynésie française (Te Henua Enana).
 - Sources de référence (vérifiées en ligne) : http://www.tahitiheritage.pf/categories/culture/cat-sites-legendaires/marquises-legendes/

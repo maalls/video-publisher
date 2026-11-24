@@ -4,6 +4,7 @@
 - Nombre de contes visés : 8
 - Contes listés avec source : 8
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://www.cascudo.org.br/obras/contos-populares-do-brasil-romero-silvio-anotacoes/

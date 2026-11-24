@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : moyenne
+- Escale du voyage en bateau : San Fernando La Union ; Subic ; Puerto Galera ; Tagbac ; Popototan ; El Nido ; Imunuan Bay ; Port Barton ; Gawid ; Caruray ; Sabang ; Macarascas
 - Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/8299

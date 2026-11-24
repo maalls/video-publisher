@@ -4,6 +4,7 @@
 - Nombre de contes visés : 12
 - Contes listés avec source : 12
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/swahilitalesasto00stee

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 8
 - Contes listés avec source : 1
 - Sensibilité / droits : élevée
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.loc.gov/item/2021667848/

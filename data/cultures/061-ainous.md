@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 3
 - Sensibilité / droits : élevée
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : peuple autochtone; respecter la source
 - Sources de référence (vérifiées en ligne) : https://tianmu.org/good-work-library/japanese/ainu/the-ainu-songs-of-the-gods-ainu-shinysh

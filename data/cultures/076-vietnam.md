@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 19
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : source vérifiée = notice encyclopédique, pas le texte
 - Sources de référence (vérifiées en ligne) : https://bktt.vn/Vi%E1%BB%87t_%C4%91i%E1%BB%87n_u_linh_t%E1%BA%ADp/%C4%91ang_ph%C3%A1t_tri%E1%BB%83n

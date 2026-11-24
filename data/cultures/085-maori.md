@@ -4,6 +4,7 @@
 - Nombre de contes visés : 8
 - Contes listés avec source : 8
 - Sensibilité / droits : élevée
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : propriété culturelle (tapu); consulter iwi
 - Sources de référence (vérifiées en ligne) : https://standardebooks.org/ebooks/george-grey/polynesian-mythology

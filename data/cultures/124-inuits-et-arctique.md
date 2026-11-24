@@ -4,6 +4,7 @@
 - Nombre de contes visés : 6
 - Contes listés avec source : 6
 - Sensibilité / droits : élevée
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/28932

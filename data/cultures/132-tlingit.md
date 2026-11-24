@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : TRÈS ÉLEVÉE : tradition vivante ; les récits sont des biens de clan (at.óow), leur usage hors clan est sensible ; Swanton 1909, domaine public ; ne pas produire sans accord de la communauté ; le cycle du Corbeau est exclu
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : Perle rare : source Tlingit Myths and Texts, Swanton 1909 (sacred-texts). Cycle du Corbeau exclu.
 - Sources de référence (vérifiées en ligne) : https://sacred-texts.com/book/tlingit-myths-and-texts/contents

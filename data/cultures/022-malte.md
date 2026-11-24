@@ -4,6 +4,7 @@
 - Nombre de contes visés : 2
 - Contes listés avec source : 1
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://en.wikipedia.org/wiki/Maltese_folklore

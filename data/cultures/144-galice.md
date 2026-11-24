@@ -4,6 +4,7 @@
 - Nombre de contes visés : 21
 - Contes listés avec source : 21
 - Sensibilité / droits : moyenne : recueil de Carré Alvarellos (années 1930, auteur mort en 1968 : probablement encore sous droits, à vérifier) ; titres seulement
+- Escale du voyage en bateau : Coruña
 - Avis de la communauté requis avant production : non
 - Note : Perle rare (escale La Corogne). Source : Contos populares da Galiza, index OCR (archive.org), titres en galicien d'époque (orthographe ancienne). Titres OCR : à vérifier.
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/contospopularesdagalizacarrealvarelhoslois

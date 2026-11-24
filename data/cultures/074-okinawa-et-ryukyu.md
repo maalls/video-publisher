@@ -4,6 +4,7 @@
 - Nombre de contes visés : 2
 - Contes listés avec source : 1
 - Sensibilité / droits : moyenne
+- Escale du voyage en bateau : Ieshima ; Naha
 - Avis de la communauté requis avant production : oui
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://doi.org/10.2307/1178688

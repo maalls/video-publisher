@@ -4,6 +4,7 @@
 - Nombre de contes visés : 1
 - Contes listés avec source : 1
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://ich.unesco.org/en/RL/epic-art-of-gorogly-01028

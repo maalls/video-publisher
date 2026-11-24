@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 3
 - Sensibilité / droits : moyenne : minorités slaves vivantes ; recueil d'Erben/Dozen 1890s, domaine public ; traduction anglaise ancienne
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : Perle rare : trois contes seulement, classés dans la table de la source sous « Upper and Lower Lusatian Stories » et « Kashubian Story ».
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/files/48761/48761-h/48761-h.htm

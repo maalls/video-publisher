@@ -8,6 +8,7 @@ P=lambda *a: os.path.join(root,*a)
 rows=[x[:10] for x in csv.reader(open(P("data/cultures.csv"),encoding="utf-8"))]
 hdr=rows[0]; data=rows[1:]
 avis=json.load(open(P("data/cultures_avis.json"),encoding="utf-8"))
+esc=json.load(open(P("data/cultures_escales.json"),encoding="utf-8"))
 titres=json.load(open(P("data/cultures_titres.json"),encoding="utf-8"))
 LONG={
 "Epic of Gilgamesh":("récit long","Épisode adaptable identifié : la Tablette XI, le Déluge (récit autonome, voir https://en.wikisource.org/wiki/Epic_of_Gilgamesh). Version 1-2 min non vérifiée."),
@@ -27,14 +28,14 @@ def slug(s):
     return s[:40].strip("-")
 D=P("data/cultures"); shutil.rmtree(D,ignore_errors=True); os.makedirs(D)
 GH="https://github.com/maalls/video-publisher/blob/main/data/cultures/"
-newhdr=hdr+["nb_titres_listes","nb_recits_longs","fichier","lien_github","avis_communaute"]
+newhdr=hdr+["nb_titres_listes","nb_recits_longs","fichier","lien_github","avis_communaute","escale_bateau"]
 newrows=[]; idx=[]
 for r in data:
     c=r[0]; n=int(r[2]); L=titres.get(c,[])
     if n==0 and not L:
-        newrows.append(r+["0","0","","",avis.get(c,"à évaluer")]); continue
+        newrows.append(r+["0","0","","",avis.get(c,"à évaluer"),esc.get(c,"")]); continue
     fn=f"{len(idx)+1:03d}-{slug(c)}.md"
-    md=[f"# {c}","",f"- Région : {r[1]}",f"- Nombre de contes visés : {n}",f"- Contes listés avec source : {len(L)}",f"- Sensibilité / droits : {r[5]}",f"- Avis de la communauté requis avant production : {avis.get(c,'à évaluer')}",f"- Note : {r[6]}",f"- Sources de référence (vérifiées en ligne) : {r[3]}","",
+    md=[f"# {c}","",f"- Région : {r[1]}",f"- Nombre de contes visés : {n}",f"- Contes listés avec source : {len(L)}",f"- Sensibilité / droits : {r[5]}",f"- Escale du voyage en bateau : {esc.get(c) or '-'}",f"- Avis de la communauté requis avant production : {avis.get(c,'à évaluer')}",f"- Note : {r[6]}",f"- Sources de référence (vérifiées en ligne) : {r[3]}","",
         "Aucun titre n'est inventé : chaque ligne vient d'une source citée. Résumés, droits de chaque édition et doublons restent à vérifier avant de produire le conte.","",
         "| n | titre | type | source | origine du titre | note adaptation conte court |","|---|---|---|---|---|---|"]
     for k,(t,u,o) in enumerate(L,1):
@@ -44,7 +45,7 @@ for r in data:
     if len(L)<n: md+=["",f"Reste à relever : {n-len(L)} titres (source à ouvrir ou autre recueil à identifier)."]
     open(f"{D}/{fn}","w",encoding="utf-8").write("\n".join(md)+"\n")
     idx.append((c,len(L),fn))
-    newrows.append(r+[str(len(L)),str(sum(1 for x in L if typ(x[0])[0].startswith("récit long"))),f"data/cultures/{fn}",GH+fn,avis.get(c,"à évaluer")])
+    newrows.append(r+[str(len(L)),str(sum(1 for x in L if typ(x[0])[0].startswith("récit long"))),f"data/cultures/{fn}",GH+fn,avis.get(c,"à évaluer"),esc.get(c,"")])
 csv.writer(open(P("data/cultures.csv"),"w",newline="",encoding="utf-8")).writerows([newhdr]+newrows)
 tot=sum(x[1] for x in idx)
 rd=["# Contes par culture","","Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json](../cultures_titres.json) (sources de vérité), data/cultures_avis.json (flag avis_communaute : oui, non, à évaluer). Chaque titre est rattaché à une source citée dans le fichier de sa culture.","",

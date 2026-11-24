@@ -4,6 +4,7 @@
 - Nombre de contes visés : 8
 - Contes listés avec source : 8
 - Sensibilité / droits : élevée
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : religion vivante (Orisha)
 - Sources de référence (vérifiées en ligne) : https://sacred-texts.com/book/yoruba-speaking-peoples-of-the-slave-coast-of-west-africa/chapter-xiv-folk-lore-tales

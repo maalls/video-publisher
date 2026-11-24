@@ -4,6 +4,7 @@
 - Nombre de contes visés : 32
 - Contes listés avec source : 71
 - Sensibilité / droits : moyenne
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : contient des clichés orientalistes: choisir avec soin
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/ebooks/3435

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 5
 - Contes listés avec source : 5
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://www.khmerculture.org/2025/06/the-kingdom-of-stories-guide-to.html

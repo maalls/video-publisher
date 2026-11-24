@@ -4,6 +4,7 @@
 - Nombre de contes visés : 8
 - Contes listés avec source : 1
 - Sensibilité / droits : moyenne
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : épopée de Soundiata
 - Sources de référence (vérifiées en ligne) : https://www.gutenberg.org/files/15458/15458-h/15458-h.htm

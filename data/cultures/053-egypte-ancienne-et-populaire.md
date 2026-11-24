@@ -4,6 +4,7 @@
 - Nombre de contes visés : 12
 - Contes listés avec source : 12
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : Soma Bay ; Suez ; Ismailia
 - Avis de la communauté requis avant production : non
 - Note : 
 - Sources de référence (vérifiées en ligne) : http://gallica.bnf.fr/ark:/12148/bpt6k86309304

@@ -4,6 +4,7 @@
 - Nombre de contes visés : 9
 - Contes listés avec source : 9
 - Sensibilité / droits : ÉLEVÉE : tradition autochtone vivante ; Grinnell 1892, domaine public, collecte coloniale ; les récits sacrés du recueil (origine de la pipe sacrée, Beaver Medicine, Genèse) sont volontairement exclus ; avis de la communauté à obtenir
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : Perle rare : source Blackfoot Lodge Tales, Grinnell 1892 (sacred-texts).
 - Sources de référence (vérifiées en ligne) : https://sacred-texts.com/book/blackfoot-lodge-tales/contents

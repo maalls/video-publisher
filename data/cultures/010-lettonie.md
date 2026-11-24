@@ -4,6 +4,7 @@
 - Nombre de contes visés : 3
 - Contes listés avec source : 1
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://www.zvaigzne.lv/latviesu-tautas-pasakas-latviski-un-angliski-latvian-folktales-in-latvian-and-in-english.html

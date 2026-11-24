@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : TRÈS ÉLEVÉE : tradition vivante rapanui ; recueil d'Englert (1980) sous droits, traduction par un site tiers : droits à vérifier ; récits de Makemake et rites exclus ; avis de la communauté rapanui à obtenir
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : Perle rare : Makemake exclu. Source secondaire (traduction anglaise hébergée par kohaumotu.org).
 - Sources de référence (vérifiées en ligne) : https://kohaumotu.org/rongorongo_org/leyendas/index.htm

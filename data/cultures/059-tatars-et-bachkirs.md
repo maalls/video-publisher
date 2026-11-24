@@ -4,6 +4,7 @@
 - Nombre de contes visés : 1
 - Contes listés avec source : 1
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://kitaptar.bashkort.org/files/oural_batyr._po%C3%A9sie_%C3%A9pique_bachkir.pdf

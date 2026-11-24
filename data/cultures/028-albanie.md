@@ -4,6 +4,7 @@
 - Nombre de contes visés : 5
 - Contes listés avec source : 24
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : http://books.elsie.de/b073_albanian-folktales-and-legends/

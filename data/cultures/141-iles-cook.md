@@ -4,6 +4,7 @@
 - Nombre de contes visés : 10
 - Contes listés avec source : 10
 - Sensibilité / droits : ÉLEVÉE : traditions cookiennes vivantes ; Gill 1876, missionnaire, domaine public mais collecte missionnaire ; avis de la communauté à obtenir ; chants et rituels exclus
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : oui
 - Note : Perle rare : titres de mythes et légendes de la table des matières, chants exclus.
 - Sources de référence (vérifiées en ligne) : https://www.ancientwisdomatlas.com/read/mangaian-project-gutenberg-myths-and-songs-south-pacific-gill/

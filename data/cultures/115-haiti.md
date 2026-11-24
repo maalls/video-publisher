@@ -4,6 +4,7 @@
 - Nombre de contes visés : 4
 - Contes listés avec source : 2
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : non vérifié en ligne
 - Sources de référence (vérifiées en ligne) : https://fonkoze.org/uncategorized/folklore-202-bouki-malis-trickster

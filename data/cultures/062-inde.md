@@ -4,6 +4,7 @@
 - Nombre de contes visés : 34
 - Contes listés avec source : 62
 - Sensibilité / droits : faible
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : non
 - Note : Panchatantra et Jataka: gros réservoir
 - Sources de référence (vérifiées en ligne) : https://en.wikisource.org/wiki/The_Panchatantra_(Purnabhadra%27s_Recension_of_1199_CE) ; https://www.gutenberg.org/ebooks/62514

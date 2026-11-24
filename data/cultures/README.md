@@ -4,7 +4,7 @@ Généré depuis [../cultures.csv](../cultures.csv) et [../cultures_titres.json]
 
 Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt).
 
-1385 titres, 144 cultures.
+1394 titres, 146 cultures.
 
 | culture | titres | fichier |
 |---|---|---|
@@ -152,3 +152,5 @@ Régénérer : `python3 scripts/cultures_build.py` (depuis la racine du dépôt)
 | Rapa Nui (île de Pâques) | 10 | [142-rapa-nui.md](142-rapa-nui.md) |
 | Cap-Vert (contes créoles) | 23 | [143-cap-vert.md](143-cap-vert.md) |
 | Galice (contos galegos) | 21 | [144-galice.md](144-galice.md) |
+| Canaries (Guanches) | 8 | [145-canaries.md](145-canaries.md) |
+| Galápagos (légendes de marins) | 1 | [146-galapagos.md](146-galapagos.md) |

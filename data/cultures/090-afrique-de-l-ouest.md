@@ -4,6 +4,7 @@
 - Nombre de contes visés : 15
 - Contes listés avec source : 3
 - Sensibilité / droits : moyenne
+- Escale du voyage en bateau : -
 - Avis de la communauté requis avant production : à évaluer
 - Note : 
 - Sources de référence (vérifiées en ligne) : https://archive.org/details/akanashantifolkt0000ratt
