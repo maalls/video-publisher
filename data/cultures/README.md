@@ -2,7 +2,7 @@
 
 Un fichier par culture. Chaque titre est rattaché à une source citée, aucun titre n'est inventé. La liste d'ensemble est dans [../cultures.csv](../cultures.csv) (colonnes fichier et lien_github).
 
-Total de titres déjà listés avec source : 807 (cible : 1100).
+Total de titres déjà listés avec source : 844 (cible : 1100).
 
 | culture | région | visés | listés | fichier |
 |---|---|---|---|---|
@@ -36,7 +36,7 @@ Total de titres déjà listés avec source : 807 (cible : 1100).
 | Albanie | Balkans | 5 | 1 | [028-albanie.md](028-albanie.md) |
 | Bulgarie | Balkans | 6 | 3 | [029-bulgarie.md](029-bulgarie.md) |
 | Roumanie | Europe de l'Est | 18 | 18 | [030-roumanie.md](030-roumanie.md) |
-| Hongrie | Europe centrale | 15 | 0 | [031-hongrie.md](031-hongrie.md) |
+| Hongrie | Europe centrale | 15 | 15 | [031-hongrie.md](031-hongrie.md) |
 | Pologne | Europe de l'Est | 15 | 15 | [032-pologne.md](032-pologne.md) |
 | République tchèque et Slovaquie | Europe centrale | 15 | 15 | [033-republique-tcheque-et-slovaquie.md](033-republique-tcheque-et-slovaquie.md) |
 | Russie | Europe de l'Est | 28 | 28 | [034-russie.md](034-russie.md) |
@@ -59,7 +59,7 @@ Total de titres déjà listés avec source : 807 (cible : 1100).
 | Irak et Mésopotamie | Moyen-Orient | 4 | 0 | [051-irak-et-mesopotamie.md](051-irak-et-mesopotamie.md) |
 | Arabie et Yémen | Moyen-Orient | 3 | 2 | [052-arabie-et-yemen.md](052-arabie-et-yemen.md) |
 | Égypte ancienne et populaire | Afrique du Nord | 12 | 12 | [053-egypte-ancienne-et-populaire.md](053-egypte-ancienne-et-populaire.md) |
-| Berbères (Maghreb) | Afrique du Nord | 12 | 0 | [054-berberes.md](054-berberes.md) |
+| Berbères (Maghreb) | Afrique du Nord | 12 | 12 | [054-berberes.md](054-berberes.md) |
 | Afghanistan et Pachtounes | Asie centrale | 2 | 1 | [055-afghanistan-et-pachtounes.md](055-afghanistan-et-pachtounes.md) |
 | Ouzbékistan et Tadjikistan | Asie centrale | 4 | 1 | [056-ouzbekistan-et-tadjikistan.md](056-ouzbekistan-et-tadjikistan.md) |
 | Kazakhstan et Kirghizistan | Asie centrale | 5 | 1 | [057-kazakhstan-et-kirghizistan.md](057-kazakhstan-et-kirghizistan.md) |
@@ -84,7 +84,7 @@ Total de titres déjà listés avec source : 807 (cible : 1100).
 | Vietnam | Asie du Sud-Est | 10 | 1 | [076-vietnam.md](076-vietnam.md) |
 | Thaïlande | Asie du Sud-Est | 3 | 1 | [077-thailande.md](077-thailande.md) |
 | Laos | Asie du Sud-Est | 3 | 3 | [078-laos.md](078-laos.md) |
-| Cambodge | Asie du Sud-Est | 5 | 0 | [079-cambodge.md](079-cambodge.md) |
+| Cambodge | Asie du Sud-Est | 5 | 5 | [079-cambodge.md](079-cambodge.md) |
 | Birmanie (Myanmar) | Asie du Sud-Est | 5 | 5 | [080-birmanie.md](080-birmanie.md) |
 | Hmong | Asie du Sud-Est | 3 | 0 | [081-hmong.md](081-hmong.md) |
 | Malaisie | Asie du Sud-Est | 5 | 2 | [082-malaisie.md](082-malaisie.md) |
@@ -98,7 +98,7 @@ Total de titres déjà listés avec source : 807 (cible : 1100).
 | Afrique de l'Ouest (Akan) | Afrique | 15 | 0 | [090-afrique-de-l-ouest.md](090-afrique-de-l-ouest.md) |
 | Yoruba | Afrique | 8 | 8 | [091-yoruba.md](091-yoruba.md) |
 | Igbo | Afrique | 5 | 2 | [092-igbo.md](092-igbo.md) |
-| Haoussa | Afrique | 5 | 0 | [093-haoussa.md](093-haoussa.md) |
+| Haoussa | Afrique | 5 | 5 | [093-haoussa.md](093-haoussa.md) |
 | Mandingues (Soundiata et griots) | Afrique de l'Ouest | 8 | 1 | [094-mandingues.md](094-mandingues.md) |
 | Wolof, Peul et Sénégal | Afrique de l'Ouest | 8 | 8 | [095-wolof-peul-et-senegal.md](095-wolof-peul-et-senegal.md) |
 | Dogon et Bambara | Afrique de l'Ouest | 1 | 1 | [096-dogon-et-bambara.md](096-dogon-et-bambara.md) |
