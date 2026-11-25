@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chrono Atlas (rendu video)</title>
+<link rel="stylesheet" href="lib/maplibre-gl.css">
+<style>
+html,body{margin:0;height:100%;font:14px system-ui,sans-serif;background:#cfe3ee}
+#map{position:absolute;inset:0}
+#bar{display:none;position:absolute;left:0;right:0;bottom:0;height:86px;background:#1d2733;color:#fff;padding:8px 16px;box-sizing:border-box}
+#year{font-size:22px;font-weight:600;min-width:130px;display:inline-block}
+#info{opacity:.8;margin-left:12px}
+#t{width:100%;margin-top:4px}
+#play{font-size:16px;margin-right:8px}
+#top{position:absolute;left:8px;top:8px;width:310px;background:rgba(255,255,255,.22);cursor:grab;touch-action:none;user-select:none;text-shadow:0 0 3px #fff,0 0 3px #fff;backdrop-filter:none;border-radius:6px;padding:8px 10px;font-size:12px;box-shadow:0 1px 4px #0004}#top h4{margin:0 0 6px;font-size:13px}#rows{position:relative;height:290px}.r{position:absolute;left:0;right:0;height:26px;transition:transform .35s ease,opacity .35s ease}.r .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:13px}.r .g{height:9px;background:#e6e6e6;border-radius:2px;margin-top:2px}.r .g b{display:block;height:100%;border-radius:2px;transition:width .35s ease}.r .v{float:right;font-weight:600;margin-left:6px}#top small{display:block;margin-top:6px;color:#555;line-height:1.3}
+#attr{position:absolute;right:6px;bottom:6px;background:rgba(255,255,255,.85);padding:2px 6px;font-size:11px;border-radius:3px;max-width:70%}
+#big{position:absolute;left:16px;top:8px;z-index:2;color:#fff;font-weight:800;font-size:84px;line-height:1;letter-spacing:-1px;white-space:nowrap;cursor:grab;touch-action:none;user-select:none;-webkit-text-stroke:2px #1d2733;paint-order:stroke fill;text-shadow:0 2px 6px #0006}#big small{font-size:.32em;font-weight:700;margin-left:.15em;letter-spacing:0}
+.sg{display:inline-block;width:.6em;text-align:center}.sg.off{visibility:hidden}#big,#year,#top h4{font-variant-numeric:tabular-nums}
+.r,.r b{transition:none!important}#cnt{position:absolute;left:18px;top:98px;z-index:2;color:#fff;font-weight:700;font-size:26px;-webkit-text-stroke:1.5px #1d2733;paint-order:stroke fill;text-shadow:0 2px 6px #0006;font-variant-numeric:tabular-nums;white-space:nowrap}
+#top{top:auto!important;bottom:12px!important;left:16px!important}
+#top{width:190px!important;transform:scale(2.4);transform-origin:left bottom}#rows{height:250px!important}.r .g{width:97px}.r .v{position:absolute;float:none;left:103px;top:14px;font-size:10px;font-weight:700;margin:0;line-height:11px}</style></head><body>
+<div id="map"></div>
+<div id="big"></div><div id="cnt"></div>
+<div id="top"></div>
+<div id="attr">Cliopatria (Seshat), <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>, modifié · Natural Earth · MapLibre</div>
+<div id="bar"><button id="play">▶</button><span id="year"></span><span id="info"></span>
+<input id="t" type="range" min="-3400" max="2024" step="1" value="1500"></div>
+<script type="module">
+import * as maplibregl from "./lib/maplibre-gl.mjs";
+const q=new URLSearchParams(location.search);
+const slider=document.getElementById("t"),yl=document.getElementById("year"),info=document.getElementById("info");
+slider.value=q.get("y")||1500;
+const bigEl=document.getElementById("big");
+const fmt=y=>String(y);
+const sg=y=>`<span class="sg${y<0?"":" off"}">-</span>${Math.abs(y)}`;
+// Vue initiale (capture de Malo, 1525x700 px) : centre lon -12, lat 35 ; largeur du monde = 80 % de la largeur de la carte (zoom 1,25 a 1525 px), limitee en hauteur (80N a 55S visibles)
+const VIEW_LON=-32,VIEW_LAT=35;
+function viewZoom(){const m=document.getElementById("map"),W=m.clientWidth,H=m.clientHeight;const R=Math.min(0.8*W/(2*Math.PI),H/3.6);return Math.log2(2*Math.PI*R/512)}
+let moved=false;
+const map=window.map=new maplibregl.Map({container:"map",center:[VIEW_LON,VIEW_LAT],zoom:viewZoom(),attributionControl:false,canvasContextAttributes:{preserveDrawingBuffer:true,antialias:true},
+ style:{version:8,sources:{},layers:[{id:"bg",type:"background",paint:{"background-color":"#cfe3ee"}}]}});
+map.on("dragstart",()=>{moved=true});map.on("zoomstart",e=>{if(e.originalEvent)moved=true});
+const t0=performance.now();window.__e=[];map.on("error",e=>window.__e.push(String(e.error&&e.error.message||e)));
+function filt(y){return["all",["<=",["get","f"],y],[">=",["get","t"],y]]}
+map.on("load",async()=>{
+ map.addSource("land",{type:"geojson",data:"data/land_video.geojson"});
+ map.addLayer({id:"land",type:"fill",source:"land",paint:{"fill-color":"#f1ede1"}});
+ map.addSource("clio",{type:"geojson",data:"data/cliopatria_simplifie.geojson"});
+ map.addLayer({id:"fill",type:"fill",source:"clio",filter:filt(+slider.value),paint:{"fill-color":["get","c"],"fill-opacity":.5}});
+ map.addLayer({id:"line",type:"line",source:"clio",filter:filt(+slider.value),paint:{"line-color":"#333","line-width":.6,"line-opacity":.6}});
+ let upd=()=>{const y=+slider.value;yl.innerHTML=sg(y);bigEl.innerHTML=sg(y);map.setFilter("fill",filt(y));map.setFilter("line",filt(y));
+  const n=new Set(map.querySourceFeatures("clio",{filter:filt(y)}).map(f=>f.properties.n)).size;info.textContent=n+(n>1?" entités":" entité")+"";};
+ const top=document.getElementById("top");let feats=null,LIN={};const lin=n=>LIN[n]||LIN[n.replace(/^\((.*)\)$/,"$1")];
+ Promise.all([fetch("data/cliopatria_simplifie.geojson").then(r=>r.json()),fetch("data/lineages_page.json").then(r=>r.json()).catch(()=>({}))]).then(([d,LN])=>{LIN=LN;feats=d.features.map(f=>f.properties);GMAX=Math.max(...feats.filter(p=>p.ty==="POLITY").map(p=>p.a));upd()});
+ const nf=a=>a>=1e6?(a/1e6).toFixed(1).replace(".",",")+"M":Math.round(a/1e3)+"k";
+ let GMAX=1;const rowsEl=document.createElement("div");rowsEl.id="rows";const ttl=document.createElement("h4");const note=document.createElement("small");
+
+ top.append(ttl,rowsEl);const els=new Map();
+ const dying=new Set();
+ function applyRow(e){const c=e.__C;e.style.transform=`translateY(${c.y}px)`;e.style.opacity=c.o;e.querySelector("b").style.width=c.w+"%"}
+ window.__anim=(dt,snap)=>{const a=snap?1:1-Math.exp(-dt/0.10);for(const e of [...els.values(),...dying]){const c=e.__C,t=e.__T;c.y+=(t.y-c.y)*a;c.w+=(t.w-c.w)*a;c.o+=(t.o-c.o)*a;applyRow(e);if(dying.has(e)&&c.o<0.02){e.remove();dying.delete(e)}}};
+ function updTop(y){if(!feats)return;const m=new Map();
+  const act=feats.filter(p=>p.ty==="POLITY"&&p.f<=y&&p.t>=y);const nm=new Set(act.map(p=>p.n)),cs=new Set();for(const p of act)if(p.k)for(const c of p.k.split(";"))cs.add(c);
+  for(const p of act){if((p.m&&nm.has(p.m))||cs.has(p.n))continue;const ln=lin(p.n),key=ln?ln[0]:p.n,o=m.get(key);if(!o||p.a>o.a)m.set(key,Object.assign({},p,{key,lab:ln?ln[1]:p.n}))}
+  const l=[...m.values()].sort((a,b)=>b.a-a.a).slice(0,10);ttl.innerHTML="Top 10 en km²";
+  const keep=new Set(l.map(p=>p.key));
+  for(const [n,e] of els)if(!keep.has(n)){e.__T.o=0;els.delete(n);dying.add(e)}
+  l.forEach((p,i)=>{let e=els.get(p.key);if(!e){e=document.createElement("div");e.className="r";e.innerHTML='<div class="n"><span class="v"></span><span class="t"></span></div><div class="g"><b></b></div>';e.__C={y:i*25,w:0,o:0};e.__T={y:i*25,w:0,o:1};rowsEl.append(e);els.set(p.key,e);e.style.opacity=0}
+   e.title=p.n;e.querySelector(".t").textContent=(i+1)+". "+(()=>{const c=p.n.replace(/^\((.*)\)$/,"$1"),L=p.lab.replace(/^\((.*)\)$/,"$1");return c===L?c:L+" ("+c+")"})();e.querySelector(".v").textContent=nf(p.a);const b=e.querySelector("b");e.__T.w=Math.max(1,p.a/GMAX*100);e.__T.y=i*25;e.__T.o=1;b.style.background=p.c})}
+
+ {const el=document.getElementById("top");let sx,sy,ox,oy,on=false;
+  let dragged=false;const place=()=>{if(dragged)return;el.style.left="16px";el.style.top=Math.max(8,document.getElementById("map").clientHeight-el.offsetHeight-12)+"px"};place();addEventListener("resize",()=>{place();if(!moved){map.jumpTo({center:[VIEW_LON,VIEW_LAT],zoom:viewZoom()})}});setTimeout(place,300);
+  el.addEventListener("pointerdown",()=>{dragged=true},true);
+  el.addEventListener("pointerdown",e=>{on=true;sx=e.clientX;sy=e.clientY;const r=el.getBoundingClientRect();ox=r.left;oy=r.top;el.setPointerCapture(e.pointerId);el.style.cursor="grabbing"});
+  el.addEventListener("pointermove",e=>{if(!on)return;const w=innerWidth-el.offsetWidth,hh=innerHeight-el.offsetHeight;el.style.left=Math.min(Math.max(0,ox+e.clientX-sx),w)+"px";el.style.top=Math.min(Math.max(0,oy+e.clientY-sy),hh)+"px"});
+  const end=()=>{on=false;el.style.cursor="grab"};el.addEventListener("pointerup",end);el.addEventListener("pointercancel",end)}
+ const upd0=upd;upd=()=>{upd0();updTop(+slider.value);if(feats){const y=+slider.value,s=new Set(feats.filter(p=>p.ty==="POLITY"&&p.f<=y&&p.t>=y&&!p.n.startsWith("(")).map(p=>p.n));document.getElementById("cnt").textContent=s.size+" entités politiques"}};
+ slider.addEventListener("input",upd);upd();
+ map.once("idle",()=>{document.title+=" | chargé en "+Math.round(performance.now()-t0)+" ms";window.__loaded=Math.round(performance.now()-t0);upd();});
+ const pop=new maplibregl.Popup({closeButton:false});
+ map.on("mousemove","fill",e=>{const p=e.features[0].properties;pop.setLngLat(e.lngLat).setHTML(`<b>${p.n}</b><br>${fmt(p.f)} → ${fmt(p.t)}`).addTo(map)});
+ map.on("mouseleave","fill",()=>pop.remove());
+ {const el=bigEl;let sx,sy,ox,oy,on=false;
+  el.addEventListener("pointerdown",e=>{on=true;sx=e.clientX;sy=e.clientY;const r=el.getBoundingClientRect();ox=r.left;oy=r.top;el.setPointerCapture(e.pointerId);el.style.cursor="grabbing"});
+  el.addEventListener("pointermove",e=>{if(!on)return;const w=innerWidth-el.offsetWidth,hh=innerHeight-el.offsetHeight;el.style.left=Math.min(Math.max(0,ox+e.clientX-sx),w)+"px";el.style.top=Math.min(Math.max(0,oy+e.clientY-sy),hh)+"px"});
+  const end=()=>{on=false;el.style.cursor="grab"};el.addEventListener("pointerup",end);el.addEventListener("pointercancel",end)}
+ let timer=null;document.getElementById("play").onclick=function(){const b=this;if(timer){clearInterval(timer);timer=null;b.textContent="▶";return}if(+slider.value>=2024){slider.value=-3400;slider.dispatchEvent(new Event("input"))}b.textContent="⏸";timer=setInterval(()=>{slider.value=Math.min(2024,+slider.value+10);slider.dispatchEvent(new Event("input"));if(+slider.value>=2024){clearInterval(timer);timer=null;b.textContent="▶"}},240)};
+});
+</script></body></html>

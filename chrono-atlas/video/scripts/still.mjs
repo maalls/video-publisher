@@ -1,0 +1,10 @@
+import puppeteer from 'puppeteer-core';
+const [,, y, out, html]=process.argv;
+const b=await puppeteer.launch({executablePath:process.env.CHROMEBIN,headless:'new',defaultViewport:{width:540,height:960,deviceScaleFactor:2},args:['--no-sandbox','--ignore-gpu-blocklist',...(process.env.GLARGS||'').split(' ').filter(Boolean)]});
+const p=await b.newPage();
+await p.goto('http://localhost:18765/'+html+'?y='+y,{waitUntil:'load'});
+await p.waitForFunction('window.map&&map.loaded()&&document.getElementById("cnt").textContent.length>0',{timeout:60000});
+await p.evaluate(async y=>{const s=document.getElementById('t');s.value=y;s.dispatchEvent(new Event('input'));await new Promise(r=>setTimeout(r,500));window.__anim(5,true);await new Promise(r=>{map.once('idle',r);map.triggerRepaint()})},+y);
+await new Promise(r=>setTimeout(r,300));
+await p.screenshot({path:out,type:'jpeg',quality:92});
+await b.close();
