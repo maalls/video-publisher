@@ -97,7 +97,8 @@ def identity(config, access):
     user = users[0]
     if not str(user.get('id', '')).isdigit():
         raise Stop('ID professionnel absent')
-    if user.get('username', '').lower() != config['expected_username'].lstrip('@').lower():
+    expected = (config.get('expected_username') or '').lstrip('@').lower()
+    if expected and user.get('username', '').lower() != expected:
         raise Stop('Mauvais compte Instagram. Aucune publication.')
     if config.get('expected_business_id') and str(business['client_business_id']) != str(config['expected_business_id']):
         raise Stop('Mauvais portfolio business')
