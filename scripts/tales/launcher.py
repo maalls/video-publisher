@@ -27,8 +27,10 @@ WHISPER_PY = os.environ.get('WHISPER_PY', '/home/instinct/whisper-venv/bin/pytho
 ENDCARD = HERE.parents[1] / 'var' / 'project' / 'tales' / 'endcard'
 TEMPLATE = HERE / 'templates' / 'wan22_i2v.workflow.json'
 NEG = ('photorealistic, 3D, sudden camera movement, extra limbs, deformed face, extra legs, duplicate characters, '
-       'human child, morphing, text, captions, oversaturated colors, jerky motion')
-KEEP = ' Camera still. Preserve the exact reference composition and style. No new characters, nobody else enters the frame.'
+       'human child, morphing, text, captions, oversaturated colors, jerky motion, fast motion, large movement, throwing, pulling')
+KEEP = (' Camera still. Preserve the exact reference composition and style. No new characters, nobody else enters the frame.'
+        ' Very light, slow, subtle motion only: one small gentle movement (breathing, a blink, hair or cloth swaying, soft light), no large action.')
+MAX_PLAN_SENTENCES = 2  # regle: plans courts (1 a 2 phrases, ~5 a 11 s) pour limiter l'etirement du clip et les defauts
 STAGES = ['check', 'voix', 'split', 'references', 'images', 'animations', 'sous-titres', 'montage', 'qc', 'validation']
 
 
@@ -72,6 +74,8 @@ def validate(c, prod):
         if ph[0] != last + 1 or ph[1] < ph[0]:
             err.append('plan %s: phrases %s ne suivent pas le plan precedent (attendu debut %d)' % (p.get('name'), ph, last + 1))
         last = ph[1]
+        if ph[1] - ph[0] + 1 > MAX_PLAN_SENTENCES and not c.get('allow_long_plans'):
+            err.append('plan %s: %d phrases (maximum %d, plans courts et animations legeres; allow_long_plans pour deroger)' % (p.get('name'), ph[1] - ph[0] + 1, MAX_PLAN_SENTENCES))
     if last != sentences:
         err.append('les plans couvrent %d phrases, la narration en compte %d' % (last, sentences))
     for r in c['references']:

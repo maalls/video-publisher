@@ -54,3 +54,9 @@ Non testé de bout en bout : montage ffmpeg générique et publication réelle. 
 - Si `voix/voix-NN.wav` manque, le lanceur fait UNE prise : Cloud Text-to-Speech, modèle `gemini-2.5-flash-tts` (les modèles Gemini 3.8 ne sont pas disponibles via cette API, selon la doc Google), voix Sadaltager fr-FR, style = `narration.voice_instructions` (lent, pauses) dans le champ `prompt`. Puis `cut_take.py` (Whisper) la coupe en un fichier par segment. Texte limité à 4000 octets. Coût estimé ~0,03 $ par conte. Sans identifiants exploitables, arrêt propre.
 - Les secrets ne sont jamais affichés ni écrits dans un log, un journal ou une URL.
 - Non testé avec la vraie API : l'API Cloud Text-to-Speech doit être activée sur le projet et le compte de service autorisé. Appel construit d'après la doc Google, testé avec des doubles.
+
+## Regle des plans courts et animations legeres (26/11, retour de Malo sur le conte 11)
+- Un plan couvre 1 a 2 phrases au maximum (une phrase dure ~5 s). `check` refuse un plan plus long, sauf `"allow_long_plans": true` dans conte.json (anciens contes).
+- Raison: l'animation Wan fait 5 s (121 images) et le montage l'etire a la duree de la narration. Un plan de 3 phrases (15 a 20 s) est etire 3 a 4 fois, d'ou les defauts. Avec 1 a 2 phrases l'etirement reste proche de 1.
+- Mouvement `motion`: un seul petit geste lent (respiration, cligner, cheveux ou tissu, lumiere). Pas d'action large (lancer, tirer, courir). Le lanceur ajoute cette consigne et un negatif contre les mouvements rapides.
+- Plans sans personnage (paysage, soleil) acceptes pour couper les scenes d'action. Un seul personnage par plan.
