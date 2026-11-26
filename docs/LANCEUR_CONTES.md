@@ -60,3 +60,7 @@ Non testé de bout en bout : montage ffmpeg générique et publication réelle. 
 - Raison: l'animation Wan fait 5 s (121 images) et le montage l'etire a la duree de la narration. Un plan de 3 phrases (15 a 20 s) est etire 3 a 4 fois, d'ou les defauts. Avec 1 a 2 phrases l'etirement reste proche de 1.
 - Mouvement `motion`: un seul petit geste lent (respiration, cligner, cheveux ou tissu, lumiere). Pas d'action large (lancer, tirer, courir). Le lanceur ajoute cette consigne et un negatif contre les mouvements rapides.
 - Plans sans personnage (paysage, soleil) acceptes pour couper les scenes d'action. Un seul personnage par plan.
+
+## Un seul sujet unique par image (26/11, conte 11: deux soleils)
+- Quand un personnage/objet a une reference avec un visage (ex. le soleil), il ne doit pas apparaitre sous une autre forme dans les autres plans (sinon: un soleil a visage et un soleil normal, soit deux soleils).
+- Dans `conte.json`, ajouter a la reference `"unique_subject": "sun"`. `check` refuse alors tout plan d'une AUTRE reference dont l'image ou le mouvement contient ce mot, sauf si le prompt image dit "the sun is not visible". Les plans de la reference elle-meme montrent le sujet, une seule fois ("no other sun").

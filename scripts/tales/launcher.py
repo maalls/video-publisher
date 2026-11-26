@@ -79,6 +79,14 @@ def validate(c, prod):
     if last != sentences:
         err.append('les plans couvrent %d phrases, la narration en compte %d' % (last, sentences))
     for r in c['references']:
+        if r.get('unique_subject'):
+            w = r['unique_subject'].lower()
+            for q in c['plans']:
+                if q.get('ref') == r.get('key'):
+                    continue
+                img = q.get('image', '').lower()
+                if __import__('re').search(r'\b%s\b' % __import__('re').escape(w), img + ' ' + q.get('motion', '').lower()) and 'not visible' not in img:
+                    err.append("plan %s: '%s' est reserve aux plans de la reference %s (un seul %s par image); ecrire 'the %s is not visible' ou changer de reference" % (q.get('name'), w, r.get('key'), w, w))
         for k in ('key', 'prompt', 'identity'):
             if k not in r:
                 err.append('reference %s: cle manquante %s' % (r.get('key'), k))
