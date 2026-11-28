@@ -13,7 +13,8 @@ export interface MaskDoc {
   frames: number
   keyframes: Keyframe[] // sorted by frame, all with the same number of points
   mode: 'union' | 'replace'
-  base_mask: string | null // optional existing mask (file name) merged in 'union' mode
+  base_mask: string | null // optional existing mask (asset id) merged in 'union' mode
+  meta?: { name?: string; status?: string; created?: number; updated?: number } // set by the backend
 }
 
 export function newDoc(clip: string, fps: number, size: [number, number], frames: number): MaskDoc {

@@ -1,51 +1,173 @@
 #!/usr/bin/env python3
-"""maskedit backend: serves the page, video frames, the JSON document, and exports the mask.
+"""maskedit backend (v2): spaces > projects > clips > maskedit projects.
 
-Binds to 127.0.0.1 only. No authentication here: put it behind a reverse proxy that
-checks the user's login (that is the integration point). All URLs are relative, and an
-optional path prefix (MASKEDIT_PREFIX, e.g. /lab/maskedit) is stripped from requests.
+Listens on 127.0.0.1 only and trusts nobody directly: every request must carry the shared secret
+(header X-Mk-Secret) and the list of spaces the signed-in user may use (header X-Mk-Spaces). The
+editor's own login layer (a reverse proxy in front of this) checks the session, then adds both headers
+and drops any copy sent by the browser.
 
-Env: MASKEDIT_SOURCE (video), MASKEDIT_BASE (optional base mask video, white = inside),
-MASKEDIT_DOC (json path), MASKEDIT_OUT (export dir), MASKEDIT_PORT (default 8796).
+Reads the editor's data folder (spaces/<space>/projects/<project>/project.json and media/) and stores
+each maskedit project next to its clip:  <project>/maskedit/<clip asset>/<maskedit id>/doc.json (+ versions/).
+
+Env: MASKEDIT_YABBE_DATA (data folder), MASKEDIT_SECRET_FILE, MASKEDIT_PORT (8796), MASKEDIT_PREFIX,
+MASKEDIT_INGEST_PY + MASKEDIT_INGEST_CWD (python and folder used to add the exported mask as a project asset).
 Needs OpenCV (cv2), numpy and ffmpeg.
 """
-import json, os, subprocess, sys, threading
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import hmac, json, os, re, shutil, subprocess, sys, tempfile, threading, time, uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 import cv2
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-SOURCE = os.environ["MASKEDIT_SOURCE"]
-BASE = os.environ.get("MASKEDIT_BASE") or None
-DOC = Path(os.environ.get("MASKEDIT_DOC", HERE / "data" / "doc.json"))
-OUT = Path(os.environ.get("MASKEDIT_OUT", HERE / "data" / "export"))
+DATA = Path(os.environ["MASKEDIT_YABBE_DATA"])
+SECRET = Path(os.environ["MASKEDIT_SECRET_FILE"]).read_text().strip()
 PORT = int(os.environ.get("MASKEDIT_PORT", "8796"))
 PREFIX = os.environ.get("MASKEDIT_PREFIX", "").rstrip("/")
+INGEST_PY = os.environ.get("MASKEDIT_INGEST_PY")
+INGEST_CWD = os.environ.get("MASKEDIT_INGEST_CWD")
 WEB = HERE / "web"
-LOCK = threading.Lock()
-_cap = cv2.VideoCapture(SOURCE)
-W, H = int(_cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-FPS = _cap.get(cv2.CAP_PROP_FPS) or 16
-N = int(os.environ.get("MASKEDIT_FRAMES", int(_cap.get(cv2.CAP_PROP_FRAME_COUNT))))
+ID = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+MAX_VERSIONS = 20
+FRAME_MAX_W = 1100
 
 
-def frame_jpg(i):
-    with LOCK:
-        _cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, min(N - 1, i)))
-        ok, f = _cap.read()
-    if not ok:
+class Err(Exception):
+    def __init__(self, code, msg):
+        self.code, self.msg = code, msg
+
+
+def need_id(v):
+    if not isinstance(v, str) or not ID.match(v):
+        raise Err(400, "identifiant invalide")
+    return v
+
+
+# -- data access ---------------------------------------------------------------------
+
+def space_names():
+    try:
+        return json.loads((DATA / "accounts.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def project_dir(allowed, space, project):
+    need_id(space); need_id(project)
+    if space not in allowed:
+        raise Err(403, "espace non autorisé")
+    d = DATA / "spaces" / space / "projects" / project
+    if not (d / "project.json").is_file():
+        raise Err(404, "projet introuvable")
+    return d
+
+
+def load_project(d):
+    return json.loads((d / "project.json").read_text(encoding="utf-8"))
+
+
+def find_asset(d, clip):
+    need_id(clip)
+    for a in load_project(d).get("assets", []):
+        if a.get("id") == clip and a.get("kind") == "video":
+            f = d / "media" / a["filename"]
+            if f.is_file():
+                return a, f
+    raise Err(404, "clip introuvable")
+
+
+def mp_dir(d, clip, mp):
+    need_id(clip); need_id(mp)
+    return d / "maskedit" / clip / mp
+
+
+def read_doc(md):
+    try:
+        return json.loads((md / "doc.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        raise Err(404, "projet maskedit introuvable")
+
+
+def write_doc(md, doc, snapshot=True):
+    md.mkdir(parents=True, exist_ok=True)
+    cur = md / "doc.json"
+    if snapshot and cur.exists():
+        vd = md / "versions"
+        vd.mkdir(exist_ok=True)
+        vs = sorted(vd.glob("*.json"))
+        if not vs or time.time() - vs[-1].stat().st_mtime > 60:
+            shutil.copyfile(cur, vd / (time.strftime("%Y%m%d-%H%M%S") + ".json"))
+            for old in sorted(vd.glob("*.json"))[:-MAX_VERSIONS]:
+                old.unlink()
+    tmp = md / "doc.json.tmp"
+    tmp.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(cur)
+
+
+def summary(mp, doc):
+    m = doc.get("meta", {})
+    return {"id": mp, "name": m.get("name", mp), "status": m.get("status", "open"), "created": m.get("created"),
+            "updated": m.get("updated"), "keyframes": len(doc.get("keyframes", [])), "rev": doc.get("rev", 0)}
+
+
+# -- video frames --------------------------------------------------------------------
+
+_readers = {}
+_rlock = threading.Lock()
+
+
+class Reader:
+    def __init__(self, path):
+        self.cap = cv2.VideoCapture(str(path))
+        self.pos = 0
+        self.lock = threading.Lock()
+        self.used = time.time()
+
+    def frame(self, n):
+        with self.lock:
+            self.used = time.time()
+            if n != self.pos:
+                self.cap.set(cv2.CAP_PROP_POS_FRAMES, n)
+            ok, f = self.cap.read()
+            self.pos = n + 1
+        return f if ok else None
+
+
+def reader(path):
+    with _rlock:
+        r = _readers.get(str(path))
+        if r is None:
+            if len(_readers) >= 4:
+                old = min(_readers, key=lambda k: _readers[k].used)
+                _readers.pop(old).cap.release()
+            r = _readers[str(path)] = Reader(path)
+        return r
+
+
+def frame_jpg(path, n):
+    f = reader(path).frame(n)
+    if f is None:
         return None
-    return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 90])[1].tobytes()
+    h, w = f.shape[:2]
+    if w > FRAME_MAX_W:
+        f = cv2.resize(f, (FRAME_MAX_W, round(h * FRAME_MAX_W / w)), interpolation=cv2.INTER_AREA)
+    return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()
 
 
-def load_doc():
-    if DOC.exists():
-        return json.loads(DOC.read_text())
-    return {"version": 1, "clip": Path(SOURCE).name, "fps": FPS, "size": [W, H], "frames": N,
-            "keyframes": [], "mode": "union", "base_mask": Path(BASE).name if BASE else None}
+def clip_info(path, a):
+    cap = cv2.VideoCapture(str(path))
+    n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    w, h = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fps = cap.get(cv2.CAP_PROP_FPS) or a.get("fps") or 30
+    cap.release()
+    return {"frames": n, "size": [w, h], "fps": round(float(fps), 3)}
 
+
+# -- mask rendering / export ---------------------------------------------------------
 
 def points_at(doc, frame):
     ks = sorted(doc["keyframes"], key=lambda k: k["frame"])
@@ -62,13 +184,12 @@ def points_at(doc, frame):
     return []
 
 
-def export(doc):
-    OUT.mkdir(parents=True, exist_ok=True)
-    name = "mask-%s.mp4" % Path(doc["clip"]).stem
-    path = OUT / name
-    base = cv2.VideoCapture(BASE) if BASE and doc.get("mode") == "union" else None
-    enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}",
-                            "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-crf", "12", "-pix_fmt", "yuv420p", str(path)],
+def render_mask(doc, out_path, base_path=None):
+    W, H = doc["size"]
+    W, H = W - W % 2, H - H % 2
+    base = cv2.VideoCapture(str(base_path)) if base_path else None
+    enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "gray", "-s", f"{W}x{H}",
+                            "-r", str(doc["fps"]), "-i", "-", "-c:v", "libx264", "-crf", "12", "-pix_fmt", "yuv420p", str(out_path)],
                            stdin=subprocess.PIPE)
     for i in range(doc["frames"]):
         m = np.zeros((H, W), np.uint8)
@@ -78,64 +199,180 @@ def export(doc):
         if base is not None:
             ok, f = base.read()
             if ok:
-                m = np.maximum(m, (f[:, :, 0] > 127).astype(np.uint8) * 255)
-        enc.stdin.write(np.dstack([m] * 3).tobytes())
+                g = f[:, :, 0] if f.ndim == 3 else f
+                if g.shape != m.shape:
+                    g = cv2.resize(g, (W, H), interpolation=cv2.INTER_NEAREST)
+                m = np.maximum(m, (g > 127).astype(np.uint8) * 255)
+        enc.stdin.write(m.tobytes())
     enc.stdin.close()
-    enc.wait()
-    return str(path)
+    if enc.wait() != 0:
+        raise Err(500, "encodage du masque en échec")
 
 
-class H_(BaseHTTPRequestHandler):
-    def _send(self, code, body=b"", ctype="application/json"):
+# -- HTTP ----------------------------------------------------------------------------
+
+class Handler(BaseHTTPRequestHandler):
+    def _send(self, code, body=b"", ctype="application/json", extra=None):
         self.send_response(code)
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
+        for k, v in (extra or {}).items():
+            self.send_header(k, v)
         self.end_headers()
         self.wfile.write(body)
 
-    def _path(self):
-        p = self.path.split("?")[0]
+    def _json(self, obj, code=200):
+        self._send(code, json.dumps(obj, ensure_ascii=False).encode())
+
+    def _auth(self):
+        if not hmac.compare_digest(self.headers.get("X-Mk-Secret", ""), SECRET):
+            raise Err(403, "accès refusé")
+        return {s for s in self.headers.get("X-Mk-Spaces", "").split(",") if ID.match(s)}
+
+    def _body(self):
+        n = int(self.headers.get("Content-Length", 0))
+        if n > 20_000_000:
+            raise Err(413, "trop gros")
+        return json.loads(self.rfile.read(n) or b"{}")
+
+    def _route(self, method):
+        allowed = self._auth()
+        u = urlparse(self.path)
+        p = u.path
         if PREFIX and p.startswith(PREFIX):
             p = p[len(PREFIX):]
-        return p or "/"
-
-    def do_GET(self):
-        p = self._path()
-        if p in ("/", "/index.html"):
-            return self._send(200, (WEB / "index.html").read_bytes(), "text/html; charset=utf-8")
-        if p == "/app.js":
-            return self._send(200, (WEB / "app.js").read_bytes(), "application/javascript")
-        if p.startswith("/frame/") and p.endswith(".jpg"):
+        p = p or "/"
+        q = {k: v[0] for k, v in parse_qs(u.query).items()}
+        if method == "GET":
+            if p in ("/", "/index.html"):
+                return self._send(200, (WEB / "index.html").read_bytes(), "text/html; charset=utf-8")
+            if p == "/app.js":
+                return self._send(200, (WEB / "app.js").read_bytes(), "application/javascript")
+            if p == "/api/spaces":
+                names = space_names()
+                return self._json([{"id": s, "name": names.get(s, s)} for s in sorted(allowed) if (DATA / "spaces" / s).is_dir()])
+            if p == "/api/projects":
+                sp = need_id(q.get("space", ""))
+                if sp not in allowed:
+                    raise Err(403, "espace non autorisé")
+                out = []
+                for pj in sorted((DATA / "spaces" / sp / "projects").glob("p_*/project.json")):
+                    try:
+                        j = json.loads(pj.read_text(encoding="utf-8"))
+                        out.append({"id": j["id"], "name": j.get("name", j["id"]), "updated": j.get("updated_at", 0)})
+                    except (OSError, ValueError, KeyError):
+                        pass
+                return self._json(sorted(out, key=lambda x: -x["updated"]))
+            if p == "/api/clips":
+                d = project_dir(allowed, q.get("space", ""), q.get("project", ""))
+                out = [{"id": a["id"], "name": a.get("original_name", a["id"]), "duration": a.get("duration", 0),
+                        "fps": a.get("fps", 0), "width": a.get("width", 0), "height": a.get("height", 0), "created": a.get("created_at", 0)}
+                       for a in load_project(d).get("assets", [])
+                       if a.get("kind") == "video" and a.get("status") == "ready" and not a.get("hidden") and a.get("has_video", True)]
+                return self._json(sorted(out, key=lambda x: -x["created"]))
+            if p == "/api/mprojects":
+                d = project_dir(allowed, q.get("space", ""), q.get("project", ""))
+                find_asset(d, q.get("clip", ""))
+                base = d / "maskedit" / need_id(q.get("clip", ""))
+                out = []
+                for f in sorted(base.glob("*/doc.json")) if base.is_dir() else []:
+                    try:
+                        out.append(summary(f.parent.name, json.loads(f.read_text(encoding="utf-8"))))
+                    except (OSError, ValueError):
+                        pass
+                return self._json(sorted(out, key=lambda x: -(x["updated"] or 0)))
+            if p == "/api/doc":
+                d = project_dir(allowed, q.get("space", ""), q.get("project", ""))
+                find_asset(d, q.get("clip", ""))
+                doc = read_doc(mp_dir(d, q["clip"], q.get("mp", "")))
+                return self._json({"doc": doc, "rev": doc.get("rev", 0)})
+            m = re.match(r"^/api/frame/([^/]+)/([^/]+)/([^/]+)/(\d+)\.jpg$", p)
+            if m:
+                d = project_dir(allowed, m[1], m[2])
+                _, f = find_asset(d, m[3])
+                b = frame_jpg(f, int(m[4]))
+                return self._send(200 if b else 404, b or b"", "image/jpeg", {"Cache-Control": "private, max-age=3600"})
+            raise Err(404, "introuvable")
+        body = self._body()
+        d = project_dir(allowed, body.get("space", ""), body.get("project", ""))
+        a, f = find_asset(d, body.get("clip", ""))
+        if method == "POST" and p == "/api/mprojects":
+            name = str(body.get("name", "")).strip()[:80] or "Sans titre"
+            mp = "m_" + uuid.uuid4().hex[:10]
+            info = clip_info(f, a)
+            now = time.time()
+            doc = {"version": 1, "clip": a["id"], **info, "keyframes": [], "mode": "replace", "base_mask": None, "rev": 1,
+                   "meta": {"name": name, "status": "open", "created": now, "updated": now}}
+            write_doc(mp_dir(d, a["id"], mp), doc, snapshot=False)
+            return self._json({"id": mp, "doc": doc, "rev": 1}, 201)
+        if method == "POST" and p == "/api/mproject-state":  # rename / close / reopen
+            md = mp_dir(d, a["id"], body.get("mp", ""))
+            doc = read_doc(md)
+            if "name" in body:
+                doc["meta"]["name"] = str(body["name"]).strip()[:80] or doc["meta"]["name"]
+            if body.get("status") in ("open", "closed"):
+                doc["meta"]["status"] = body["status"]
+            doc["meta"]["updated"] = time.time()
+            doc["rev"] = doc.get("rev", 0) + 1
+            write_doc(md, doc)
+            return self._json(summary(body["mp"], doc))
+        if method == "PUT" and p == "/api/doc":
+            md = mp_dir(d, a["id"], body.get("mp", ""))
+            cur = read_doc(md)
+            new = body.get("doc") or {}
+            if new.get("version") != 1 or not isinstance(new.get("keyframes"), list):
+                raise Err(400, "document invalide")
+            if body.get("base_rev") != cur.get("rev", 0):
+                raise Err(409, "le document a changé ailleurs (autre onglet)")
+            for k in ("frames", "size", "fps", "clip", "meta"):  # fixed by the clip, not editable from the page
+                new[k] = cur[k]
+            new["meta"]["updated"] = time.time()
+            new["rev"] = cur.get("rev", 0) + 1
+            write_doc(md, new)
+            return self._json({"rev": new["rev"]})
+        if method == "POST" and p == "/api/export":
+            md = mp_dir(d, a["id"], body.get("mp", ""))
+            doc = read_doc(md)
+            if not INGEST_PY:
+                raise Err(501, "ajout au projet non configuré")
+            base_path = None
+            if doc.get("base_mask") and doc.get("mode") == "union":
+                _, base_path = find_asset(d, doc["base_mask"])
+            tmpd = Path(tempfile.mkdtemp(prefix="maskedit-"))
             try:
-                b = frame_jpg(int(p[7:-4]))
-            except ValueError:
-                b = None
-            return self._send(200 if b else 404, b or b"", "image/jpeg")
-        if p == "/api/doc":
-            return self._send(200, json.dumps(load_doc()).encode())
-        self._send(404, b"{}")
+                out = tmpd / "mask.mp4"
+                render_mask(doc, out, base_path)
+                name = "Masque maskedit - %s (%s).mp4" % (doc["meta"]["name"], datetime.now(ZoneInfo("Europe/Paris")).strftime("%d-%m-%Y %H:%M"))
+                r = subprocess.run([INGEST_PY, str(HERE / "yabbe_ingest.py"), body["space"], body["project"], str(out), name],
+                                   cwd=INGEST_CWD, capture_output=True, text=True, timeout=300)
+                if r.returncode != 0:
+                    raise Err(500, "ajout au projet en échec: " + r.stderr[-300:])
+                return self._json({"asset": r.stdout.strip().splitlines()[-1], "name": name})
+            finally:
+                shutil.rmtree(tmpd, ignore_errors=True)
+        raise Err(404, "introuvable")
 
-    def do_PUT(self):
-        if self._path() != "/api/doc":
-            return self._send(404, b"{}")
-        doc = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))))
-        if doc.get("version") != 1 or not isinstance(doc.get("keyframes"), list):
-            return self._send(400, b'{"error":"bad document"}')
-        DOC.parent.mkdir(parents=True, exist_ok=True)
-        DOC.write_text(json.dumps(doc))
-        self._send(200, b'{"ok":true}')
+    def _run(self, method):
+        try:
+            self._route(method)
+        except Err as e:
+            self._json({"detail": e.msg}, e.code)
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+        except Exception as e:  # noqa: BLE001
+            print("error", repr(e), file=sys.stderr, flush=True)
+            try:
+                self._json({"detail": "erreur interne"}, 500)
+            except Exception:  # noqa: BLE001
+                pass
 
-    def do_POST(self):
-        if self._path() != "/api/export":
-            return self._send(404, b"{}")
-        doc = load_doc()
-        self._send(200, json.dumps({"file": export(doc)}).encode())
-
-    def log_message(self, *a):
-        pass
+    def do_GET(self): self._run("GET")
+    def do_POST(self): self._run("POST")
+    def do_PUT(self): self._run("PUT")
+    def log_message(self, *a): pass
 
 
 if __name__ == "__main__":
-    print("maskedit on 127.0.0.1:%d, %dx%d, %d frames" % (PORT, W, H, N), flush=True)
-    ThreadingHTTPServer(("127.0.0.1", PORT), H_).serve_forever()
+    print("maskedit on 127.0.0.1:%d" % PORT, flush=True)
+    ThreadingHTTPServer(("127.0.0.1", PORT), Handler).serve_forever()

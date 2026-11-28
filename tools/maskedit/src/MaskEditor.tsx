@@ -24,14 +24,20 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const [hidden, setHidden] = useState(false)
   const [note, setNote] = useState('')
   const [sel, setSel] = useState<number | null>(null)
-  const cache = useRef<HTMLImageElement[]>([])
   const frameRef = useRef(frame)
   frameRef.current = frame
-  // Preload all frames once so playback is smooth.
+  // Preload the next frames (not the whole clip: long clips would be too heavy) so playback stays smooth.
+  const loaded = useRef<Map<number, HTMLImageElement>>(new Map())
   useEffect(() => {
-    cache.current = Array.from({ length: doc.frames }, (_, i) => { const im = new Image(); im.src = frameUrl(i); return im })
+    const m = loaded.current
+    for (let k = 0; k <= 16; k++) {
+      const f = frame + k
+      if (f >= doc.frames || m.has(f)) continue
+      const im = new Image(); im.src = frameUrl(f); m.set(f, im)
+    }
+    if (m.size > 80) for (const key of [...m.keys()].filter((x) => x < frame - 8 || x > frame + 40).slice(0, m.size - 60)) m.delete(key)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [doc.frames, doc.clip])
+  }, [frame, doc.clip])
   // Live preview: play at the clip fps, looping, with the interpolated polygon drawn on each frame.
   useEffect(() => {
     if (!playing) return
