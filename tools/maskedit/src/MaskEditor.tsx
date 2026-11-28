@@ -1,7 +1,7 @@
 // MaskEditor: SVG overlay on a video frame to draw/drag keyframed polygon points.
 // UI only: no network, no storage. The host passes the document and a frame URL builder.
 import { useEffect, useRef, useState } from 'react'
-import { addKeyframe, addPoint, clamp01, keyAt, movePoint, nearestEdge, pointsAt, removeKeyframe, removePoint } from './core'
+import { translateKey, addKeyframe, addPoint, clamp01, keyAt, movePoint, nearestEdge, pointsAt, removeKeyframe, removePoint } from './core'
 import type { MaskDoc, Pt } from './core'
 
 interface Props {
@@ -16,8 +16,10 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const [W, H] = doc.size
   const svg = useRef<SVGSVGElement>(null)
   const [draft, setDraft] = useState<Pt[]>([])
-  const drag = useRef<{ index: number } | null>(null)
+  const drag = useRef<{ index: number; shape?: { start: Pt; base: Pt[] } } | null>(null)
+  const press = useRef<{ x: number; y: number; timer: number } | null>(null)
   const [playing, setPlaying] = useState(false)
+  const [grab, setGrab] = useState(false)
   const cache = useRef<HTMLImageElement[]>([])
   const frameRef = useRef(frame)
   frameRef.current = frame
@@ -61,11 +63,39 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     drag.current = { index }
     onChange(ensureKey(doc))
   }
+  const cancelPress = () => { if (press.current) { window.clearTimeout(press.current.timer); press.current = null } }
+  // Long press (400 ms, without moving) inside the polygon, then drag: moves the whole shape on this key.
+  const polyDown = (e: React.PointerEvent) => {
+    if (playing || !pts.length || nearestEdge(pts, toNorm(e)).dist < 0.03) return
+    cancelPress()
+    const start = toNorm(e)
+    const base = pts.map((p): Pt => [p[0], p[1]])
+    const target = svg.current!
+    const pid = e.pointerId
+    press.current = {
+      x: e.clientX, y: e.clientY,
+      timer: window.setTimeout(() => {
+        press.current = null
+        try { target.setPointerCapture(pid) } catch { /* pointer already gone */ }
+        drag.current = { index: -1, shape: { start, base } }
+        setGrab(true)
+        onChange(ensureKey(doc))
+      }, 400),
+    }
+  }
   const moveDrag = (e: React.PointerEvent) => {
+    if (press.current && Math.hypot(e.clientX - press.current.x, e.clientY - press.current.y) > 6) cancelPress()
     if (!drag.current) return
+    const sh = drag.current.shape
+    if (sh) {
+      const p = toNorm(e)
+      const d = doc.keyframes.some((k) => k.frame === frame) ? doc : ensureKey(doc)
+      onChange(translateKey(d, frame, sh.base, p[0] - sh.start[0], p[1] - sh.start[1]))
+      return
+    }
     onChange(movePoint(doc.keyframes.some((k) => k.frame === frame) ? doc : ensureKey(doc), frame, drag.current.index, toNorm(e)))
   }
-  const endDrag = () => { setTimeout(() => { drag.current = null }, 0) }
+  const endDrag = () => { cancelPress(); setGrab(false); setTimeout(() => { drag.current = null }, 0) }
 
   const prevKey = [...keys].reverse().find((k) => k < frame)
   const nextKey = keys.find((k) => k > frame)
@@ -78,7 +108,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
         <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none' }}
           onPointerDown={(e) => { if (playing) setPlaying(false); else onBackground(e) }} onPointerMove={moveDrag} onPointerUp={endDrag}>
           {pts.length > 0 && (
-            <polygon points={pts.map((p) => `${p[0] * W},${p[1] * H}`).join(' ')}
+            <polygon onPointerDown={polyDown} style={{ cursor: grab ? 'grabbing' : undefined }} points={pts.map((p) => `${p[0] * W},${p[1] * H}`).join(' ')}
               fill="rgba(255,160,0,0.35)" stroke={isKey ? '#ffd000' : '#ffffff'} strokeWidth={2} strokeDasharray={isKey ? undefined : '6 4'} />
           )}
           {!playing && pts.map((p, i) => (

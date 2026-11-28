@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { addKeyframe, addPoint, movePoint, newDoc, nearestEdge, pointsAt, removeKeyframe, removePoint, validate } from './core'
+import { translateKey, addKeyframe, addPoint, movePoint, newDoc, nearestEdge, pointsAt, removeKeyframe, removePoint, validate } from './core'
 
 const square: [number, number][] = [[0.1, 0.1], [0.5, 0.1], [0.5, 0.5], [0.1, 0.5]]
 
@@ -40,5 +40,16 @@ describe('maskedit core', () => {
   it('finds the nearest edge for inserting a point', () => {
     expect(nearestEdge(square, [0.3, 0.09]).index).toBe(1)
     expect(nearestEdge(square, [0.51, 0.3]).index).toBe(2)
+  })
+
+  it('translateKey moves the whole key and keeps the shape inside the frame', () => {
+    const d = addKeyframe(newDoc('c', 16, [832, 480], 10), 0, square)
+    const a = translateKey(d, 0, square, 0.2, 0.1)
+    expect(a.keyframes[0].points[0][0]).toBeCloseTo(0.3)
+    expect(a.keyframes[0].points[2][1]).toBeCloseTo(0.6)
+    const b = translateKey(d, 0, square, 5, -5)
+    expect(b.keyframes[0].points[1][0]).toBeCloseTo(1)
+    expect(b.keyframes[0].points[0][1]).toBeCloseTo(0)
+    expect(b.keyframes[0].points[1][0] - b.keyframes[0].points[0][0]).toBeCloseTo(0.4)
   })
 })

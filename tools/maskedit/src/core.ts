@@ -119,3 +119,15 @@ export function validate(doc: MaskDoc): string[] {
   if (new Set(ks.map((k) => k.frame)).size !== ks.length) errs.push('duplicate keyframe')
   return errs
 }
+
+/** Move every point of the keyframe at `frame` so the shape starts from `base` shifted by (dx, dy).
+ * The shift is limited so that no point leaves the 0..1 frame (the shape keeps its form). */
+export function translateKey(doc: MaskDoc, frame: number, base: Pt[], dx: number, dy: number): MaskDoc {
+  const lim = (v: number, vals: number[]) => Math.min(Math.max(v, -Math.min(...vals)), 1 - Math.max(...vals))
+  const sx = lim(dx, base.map((p) => p[0]))
+  const sy = lim(dy, base.map((p) => p[1]))
+  return {
+    ...doc,
+    keyframes: doc.keyframes.map((k) => (k.frame !== frame ? k : { ...k, points: base.map((p): Pt => [p[0] + sx, p[1] + sy]) })),
+  }
+}
