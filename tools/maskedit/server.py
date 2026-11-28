@@ -344,6 +344,12 @@ class Handler(BaseHTTPRequestHandler):
         if method == "GET":
             if p in ("/", "/index.html"):
                 return self._send(200, (WEB / "index.html").read_bytes(), "text/html; charset=utf-8")
+            if p == "/ui":
+                return self._send(200, b'<meta http-equiv="refresh" content="0;url=ui/">', "text/html; charset=utf-8")
+            if p in ("/ui/", "/ui/index.html"):  # UI pilot (shadcn/ui + resizable panels), built from pilot/
+                return self._send(200, (WEB / "ui" / "index.html").read_bytes(), "text/html; charset=utf-8")
+            if p in ("/ui/ui.js", "/ui/ui.css"):
+                return self._send(200, (WEB / "ui" / p[4:]).read_bytes(), "application/javascript" if p.endswith(".js") else "text/css")
             if p == "/app.js":
                 return self._send(200, (WEB / "app.js").read_bytes(), "application/javascript")
             if p == "/api/spaces":

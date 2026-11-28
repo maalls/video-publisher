@@ -1,0 +1,15 @@
+{
+  "name": "maskedit-pilot",
+  "private": true,
+  "version": "0.1.0",
+  "description": "UI pilot: shadcn/ui (Radix) + react-resizable-panels on Tailwind v4 tokens. react, tailwind, vite, lucide come from ../node_modules.",
+  "type": "module",
+  "scripts": { "build": "vite build --config vite.config.ts" },
+  "dependencies": {
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "radix-ui": "*",
+    "react-resizable-panels": "^4",
+    "tailwind-merge": "*"
+  }
+}

@@ -1,3 +1,4 @@
 node_modules
 data/
 web/app.js
+pilot/node_modules/
