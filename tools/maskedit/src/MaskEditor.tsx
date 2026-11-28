@@ -21,6 +21,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const press = useRef<{ x: number; y: number; timer: number } | null>(null)
   const [playing, setPlaying] = useState(false)
   const [grab, setGrab] = useState(false)
+  const [sel, setSel] = useState<number | null>(null)
   const cache = useRef<HTMLImageElement[]>([])
   const frameRef = useRef(frame)
   frameRef.current = frame
@@ -75,7 +76,15 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   }, [])
   // Delete / Backspace removes the current key frame (never while typing in a text field).
   const delRef = useRef<() => void>(() => {})
-  delRef.current = () => { if (!playing && keyAt(doc, frame)) onChange(removeKeyframe(doc, frame)) }
+  delRef.current = () => {
+    if (playing) return
+    // A selected point wins: Delete removes it on every key (same as double-click). Otherwise the current key.
+    if (sel !== null && sel < pts.length) {
+      if (pts.length > 3) { onChange(removePoint(doc, sel)); setSel(null) }
+      return
+    }
+    if (keyAt(doc, frame)) onChange(removeKeyframe(doc, frame))
+  }
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
       if (e.key !== 'Delete' && e.key !== 'Backspace') return
@@ -114,6 +123,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   }
   const startDrag = (index: number) => (e: React.PointerEvent) => {
     e.stopPropagation()
+    setSel(index)
     ;(e.target as Element).setPointerCapture(e.pointerId)
     drag.current = { index }
     onChange(ensureKey(doc))
@@ -171,15 +181,17 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
       <div style={{ position: 'relative', width: '100%', aspectRatio: `${W} / ${H}`, background: '#000' }}>
         <img src={frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
         <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
-          onPointerDown={(e) => { if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
+          onPointerDown={(e) => { setSel(null); if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
           {pts.length > 0 && (
             <polygon onPointerDown={polyDown} style={{ cursor: grab ? 'grabbing' : undefined }} points={pts.map((p) => `${p[0] * W},${p[1] * H}`).join(' ')}
               fill="rgba(255,160,0,0.35)" stroke={isKey ? '#ffd000' : '#ffffff'} strokeWidth={2} strokeDasharray={isKey ? undefined : '6 4'} />
           )}
           {!playing && pts.map((p, i) => (
-            <circle key={i} cx={p[0] * W} cy={p[1] * H} r={4} fill={isKey ? '#ffd000' : '#ffffff'} fillOpacity={0.35} stroke={isKey ? '#ffd000' : '#ffffff'} strokeOpacity={0.6} strokeWidth={1}
+            <circle key={i} data-selected={sel === i ? '1' : undefined} cx={p[0] * W} cy={p[1] * H} r={sel === i ? 6 : 4}
+              fill={sel === i ? '#00e0ff' : isKey ? '#ffd000' : '#ffffff'} fillOpacity={sel === i ? 0.95 : 0.35}
+              stroke={sel === i ? '#ffffff' : isKey ? '#ffd000' : '#ffffff'} strokeOpacity={sel === i ? 1 : 0.6} strokeWidth={sel === i ? 2 : 1}
               style={{ cursor: 'grab' }} onPointerDown={startDrag(i)}
-              onDoubleClick={(e) => { e.stopPropagation(); if (pts.length > 3) onChange(removePoint(doc, i)) }} />
+              onDoubleClick={(e) => { e.stopPropagation(); if (pts.length > 3) { onChange(removePoint(doc, i)); setSel(null) } }} />
           ))}
           {draft.map((p, i) => <circle key={'d' + i} cx={p[0] * W} cy={p[1] * H} r={5} fill="#00e0ff" />)}
           {draft.length > 1 && <polyline points={draft.map((p) => `${p[0] * W},${p[1] * H}`).join(' ')} fill="none" stroke="#00e0ff" strokeWidth={2} />}
