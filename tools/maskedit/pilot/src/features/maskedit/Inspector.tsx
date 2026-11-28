@@ -65,13 +65,7 @@ export function Inspector({
 
         <TabsContent value="preview" className="mt-3 flex flex-col gap-4">
           <Field label="Images par seconde du proxy">
-            <ToggleGroup
-              type="single"
-              variant="outline"
-              size="sm"
-              value={String(fps)}
-              onValueChange={(v) => v && onChange({ ...doc, proxy: { fps: +v, width } })}
-            >
+            <ToggleGroup type="single" variant="outline" size="sm" value={String(fps)} onValueChange={(v) => v && onChange({ ...doc, proxy: { fps: +v, width } })}>
               {PROXY_FPS.map((v) => (
                 <ToggleGroupItem key={v} value={String(v)}>
                   {v}
@@ -80,13 +74,7 @@ export function Inspector({
             </ToggleGroup>
           </Field>
           <Field label="Largeur du proxy (px)">
-            <ToggleGroup
-              type="single"
-              variant="outline"
-              size="sm"
-              value={String(width)}
-              onValueChange={(v) => v && onChange({ ...doc, proxy: { fps, width: +v } })}
-            >
+            <ToggleGroup type="single" variant="outline" size="sm" value={String(width)} onValueChange={(v) => v && onChange({ ...doc, proxy: { fps, width: +v } })}>
               {PROXY_WIDTH.map((v) => (
                 <ToggleGroupItem key={v} value={String(v)}>
                   {v}

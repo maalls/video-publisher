@@ -100,8 +100,7 @@ export function useCatalog() {
             if (ps.some((x) => x.id === p)) loadMps(p, c)
           }
         })
-        if (boot.current && BOOT.space === space && BOOT.project && BOOT.clip && ps.some((x) => x.id === BOOT.project))
-          openClip(BOOT.project, BOOT.clip, BOOT.open)
+        if (boot.current && BOOT.space === space && BOOT.project && BOOT.clip && ps.some((x) => x.id === BOOT.project)) openClip(BOOT.project, BOOT.clip, BOOT.open)
         boot.current = false
       })
       .catch(fail)

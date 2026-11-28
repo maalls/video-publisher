@@ -4,6 +4,7 @@ import type { MaskDoc } from "@maskedit/core"
 import { EmptyState } from "@/components/app/EmptyState"
 import { frameUrl, packFetch } from "@/lib/api"
 import type { Ctx } from "@/lib/api"
+import type { ProxyInfo } from "@/features/timeline/Timeline"
 
 /** Center: the video frame with the editable polygon (the existing MaskEditor component, unchanged). */
 export function Stage({
@@ -12,12 +13,14 @@ export function Stage({
   frame,
   onChange,
   onFrame,
+  onCache,
 }: {
   ctx: Ctx
   doc: MaskDoc | null
   frame: number
   onChange: (d: MaskDoc) => void
   onFrame: (f: number) => void
+  onCache?: (c: ProxyInfo | null) => void
 }) {
   if (!doc)
     return (
@@ -33,6 +36,7 @@ export function Stage({
         onChange={onChange}
         frame={frame}
         onFrame={onFrame}
+        onCache={onCache}
         frameUrl={(f) => frameUrl(ctx, f)}
         packFetch={(k, w, pf) => packFetch(ctx, k, w, pf)}
       />

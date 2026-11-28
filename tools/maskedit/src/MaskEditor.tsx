@@ -12,10 +12,12 @@ interface Props {
   onFrame: (frame: number) => void
   frameUrl: (frame: number) => string
   packFetch: (pack: number, w: number, pfps: number) => Promise<ArrayBuffer>
+  /** optional: gives the host the proxy cache (for a timeline filmstrip); null when it is torn down */
+  onCache?: (c: { cache: ClipCache; pfps: number; fps: number; nProxy: number } | null) => void
 }
 
 const PROXY_DEFAULT = { fps: 12, width: 960 } // interface proxy; keys and masks stay in source frame numbers
-export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch: packFetchW }: Props) {
+export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch: packFetchW, onCache }: Props) {
   const [W, H] = doc.size
   const svg = useRef<SVGSVGElement>(null)
   const [draft, setDraft] = useState<Pt[]>([])
@@ -39,11 +41,14 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch:
   const proxyOf = (f: number) => Math.min(nProxy - 1, Math.round((f * pfps) / fps))
   const [, force] = useState(0)
   const cache = useRef<ClipCache | null>(null)
+  const onCacheRef = useRef(onCache)
+  onCacheRef.current = onCache
   useEffect(() => {
     const c = new ClipCache(`${doc.clip}|${lowW}|${pfps}`, nProxy, packFetch, () => force((x) => x + 1))
     cache.current = c
     c.pump(proxyOf(frameRef.current))
-    return () => { c.stop(); cache.current = null }
+    onCacheRef.current?.({ cache: c, pfps, fps, nProxy })
+    return () => { c.stop(); cache.current = null; onCacheRef.current?.(null) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doc.clip, lowW, pfps])
   const [buffering, setBuffering] = useState(false)
