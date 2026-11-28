@@ -37,6 +37,42 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing, doc.frames, doc.fps])
   const pts = pointsAt(doc, frame)
+  // Left / Right arrows: previous / next frame. Holding repeats at a steady rhythm (first repeat after
+  // 300 ms, then every 70 ms) instead of the OS key-repeat. Ignored while typing; pauses playback.
+  const stepRef = useRef<(d: number) => void>(() => {})
+  stepRef.current = (d) => {
+    setPlaying(false)
+    const n = Math.min(doc.frames - 1, Math.max(0, frameRef.current + d))
+    frameRef.current = n
+    onFrame(n)
+  }
+  useEffect(() => {
+    let delay: number | undefined
+    let rep: number | undefined
+    let held: string | null = null
+    const stop = () => { window.clearTimeout(delay); window.clearInterval(rep); held = null }
+    const down = (e: KeyboardEvent) => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return
+      if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return
+      const t = e.target as HTMLElement | null
+      const tag = t?.tagName
+      const typing = tag === 'TEXTAREA' || tag === 'SELECT' || !!t?.isContentEditable ||
+        (tag === 'INPUT' && !['range', 'button', 'checkbox'].includes((t as HTMLInputElement).type))
+      if (typing) return
+      e.preventDefault() // also stops the focused slider from stepping a second time
+      if (e.repeat || held === e.key) return
+      stop()
+      held = e.key
+      const d = e.key === 'ArrowLeft' ? -1 : 1
+      stepRef.current(d)
+      delay = window.setTimeout(() => { rep = window.setInterval(() => stepRef.current(d), 70) }, 300)
+    }
+    const up = (e: KeyboardEvent) => { if (e.key === held) stop() }
+    window.addEventListener('keydown', down)
+    window.addEventListener('keyup', up)
+    window.addEventListener('blur', stop)
+    return () => { stop(); window.removeEventListener('keydown', down); window.removeEventListener('keyup', up); window.removeEventListener('blur', stop) }
+  }, [])
   // Delete / Backspace removes the current key frame (never while typing in a text field).
   const delRef = useRef<() => void>(() => {})
   delRef.current = () => { if (!playing && keyAt(doc, frame)) onChange(removeKeyframe(doc, frame)) }
