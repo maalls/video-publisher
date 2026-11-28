@@ -14,8 +14,7 @@ interface Props {
   packFetch: (pack: number, w: number, pfps: number) => Promise<ArrayBuffer>
 }
 
-const LOW_W = 480
-const PROXY_FPS = 12 // interface proxy: 12 images/s at 480 px wide; keys and masks stay in source frame numbers
+const PROXY_DEFAULT = { fps: 12, width: 960 } // interface proxy; keys and masks stay in source frame numbers
 export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch: packFetchW }: Props) {
   const [W, H] = doc.size
   const svg = useRef<SVGSVGElement>(null)
@@ -32,20 +31,21 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch:
   frameRef.current = frame
   // Whole clip preloaded at low resolution (see clipcache.ts): playback is 100% local. The full-resolution
   // image is shown on top only when stopped.
-  const packFetch = (k: number) => packFetchW(k, LOW_W, pfps)
+  const packFetch = (k: number) => packFetchW(k, lowW, pfps)
   const fps = doc.fps || 16
-  const pfps = Math.min(PROXY_FPS, fps)
+  const lowW = doc.proxy?.width ?? PROXY_DEFAULT.width
+  const pfps = Math.min(doc.proxy?.fps ?? PROXY_DEFAULT.fps, fps)
   const nProxy = Math.ceil((doc.frames * pfps) / fps)
   const proxyOf = (f: number) => Math.min(nProxy - 1, Math.round((f * pfps) / fps))
   const [, force] = useState(0)
   const cache = useRef<ClipCache | null>(null)
   useEffect(() => {
-    const c = new ClipCache(`${doc.clip}|${LOW_W}|${pfps}`, nProxy, packFetch, () => force((x) => x + 1))
+    const c = new ClipCache(`${doc.clip}|${lowW}|${pfps}`, nProxy, packFetch, () => force((x) => x + 1))
     cache.current = c
     c.pump(proxyOf(frameRef.current))
     return () => { c.stop(); cache.current = null }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [doc.clip])
+  }, [doc.clip, lowW, pfps])
   const [buffering, setBuffering] = useState(false)
   const ready = (f: number) => !!cache.current?.has(proxyOf(f))
   useEffect(() => { cache.current?.pump(proxyOf(frame)) }, [frame])
@@ -259,6 +259,12 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch:
           <input type="range" min={0} max={doc.frames - 1} value={frame} onChange={(e) => onFrame(+e.target.value)} style={{ width: '100%', margin: 0, display: 'block' }} />
         </div>
         <span style={{ width: '13ch', textAlign: 'right', fontSize: 12, fontVariantNumeric: 'tabular-nums', opacity: 0.85 }}>image {frame} / {doc.frames - 1}</span>
+        <select title="Images par seconde du proxy d'aperçu (par projet)" value={doc.proxy?.fps ?? PROXY_DEFAULT.fps} onChange={(e) => onChange({ ...doc, proxy: { fps: +e.target.value, width: lowW } })} style={{ fontSize: 12 }}>
+          {[8, 12, 16, 24].map((v) => <option key={v} value={v}>{v} i/s</option>)}
+        </select>
+        <select title="Largeur du proxy d'aperçu (par projet)" value={lowW} onChange={(e) => onChange({ ...doc, proxy: { fps: doc.proxy?.fps ?? PROXY_DEFAULT.fps, width: +e.target.value } })} style={{ fontSize: 12 }}>
+          {[480, 640, 960, 1280].map((v) => <option key={v} value={v}>{v} px</option>)}
+        </select>
         {cache.current && <span style={{ fontSize: 12, opacity: 0.8 }} title="Clip préchargé en basse résolution">{cache.current.stats.done ? `en mémoire : ${cache.current.stats.loaded} images proxy (${pfps} i/s), ${(cache.current.stats.bytes / 1e6).toFixed(1)} Mo, ${(cache.current.stats.ms / 1000).toFixed(1)} s${cache.current.stats.fromDisk ? ' (cache local)' : ''}` : `chargement ${Math.round(100 * cache.current.stats.loaded / nProxy)} %`}</span>}
       </div>
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>

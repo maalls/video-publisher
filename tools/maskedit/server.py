@@ -156,7 +156,7 @@ _inflight = set()
 
 def _enc(f, lw=0):
     h, w = f.shape[:2]
-    mw = min(FRAME_MAX_W, lw) if lw else FRAME_MAX_W
+    mw = lw if lw else FRAME_MAX_W
     if w > mw:
         f = cv2.resize(f, (mw, round(h * mw / w)), interpolation=cv2.INTER_AREA)
     return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 70 if lw else 75])[1].tobytes()
@@ -389,7 +389,7 @@ class Handler(BaseHTTPRequestHandler):
                 d = project_dir(allowed, m[1], m[2])
                 a, f = find_asset(d, m[3])
                 lw = int(q.get('w', '0') or 0)
-                lw = lw if 160 <= lw <= FRAME_MAX_W else 0
+                lw = lw if 160 <= lw <= 1920 else 0
                 pf = float(q.get('pfps', '0') or 0)
                 if pf > 0:
                     info = clip_info(f, a)
@@ -438,6 +438,13 @@ class Handler(BaseHTTPRequestHandler):
                 raise Err(409, "le document a changé ailleurs (autre onglet)")
             for k in ("frames", "size", "fps", "clip", "meta"):  # fixed by the clip, not editable from the page
                 new[k] = cur[k]
+            if isinstance(new.get("proxy"), dict):  # interface proxy settings (per maskedit project)
+                try:
+                    new["proxy"] = {"fps": min(30, max(4, int(new["proxy"].get("fps", 12)))), "width": min(1920, max(320, int(new["proxy"].get("width", 960))))}
+                except (TypeError, ValueError):
+                    new.pop("proxy")
+            else:
+                new.pop("proxy", None)
             new["meta"]["updated"] = time.time()
             new["rev"] = cur.get("rev", 0) + 1
             write_doc(md, new)

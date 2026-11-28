@@ -14,6 +14,7 @@ export interface MaskDoc {
   keyframes: Keyframe[] // sorted by frame, all with the same number of points
   mode: 'union' | 'replace'
   base_mask: string | null // optional existing mask (asset id) merged in 'union' mode
+  proxy?: { fps: number; width: number } // interface preview settings (per project)
   meta?: { name?: string; status?: string; created?: number; updated?: number } // set by the backend
 }
 
