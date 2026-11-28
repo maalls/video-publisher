@@ -148,14 +148,76 @@ def reader(path):
         return r
 
 
-def frame_jpg(path, n):
-    f = reader(path).frame(n)
-    if f is None:
-        return None
+CHUNK = 32
+_cache = {}          # (path, chunk) -> list of jpeg bytes; insertion order = LRU order
+_clock = threading.Lock()
+_inflight = set()
+
+
+def _enc(f):
     h, w = f.shape[:2]
     if w > FRAME_MAX_W:
         f = cv2.resize(f, (FRAME_MAX_W, round(h * FRAME_MAX_W / w)), interpolation=cv2.INTER_AREA)
     return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()
+
+
+def _chunk(path, c):
+    """Decode one chunk of CHUNK frames sequentially (one seek at most), cache the JPEGs."""
+    key = (str(path), c)
+    with _clock:
+        v = _cache.get(key)
+        if v is not None:
+            _cache[key] = _cache.pop(key)
+            return v
+    r = reader(path)
+    with r.lock:
+        with _clock:
+            v = _cache.get(key)
+        if v is not None:
+            return v
+        r.used = time.time()
+        if r.pos != c * CHUNK:
+            r.cap.set(cv2.CAP_PROP_POS_FRAMES, c * CHUNK)
+            r.pos = c * CHUNK
+        out = []
+        for _ in range(CHUNK):
+            ok, f = r.cap.read()
+            if not ok:
+                break
+            out.append(_enc(f))
+            r.pos += 1
+    with _clock:
+        _cache[key] = out
+        while len(_cache) > 24:
+            _cache.pop(next(iter(_cache)))
+    return out
+
+
+def _prefetch(path, c):
+    key = (str(path), c)
+    with _clock:
+        if key in _cache or key in _inflight:
+            return
+        _inflight.add(key)
+    def run():
+        try:
+            _chunk(path, c)
+        except Exception:
+            pass
+        finally:
+            with _clock:
+                _inflight.discard(key)
+    threading.Thread(target=run, daemon=True).start()
+
+
+def frame_jpg(path, n):
+    c, i = divmod(n, CHUNK)
+    ch = _chunk(path, c)
+    if i >= len(ch):
+        return None
+    if i >= CHUNK // 2 and len(ch) == CHUNK:
+        _prefetch(path, c + 1)
+    return ch[i]
 
 
 def clip_info(path, a):

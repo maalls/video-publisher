@@ -26,22 +26,38 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const [sel, setSel] = useState<number | null>(null)
   const frameRef = useRef(frame)
   frameRef.current = frame
-  // Preload the next frames (not the whole clip: long clips would be too heavy) so playback stays smooth.
+  // Ordered loader: a few requests in flight at a time, strictly in playback order (the server decodes
+  // sequentially, out-of-order requests force slow seeks). Playback waits for the next image.
   const loaded = useRef<Map<number, HTMLImageElement>>(new Map())
-  useEffect(() => {
+  const inflight = useRef<Set<number>>(new Set())
+  const playRef = useRef(playing)
+  playRef.current = playing
+  const [buffering, setBuffering] = useState(false)
+  const ready = (f: number) => { const im = loaded.current.get(f); return !!im && im.complete && im.naturalWidth > 0 }
+  const pump = () => {
     const m = loaded.current
-    for (let k = 0; k <= 16; k++) {
-      const f = frame + k
-      if (f >= doc.frames || m.has(f)) continue
-      const im = new Image(); im.src = frameUrl(f); m.set(f, im)
+    const ahead = playRef.current ? 32 : 12
+    for (let k = 0; k <= ahead && inflight.current.size < 3; k++) {
+      const f = (frameRef.current + k) % doc.frames
+      if (m.has(f)) continue
+      const im = new Image()
+      inflight.current.add(f)
+      const done = () => { inflight.current.delete(f); if (!im.naturalWidth) m.delete(f); pump() }
+      im.onload = done; im.onerror = done
+      m.set(f, im); im.src = frameUrl(f)
     }
-    if (m.size > 80) for (const key of [...m.keys()].filter((x) => x < frame - 8 || x > frame + 40).slice(0, m.size - 60)) m.delete(key)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [frame, doc.clip])
+    if (m.size > 120) for (const key of [...m.keys()].filter((x) => !inflight.current.has(x) && (x < frameRef.current - 8 || x > frameRef.current + 40)).slice(0, m.size - 90)) m.delete(key)
+  }
+  useEffect(() => { pump() /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [frame, doc.clip, playing])
+  useEffect(() => { loaded.current.clear(); inflight.current.clear() }, [doc.clip])
   // Live preview: play at the clip fps, looping, with the interpolated polygon drawn on each frame.
+  // If the next image is not loaded yet, wait for it (plays at decoding speed instead of freezing).
   useEffect(() => {
-    if (!playing) return
-    const id = window.setInterval(() => onFrame((frameRef.current + 1) % doc.frames), 1000 / (doc.fps || 16))
+    if (!playing) { setBuffering(false); return }
+    const id = window.setInterval(() => {
+      const nx = (frameRef.current + 1) % doc.frames
+      if (ready(nx)) { setBuffering(false); onFrame(nx) } else { setBuffering(true); pump() }
+    }, 1000 / (doc.fps || 16))
     return () => window.clearInterval(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing, doc.frames, doc.fps])
@@ -205,6 +221,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     <div className="maskedit" style={{ maxWidth: 1000 }}>
       <div style={{ position: 'relative', width: '100%', aspectRatio: `${W} / ${H}`, background: '#000' }}>
         <img src={frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
+        {buffering && <div style={{ position: 'absolute', top: 8, left: 8, padding: '2px 8px', borderRadius: 6, background: 'rgba(0,0,0,.6)', color: '#fff', fontSize: 12 }}>chargement…</div>}
         <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', visibility: hidden ? 'hidden' : 'visible', pointerEvents: hidden ? 'none' : 'auto', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
           onPointerDown={(e) => { setSel(null); if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
           {pts.length > 0 && (
