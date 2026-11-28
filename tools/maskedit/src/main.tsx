@@ -21,11 +21,14 @@ async function api<T = any>(url: string, init?: RequestInit): Promise<T> {
 }
 const post = (url: string, body: unknown, method = 'POST') => api(url, { method, headers: JSON_H, body: JSON.stringify(body) })
 const q = (o: Record<string, string>) => new URLSearchParams(o).toString()
-const loadSel = (): Record<string, string> => { try { return JSON.parse(localStorage.getItem('maskedit.sel') || '{}') } catch { return {} } }
+const loadSel = (): Record<string, any> => { try { return JSON.parse(localStorage.getItem('maskedit.sel') || '{}') } catch { return {} } }
+// Last state is remembered in this browser (localStorage): space / project / clip / open maskedit project / current frame.
+const BOOT = loadSel() // state as it was when the page opened
+const saveSel = (patch: Record<string, unknown>) => { try { localStorage.setItem('maskedit.sel', JSON.stringify({ ...loadSel(), ...patch })) } catch { /* optional */ } }
 
 function Editor({ ctx, mp, name, onClose }: { ctx: Ctx; mp: string; name: string; onClose: () => void }) {
   const [doc, setDoc] = useState<MaskDoc | null>(null)
-  const [frame, setFrame] = useState(0)
+  const [frame, setFrame] = useState(() => { return BOOT.open === mp && Number.isInteger(BOOT.frame) ? Math.max(0, BOOT.frame) : 0 })
   const [msg, setMsg] = useState('')
   const timer = useRef<number | undefined>(undefined)
   const revRef = useRef(0)
@@ -36,9 +39,10 @@ function Editor({ ctx, mp, name, onClose }: { ctx: Ctx; mp: string; name: string
   const lastPush = useRef(0)
   const docRef = useRef<MaskDoc | null>(null)
   docRef.current = doc
+  useEffect(() => { const id = window.setTimeout(() => saveSel({ open: mp, frame }), 400); return () => window.clearTimeout(id) }, [frame, mp])
 
   useEffect(() => {
-    api<{ doc: MaskDoc; rev: number }>('api/doc?' + q({ ...ctx, mp })).then((r) => { revRef.current = r.rev; setDoc(r.doc) }).catch((e) => setMsg('erreur: ' + e.message))
+    api<{ doc: MaskDoc; rev: number }>('api/doc?' + q({ ...ctx, mp })).then((r) => { revRef.current = r.rev; setDoc(r.doc); setFrame((f) => Math.min(f, Math.max(0, r.doc.frames - 1))) }).catch((e) => setMsg('erreur: ' + e.message))
   }, [])
 
   const flush = async () => {
@@ -155,7 +159,9 @@ function App() {
   const [err, setErr] = useState('')
   const fail = (e: unknown) => setErr((e as Error).message)
 
-  useEffect(() => { localStorage.setItem('maskedit.sel', JSON.stringify({ space, project, clip })) }, [space, project, clip])
+  useEffect(() => { saveSel({ space, project, clip }) }, [space, project, clip])
+  useEffect(() => { saveSel({ open: open || '', mp: mpSel }) }, [open, mpSel])
+  const restore = useRef<string>(String(saved.current.open || ''))
   useEffect(() => { api<Sp[]>('api/spaces').then((s) => { setSpaces(s); if (s.length === 1 && !space) setSpace(s[0].id) }).catch(fail) }, [])
   useEffect(() => {
     setProjects([]); setOpen(null)
@@ -169,7 +175,7 @@ function App() {
   }, [space, project])
   const reload = (keep?: string) => {
     if (!space || !project || !clip) { setMps([]); return }
-    api<Mp[]>('api/mprojects?' + q({ space, project, clip })).then((m) => { setMps(m); setMpSel(keep && m.some((x) => x.id === keep) ? keep : m[0]?.id || '') }).catch(fail)
+    api<Mp[]>('api/mprojects?' + q({ space, project, clip })).then((m) => { setMps(m); setMpSel(keep && m.some((x) => x.id === keep) ? keep : m.some((x) => x.id === saved.current.mp) && !keep ? saved.current.mp : m[0]?.id || ''); if (!keep && restore.current && m.some((x) => x.id === restore.current)) { const id = restore.current; restore.current = ''; setMpSel(id); openMp(id) } }).catch(fail)
   }
   useEffect(() => { setOpen(null); reload() }, [space, project, clip])
 
