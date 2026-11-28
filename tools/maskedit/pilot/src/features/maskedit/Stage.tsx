@@ -7,9 +7,24 @@ import type { Ctx } from "@/lib/api"
 
 /** Center: the video frame with the editable polygon (the existing MaskEditor component, unchanged). */
 export function Stage({
-  ctx, doc, frame, onChange, onFrame,
-}: { ctx: Ctx; doc: MaskDoc | null; frame: number; onChange: (d: MaskDoc) => void; onFrame: (f: number) => void }) {
-  if (!doc) return <div className="h-full bg-background"><EmptyState icon={<MousePointerClick className="size-6" />} title="Aucun projet ouvert" hint="Ouvre un projet maskedit dans le panneau de gauche." /></div>
+  ctx,
+  doc,
+  frame,
+  onChange,
+  onFrame,
+}: {
+  ctx: Ctx
+  doc: MaskDoc | null
+  frame: number
+  onChange: (d: MaskDoc) => void
+  onFrame: (f: number) => void
+}) {
+  if (!doc)
+    return (
+      <div className="h-full bg-background">
+        <EmptyState icon={<MousePointerClick className="size-6" />} title="Aucun projet ouvert" hint="Ouvre un projet maskedit dans le panneau de gauche." />
+      </div>
+    )
   return (
     <div className="h-full overflow-auto bg-background p-3">
       <MaskEditor

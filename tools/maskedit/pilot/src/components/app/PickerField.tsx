@@ -3,7 +3,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 /** Labelled dropdown over a list of {id, name} items. */
 export function PickerField<T extends { id: string }>({
-  label, items, value, onPick, name, placeholder = "Choisir…", testId,
+  label,
+  items,
+  value,
+  onPick,
+  name,
+  placeholder = "Choisir…",
+  testId,
 }: {
   label: string
   items: T[]
@@ -21,7 +27,9 @@ export function PickerField<T extends { id: string }>({
         </SelectTrigger>
         <SelectContent>
           {items.map((t) => (
-            <SelectItem key={t.id} value={t.id}>{name(t)}</SelectItem>
+            <SelectItem key={t.id} value={t.id}>
+              {name(t)}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>

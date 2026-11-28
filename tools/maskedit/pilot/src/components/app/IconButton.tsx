@@ -7,7 +7,9 @@ export function IconButton({ label, children, ...props }: { label: string; child
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label={label} {...props}>{children}</Button>
+        <Button variant="ghost" size="icon" aria-label={label} {...props}>
+          {children}
+        </Button>
       </TooltipTrigger>
       <TooltipContent>{label}</TooltipContent>
     </Tooltip>

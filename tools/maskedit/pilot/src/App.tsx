@@ -4,6 +4,7 @@ import { PickerField } from "@/components/app/PickerField"
 import { StatusBadge } from "@/components/app/StatusBadge"
 import type { Status } from "@/components/app/StatusBadge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { ExplorerPanel } from "@/features/maskedit/ExplorerPanel"
 import { useCatalog } from "@/features/maskedit/useCatalog"
 import { Workspace } from "@/features/maskedit/Workspace"
 
@@ -15,20 +16,24 @@ export default function App() {
       header={
         <>
           <h1 className="mr-2 text-base font-semibold">maskedit</h1>
-          <div className="grid flex-1 grid-cols-3 gap-3">
+          <div className="w-72">
             <PickerField label="Espace" items={c.spaces} value={c.ctx.space} onPick={c.pickSpace} name={(s) => s.name} testId="sel-Espace" />
-            <PickerField label="Projet" items={c.projects} value={c.ctx.project} onPick={c.pickProject} name={(p) => p.name} testId="sel-Projet" />
-            <PickerField label="Clip" items={c.clips} value={c.ctx.clip} onPick={c.pickClip} name={(k) => `${k.name} (${k.duration.toFixed(1)} s, ${k.width}x${k.height})`} testId="sel-Clip" />
           </div>
+          <div className="flex-1" />
           <StatusBadge status={status} />
         </>
       }
     >
       {c.error && <Alert variant="destructive" className="m-2"><AlertDescription>{c.error}</AlertDescription></Alert>}
       <Workspace
-        ctx={c.ctx} mps={c.mps} mpSel={c.mpSel} open={c.open}
-        onSelect={c.selectMp} onOpen={c.openMp} onClose={c.closeMp} onCreate={c.createMp} onRename={c.renameMp}
-        onStatus={setStatus}
+        ctx={c.ctx} open={c.open} onStatus={setStatus}
+        left={
+          <ExplorerPanel
+            projects={c.projects} clipsBy={c.clipsBy} mpsBy={c.mpsBy} expanded={c.expanded}
+            curProject={c.ctx.project} curClip={c.ctx.clip} open={c.open}
+            onToggle={c.toggle} onOpenClip={(p, k) => c.openClip(p, k)} onOpenMp={c.openMp} onCloseMp={c.closeMp} onCreate={c.createMp} onRename={c.renameMp}
+          />
+        }
       />
     </AppShell>
   )

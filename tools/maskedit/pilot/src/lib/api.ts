@@ -10,7 +10,7 @@ export async function api<T = any>(url: string, init?: RequestInit): Promise<T> 
 }
 export const post = (url: string, body: unknown, method = "POST") =>
   api(url, { method, headers: JSON_H, body: JSON.stringify(body) })
-export const query = (o: Record<string, string>) => new URLSearchParams(o).toString()
+export const query = (o: object) => new URLSearchParams(o as Record<string, string>).toString()
 
 export interface Ctx { space: string; project: string; clip: string }
 export interface Named { id: string; name: string }
