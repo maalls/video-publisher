@@ -1,0 +1,11 @@
+{
+  "name": "maskedit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Keyframed polygon mask editor (prototype). Core is pure TypeScript; UI is a React SVG overlay.",
+  "scripts": {
+    "test": "vitest run",
+    "build": "vite build"
+  },
+  "devDependencies": { "typescript": "*", "vite": "*", "vitest": "*", "react": "*", "react-dom": "*", "@vitejs/plugin-react": "*", "@types/react": "*", "@types/react-dom": "*" }
+}
