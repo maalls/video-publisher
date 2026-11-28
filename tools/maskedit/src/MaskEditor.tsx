@@ -37,6 +37,24 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing, doc.frames, doc.fps])
   const pts = pointsAt(doc, frame)
+  // Delete / Backspace removes the current key frame (never while typing in a text field).
+  const delRef = useRef<() => void>(() => {})
+  delRef.current = () => { if (!playing && keyAt(doc, frame)) onChange(removeKeyframe(doc, frame)) }
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => {
+      if (e.key !== 'Delete' && e.key !== 'Backspace') return
+      if (e.ctrlKey || e.metaKey || e.altKey) return
+      const t = e.target as HTMLElement | null
+      const tag = t?.tagName
+      const typing = tag === 'TEXTAREA' || tag === 'SELECT' || !!t?.isContentEditable ||
+        (tag === 'INPUT' && !['range', 'button', 'checkbox'].includes((t as HTMLInputElement).type))
+      if (typing) return
+      e.preventDefault()
+      delRef.current()
+    }
+    window.addEventListener('keydown', h)
+    return () => window.removeEventListener('keydown', h)
+  }, [])
   const isKey = !!keyAt(doc, frame)
   const keys = doc.keyframes.map((k) => k.frame)
 
@@ -152,7 +170,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
         <button className={btn} disabled={prevKey === undefined} onClick={() => onFrame(prevKey!)}>◀ clé</button>
         <button className={btn} disabled={nextKey === undefined} onClick={() => onFrame(nextKey!)}>clé ▶</button>
         <button className={btn} disabled={isKey || !doc.keyframes.length} onClick={() => onChange(addKeyframe(doc, frame))}>+ clé ici</button>
-        <button className={btn} disabled={!isKey} onClick={() => onChange(removeKeyframe(doc, frame))}>− clé</button>
+        {isKey && <button className={btn} title="Supprimer cette image clé (Suppr / Retour arrière)" onClick={() => onChange(removeKeyframe(doc, frame))}>Supprimer</button>}
         {!doc.keyframes.length && <button className={btn} disabled={draft.length < 3} onClick={closeDraft}>Fermer le polygone ({draft.length} pts)</button>}
         {!doc.keyframes.length && draft.length > 0 && <button className={btn} onClick={() => setDraft([])}>Effacer</button>}
       </div>
