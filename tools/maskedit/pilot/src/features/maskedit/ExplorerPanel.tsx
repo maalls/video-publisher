@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Film, FolderClosed, FolderOpen, Layers, Pencil, Plus, X } from "lucide-react"
+import { Film, FolderClosed, FolderOpen, Layers, Pencil, PanelLeftClose, PanelLeftOpen, Plus, X } from "lucide-react"
 import { EmptyState } from "@/components/app/EmptyState"
 import { IconButton } from "@/components/app/IconButton"
 import { NameDialog } from "@/components/app/NameDialog"
@@ -26,6 +26,8 @@ export function ExplorerPanel({
   onCloseMp,
   onCreate,
   onRename,
+  collapsed,
+  onToggleCollapse,
 }: {
   projects: Named[]
   clipsBy: Record<string, Clip[]>
@@ -40,10 +42,27 @@ export function ExplorerPanel({
   onCloseMp: (p: string, c: string, id: string) => void
   onCreate: (p: string, c: string, name: string) => void
   onRename: (p: string, c: string, id: string, name: string) => void
+  collapsed: boolean
+  onToggleCollapse: () => void
 }) {
   const [dlg, setDlg] = useState<Dlg>(null)
+  if (collapsed)
+    return (
+      <div className="flex h-full flex-col items-center bg-card pt-1.5">
+        <IconButton label="Déplier l'explorateur" onClick={onToggleCollapse} data-testid="explorer-expand">
+          <PanelLeftOpen />
+        </IconButton>
+      </div>
+    )
   return (
-    <Panel title="Explorateur">
+    <Panel
+      title="Explorateur"
+      actions={
+        <IconButton label="Replier l'explorateur" onClick={onToggleCollapse} data-testid="explorer-collapse">
+          <PanelLeftClose />
+        </IconButton>
+      }
+    >
       {projects.length === 0 ? (
         <EmptyState icon={<Film className="size-6" />} title="Aucun projet" hint="Choisis un espace dans la barre du haut." />
       ) : (

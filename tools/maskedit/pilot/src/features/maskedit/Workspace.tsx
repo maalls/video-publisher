@@ -1,4 +1,5 @@
-import { useEffect, type ReactNode } from "react"
+import { useEffect, useState, type ReactNode } from "react"
+import { usePanelRef } from "react-resizable-panels"
 import { PersistentGroup } from "@/components/app/PersistentGroup"
 import type { Status } from "@/components/app/StatusBadge"
 import { ResizableHandle, ResizablePanel } from "@/components/ui/resizable"
@@ -9,15 +10,37 @@ import { Stage } from "./Stage"
 import { useMaskSession } from "./useMaskSession"
 
 /** Three-column workspace: explorer | stage + shortcuts | inspector. Panel sizes are remembered per group id. */
-export function Workspace({ ctx, open, left, onStatus }: { ctx: Ctx; open: string | null; left: ReactNode; onStatus: (s: Status) => void }) {
+export function Workspace({
+  ctx,
+  open,
+  left,
+  onStatus,
+}: {
+  ctx: Ctx
+  open: string | null
+  left: (c: { collapsed: boolean; toggle: () => void }) => ReactNode
+  onStatus: (s: Status) => void
+}) {
   const s = useMaskSession(ctx, open)
+  const leftRef = usePanelRef()
+  const [collapsed, setCollapsed] = useState(false)
+  const toggle = () => (leftRef.current?.isCollapsed() ? leftRef.current.expand() : leftRef.current?.collapse())
   useEffect(() => {
     onStatus(s.status)
   }, [s.status.kind, s.status.text])
   return (
     <PersistentGroup id="maskedit-ui-main" orientation="horizontal">
-      <ResizablePanel id="left" defaultSize="20%" minSize="14%" maxSize="35%">
-        {left}
+      <ResizablePanel
+        id="left"
+        panelRef={leftRef}
+        defaultSize="20%"
+        minSize="14%"
+        maxSize="35%"
+        collapsible
+        collapsedSize="40px"
+        onResize={() => setCollapsed(!!leftRef.current?.isCollapsed())}
+      >
+        {left({ collapsed, toggle })}
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel id="center" minSize="30%">

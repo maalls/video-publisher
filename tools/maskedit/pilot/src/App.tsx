@@ -24,16 +24,34 @@ export default function App() {
         </>
       }
     >
-      {c.error && <Alert variant="destructive" className="m-2"><AlertDescription>{c.error}</AlertDescription></Alert>}
+      {c.error && (
+        <Alert variant="destructive" className="m-2">
+          <AlertDescription>{c.error}</AlertDescription>
+        </Alert>
+      )}
       <Workspace
-        ctx={c.ctx} open={c.open} onStatus={setStatus}
-        left={
+        ctx={c.ctx}
+        open={c.open}
+        onStatus={setStatus}
+        left={({ collapsed, toggle }) => (
           <ExplorerPanel
-            projects={c.projects} clipsBy={c.clipsBy} mpsBy={c.mpsBy} expanded={c.expanded}
-            curProject={c.ctx.project} curClip={c.ctx.clip} open={c.open}
-            onToggle={c.toggle} onOpenClip={(p, k) => c.openClip(p, k)} onOpenMp={c.openMp} onCloseMp={c.closeMp} onCreate={c.createMp} onRename={c.renameMp}
+            collapsed={collapsed}
+            onToggleCollapse={toggle}
+            projects={c.projects}
+            clipsBy={c.clipsBy}
+            mpsBy={c.mpsBy}
+            expanded={c.expanded}
+            curProject={c.ctx.project}
+            curClip={c.ctx.clip}
+            open={c.open}
+            onToggle={c.toggle}
+            onOpenClip={(p, k) => c.openClip(p, k)}
+            onOpenMp={c.openMp}
+            onCloseMp={c.closeMp}
+            onCreate={c.createMp}
+            onRename={c.renameMp}
           />
-        }
+        )}
       />
     </AppShell>
   )
