@@ -1,6 +1,7 @@
 // MaskEditor: SVG overlay on a video frame to draw/drag keyframed polygon points.
 // UI only: no network, no storage. The host passes the document and a frame URL builder.
 import { useEffect, useRef, useState } from 'react'
+import { ClipCache } from './clipcache'
 import { cleanup, translateKey, addKeyframe, addPoint, clamp01, keyAt, movePoint, nearestEdge, pointsAt, removeKeyframe, removePoint } from './core'
 import type { MaskDoc, Pt } from './core'
 
@@ -10,10 +11,11 @@ interface Props {
   frame: number
   onFrame: (frame: number) => void
   frameUrl: (frame: number) => string
-  packUrl: (pack: number) => string
+  packFetch: (pack: number, w: number) => Promise<ArrayBuffer>
 }
 
-export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packUrl }: Props) {
+const LOW_W = 512
+export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch: packFetchW }: Props) {
   const [W, H] = doc.size
   const svg = useRef<SVGSVGElement>(null)
   const [draft, setDraft] = useState<Pt[]>([])
@@ -27,67 +29,28 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packUrl }:
   const [sel, setSel] = useState<number | null>(null)
   const frameRef = useRef(frame)
   frameRef.current = frame
-  // Ordered loader: a few requests in flight at a time, strictly in playback order (the server decodes
-  // sequentially, out-of-order requests force slow seeks). Playback waits for the next image.
-  const loaded = useRef<Map<number, HTMLImageElement>>(new Map())
-  const inflight = useRef<Set<number>>(new Set())
-  const genRef = useRef(0)
-  const playRef = useRef(playing)
-  playRef.current = playing
+  // Whole clip preloaded at low resolution (see clipcache.ts): playback is 100% local. The full-resolution
+  // image is shown on top only when stopped.
+  const packFetch = (k: number) => packFetchW(k, LOW_W)
+  const [, force] = useState(0)
+  const cache = useRef<ClipCache | null>(null)
+  useEffect(() => {
+    const c = new ClipCache(`${doc.clip}|${LOW_W}`, doc.frames, packFetch, () => force((x) => x + 1))
+    cache.current = c
+    c.pump(frameRef.current)
+    return () => { c.stop(); cache.current = null }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [doc.clip])
   const [buffering, setBuffering] = useState(false)
-  const ready = (f: number) => { const im = loaded.current.get(f); return !!im && im.complete && im.naturalWidth > 0 }
-  // Frames come 16 at a time in one request (one round trip per second of video): the tunnel adds
-  // ~0.3-0.6 s latency per request, so one request per frame could never reach 16 fps.
-  const PACK = 16
-  const packsDone = useRef<Set<number>>(new Set())
-  const pump = () => {
-    const m = loaded.current
-    const nPacks = Math.ceil(doc.frames / PACK)
-    const cur = Math.floor(frameRef.current / PACK)
-    const ahead = playRef.current ? 3 : 1
-    for (let k = 0; k <= ahead && inflight.current.size < 2; k++) {
-      const p = (cur + k) % nPacks
-      if (packsDone.current.has(p) || inflight.current.has(p)) continue
-      inflight.current.add(p)
-      const gen = genRef.current
-      fetch(packUrl(p)).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.arrayBuffer() }).then((buf) => {
-        if (gen !== genRef.current) return
-        const dv = new DataView(buf)
-        const n = dv.getUint32(0, true)
-        let off = 4 + 4 * n
-        for (let i = 0; i < n; i++) {
-          const len = dv.getUint32(4 + 4 * i, true)
-          const f = p * PACK + i
-          const im = new Image()
-          im.src = URL.createObjectURL(new Blob([buf.slice(off, off + len)], { type: 'image/jpeg' }))
-          m.set(f, im)
-          off += len
-        }
-        packsDone.current.add(p)
-        inflight.current.delete(p)
-        pump()
-      }).catch(() => { inflight.current.delete(p); window.setTimeout(pump, 1000) })
-    }
-    // keep memory bounded: drop packs far from the playhead
-    if (packsDone.current.size > 8) {
-      for (const p of [...packsDone.current]) {
-        const d = Math.min(Math.abs(p - cur), nPacks - Math.abs(p - cur))
-        if (d > 4) {
-          packsDone.current.delete(p)
-          for (let i = 0; i < PACK; i++) { const im = m.get(p * PACK + i); if (im) URL.revokeObjectURL(im.src); m.delete(p * PACK + i) }
-        }
-      }
-    }
-  }
-  useEffect(() => { pump() /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [frame, doc.clip, playing])
-  useEffect(() => { genRef.current++; loaded.current.clear(); inflight.current.clear(); packsDone.current.clear() }, [doc.clip])
+  const ready = (f: number) => !!cache.current?.has(f)
+  useEffect(() => { cache.current?.pump(frame) }, [frame])
   // Live preview: play at the clip fps, looping, with the interpolated polygon drawn on each frame.
-  // If the next image is not loaded yet, wait for it (plays at decoding speed instead of freezing).
+  // If the next image is not loaded yet, wait for it (plays as the clip loads instead of freezing).
   useEffect(() => {
     if (!playing) { setBuffering(false); return }
     const id = window.setInterval(() => {
       const nx = (frameRef.current + 1) % doc.frames
-      if (ready(nx)) { setBuffering(false); onFrame(nx) } else { setBuffering(true); pump() }
+      if (ready(nx)) { setBuffering(false); cache.current?.warm(nx, 4); onFrame(nx) } else { setBuffering(true); cache.current?.pump(nx) }
     }, 1000 / (doc.fps || 16))
     return () => window.clearInterval(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -251,7 +214,9 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packUrl }:
   return (
     <div className="maskedit" style={{ maxWidth: 1000 }}>
       <div style={{ position: 'relative', width: '100%', aspectRatio: `${W} / ${H}`, background: '#000' }}>
-        <img src={ready(frame) ? loaded.current.get(frame)!.src : frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
+        <img src={cache.current?.url(frame) || undefined} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
+        {!playing && <img key={frame} src={frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />}
+        {cache.current && !cache.current.stats.done && <div style={{ position: 'absolute', left: 0, bottom: 0, height: 3, width: `${100 * cache.current.stats.loaded / doc.frames}%`, background: '#ffd000' }} />}
         {buffering && <div style={{ position: 'absolute', top: 8, left: 8, padding: '2px 8px', borderRadius: 6, background: 'rgba(0,0,0,.6)', color: '#fff', fontSize: 12 }}>chargement…</div>}
         <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', visibility: hidden ? 'hidden' : 'visible', pointerEvents: hidden ? 'none' : 'auto', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
           onPointerDown={(e) => { setSel(null); if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
@@ -286,6 +251,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packUrl }:
           <input type="range" min={0} max={doc.frames - 1} value={frame} onChange={(e) => onFrame(+e.target.value)} style={{ width: '100%', margin: 0, display: 'block' }} />
         </div>
         <span style={{ width: '13ch', textAlign: 'right', fontSize: 12, fontVariantNumeric: 'tabular-nums', opacity: 0.85 }}>image {frame} / {doc.frames - 1}</span>
+        {cache.current && <span style={{ fontSize: 12, opacity: 0.8 }} title="Clip préchargé en basse résolution">{cache.current.stats.done ? `en mémoire : ${cache.current.stats.loaded} images, ${(cache.current.stats.bytes / 1e6).toFixed(1)} Mo, ${(cache.current.stats.ms / 1000).toFixed(1)} s${cache.current.stats.fromDisk ? ' (cache local)' : ''}` : `chargement ${Math.round(100 * cache.current.stats.loaded / doc.frames)} %`}</span>}
       </div>
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>
         <button className={btn} disabled={prevKey === undefined} onClick={() => onFrame(prevKey!)}>◀ clé</button>

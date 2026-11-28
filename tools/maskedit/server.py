@@ -154,16 +154,17 @@ _clock = threading.Lock()
 _inflight = set()
 
 
-def _enc(f):
+def _enc(f, lw=0):
     h, w = f.shape[:2]
-    if w > FRAME_MAX_W:
-        f = cv2.resize(f, (FRAME_MAX_W, round(h * FRAME_MAX_W / w)), interpolation=cv2.INTER_AREA)
-    return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 75])[1].tobytes()
+    mw = min(FRAME_MAX_W, lw) if lw else FRAME_MAX_W
+    if w > mw:
+        f = cv2.resize(f, (mw, round(h * mw / w)), interpolation=cv2.INTER_AREA)
+    return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 70 if lw else 75])[1].tobytes()
 
 
-def _chunk(path, c):
+def _chunk(path, c, lw=0):
     """Decode one chunk of CHUNK frames sequentially (one seek at most), cache the JPEGs."""
-    key = (str(path), c)
+    key = (str(path), c, lw)
     with _clock:
         v = _cache.get(key)
         if v is not None:
@@ -184,24 +185,25 @@ def _chunk(path, c):
             ok, f = r.cap.read()
             if not ok:
                 break
-            out.append(_enc(f))
+            out.append(_enc(f, lw))
             r.pos += 1
     with _clock:
         _cache[key] = out
-        while len(_cache) > 24:
-            _cache.pop(next(iter(_cache)))
+        mine = [k for k in _cache if bool(k[2]) == bool(lw)]
+        while len(mine) > (90 if lw else 24):
+            _cache.pop(mine.pop(0))
     return out
 
 
-def _prefetch(path, c):
-    key = (str(path), c)
+def _prefetch(path, c, lw=0):
+    key = (str(path), c, lw)
     with _clock:
         if key in _cache or key in _inflight:
             return
         _inflight.add(key)
     def run():
         try:
-            _chunk(path, c)
+            _chunk(path, c, lw)
         except Exception:
             pass
         finally:
@@ -213,17 +215,15 @@ def _prefetch(path, c):
 PACK = 16
 
 
-def frame_pack(path, k):
+def frame_pack(path, k, lw=0):
     import struct
     c, i = divmod(k * PACK, CHUNK)
-    ch = _chunk(path, c)
+    ch = _chunk(path, c, lw)
     part = ch[i:i + PACK]
     if not part:
         return None
     if len(ch) == CHUNK and i + PACK >= CHUNK:
-        _prefetch(path, c + 1)
-    elif i == 0 and len(ch) == CHUNK:
-        pass
+        _prefetch(path, c + 1, lw)
     return struct.pack("<I", len(part)) + b"".join(struct.pack("<I", len(x)) for x in part) + b"".join(part)
 
 
@@ -370,7 +370,8 @@ class Handler(BaseHTTPRequestHandler):
             if m:  # 16 consecutive frames in one response: [u32 count][u32 len]*count[jpeg bytes...]
                 d = project_dir(allowed, m[1], m[2])
                 _, f = find_asset(d, m[3])
-                b = frame_pack(f, int(m[4]))
+                lw = int(q.get('w', '0') or 0)
+                b = frame_pack(f, int(m[4]), lw if 160 <= lw <= FRAME_MAX_W else 0)
                 return self._send(200 if b else 404, b or b"", "application/octet-stream", {"Cache-Control": "private, max-age=3600"})
             m = re.match(r"^/api/frame/([^/]+)/([^/]+)/([^/]+)/(\d+)\.jpg$", p)
             if m:
