@@ -21,6 +21,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const press = useRef<{ x: number; y: number; timer: number } | null>(null)
   const [playing, setPlaying] = useState(false)
   const [grab, setGrab] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [note, setNote] = useState('')
   const [sel, setSel] = useState<number | null>(null)
   const cache = useRef<HTMLImageElement[]>([])
@@ -75,10 +76,27 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     window.addEventListener('blur', stop)
     return () => { stop(); window.removeEventListener('keydown', down); window.removeEventListener('keyup', up); window.removeEventListener('blur', stop) }
   }, [])
+  // H toggles the overlay (contour, points, fill). Ignored while typing. Editing is off while hidden.
+  const hiddenRef = useRef(false)
+  hiddenRef.current = hidden
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => {
+      if (e.key.toLowerCase() !== 'h' || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return
+      const t = e.target as HTMLElement | null
+      const tag = t?.tagName
+      const typing = tag === 'TEXTAREA' || tag === 'SELECT' || !!t?.isContentEditable ||
+        (tag === 'INPUT' && !['range', 'button', 'checkbox'].includes((t as HTMLInputElement).type))
+      if (typing) return
+      e.preventDefault()
+      setHidden((v) => !v)
+    }
+    window.addEventListener('keydown', h)
+    return () => window.removeEventListener('keydown', h)
+  }, [])
   // Delete / Backspace removes the current key frame (never while typing in a text field).
   const delRef = useRef<() => void>(() => {})
   delRef.current = () => {
-    if (playing) return
+    if (playing || hiddenRef.current) return
     // A selected point wins: Delete removes it on every key (same as double-click). Otherwise the current key.
     if (sel !== null && sel < pts.length) {
       if (pts.length > 3) { onChange(removePoint(doc, sel)); setSel(null) }
@@ -181,7 +199,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     <div className="maskedit" style={{ maxWidth: 1000 }}>
       <div style={{ position: 'relative', width: '100%', aspectRatio: `${W} / ${H}`, background: '#000' }}>
         <img src={frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
-        <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
+        <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', visibility: hidden ? 'hidden' : 'visible', pointerEvents: hidden ? 'none' : 'auto', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
           onPointerDown={(e) => { setSel(null); if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
           {pts.length > 0 && (
             <polygon onPointerDown={polyDown} style={{ cursor: grab ? 'grabbing' : undefined }} points={pts.map((p) => `${p[0] * W},${p[1] * H}`).join(' ')}
@@ -220,6 +238,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
         <button className={btn} disabled={nextKey === undefined} onClick={() => onFrame(nextKey!)}>clé ▶</button>
         <button className={btn} disabled={isKey || !doc.keyframes.length} onClick={() => onChange(addKeyframe(doc, frame))}>+ clé ici</button>
         {isKey && <button className={btn} title="Supprimer cette image clé (Suppr / Retour arrière)" onClick={() => onChange(removeKeyframe(doc, frame))}>Supprimer</button>}
+        <button className={btn} data-testid="toggle-overlay" title="Masquer / afficher le contour (H)" onClick={() => setHidden(!hidden)}>{hidden ? 'Afficher le contour' : 'Masquer le contour'} (H)</button>
         <button className={btn} disabled={!doc.keyframes.length} title="Supprime les points inutiles (alignés avec leurs voisins sur toutes les clés)"
           onClick={() => { const r = cleanup(doc); setSel(null); if (r.removed) onChange(r.doc); setNote(r.removed ? `${r.removed} point${r.removed > 1 ? 's' : ''} supprimé${r.removed > 1 ? 's' : ''}` : 'rien à nettoyer') }}>Nettoyer</button>
         {note && <span data-testid="cleanup-note" style={{ fontSize: 12, opacity: 0.8 }}>{note}</span>}
