@@ -7,7 +7,7 @@ import type { MaskDoc } from './core'
 
 function App() {
   const [doc, setDoc] = useState<MaskDoc | null>(null)
-  const [frame, setFrame] = useState(0)
+  const [frame, setFrame] = useState(+(new URLSearchParams(location.search).get('frame') ?? 0))
   const [msg, setMsg] = useState('')
   const timer = useRef<number | undefined>(undefined)
   const undo = useRef<MaskDoc[]>([])

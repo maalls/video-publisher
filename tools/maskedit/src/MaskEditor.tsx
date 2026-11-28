@@ -132,11 +132,21 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
         </svg>
       </div>
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 8, alignItems: 'center' }}>
+        <button className={btn} title="Aller au début" onClick={() => { setPlaying(false); onFrame(0) }}>|◀</button>
+        <button className={btn} title="Image précédente" onClick={() => { setPlaying(false); onFrame(Math.max(0, frame - 1)) }}>◀</button>
         <button className={btn} style={{ minWidth: 80, fontWeight: 600 }} onClick={() => setPlaying(!playing)}>{playing ? '⏸ Pause' : '▶ Lecture'}</button>
-        <button className={btn} onClick={() => { setPlaying(false); onFrame(Math.max(0, frame - 1)) }}>◀</button>
-        <input type="range" min={0} max={doc.frames - 1} value={frame} onChange={(e) => onFrame(+e.target.value)} style={{ flex: 1, minWidth: 200 }} />
-        <button className={btn} onClick={() => { setPlaying(false); onFrame(Math.min(doc.frames - 1, frame + 1)) }}>▶</button>
-        <span style={{ minWidth: 90 }}>image {frame} / {doc.frames - 1}</span>
+        <button className={btn} title="Image suivante" onClick={() => { setPlaying(false); onFrame(Math.min(doc.frames - 1, frame + 1)) }}>▶</button>
+        <button className={btn} title="Aller à la fin" onClick={() => { setPlaying(false); onFrame(doc.frames - 1) }}>▶|</button>
+        <div style={{ position: 'relative', flex: 1, minWidth: 200, paddingTop: 14 }}>
+          {keys.map((k) => (
+            <button key={k} title={`clé ${k}`} className="maskedit-key" onClick={() => { setPlaying(false); onFrame(k) }}
+              style={{ position: 'absolute', top: 0, width: 9, height: 9, padding: 0, border: '1px solid #ffd000', borderRadius: 2, cursor: 'pointer',
+                left: `calc(8px + (100% - 16px) * ${doc.frames > 1 ? k / (doc.frames - 1) : 0} - 4.5px)`,
+                background: k === frame ? 'rgba(255,208,0,0.95)' : 'rgba(255,208,0,0.4)' }} />
+          ))}
+          <input type="range" min={0} max={doc.frames - 1} value={frame} onChange={(e) => onFrame(+e.target.value)} style={{ width: '100%', margin: 0, display: 'block' }} />
+        </div>
+        <span style={{ width: '13ch', textAlign: 'right', fontSize: 12, fontVariantNumeric: 'tabular-nums', opacity: 0.85 }}>image {frame} / {doc.frames - 1}</span>
       </div>
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>
         <button className={btn} disabled={prevKey === undefined} onClick={() => onFrame(prevKey!)}>◀ clé</button>
