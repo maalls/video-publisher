@@ -106,7 +106,7 @@ function Editor({ ctx, mp, name, onClose }: { ctx: Ctx; mp: string; name: string
     } catch (e) { setMsg('export refusé: ' + (e as Error).message) }
   }
   const frameUrl = (f: number) => `api/frame/${ctx.space}/${ctx.project}/${ctx.clip}/${f}.jpg`
-  const packFetch = (k: number, w: number) => fetch(`api/pack/${ctx.space}/${ctx.project}/${ctx.clip}/${k}.bin?w=${w}`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.arrayBuffer() })
+  const packFetch = (k: number, w: number, pfps: number) => fetch(`api/pack/${ctx.space}/${ctx.project}/${ctx.clip}/${k}.bin?w=${w}&pfps=${pfps}`).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.arrayBuffer() })
   return (
     <div>
       <div style={{ margin: '6px 0 8px', display: 'flex', gap: 10, alignItems: 'center' }}>

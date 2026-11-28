@@ -11,10 +11,11 @@ interface Props {
   frame: number
   onFrame: (frame: number) => void
   frameUrl: (frame: number) => string
-  packFetch: (pack: number, w: number) => Promise<ArrayBuffer>
+  packFetch: (pack: number, w: number, pfps: number) => Promise<ArrayBuffer>
 }
 
-const LOW_W = 512
+const LOW_W = 480
+const PROXY_FPS = 12 // interface proxy: 12 images/s at 480 px wide; keys and masks stay in source frame numbers
 export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch: packFetchW }: Props) {
   const [W, H] = doc.size
   const svg = useRef<SVGSVGElement>(null)
@@ -31,27 +32,34 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch:
   frameRef.current = frame
   // Whole clip preloaded at low resolution (see clipcache.ts): playback is 100% local. The full-resolution
   // image is shown on top only when stopped.
-  const packFetch = (k: number) => packFetchW(k, LOW_W)
+  const packFetch = (k: number) => packFetchW(k, LOW_W, pfps)
+  const fps = doc.fps || 16
+  const pfps = Math.min(PROXY_FPS, fps)
+  const nProxy = Math.ceil((doc.frames * pfps) / fps)
+  const proxyOf = (f: number) => Math.min(nProxy - 1, Math.round((f * pfps) / fps))
   const [, force] = useState(0)
   const cache = useRef<ClipCache | null>(null)
   useEffect(() => {
-    const c = new ClipCache(`${doc.clip}|${LOW_W}`, doc.frames, packFetch, () => force((x) => x + 1))
+    const c = new ClipCache(`${doc.clip}|${LOW_W}|${pfps}`, nProxy, packFetch, () => force((x) => x + 1))
     cache.current = c
-    c.pump(frameRef.current)
+    c.pump(proxyOf(frameRef.current))
     return () => { c.stop(); cache.current = null }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doc.clip])
   const [buffering, setBuffering] = useState(false)
-  const ready = (f: number) => !!cache.current?.has(f)
-  useEffect(() => { cache.current?.pump(frame) }, [frame])
+  const ready = (f: number) => !!cache.current?.has(proxyOf(f))
+  useEffect(() => { cache.current?.pump(proxyOf(frame)) }, [frame])
   // Live preview: play at the clip fps, looping, with the interpolated polygon drawn on each frame.
   // If the next image is not loaded yet, wait for it (plays as the clip loads instead of freezing).
   useEffect(() => {
     if (!playing) { setBuffering(false); return }
+    // one tick per proxy image: the source frame advances by fps/pfps (e.g. 16 fps source: 1.33 frames per tick)
     const id = window.setInterval(() => {
-      const nx = (frameRef.current + 1) % doc.frames
-      if (ready(nx)) { setBuffering(false); cache.current?.warm(nx, 4); onFrame(nx) } else { setBuffering(true); cache.current?.pump(nx) }
-    }, 1000 / (doc.fps || 16))
+      const pp = Math.round((frameRef.current * pfps) / fps)
+      let nx = Math.round(((pp + 1) * fps) / pfps)
+      if (nx >= doc.frames) nx = 0
+      if (ready(nx)) { setBuffering(false); cache.current?.warm(proxyOf(nx), 4); onFrame(nx) } else { setBuffering(true); cache.current?.pump(proxyOf(nx)) }
+    }, 1000 / pfps)
     return () => window.clearInterval(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing, doc.frames, doc.fps])
@@ -214,9 +222,9 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch:
   return (
     <div className="maskedit" style={{ maxWidth: 1000 }}>
       <div style={{ position: 'relative', width: '100%', aspectRatio: `${W} / ${H}`, background: '#000' }}>
-        <img src={cache.current?.url(frame) || undefined} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
+        <img src={cache.current?.url(proxyOf(frame)) || undefined} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
         {!playing && <img key={frame} src={frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />}
-        {cache.current && !cache.current.stats.done && <div style={{ position: 'absolute', left: 0, bottom: 0, height: 3, width: `${100 * cache.current.stats.loaded / doc.frames}%`, background: '#ffd000' }} />}
+        {cache.current && !cache.current.stats.done && <div style={{ position: 'absolute', left: 0, bottom: 0, height: 3, width: `${100 * cache.current.stats.loaded / nProxy}%`, background: '#ffd000' }} />}
         {buffering && <div style={{ position: 'absolute', top: 8, left: 8, padding: '2px 8px', borderRadius: 6, background: 'rgba(0,0,0,.6)', color: '#fff', fontSize: 12 }}>chargement…</div>}
         <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', visibility: hidden ? 'hidden' : 'visible', pointerEvents: hidden ? 'none' : 'auto', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
           onPointerDown={(e) => { setSel(null); if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
@@ -251,7 +259,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packFetch:
           <input type="range" min={0} max={doc.frames - 1} value={frame} onChange={(e) => onFrame(+e.target.value)} style={{ width: '100%', margin: 0, display: 'block' }} />
         </div>
         <span style={{ width: '13ch', textAlign: 'right', fontSize: 12, fontVariantNumeric: 'tabular-nums', opacity: 0.85 }}>image {frame} / {doc.frames - 1}</span>
-        {cache.current && <span style={{ fontSize: 12, opacity: 0.8 }} title="Clip préchargé en basse résolution">{cache.current.stats.done ? `en mémoire : ${cache.current.stats.loaded} images, ${(cache.current.stats.bytes / 1e6).toFixed(1)} Mo, ${(cache.current.stats.ms / 1000).toFixed(1)} s${cache.current.stats.fromDisk ? ' (cache local)' : ''}` : `chargement ${Math.round(100 * cache.current.stats.loaded / doc.frames)} %`}</span>}
+        {cache.current && <span style={{ fontSize: 12, opacity: 0.8 }} title="Clip préchargé en basse résolution">{cache.current.stats.done ? `en mémoire : ${cache.current.stats.loaded} images proxy (${pfps} i/s), ${(cache.current.stats.bytes / 1e6).toFixed(1)} Mo, ${(cache.current.stats.ms / 1000).toFixed(1)} s${cache.current.stats.fromDisk ? ' (cache local)' : ''}` : `chargement ${Math.round(100 * cache.current.stats.loaded / nProxy)} %`}</span>}
       </div>
       <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 6 }}>
         <button className={btn} disabled={prevKey === undefined} onClick={() => onFrame(prevKey!)}>◀ clé</button>

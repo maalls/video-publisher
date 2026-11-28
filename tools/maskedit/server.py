@@ -215,6 +215,24 @@ def _prefetch(path, c, lw=0):
 PACK = 16
 
 
+def proxy_pack(path, k, lw, pfps, fps, frames):
+    """Interface proxy: frame i of the proxy is source frame int(i * fps / pfps + 0.5). Same wire format as frame_pack."""
+    import struct
+    n = int(-(-frames * pfps // fps))
+    idx = [min(frames - 1, int(i * fps / pfps + 0.5)) for i in range(k * PACK, min(n, (k + 1) * PACK))]
+    out = []
+    for sfr in idx:
+        ch = _chunk(path, sfr // CHUNK, lw)
+        if sfr % CHUNK >= len(ch):
+            break
+        out.append(ch[sfr % CHUNK])
+    if idx and idx[-1] // CHUNK + 1 < -(-frames // CHUNK):
+        _prefetch(path, idx[-1] // CHUNK + 1, lw)
+    if not out:
+        return None
+    return struct.pack("<I", len(out)) + b"".join(struct.pack("<I", len(x)) for x in out) + b"".join(out)
+
+
 def frame_pack(path, k, lw=0):
     import struct
     c, i = divmod(k * PACK, CHUNK)
@@ -369,9 +387,16 @@ class Handler(BaseHTTPRequestHandler):
             m = re.match(r"^/api/pack/([^/]+)/([^/]+)/([^/]+)/(\d+)\.bin$", p)
             if m:  # 16 consecutive frames in one response: [u32 count][u32 len]*count[jpeg bytes...]
                 d = project_dir(allowed, m[1], m[2])
-                _, f = find_asset(d, m[3])
+                a, f = find_asset(d, m[3])
                 lw = int(q.get('w', '0') or 0)
-                b = frame_pack(f, int(m[4]), lw if 160 <= lw <= FRAME_MAX_W else 0)
+                lw = lw if 160 <= lw <= FRAME_MAX_W else 0
+                pf = float(q.get('pfps', '0') or 0)
+                if pf > 0:
+                    info = clip_info(f, a)
+                    pf = min(pf, info["fps"])
+                    b = proxy_pack(f, int(m[4]), lw, pf, info["fps"], info["frames"])
+                else:
+                    b = frame_pack(f, int(m[4]), lw)
                 return self._send(200 if b else 404, b or b"", "application/octet-stream", {"Cache-Control": "private, max-age=3600"})
             m = re.match(r"^/api/frame/([^/]+)/([^/]+)/([^/]+)/(\d+)\.jpg$", p)
             if m:
