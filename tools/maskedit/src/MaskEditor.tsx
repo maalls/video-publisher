@@ -1,7 +1,7 @@
 // MaskEditor: SVG overlay on a video frame to draw/drag keyframed polygon points.
 // UI only: no network, no storage. The host passes the document and a frame URL builder.
 import { useEffect, useRef, useState } from 'react'
-import { translateKey, addKeyframe, addPoint, clamp01, keyAt, movePoint, nearestEdge, pointsAt, removeKeyframe, removePoint } from './core'
+import { cleanup, translateKey, addKeyframe, addPoint, clamp01, keyAt, movePoint, nearestEdge, pointsAt, removeKeyframe, removePoint } from './core'
 import type { MaskDoc, Pt } from './core'
 
 interface Props {
@@ -21,6 +21,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const press = useRef<{ x: number; y: number; timer: number } | null>(null)
   const [playing, setPlaying] = useState(false)
   const [grab, setGrab] = useState(false)
+  const [note, setNote] = useState('')
   const [sel, setSel] = useState<number | null>(null)
   const cache = useRef<HTMLImageElement[]>([])
   const frameRef = useRef(frame)
@@ -219,6 +220,9 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
         <button className={btn} disabled={nextKey === undefined} onClick={() => onFrame(nextKey!)}>clé ▶</button>
         <button className={btn} disabled={isKey || !doc.keyframes.length} onClick={() => onChange(addKeyframe(doc, frame))}>+ clé ici</button>
         {isKey && <button className={btn} title="Supprimer cette image clé (Suppr / Retour arrière)" onClick={() => onChange(removeKeyframe(doc, frame))}>Supprimer</button>}
+        <button className={btn} disabled={!doc.keyframes.length} title="Supprime les points inutiles (alignés avec leurs voisins sur toutes les clés)"
+          onClick={() => { const r = cleanup(doc); setSel(null); if (r.removed) onChange(r.doc); setNote(r.removed ? `${r.removed} point${r.removed > 1 ? 's' : ''} supprimé${r.removed > 1 ? 's' : ''}` : 'rien à nettoyer') }}>Nettoyer</button>
+        {note && <span data-testid="cleanup-note" style={{ fontSize: 12, opacity: 0.8 }}>{note}</span>}
         {!doc.keyframes.length && <button className={btn} disabled={draft.length < 3} onClick={closeDraft}>Fermer le polygone ({draft.length} pts)</button>}
         {!doc.keyframes.length && draft.length > 0 && <button className={btn} onClick={() => setDraft([])}>Effacer</button>}
       </div>

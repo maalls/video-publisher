@@ -131,3 +131,47 @@ export function translateKey(doc: MaskDoc, frame: number, base: Pt[], dx: number
     keyframes: doc.keyframes.map((k) => (k.frame !== frame ? k : { ...k, points: base.map((p): Pt => [p[0] + sx, p[1] + sy]) })),
   }
 }
+
+/** How far point i is from the straight line between its two neighbours (closed polygon), in pixels,
+ *  and the turning angle at the point in degrees (0 = perfectly straight). */
+export function flatness(points: Pt[], i: number, size: [number, number]): { angle: number; dist: number } {
+  const n = points.length
+  const s = (p: Pt): Pt => [p[0] * size[0], p[1] * size[1]]
+  const a = s(points[(i + n - 1) % n]), p = s(points[i]), b = s(points[(i + 1) % n])
+  const u: Pt = [p[0] - a[0], p[1] - a[1]], v: Pt = [b[0] - p[0], b[1] - p[1]]
+  const lu = Math.hypot(...u), lv = Math.hypot(...v), lab = Math.hypot(b[0] - a[0], b[1] - a[1])
+  if (lu < 1e-9 || lv < 1e-9) return { angle: 0, dist: 0 } // duplicate point: useless
+  const cos = Math.min(1, Math.max(-1, (u[0] * v[0] + u[1] * v[1]) / (lu * lv)))
+  const dist = lab < 1e-9 ? lu : Math.abs((b[0] - a[0]) * (a[1] - p[1]) - (a[0] - p[0]) * (b[1] - a[1])) / lab
+  return { angle: (Math.acos(cos) * 180) / Math.PI, dist }
+}
+
+/** Remove points that are useless on EVERY keyframe: turning angle below `angleDeg` and distance to the
+ *  neighbours' line below `maxDistPx` on all keys. One point at a time (the flattest first), recomputed
+ *  each time so that a gentle curve is not flattened by removing many points in a row. Keeps at least 3. */
+export function cleanup(doc: MaskDoc, angleDeg = 3, maxDistPx = 2): { doc: MaskDoc; removed: number } {
+  let d = doc
+  let removed = 0
+  for (;;) {
+    const n = d.keyframes[0]?.points.length ?? 0
+    if (n <= 3) break
+    let best = -1
+    let bestScore = Infinity
+    for (let i = 0; i < n; i++) {
+      let worstA = 0, worstD = 0
+      for (const k of d.keyframes) {
+        const f = flatness(k.points, i, d.size)
+        worstA = Math.max(worstA, f.angle)
+        worstD = Math.max(worstD, f.dist)
+      }
+      if (worstA < angleDeg && worstD < maxDistPx) {
+        const score = worstA / angleDeg + worstD / maxDistPx
+        if (score < bestScore) { bestScore = score; best = i }
+      }
+    }
+    if (best < 0) break
+    d = removePoint(d, best)
+    removed++
+  }
+  return { doc: d, removed }
+}
