@@ -106,6 +106,7 @@ function Editor({ ctx, mp, name, onClose }: { ctx: Ctx; mp: string; name: string
     } catch (e) { setMsg('export refusé: ' + (e as Error).message) }
   }
   const frameUrl = (f: number) => `api/frame/${ctx.space}/${ctx.project}/${ctx.clip}/${f}.jpg`
+  const packUrl = (k: number) => `api/pack/${ctx.space}/${ctx.project}/${ctx.clip}/${k}.bin`
   return (
     <div>
       <div style={{ margin: '6px 0 8px', display: 'flex', gap: 10, alignItems: 'center' }}>
@@ -113,7 +114,7 @@ function Editor({ ctx, mp, name, onClose }: { ctx: Ctx; mp: string; name: string
         <button onClick={async () => { await flushNow(); await post('api/mproject-state', { ...ctx, mp, status: 'closed' }); onClose() }} style={{ padding: '4px 10px' }}>Fermer ce projet</button>
         <span style={{ fontSize: 12, opacity: 0.8 }}>{msg}</span>
       </div>
-      <MaskEditor key={mp} doc={doc} onChange={change} frame={frame} onFrame={setFrame} frameUrl={frameUrl} />
+      <MaskEditor key={mp} doc={doc} onChange={change} frame={frame} onFrame={setFrame} frameUrl={frameUrl} packUrl={packUrl} />
       <div style={{ marginTop: 10, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
         {doc.base_mask && (
           <label>mode <select value={doc.mode} onChange={(e) => { change({ ...doc, mode: e.target.value as MaskDoc['mode'] }); e.target.blur() }}>

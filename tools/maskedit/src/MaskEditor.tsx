@@ -10,9 +10,10 @@ interface Props {
   frame: number
   onFrame: (frame: number) => void
   frameUrl: (frame: number) => string
+  packUrl: (pack: number) => string
 }
 
-export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
+export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl, packUrl }: Props) {
   const [W, H] = doc.size
   const svg = useRef<SVGSVGElement>(null)
   const [draft, setDraft] = useState<Pt[]>([])
@@ -30,26 +31,56 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   // sequentially, out-of-order requests force slow seeks). Playback waits for the next image.
   const loaded = useRef<Map<number, HTMLImageElement>>(new Map())
   const inflight = useRef<Set<number>>(new Set())
+  const genRef = useRef(0)
   const playRef = useRef(playing)
   playRef.current = playing
   const [buffering, setBuffering] = useState(false)
   const ready = (f: number) => { const im = loaded.current.get(f); return !!im && im.complete && im.naturalWidth > 0 }
+  // Frames come 16 at a time in one request (one round trip per second of video): the tunnel adds
+  // ~0.3-0.6 s latency per request, so one request per frame could never reach 16 fps.
+  const PACK = 16
+  const packsDone = useRef<Set<number>>(new Set())
   const pump = () => {
     const m = loaded.current
-    const ahead = playRef.current ? 32 : 12
-    for (let k = 0; k <= ahead && inflight.current.size < 3; k++) {
-      const f = (frameRef.current + k) % doc.frames
-      if (m.has(f)) continue
-      const im = new Image()
-      inflight.current.add(f)
-      const done = () => { inflight.current.delete(f); if (!im.naturalWidth) m.delete(f); pump() }
-      im.onload = done; im.onerror = done
-      m.set(f, im); im.src = frameUrl(f)
+    const nPacks = Math.ceil(doc.frames / PACK)
+    const cur = Math.floor(frameRef.current / PACK)
+    const ahead = playRef.current ? 3 : 1
+    for (let k = 0; k <= ahead && inflight.current.size < 2; k++) {
+      const p = (cur + k) % nPacks
+      if (packsDone.current.has(p) || inflight.current.has(p)) continue
+      inflight.current.add(p)
+      const gen = genRef.current
+      fetch(packUrl(p)).then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.arrayBuffer() }).then((buf) => {
+        if (gen !== genRef.current) return
+        const dv = new DataView(buf)
+        const n = dv.getUint32(0, true)
+        let off = 4 + 4 * n
+        for (let i = 0; i < n; i++) {
+          const len = dv.getUint32(4 + 4 * i, true)
+          const f = p * PACK + i
+          const im = new Image()
+          im.src = URL.createObjectURL(new Blob([buf.slice(off, off + len)], { type: 'image/jpeg' }))
+          m.set(f, im)
+          off += len
+        }
+        packsDone.current.add(p)
+        inflight.current.delete(p)
+        pump()
+      }).catch(() => { inflight.current.delete(p); window.setTimeout(pump, 1000) })
     }
-    if (m.size > 120) for (const key of [...m.keys()].filter((x) => !inflight.current.has(x) && (x < frameRef.current - 8 || x > frameRef.current + 40)).slice(0, m.size - 90)) m.delete(key)
+    // keep memory bounded: drop packs far from the playhead
+    if (packsDone.current.size > 8) {
+      for (const p of [...packsDone.current]) {
+        const d = Math.min(Math.abs(p - cur), nPacks - Math.abs(p - cur))
+        if (d > 4) {
+          packsDone.current.delete(p)
+          for (let i = 0; i < PACK; i++) { const im = m.get(p * PACK + i); if (im) URL.revokeObjectURL(im.src); m.delete(p * PACK + i) }
+        }
+      }
+    }
   }
   useEffect(() => { pump() /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [frame, doc.clip, playing])
-  useEffect(() => { loaded.current.clear(); inflight.current.clear() }, [doc.clip])
+  useEffect(() => { genRef.current++; loaded.current.clear(); inflight.current.clear(); packsDone.current.clear() }, [doc.clip])
   // Live preview: play at the clip fps, looping, with the interpolated polygon drawn on each frame.
   // If the next image is not loaded yet, wait for it (plays at decoding speed instead of freezing).
   useEffect(() => {
@@ -220,7 +251,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   return (
     <div className="maskedit" style={{ maxWidth: 1000 }}>
       <div style={{ position: 'relative', width: '100%', aspectRatio: `${W} / ${H}`, background: '#000' }}>
-        <img src={frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
+        <img src={ready(frame) ? loaded.current.get(frame)!.src : frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
         {buffering && <div style={{ position: 'absolute', top: 8, left: 8, padding: '2px 8px', borderRadius: 6, background: 'rgba(0,0,0,.6)', color: '#fff', fontSize: 12 }}>chargement…</div>}
         <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', visibility: hidden ? 'hidden' : 'visible', pointerEvents: hidden ? 'none' : 'auto', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
           onPointerDown={(e) => { setSel(null); if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>

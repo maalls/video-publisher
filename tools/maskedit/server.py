@@ -158,7 +158,7 @@ def _enc(f):
     h, w = f.shape[:2]
     if w > FRAME_MAX_W:
         f = cv2.resize(f, (FRAME_MAX_W, round(h * FRAME_MAX_W / w)), interpolation=cv2.INTER_AREA)
-    return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()
+    return cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 75])[1].tobytes()
 
 
 def _chunk(path, c):
@@ -208,6 +208,23 @@ def _prefetch(path, c):
             with _clock:
                 _inflight.discard(key)
     threading.Thread(target=run, daemon=True).start()
+
+
+PACK = 16
+
+
+def frame_pack(path, k):
+    import struct
+    c, i = divmod(k * PACK, CHUNK)
+    ch = _chunk(path, c)
+    part = ch[i:i + PACK]
+    if not part:
+        return None
+    if len(ch) == CHUNK and i + PACK >= CHUNK:
+        _prefetch(path, c + 1)
+    elif i == 0 and len(ch) == CHUNK:
+        pass
+    return struct.pack("<I", len(part)) + b"".join(struct.pack("<I", len(x)) for x in part) + b"".join(part)
 
 
 def frame_jpg(path, n):
@@ -349,6 +366,12 @@ class Handler(BaseHTTPRequestHandler):
                 find_asset(d, q.get("clip", ""))
                 doc = read_doc(mp_dir(d, q["clip"], q.get("mp", "")))
                 return self._json({"doc": doc, "rev": doc.get("rev", 0)})
+            m = re.match(r"^/api/pack/([^/]+)/([^/]+)/([^/]+)/(\d+)\.bin$", p)
+            if m:  # 16 consecutive frames in one response: [u32 count][u32 len]*count[jpeg bytes...]
+                d = project_dir(allowed, m[1], m[2])
+                _, f = find_asset(d, m[3])
+                b = frame_pack(f, int(m[4]))
+                return self._send(200 if b else 404, b or b"", "application/octet-stream", {"Cache-Control": "private, max-age=3600"})
             m = re.match(r"^/api/frame/([^/]+)/([^/]+)/([^/]+)/(\d+)\.jpg$", p)
             if m:
                 d = project_dir(allowed, m[1], m[2])
