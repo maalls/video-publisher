@@ -187,9 +187,9 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
               fill="rgba(255,160,0,0.35)" stroke={isKey ? '#ffd000' : '#ffffff'} strokeWidth={2} strokeDasharray={isKey ? undefined : '6 4'} />
           )}
           {!playing && pts.map((p, i) => (
-            <circle key={i} data-selected={sel === i ? '1' : undefined} cx={p[0] * W} cy={p[1] * H} r={sel === i ? 6 : 4}
-              fill={sel === i ? '#00e0ff' : isKey ? '#ffd000' : '#ffffff'} fillOpacity={sel === i ? 0.95 : 0.35}
-              stroke={sel === i ? '#ffffff' : isKey ? '#ffd000' : '#ffffff'} strokeOpacity={sel === i ? 1 : 0.6} strokeWidth={sel === i ? 2 : 1}
+            <circle key={i} data-selected={sel === i ? '1' : undefined} cx={p[0] * W} cy={p[1] * H} r={4}
+              fill={isKey ? '#ffd000' : '#ffffff'} fillOpacity={sel === i ? 0.1 : 0.35}
+              stroke={isKey ? '#ffd000' : '#ffffff'} strokeOpacity={sel === i ? 0.85 : 0.6} strokeWidth={sel === i ? 2.5 : 1}
               style={{ cursor: 'grab' }} onPointerDown={startDrag(i)}
               onDoubleClick={(e) => { e.stopPropagation(); if (pts.length > 3) { onChange(removePoint(doc, i)); setSel(null) } }} />
           ))}
