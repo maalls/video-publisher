@@ -342,14 +342,15 @@ class Handler(BaseHTTPRequestHandler):
         p = p or "/"
         q = {k: v[0] for k, v in parse_qs(u.query).items()}
         if method == "GET":
-            if p in ("/", "/index.html"):
-                return self._send(200, (WEB / "index.html").read_bytes(), "text/html; charset=utf-8")
-            if p == "/ui":
-                return self._send(200, b'<meta http-equiv="refresh" content="0;url=ui/">', "text/html; charset=utf-8")
-            if p in ("/ui/", "/ui/index.html"):  # UI pilot (shadcn/ui + resizable panels), built from pilot/
+            if p in ("/", "/index.html", "/ui/", "/ui/index.html"):  # current UI (shadcn/ui + resizable panels), built from pilot/
                 return self._send(200, (WEB / "ui" / "index.html").read_bytes(), "text/html; charset=utf-8")
-            if p in ("/ui/ui.js", "/ui/ui.css"):
-                return self._send(200, (WEB / "ui" / p[4:]).read_bytes(), "application/javascript" if p.endswith(".js") else "text/css")
+            if p in ("/ui.js", "/ui.css", "/ui/ui.js", "/ui/ui.css"):
+                return self._send(200, (WEB / "ui" / p.rsplit("/", 1)[1]).read_bytes(), "application/javascript" if p.endswith(".js") else "text/css")
+            if p == "/old":
+                return self._send(200, b'<meta http-equiv="refresh" content="0;url=old/">', "text/html; charset=utf-8")
+            if p == "/old/":  # previous page, kept as a safety net; <base> makes its relative app.js and api/ paths work from here
+                html = (WEB / "index.html").read_text().replace("<head>", '<head><base href="%s/">' % PREFIX, 1)
+                return self._send(200, html.encode(), "text/html; charset=utf-8")
             if p == "/app.js":
                 return self._send(200, (WEB / "app.js").read_bytes(), "application/javascript")
             if p == "/api/spaces":

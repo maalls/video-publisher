@@ -1,5 +1,5 @@
 // Backend access. The page lives at <prefix>/ui/, the API at <prefix>/api/, hence the "../".
-const BASE = "../"
+const BASE = location.pathname.endsWith("/ui/") ? "../" : "./"
 const JSON_H = { "Content-Type": "application/json" }
 
 export async function api<T = any>(url: string, init?: RequestInit): Promise<T> {
