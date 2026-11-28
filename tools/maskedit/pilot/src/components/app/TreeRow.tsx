@@ -43,7 +43,7 @@ export function TreeRow({
       className={cn(
         "group flex h-7 cursor-pointer items-center gap-1 rounded-md pr-1 text-sm outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring",
         selected && "bg-accent",
-        active && "font-medium text-primary",
+        active && "font-semibold text-foreground",
       )}
     >
       <span
