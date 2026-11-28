@@ -17,6 +17,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const svg = useRef<SVGSVGElement>(null)
   const [draft, setDraft] = useState<Pt[]>([])
   const drag = useRef<{ index: number; shape?: { start: Pt; base: Pt[] } } | null>(null)
+  const click = useRef<{ x: number; y: number } | null>(null)
   const press = useRef<{ x: number; y: number; timer: number } | null>(null)
   const [playing, setPlaying] = useState(false)
   const [grab, setGrab] = useState(false)
@@ -66,7 +67,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   const cancelPress = () => { if (press.current) { window.clearTimeout(press.current.timer); press.current = null } }
   // Long press (400 ms, without moving) inside the polygon, then drag: moves the whole shape on this key.
   const polyDown = (e: React.PointerEvent) => {
-    if (playing || !pts.length || nearestEdge(pts, toNorm(e)).dist < 0.03) return
+    if (playing || !pts.length) return
     cancelPress()
     const start = toNorm(e)
     const base = pts.map((p): Pt => [p[0], p[1]])
@@ -76,6 +77,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
       x: e.clientX, y: e.clientY,
       timer: window.setTimeout(() => {
         press.current = null
+        click.current = null
         try { target.setPointerCapture(pid) } catch { /* pointer already gone */ }
         drag.current = { index: -1, shape: { start, base } }
         setGrab(true)
@@ -85,6 +87,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
   }
   const moveDrag = (e: React.PointerEvent) => {
     if (press.current && Math.hypot(e.clientX - press.current.x, e.clientY - press.current.y) > 6) cancelPress()
+    if (click.current && Math.hypot(e.clientX - click.current.x, e.clientY - click.current.y) > 6) click.current = null
     if (!drag.current) return
     const sh = drag.current.shape
     if (sh) {
@@ -95,7 +98,15 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     }
     onChange(movePoint(doc.keyframes.some((k) => k.frame === frame) ? doc : ensureKey(doc), frame, drag.current.index, toNorm(e)))
   }
-  const endDrag = () => { cancelPress(); setGrab(false); setTimeout(() => { drag.current = null }, 0) }
+  const endDrag = (e: React.PointerEvent) => {
+    const c = click.current
+    click.current = null
+    cancelPress()
+    setGrab(false)
+    // A short click (no long press, no drag) near an edge adds a point.
+    if (c && !drag.current && e.type === 'pointerup') onBackground(e)
+    setTimeout(() => { drag.current = null }, 0)
+  }
 
   const prevKey = [...keys].reverse().find((k) => k < frame)
   const nextKey = keys.find((k) => k > frame)
@@ -105,8 +116,8 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
     <div className="maskedit" style={{ maxWidth: 1000 }}>
       <div style={{ position: 'relative', width: '100%', aspectRatio: `${W} / ${H}`, background: '#000' }}>
         <img src={frameUrl(frame)} alt="" draggable={false} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
-        <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none' }}
-          onPointerDown={(e) => { if (playing) setPlaying(false); else onBackground(e) }} onPointerMove={moveDrag} onPointerUp={endDrag}>
+        <svg ref={svg} viewBox={`0 0 ${W} ${H}`} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', touchAction: 'none', userSelect: 'none', WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as React.CSSProperties} onContextMenu={(e) => e.preventDefault()}
+          onPointerDown={(e) => { if (playing) setPlaying(false); else if (!doc.keyframes.length) onBackground(e); else click.current = { x: e.clientX, y: e.clientY } }} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}>
           {pts.length > 0 && (
             <polygon onPointerDown={polyDown} style={{ cursor: grab ? 'grabbing' : undefined }} points={pts.map((p) => `${p[0] * W},${p[1] * H}`).join(' ')}
               fill="rgba(255,160,0,0.35)" stroke={isKey ? '#ffd000' : '#ffffff'} strokeWidth={2} strokeDasharray={isKey ? undefined : '6 4'} />
