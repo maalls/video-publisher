@@ -15,7 +15,7 @@ export default function App() {
     <AppShell
       header={
         <>
-          <h1 className="mr-2 text-base font-semibold">maskedit</h1>
+          <h1 className="mr-2 text-base font-semibold">Majo Gazo</h1>
           <div className="w-72">
             <PickerField label="Espace" items={c.spaces} value={c.ctx.space} onPick={c.pickSpace} name={(s) => s.name} testId="sel-Espace" />
           </div>
