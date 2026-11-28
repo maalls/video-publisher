@@ -82,7 +82,7 @@ export function MaskEditor({ doc, onChange, frame, onFrame, frameUrl }: Props) {
               fill="rgba(255,160,0,0.35)" stroke={isKey ? '#ffd000' : '#ffffff'} strokeWidth={2} strokeDasharray={isKey ? undefined : '6 4'} />
           )}
           {!playing && pts.map((p, i) => (
-            <circle key={i} cx={p[0] * W} cy={p[1] * H} r={7} fill={isKey ? '#ffd000' : '#ffffff'} stroke="#000" strokeWidth={1.5}
+            <circle key={i} cx={p[0] * W} cy={p[1] * H} r={4} fill={isKey ? '#ffd000' : '#ffffff'} fillOpacity={0.35} stroke={isKey ? '#ffd000' : '#ffffff'} strokeOpacity={0.6} strokeWidth={1}
               style={{ cursor: 'grab' }} onPointerDown={startDrag(i)}
               onDoubleClick={(e) => { e.stopPropagation(); if (pts.length > 3) onChange(removePoint(doc, i)) }} />
           ))}
